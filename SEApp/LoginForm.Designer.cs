@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panel1 = new Panel();
+            linkLabel2 = new LinkLabel();
             linkLabel1 = new LinkLabel();
             label3 = new Label();
             textBox2 = new TextBox();
@@ -39,7 +40,6 @@
             btnClear = new Button();
             btnLogin = new Button();
             pictureBox1 = new PictureBox();
-            linkLabel2 = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -61,6 +61,17 @@
             panel1.Size = new Size(391, 498);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // linkLabel2
+            // 
+            linkLabel2.AutoSize = true;
+            linkLabel2.LinkColor = Color.Black;
+            linkLabel2.Location = new Point(82, 455);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new Size(231, 20);
+            linkLabel2.TabIndex = 9;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "Don't have an account Click here?";
             // 
             // linkLabel1
             // 
@@ -147,17 +158,6 @@
             pictureBox1.Size = new Size(326, 145);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // linkLabel2
-            // 
-            linkLabel2.AutoSize = true;
-            linkLabel2.LinkColor = Color.Black;
-            linkLabel2.Location = new Point(82, 455);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(231, 20);
-            linkLabel2.TabIndex = 9;
-            linkLabel2.TabStop = true;
-            linkLabel2.Text = "Don't have an account Click here?";
             // 
             // LoginForm
             // 
