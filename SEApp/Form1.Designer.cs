@@ -202,7 +202,7 @@
             Controls.Add(panel1);
             Controls.Add(label8);
             Name = "Form1";
-            Text = "Form1";
+            Text = "RegisterationForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
