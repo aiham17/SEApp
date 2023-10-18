@@ -1,8 +1,8 @@
 namespace SEApp
 {
-    public partial class Form1 : Form
+    public partial class Registeration_Form : Form
     {
-        public Form1()
+        public Registeration_Form()
         {
             InitializeComponent();
         }
