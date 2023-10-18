@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registeration_Form));
             Username = new Label();
             panel1 = new Panel();
+            btnRegister = new Button();
+            btnClear = new Button();
             tbRole = new ComboBox();
             Lname = new TextBox();
             tbFname = new TextBox();
@@ -44,7 +46,6 @@
             Email = new Label();
             Password = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            button1 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,7 +53,7 @@
             // Username
             // 
             Username.AutoSize = true;
-            Username.Location = new Point(70, 218);
+            Username.Location = new Point(44, 202);
             Username.Name = "Username";
             Username.Size = new Size(75, 20);
             Username.TabIndex = 0;
@@ -61,7 +62,8 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnRegister);
+            panel1.Controls.Add(btnClear);
             panel1.Controls.Add(tbRole);
             panel1.Controls.Add(Lname);
             panel1.Controls.Add(tbFname);
@@ -75,66 +77,85 @@
             panel1.Controls.Add(Email);
             panel1.Controls.Add(Password);
             panel1.Controls.Add(Username);
-            panel1.Location = new Point(188, 52);
+            panel1.Location = new Point(188, 42);
             panel1.Name = "panel1";
             panel1.Size = new Size(438, 549);
             panel1.TabIndex = 1;
+            // 
+            // btnRegister
+            // 
+            btnRegister.Location = new Point(228, 488);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(110, 37);
+            btnRegister.TabIndex = 17;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(53, 476);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(110, 36);
+            btnClear.TabIndex = 16;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
             // 
             // tbRole
             // 
             tbRole.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbRole.FormattingEnabled = true;
-            tbRole.Location = new Point(201, 441);
+            tbRole.Location = new Point(175, 425);
             tbRole.Name = "tbRole";
-            tbRole.Size = new Size(173, 28);
+            tbRole.Size = new Size(228, 28);
             tbRole.TabIndex = 15;
             tbRole.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // Lname
             // 
             Lname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Lname.Location = new Point(201, 395);
+            Lname.Location = new Point(175, 379);
             Lname.Name = "Lname";
-            Lname.Size = new Size(173, 27);
+            Lname.Size = new Size(228, 27);
             Lname.TabIndex = 14;
             // 
             // tbFname
             // 
             tbFname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbFname.Location = new Point(201, 350);
+            tbFname.Location = new Point(175, 334);
             tbFname.Name = "tbFname";
-            tbFname.Size = new Size(173, 27);
+            tbFname.Size = new Size(228, 27);
             tbFname.TabIndex = 13;
             // 
             // tbEmail
             // 
             tbEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbEmail.Location = new Point(201, 301);
+            tbEmail.Location = new Point(175, 285);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(173, 27);
+            tbEmail.Size = new Size(228, 27);
             tbEmail.TabIndex = 12;
+            tbEmail.TextChanged += tbEmail_TextChanged;
             // 
             // tbPassword
             // 
             tbPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbPassword.Location = new Point(201, 260);
+            tbPassword.Location = new Point(175, 244);
             tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(173, 27);
+            tbPassword.Size = new Size(228, 27);
             tbPassword.TabIndex = 11;
             // 
             // tbUsername
             // 
             tbUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbUsername.Location = new Point(201, 215);
+            tbUsername.Location = new Point(175, 199);
             tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(173, 27);
+            tbUsername.Size = new Size(228, 27);
             tbUsername.TabIndex = 10;
             tbUsername.TextChanged += textBox1_TextChanged;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(34, 18);
+            pictureBox1.Location = new Point(44, 18);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(349, 155);
             pictureBox1.TabIndex = 9;
@@ -143,7 +164,7 @@
             // CompanyRole
             // 
             CompanyRole.AutoSize = true;
-            CompanyRole.Location = new Point(70, 441);
+            CompanyRole.Location = new Point(44, 425);
             CompanyRole.Name = "CompanyRole";
             CompanyRole.Size = new Size(106, 20);
             CompanyRole.TabIndex = 6;
@@ -152,7 +173,7 @@
             // lastName
             // 
             lastName.AutoSize = true;
-            lastName.Location = new Point(66, 398);
+            lastName.Location = new Point(40, 382);
             lastName.Name = "lastName";
             lastName.Size = new Size(79, 20);
             lastName.TabIndex = 5;
@@ -161,7 +182,7 @@
             // FirstName
             // 
             FirstName.AutoSize = true;
-            FirstName.Location = new Point(70, 353);
+            FirstName.Location = new Point(44, 337);
             FirstName.Name = "FirstName";
             FirstName.Size = new Size(84, 20);
             FirstName.TabIndex = 3;
@@ -170,7 +191,7 @@
             // Email
             // 
             Email.AutoSize = true;
-            Email.Location = new Point(66, 308);
+            Email.Location = new Point(40, 292);
             Email.Name = "Email";
             Email.Size = new Size(113, 20);
             Email.TabIndex = 2;
@@ -179,21 +200,12 @@
             // Password
             // 
             Password.AutoSize = true;
-            Password.Location = new Point(70, 263);
+            Password.Location = new Point(44, 247);
             Password.Name = "Password";
             Password.Size = new Size(70, 20);
             Password.TabIndex = 1;
             Password.Text = "Password";
             Password.Click += label2_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(85, 496);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 16;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
             // 
             // Registeration_Form
             // 
@@ -201,7 +213,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 683);
+            ClientSize = new Size(856, 627);
             Controls.Add(panel1);
             Name = "Registeration_Form";
             Text = "RegisterationForm";
@@ -228,6 +240,7 @@
         private TextBox tbEmail;
         private TextBox tbPassword;
         private ComboBox tbRole;
-        private Button button1;
+        private Button btnClear;
+        private Button btnRegister;
     }
 }

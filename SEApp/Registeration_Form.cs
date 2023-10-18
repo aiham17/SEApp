@@ -26,5 +26,10 @@ namespace SEApp
         {
 
         }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
