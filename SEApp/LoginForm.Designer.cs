@@ -30,35 +30,114 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panel1 = new Panel();
-            pictureBox1 = new PictureBox();
-            button1 = new Button();
-            button2 = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label3 = new Label();
             linkLabel1 = new LinkLabel();
+            label3 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            Password = new Label();
+            Username = new Label();
+            btnClear = new Button();
+            btnLogin = new Button();
+            pictureBox1 = new PictureBox();
+            linkLabel2 = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(linkLabel2);
             panel1.Controls.Add(linkLabel1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(textBox2);
             panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(Password);
+            panel1.Controls.Add(Username);
+            panel1.Controls.Add(btnClear);
+            panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(197, 41);
+            panel1.Location = new Point(197, 35);
             panel1.Name = "panel1";
-            panel1.Size = new Size(391, 453);
+            panel1.Size = new Size(391, 498);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            linkLabel1.AutoSize = true;
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(167, 355);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(146, 20);
+            linkLabel1.TabIndex = 8;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Forgotten Password?";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.FromArgb(0, 0, 64);
+            label3.Location = new Point(112, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(167, 31);
+            label3.TabIndex = 7;
+            label3.Text = "Welcome User!";
+            // 
+            // textBox2
+            // 
+            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox2.Location = new Point(134, 316);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(226, 36);
+            textBox2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBox1.Location = new Point(134, 244);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(226, 36);
+            textBox1.TabIndex = 5;
+            // 
+            // Password
+            // 
+            Password.AutoSize = true;
+            Password.Location = new Point(35, 320);
+            Password.Name = "Password";
+            Password.Size = new Size(70, 20);
+            Password.TabIndex = 4;
+            Password.Text = "Password";
+            // 
+            // Username
+            // 
+            Username.AutoSize = true;
+            Username.Location = new Point(35, 247);
+            Username.Name = "Username";
+            Username.Size = new Size(75, 20);
+            Username.TabIndex = 3;
+            Username.Text = "Username";
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(45, 405);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(119, 41);
+            btnClear.TabIndex = 2;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            // 
+            // btnLogin
+            // 
+            btnLogin.Location = new Point(219, 405);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(117, 41);
+            btnLogin.TabIndex = 1;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -69,78 +148,16 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // button1
+            // linkLabel2
             // 
-            button1.Location = new Point(241, 386);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(53, 386);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(35, 247);
-            label1.Name = "label1";
-            label1.Size = new Size(75, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Username";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(35, 320);
-            label2.Name = "label2";
-            label2.Size = new Size(70, 20);
-            label2.TabIndex = 4;
-            label2.Text = "Password";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(134, 244);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(226, 36);
-            textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(134, 316);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(226, 36);
-            textBox2.TabIndex = 6;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.FromArgb(0, 0, 64);
-            label3.Location = new Point(112, 181);
-            label3.Name = "label3";
-            label3.Size = new Size(143, 28);
-            label3.TabIndex = 7;
-            label3.Text = "Welcome User!";
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(167, 355);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(146, 20);
-            linkLabel1.TabIndex = 8;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forgotten Password?";
+            linkLabel2.AutoSize = true;
+            linkLabel2.LinkColor = Color.Black;
+            linkLabel2.Location = new Point(82, 455);
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.Size = new Size(231, 20);
+            linkLabel2.TabIndex = 9;
+            linkLabel2.TabStop = true;
+            linkLabel2.Text = "Don't have an account Click here?";
             // 
             // LoginForm
             // 
@@ -166,10 +183,11 @@
         private Label label3;
         private TextBox textBox2;
         private TextBox textBox1;
-        private Label label2;
-        private Label label1;
-        private Button button2;
-        private Button button1;
+        private Label Password;
+        private Label Username;
+        private Button btnClear;
+        private Button btnLogin;
         private LinkLabel linkLabel1;
+        private LinkLabel linkLabel2;
     }
 }
