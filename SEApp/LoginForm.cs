@@ -22,8 +22,17 @@ namespace SEApp
 
         }
 
+
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string userName = userNametb.Text;
+            string password = passwordtb.Text;
 
         }
     }
