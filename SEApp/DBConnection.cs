@@ -14,7 +14,7 @@ namespace SEApp
 
         private DBConnection()
         {
-            dbConnect = 
+            
 
         }
     }
