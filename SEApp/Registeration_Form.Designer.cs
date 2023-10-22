@@ -1,4 +1,6 @@
-﻿namespace SEApp
+﻿using System.Drawing;
+
+namespace SEApp
 {
     partial class Registeration_Form
     {
@@ -29,216 +31,228 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registeration_Form));
-            Username = new Label();
-            panel1 = new Panel();
-            btnRegister = new Button();
-            btnClear = new Button();
-            tbRole = new ComboBox();
-            Lname = new TextBox();
-            tbFname = new TextBox();
-            tbEmail = new TextBox();
-            tbPassword = new TextBox();
-            tbUsername = new TextBox();
-            pictureBox1 = new PictureBox();
-            CompanyRole = new Label();
-            lastName = new Label();
-            FirstName = new Label();
-            Email = new Label();
-            Password = new Label();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            SuspendLayout();
+            this.Username = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.tbLname = new System.Windows.Forms.TextBox();
+            this.tbFname = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CompanyRole = new System.Windows.Forms.Label();
+            this.lastName = new System.Windows.Forms.Label();
+            this.FirstName = new System.Windows.Forms.Label();
+            this.Email = new System.Windows.Forms.Label();
+            this.Password = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // Username
             // 
-            Username.AutoSize = true;
-            Username.Location = new Point(55, 252);
-            Username.Margin = new Padding(4, 0, 4, 0);
-            Username.Name = "Username";
-            Username.Size = new Size(91, 25);
-            Username.TabIndex = 0;
-            Username.Text = "Username";
-            Username.Click += label1_Click;
+            this.Username.AutoSize = true;
+            this.Username.Location = new System.Drawing.Point(50, 202);
+            this.Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(83, 20);
+            this.Username.TabIndex = 0;
+            this.Username.Text = "Username";
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnRegister);
-            panel1.Controls.Add(btnClear);
-            panel1.Controls.Add(tbRole);
-            panel1.Controls.Add(Lname);
-            panel1.Controls.Add(tbFname);
-            panel1.Controls.Add(tbEmail);
-            panel1.Controls.Add(tbPassword);
-            panel1.Controls.Add(tbUsername);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(CompanyRole);
-            panel1.Controls.Add(lastName);
-            panel1.Controls.Add(FirstName);
-            panel1.Controls.Add(Email);
-            panel1.Controls.Add(Password);
-            panel1.Controls.Add(Username);
-            panel1.Location = new Point(235, 52);
-            panel1.Margin = new Padding(4, 4, 4, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(548, 686);
-            panel1.TabIndex = 1;
+            this.panel1.Controls.Add(this.btnRegister);
+            this.panel1.Controls.Add(this.btnClear);
+            this.panel1.Controls.Add(this.cmbRole);
+            this.panel1.Controls.Add(this.tbLname);
+            this.panel1.Controls.Add(this.tbFname);
+            this.panel1.Controls.Add(this.tbEmail);
+            this.panel1.Controls.Add(this.tbPassword);
+            this.panel1.Controls.Add(this.tbUsername);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.CompanyRole);
+            this.panel1.Controls.Add(this.lastName);
+            this.panel1.Controls.Add(this.FirstName);
+            this.panel1.Controls.Add(this.Email);
+            this.panel1.Controls.Add(this.Password);
+            this.panel1.Controls.Add(this.Username);
+            this.panel1.Location = new System.Drawing.Point(212, 42);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(493, 549);
+            this.panel1.TabIndex = 1;
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(285, 610);
-            btnRegister.Margin = new Padding(4, 4, 4, 4);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(138, 46);
-            btnRegister.TabIndex = 17;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
+            this.btnRegister.Location = new System.Drawing.Point(256, 488);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(124, 37);
+            this.btnRegister.TabIndex = 17;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(66, 595);
-            btnClear.Margin = new Padding(4, 4, 4, 4);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(138, 45);
-            btnClear.TabIndex = 16;
-            btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Location = new System.Drawing.Point(59, 476);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(124, 36);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
-            // tbRole
+            // cmbRole
             // 
-            tbRole.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbRole.FormattingEnabled = true;
-            tbRole.Location = new Point(219, 531);
-            tbRole.Margin = new Padding(4, 4, 4, 4);
-            tbRole.Name = "tbRole";
-            tbRole.Size = new Size(284, 33);
-            tbRole.TabIndex = 15;
-            tbRole.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            this.cmbRole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Items.AddRange(new object[] {
+            "Financial Advisor",
+            "Admin",
+            "Owner"});
+            this.cmbRole.Location = new System.Drawing.Point(197, 425);
+            this.cmbRole.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(256, 28);
+            this.cmbRole.TabIndex = 15;
             // 
-            // Lname
+            // tbLname
             // 
-            Lname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Lname.Location = new Point(219, 474);
-            Lname.Margin = new Padding(4, 4, 4, 4);
-            Lname.Name = "Lname";
-            Lname.Size = new Size(284, 31);
-            Lname.TabIndex = 14;
+            this.tbLname.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbLname.Location = new System.Drawing.Point(197, 379);
+            this.tbLname.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbLname.Name = "tbLname";
+            this.tbLname.Size = new System.Drawing.Size(256, 26);
+            this.tbLname.TabIndex = 14;
             // 
             // tbFname
             // 
-            tbFname.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbFname.Location = new Point(219, 418);
-            tbFname.Margin = new Padding(4, 4, 4, 4);
-            tbFname.Name = "tbFname";
-            tbFname.Size = new Size(284, 31);
-            tbFname.TabIndex = 13;
+            this.tbFname.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbFname.Location = new System.Drawing.Point(197, 334);
+            this.tbFname.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbFname.Name = "tbFname";
+            this.tbFname.Size = new System.Drawing.Size(256, 26);
+            this.tbFname.TabIndex = 13;
             // 
             // tbEmail
             // 
-            tbEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbEmail.Location = new Point(219, 356);
-            tbEmail.Margin = new Padding(4, 4, 4, 4);
-            tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(284, 31);
-            tbEmail.TabIndex = 12;
-            tbEmail.TextChanged += tbEmail_TextChanged;
+            this.tbEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbEmail.Location = new System.Drawing.Point(197, 285);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(256, 26);
+            this.tbEmail.TabIndex = 12;
             // 
             // tbPassword
             // 
-            tbPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbPassword.Location = new Point(219, 305);
-            tbPassword.Margin = new Padding(4, 4, 4, 4);
-            tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(284, 31);
-            tbPassword.TabIndex = 11;
+            this.tbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbPassword.Location = new System.Drawing.Point(197, 244);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(256, 26);
+            this.tbPassword.TabIndex = 11;
             // 
             // tbUsername
             // 
-            tbUsername.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbUsername.Location = new Point(219, 249);
-            tbUsername.Margin = new Padding(4, 4, 4, 4);
-            tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(284, 31);
-            tbUsername.TabIndex = 10;
-            tbUsername.TextChanged += textBox1_TextChanged;
+            this.tbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbUsername.Location = new System.Drawing.Point(197, 199);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(256, 26);
+            this.tbUsername.TabIndex = 10;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(55, 22);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(436, 194);
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(54, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(392, 155);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.SizeMode=PictureBoxSizeMode.StretchImage;
             // 
             // CompanyRole
             // 
-            CompanyRole.AutoSize = true;
-            CompanyRole.Location = new Point(55, 531);
-            CompanyRole.Margin = new Padding(4, 0, 4, 0);
-            CompanyRole.Name = "CompanyRole";
-            CompanyRole.Size = new Size(128, 25);
-            CompanyRole.TabIndex = 6;
-            CompanyRole.Text = "Comapny Role";
+            this.CompanyRole.AutoSize = true;
+            this.CompanyRole.Location = new System.Drawing.Point(50, 425);
+            this.CompanyRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CompanyRole.Name = "CompanyRole";
+            this.CompanyRole.Size = new System.Drawing.Size(113, 20);
+            this.CompanyRole.TabIndex = 6;
+            this.CompanyRole.Text = "Company Role";
             // 
             // lastName
             // 
-            lastName.AutoSize = true;
-            lastName.Location = new Point(50, 478);
-            lastName.Margin = new Padding(4, 0, 4, 0);
-            lastName.Name = "lastName";
-            lastName.Size = new Size(95, 25);
-            lastName.TabIndex = 5;
-            lastName.Text = "Last Name";
+            this.lastName.AutoSize = true;
+            this.lastName.Location = new System.Drawing.Point(45, 382);
+            this.lastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lastName.Name = "lastName";
+            this.lastName.Size = new System.Drawing.Size(86, 20);
+            this.lastName.TabIndex = 5;
+            this.lastName.Text = "Last Name";
             // 
             // FirstName
             // 
-            FirstName.AutoSize = true;
-            FirstName.Location = new Point(55, 421);
-            FirstName.Margin = new Padding(4, 0, 4, 0);
-            FirstName.Name = "FirstName";
-            FirstName.Size = new Size(102, 25);
-            FirstName.TabIndex = 3;
-            FirstName.Text = "First Name ";
+            this.FirstName.AutoSize = true;
+            this.FirstName.Location = new System.Drawing.Point(50, 337);
+            this.FirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Size = new System.Drawing.Size(90, 20);
+            this.FirstName.TabIndex = 3;
+            this.FirstName.Text = "First Name ";
             // 
             // Email
             // 
-            Email.AutoSize = true;
-            Email.Location = new Point(50, 365);
-            Email.Margin = new Padding(4, 0, 4, 0);
-            Email.Name = "Email";
-            Email.Size = new Size(136, 25);
-            Email.TabIndex = 2;
-            Email.Text = "Company Email";
+            this.Email.AutoSize = true;
+            this.Email.Location = new System.Drawing.Point(45, 292);
+            this.Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(119, 20);
+            this.Email.TabIndex = 2;
+            this.Email.Text = "Company Email";
             // 
             // Password
             // 
-            Password.AutoSize = true;
-            Password.Location = new Point(55, 309);
-            Password.Margin = new Padding(4, 0, 4, 0);
-            Password.Name = "Password";
-            Password.Size = new Size(87, 25);
-            Password.TabIndex = 1;
-            Password.Text = "Password";
-            Password.Click += label2_Click;
+            this.Password.AutoSize = true;
+            this.Password.Location = new System.Drawing.Point(50, 247);
+            this.Password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(78, 20);
+            this.Password.TabIndex = 1;
+            this.Password.Text = "Password";
             // 
             // Registeration_Form
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1070, 784);
-            Controls.Add(panel1);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "Registeration_Form";
-            Text = "RegisterationForm";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(963, 627);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "Registeration_Form";
+            this.Text = "RegisterationForm";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -253,11 +267,11 @@
         private Label Password;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private TextBox tbUsername;
-        private TextBox Lname;
+        private TextBox tbLname;
         private TextBox tbFname;
         private TextBox tbEmail;
         private TextBox tbPassword;
-        private ComboBox tbRole;
+        private ComboBox cmbRole;
         private Button btnClear;
         private Button btnRegister;
     }

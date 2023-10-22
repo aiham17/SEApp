@@ -1,10 +1,18 @@
+using System.Data.Common;
+using System.Drawing.Text;
+using System.Security.Cryptography.X509Certificates;
+using System.Data.SqlClient;
+
 namespace SEApp
 {
+
     public partial class Registeration_Form : Form
     {
+        private Database connectDB;
         public Registeration_Form()
         {
             InitializeComponent();
+            connectDB = Database.getConnectString();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,8 +40,21 @@ namespace SEApp
 
         }
 
+
+        // Need encryption and input validation here.
+        // Collects the users inputs and assigns them to the struct user to then be sent and stored in the DB
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
+            userInfo.userRegister user = new userInfo.userRegister();
+            user.userName = tbUsername.Text;
+            user.password = tbPassword.Text;
+            user.firstName = tbFname.Text;
+            user.lastName = tbLname.Text;
+            user.email = tbEmail.Text;
+            user.companyRole = cmbRole.SelectedIndex;
+
+            connectDB.saveUserInfo("INSERT INTO Userinformation (Username,Password,FirstName,LastName,Email,CompanyRole) VALUES (@Username, @Password, @FirstName,@LastName,@Email,@CompanyRole)", user.userName, user.password, user.firstName, user.lastName, user.email, user.companyRole);
 
         }
     }

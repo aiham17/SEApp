@@ -1,4 +1,6 @@
-﻿namespace SEApp
+﻿using System.Drawing;
+
+namespace SEApp
 {
     partial class LoginForm
     {
@@ -170,6 +172,7 @@
             pictureBox1.Size = new Size(408, 181);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             // 
             // LoginForm
             // 
