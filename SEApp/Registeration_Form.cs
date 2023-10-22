@@ -45,6 +45,7 @@ namespace SEApp
         // Collects the users inputs and assigns them to the struct user to then be sent and stored in the DB
         private void btnRegister_Click_1(object sender, EventArgs e)
         {
+            Database.getConnectString();
             userInfo.userRegister user = new userInfo.userRegister();
             user.userName = tbUsername.Text;
             user.password = tbPassword.Text;
