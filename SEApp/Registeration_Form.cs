@@ -43,9 +43,8 @@ namespace SEApp
 
         // Need encryption and input validation here.
         // Collects the users inputs and assigns them to the struct user to then be sent and stored in the DB
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnRegister_Click_1(object sender, EventArgs e)
         {
-
             userInfo.userRegister user = new userInfo.userRegister();
             user.userName = tbUsername.Text;
             user.password = tbPassword.Text;
@@ -55,7 +54,6 @@ namespace SEApp
             user.companyRole = cmbRole.SelectedIndex;
 
             connectDB.saveUserInfo("INSERT INTO Userinformation (Username,Password,FirstName,LastName,Email,CompanyRole) VALUES (@Username, @Password, @FirstName,@LastName,@Email,@CompanyRole)", user.userName, user.password, user.firstName, user.lastName, user.email, user.companyRole);
-
         }
     }
 }
