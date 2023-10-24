@@ -3,6 +3,7 @@ using System.Drawing.Text;
 using System.Security.Cryptography.X509Certificates;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace SEApp
 {
@@ -29,6 +30,22 @@ namespace SEApp
             }
             return BitConverter.ToString(saltBytes).Replace("-", "").ToLower();
         }
+
+
+        // This method takes a user's password and a salt, then uses the SHA-256 algorithm to securely hash the password.
+        // The resulting hash is stored in the database. Hashing ensures that even if the database is compromised,
+        // attackers won't have direct access to user passwords.
+        // The combination of the user's unique salt and their password ensures that the resulting hash is unique to that user.
+        private string HashPassword(string password, string salt)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] saltedPasswordBytes = Encoding.UTF8.GetBytes(password + salt);
+                byte[] hashedBytes = sha256.ComputeHash(saltedPasswordBytes);
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
