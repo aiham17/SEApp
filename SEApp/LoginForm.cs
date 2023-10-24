@@ -34,9 +34,11 @@ namespace SEApp
             string userName = tbUsername.Text;
             string password = tbPassword.Text;
 
+            // Validate inputs
+            DataValidator.ValidateInputs(userName, password, "", "", "");
         }
 
-      
+
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
         {
