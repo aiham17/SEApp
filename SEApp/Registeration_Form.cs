@@ -4,6 +4,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using System.Diagnostics;
+using System.Security.Policy;
 
 namespace SEApp
 {
@@ -73,20 +75,30 @@ namespace SEApp
         }
 
 
-        // Need encryption and input validation here.
-        // Collects the users inputs and assigns them to the struct user to then be sent and stored in the DB
+        // Implement secure password hashing and salting in user registration button
+        // This method now introduces password security measures by generating a random salt
+        // and securely hashing user passwords before storing them in the database.
+        // Additionally, input validation has been implemented to ensure data integrity during registration.
         private void btnRegister_Click_1(object sender, EventArgs e)
         {
-            Database.getConnectString();
-            userInfo.userRegister user = new userInfo.userRegister();
-            user.userName = tbUsername.Text;
-            user.password = tbPassword.Text;
-            user.firstName = tbFname.Text;
-            user.lastName = tbLname.Text;
-            user.email = tbEmail.Text;
-            user.companyRole = cmbRole.SelectedIndex;
+            if (ValidateInputs())
+            {
+                string salt = GenerateRandomSalt();
+                string hashedPassword = HashPassword(tbPassword.Text, salt);
 
-            connectDB.saveUserInfo("INSERT INTO Userinformation (Username,Password,FirstName,LastName,Email,CompanyRole) VALUES (@Username, @Password, @FirstName,@LastName,@Email,@CompanyRole)", user.userName, user.password, user.firstName, user.lastName, user.email, user.companyRole);
+                userInfo.userRegister user = new userInfo.userRegister();
+                user.userName = tbUsername.Text;
+                user.password = hashedPassword;
+                user.salt = salt;
+                user.firstName = tbFname.Text;
+                user.lastName = tbLname.Text;
+                user.email = tbEmail.Text;
+                user.companyRole = cmbRole.SelectedIndex;
+
+                connectDB.saveUserInfo("INSERT INTO Userinformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)", user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
+
+                MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
