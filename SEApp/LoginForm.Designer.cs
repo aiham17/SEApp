@@ -32,8 +32,9 @@ namespace SEApp
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.accountCreationLink = new System.Windows.Forms.LinkLabel();
+            this.passwordRestLink = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.Password = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@ namespace SEApp
             this.btnClear = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tbUsername = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,8 +49,8 @@ namespace SEApp
             // panel1
             // 
             this.panel1.Controls.Add(this.tbUsername);
-            this.panel1.Controls.Add(this.linkLabel2);
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.accountCreationLink);
+            this.panel1.Controls.Add(this.passwordRestLink);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbPassword);
             this.panel1.Controls.Add(this.Password);
@@ -63,29 +63,39 @@ namespace SEApp
             this.panel1.Size = new System.Drawing.Size(391, 398);
             this.panel1.TabIndex = 0;
             // 
-            // linkLabel2
+            // tbUsername
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(82, 364);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(208, 16);
-            this.linkLabel2.TabIndex = 9;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Don\'t have an account Click here?";
+            this.tbUsername.Location = new System.Drawing.Point(134, 195);
+            this.tbUsername.Multiline = true;
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(226, 34);
+            this.tbUsername.TabIndex = 10;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             // 
-            // linkLabel1
+            // accountCreationLink
             // 
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.accountCreationLink.AutoSize = true;
+            this.accountCreationLink.LinkColor = System.Drawing.Color.Black;
+            this.accountCreationLink.Location = new System.Drawing.Point(82, 364);
+            this.accountCreationLink.Name = "accountCreationLink";
+            this.accountCreationLink.Size = new System.Drawing.Size(208, 16);
+            this.accountCreationLink.TabIndex = 9;
+            this.accountCreationLink.TabStop = true;
+            this.accountCreationLink.Text = "Don\'t have an account Click here?";
+            this.accountCreationLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.accountCreationLink_LinkClicked);
+            // 
+            // passwordRestLink
+            // 
+            this.passwordRestLink.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(167, 284);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(134, 16);
-            this.linkLabel1.TabIndex = 8;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Forgotten Password?";
+            this.passwordRestLink.AutoSize = true;
+            this.passwordRestLink.LinkColor = System.Drawing.Color.Black;
+            this.passwordRestLink.Location = new System.Drawing.Point(167, 284);
+            this.passwordRestLink.Name = "passwordRestLink";
+            this.passwordRestLink.Size = new System.Drawing.Size(134, 16);
+            this.passwordRestLink.TabIndex = 8;
+            this.passwordRestLink.TabStop = true;
+            this.passwordRestLink.Text = "Forgotten Password?";
             // 
             // label3
             // 
@@ -155,15 +165,6 @@ namespace SEApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tbUsername
-            // 
-            this.tbUsername.Location = new System.Drawing.Point(134, 195);
-            this.tbUsername.Multiline = true;
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(226, 34);
-            this.tbUsername.TabIndex = 10;
-            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -191,8 +192,8 @@ namespace SEApp
         private Label Username;
         private Button btnClear;
         private Button btnLogin;
-        private LinkLabel linkLabel1;
-        private LinkLabel linkLabel2;
+        private LinkLabel passwordRestLink;
+        private LinkLabel accountCreationLink;
         private TextBox tbUsername;
     }
 }

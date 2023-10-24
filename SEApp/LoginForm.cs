@@ -49,5 +49,18 @@ namespace SEApp
         {
 
         }
+
+        private void accountCreationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Create an instance of the login Form
+            Registeration_Form registerationForm = new Registeration_Form();
+
+            // Show the Registeration_ Form
+            registerationForm.Show();
+
+
+            // Hide the current form(Login form)
+            this.Hide();
+        }
     }
 }

@@ -33,6 +33,7 @@ namespace SEApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registeration_Form));
             this.Username = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.cmbRole = new System.Windows.Forms.ComboBox();
@@ -48,7 +49,6 @@ namespace SEApp
             this.Email = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -90,12 +90,22 @@ namespace SEApp
             this.panel1.Size = new System.Drawing.Size(429, 457);
             this.panel1.TabIndex = 1;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(3, 404);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(199, 42);
+            this.btnLogin.TabIndex = 18;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(223, 412);
+            this.btnRegister.Location = new System.Drawing.Point(222, 404);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(202, 42);
+            this.btnRegister.Size = new System.Drawing.Size(203, 42);
             this.btnRegister.TabIndex = 17;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -243,16 +253,6 @@ namespace SEApp
             this.Password.Size = new System.Drawing.Size(67, 16);
             this.Password.TabIndex = 1;
             this.Password.Text = "Password";
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(3, 412);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(199, 42);
-            this.btnLogin.TabIndex = 18;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // Registeration_Form
             // 
