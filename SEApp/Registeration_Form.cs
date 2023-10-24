@@ -2,6 +2,7 @@ using System.Data.Common;
 using System.Drawing.Text;
 using System.Security.Cryptography.X509Certificates;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace SEApp
 {
@@ -13,6 +14,20 @@ namespace SEApp
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
+        }
+
+
+        // This method generates a random value (salt) for each user.
+        // It's crucial for password security because it ensures that even if two users have the same password,
+        // their hashed passwords will be different.This helps prevent attacks like rainbow table attacks.
+        private string GenerateRandomSalt()
+        {
+            byte[] saltBytes = new byte[16];
+            using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
+            {
+                rngCsp.GetBytes(saltBytes);
+            }
+            return BitConverter.ToString(saltBytes).Replace("-", "").ToLower();
         }
 
         private void label1_Click(object sender, EventArgs e)

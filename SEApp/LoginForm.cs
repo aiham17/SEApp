@@ -31,8 +31,13 @@ namespace SEApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = userNametb.Text;
-            string password = passwordtb.Text;
+            string userName = tbUsername.Text;
+            string password = tbPassword.Text;
+
+        }
+
+        private void userNametb_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
