@@ -36,7 +36,14 @@ namespace SEApp
 
         }
 
-        private void userNametb_TextChanged(object sender, EventArgs e)
+      
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbUsername_TextChanged(object sender, EventArgs e)
         {
 
         }

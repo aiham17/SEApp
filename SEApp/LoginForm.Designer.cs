@@ -36,23 +36,23 @@ namespace SEApp
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.tbUsername = new System.Windows.Forms.TextBox();
             this.Password = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.tbUsername);
             this.panel1.Controls.Add(this.linkLabel2);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.tbPassword);
-            this.panel1.Controls.Add(this.tbUsername);
             this.panel1.Controls.Add(this.Password);
             this.panel1.Controls.Add(this.Username);
             this.panel1.Controls.Add(this.btnClear);
@@ -102,22 +102,12 @@ namespace SEApp
             // 
             this.tbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPassword.Location = new System.Drawing.Point(134, 253);
+            this.tbPassword.Location = new System.Drawing.Point(134, 247);
             this.tbPassword.Multiline = true;
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(226, 30);
+            this.tbPassword.Size = new System.Drawing.Size(226, 36);
             this.tbPassword.TabIndex = 6;
-            // 
-            // tbUsername
-            // 
-            this.tbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbUsername.Location = new System.Drawing.Point(134, 195);
-            this.tbUsername.Multiline = true;
-            this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(226, 30);
-            this.tbUsername.TabIndex = 5;
-            this.tbUsername.TextChanged += new System.EventHandler(this.userNametb_TextChanged);
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // Password
             // 
@@ -165,6 +155,15 @@ namespace SEApp
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(134, 195);
+            this.tbUsername.Multiline = true;
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(226, 34);
+            this.tbUsername.TabIndex = 10;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -188,12 +187,12 @@ namespace SEApp
         private PictureBox pictureBox1;
         private Label label3;
         private TextBox tbPassword;
-        private TextBox tbUsername;
         private Label Password;
         private Label Username;
         private Button btnClear;
         private Button btnLogin;
         private LinkLabel linkLabel1;
         private LinkLabel linkLabel2;
+        private TextBox tbUsername;
     }
 }

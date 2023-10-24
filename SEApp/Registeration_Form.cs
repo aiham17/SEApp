@@ -124,6 +124,33 @@ namespace SEApp
 
         }
 
-       
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+
+            // Clear the text in the input fields
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+            tbFname.Text = "";
+            tbLname.Text = "";
+            tbEmail.Text = "";
+            cmbRole.SelectedIndex = -1;
+
+            // Set focus to the first input field (tbUsername)
+            tbUsername.Focus();
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            // Create an instance of the login Form
+            LoginForm loginForm = new LoginForm();
+
+            // Show the login Form
+            loginForm.Show();
+
+            // Hide the current form (Registeration form)
+            this.Hide();
+
+        }
     }
 }

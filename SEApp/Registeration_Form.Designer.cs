@@ -48,7 +48,7 @@ namespace SEApp
             this.Email = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tbLogin = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,7 @@ namespace SEApp
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.tbLogin);
+            this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.btnRegister);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.cmbRole);
@@ -87,12 +87,12 @@ namespace SEApp
             this.panel1.Location = new System.Drawing.Point(188, 34);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(429, 447);
+            this.panel1.Size = new System.Drawing.Size(429, 457);
             this.panel1.TabIndex = 1;
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(223, 403);
+            this.btnRegister.Location = new System.Drawing.Point(223, 412);
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(202, 42);
@@ -103,13 +103,14 @@ namespace SEApp
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(37, 369);
+            this.btnClear.Location = new System.Drawing.Point(43, 369);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(82, 30);
             this.btnClear.TabIndex = 16;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // cmbRole
             // 
@@ -243,15 +244,15 @@ namespace SEApp
             this.Password.TabIndex = 1;
             this.Password.Text = "Password";
             // 
-            // tbLogin
+            // btnLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(0, 403);
-            this.tbLogin.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(215, 42);
-            this.tbLogin.TabIndex = 18;
-            this.tbLogin.Text = "Login";
-            this.tbLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(3, 412);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(199, 42);
+            this.btnLogin.TabIndex = 18;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // Registeration_Form
             // 
@@ -259,7 +260,7 @@ namespace SEApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(848, 492);
+            this.ClientSize = new System.Drawing.Size(848, 502);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "Registeration_Form";
@@ -269,6 +270,11 @@ namespace SEApp
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
+        }
+
+        private void btnlogin_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -290,6 +296,6 @@ namespace SEApp
         private ComboBox cmbRole;
         private Button btnClear;
         private Button btnRegister;
-        private Button tbLogin;
+        private Button btnLogin;
     }
 }
