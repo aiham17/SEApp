@@ -8,7 +8,6 @@ namespace SEApp
 {
     public class userInfo
     {
-
         // This struct is the basis to store the encrypted user details to then be added to the CitisoftDB, UserInformation Table
         public struct userRegister
         {
@@ -19,7 +18,7 @@ namespace SEApp
             public string lastName;
             public string email;
             public int companyRole;
+            public string salt; // Add this line for the salt
         }
-        
     }
 }

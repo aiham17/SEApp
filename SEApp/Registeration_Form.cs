@@ -1,22 +1,36 @@
+using System;
 using System.Data.Common;
 using System.Drawing.Text;
-using System.Security.Cryptography.X509Certificates;
-using System.Data.SqlClient;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
 using System.Text;
-using System.Diagnostics;
+using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Security.Policy;
 
 namespace SEApp
 {
-
     public partial class Registeration_Form : Form
     {
+        // Database connection object
         private Database connectDB;
+
+        // Constructor for the Registration Form
         public Registeration_Form()
         {
+            // Initialize the database connection
             InitializeComponent();
             connectDB = Database.getConnectString();
+        }
+
+        // Here, we're calling the ValidateInputs method from the DataValidator class to perform input validation.
+
+        private bool ValidateInputs()
+        {
+            // We're passing the user-provided data from the input fields as arguments to this method.
+            // This includes the username, password, first name, last name, and email entered by the user
+
+            return DataValidator.ValidateInputs(tbUsername.Text, tbPassword.Text, tbFname.Text, tbLname.Text, tbEmail.Text);
         }
 
 
@@ -33,7 +47,6 @@ namespace SEApp
             return BitConverter.ToString(saltBytes).Replace("-", "").ToLower();
         }
 
-
         // This method takes a user's password and a salt, then uses the SHA-256 algorithm to securely hash the password.
         // The resulting hash is stored in the database. Hashing ensures that even if the database is compromised,
         // attackers won't have direct access to user passwords.
@@ -47,33 +60,6 @@ namespace SEApp
                 return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
         }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         // Implement secure password hashing and salting in user registration button
         // This method now introduces password security measures by generating a random salt
@@ -100,5 +86,44 @@ namespace SEApp
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void CompanyRole_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void tbFname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void tbLname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void tbUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
