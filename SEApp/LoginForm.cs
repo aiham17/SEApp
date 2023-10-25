@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SEApp.userInfo;
 
 namespace SEApp
 {
@@ -31,15 +32,7 @@ namespace SEApp
 
         }
 
-        // Collects Users inputted username and password to then be checked against the database
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            string userName = tbUsername.Text;
-            string password = tbPassword.Text;
-
-            // Validate inputs
-            DataValidator.ValidateInputs(userName, password, "", "", "", 0);
-        }
+        
 
 
 
@@ -74,6 +67,17 @@ namespace SEApp
    
             // Set focus to the first input field (tbUsername)
             tbUsername.Focus();
+        }
+
+        // Collects Users inputted username and password to then be checked against the database
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            string userName = tbUsername.Text;
+            string password = tbPassword.Text;
+
+            // Validate inputs
+            DataValidator.ValidateInputs(userName, password, "", "", "", 0);
+            
         }
     }
 }
