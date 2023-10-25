@@ -113,7 +113,7 @@ namespace SEApp
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(43, 369);
+            this.btnClear.Location = new System.Drawing.Point(30, 369);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(82, 30);
@@ -127,6 +127,7 @@ namespace SEApp
             this.cmbRole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Items.AddRange(new object[] {
             "Financial Advisor",
@@ -207,7 +208,7 @@ namespace SEApp
             // CompanyRole
             // 
             this.CompanyRole.AutoSize = true;
-            this.CompanyRole.Location = new System.Drawing.Point(44, 340);
+            this.CompanyRole.Location = new System.Drawing.Point(40, 343);
             this.CompanyRole.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CompanyRole.Name = "CompanyRole";
             this.CompanyRole.Size = new System.Drawing.Size(97, 16);

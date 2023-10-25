@@ -62,5 +62,15 @@ namespace SEApp
             // Hide the current form(Login form)
             this.Hide();
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            // Clear the text in the input fields
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+   
+            // Set focus to the first input field (tbUsername)
+            tbUsername.Focus();
+        }
     }
 }

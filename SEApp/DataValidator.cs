@@ -14,22 +14,23 @@ namespace SEApp
     {
         public static bool ValidateInputs(string username, string password, string fname, string lname, string email)
         {
+
             // Check if any of the input fields are empty or contain only whitespace
             if (string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(password) ||
-                string.IsNullOrWhiteSpace(fname) ||
-                string.IsNullOrWhiteSpace(lname) ||
-                string.IsNullOrWhiteSpace(email))
+              string.IsNullOrWhiteSpace(password) ||
+              string.IsNullOrWhiteSpace(fname) ||
+              string.IsNullOrWhiteSpace(lname) ||
+              string.IsNullOrWhiteSpace(email))
             {
                 MessageBox.Show("All fields are required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Check if the email format is valid
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            if (!Regex.IsMatch(email, emailPattern))
+            // Check if the username format is valid
+            string usernamePattern = @"^[a-zA-Z]{3,}$";
+            if (!Regex.IsMatch(username, usernamePattern))
             {
-                MessageBox.Show("Invalid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Username must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -40,11 +41,11 @@ namespace SEApp
                 return false;
             }
 
-            // Check if the username format is valid
-            string usernamePattern = @"^[a-zA-Z]{3,}$";
-            if (!Regex.IsMatch(username, usernamePattern))
+            // Check if the email format is valid
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(email, emailPattern))
             {
-                MessageBox.Show("Username must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
