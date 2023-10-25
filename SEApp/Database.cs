@@ -63,6 +63,23 @@ namespace SEApp
             MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // Reads the Database for a username match, then gets the password and the salt code from the same row
+        public void readUsername(string sqlQuery, string user, string pass)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+
+                //https://stackoverflow.com/questions/28928543/compare-a-string-with-column-values-in-a-tablehttps://stackoverflow.com/questions/28928543/compare-a-string-with-column-values-in-a-table
+                connectDB.Open();
+                SqlCommand readUsername = new SqlCommand(sqlQuery, connectDB);
+                SqlParameter userRead = readUsername.Parameters.AddWithValue("@User", user);
+
+                readUsername.ExecuteNonQuery();
+                // NEED TO GET VALUES BROUGHT UP BY THE SQL COMMAND: USERNAME, PASSWORD AND SALT
+                // THEN HAVE TO DECRYPT THE VALUES
+
+            }
+        }
 
 
 

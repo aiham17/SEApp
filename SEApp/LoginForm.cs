@@ -12,9 +12,11 @@ namespace SEApp
 {
     public partial class LoginForm : Form
     {
+        private Database connectDB;
         public LoginForm()
         {
             InitializeComponent();
+            connectDB = Database.getConnectString();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -29,6 +31,7 @@ namespace SEApp
 
         }
 
+        // Collects Users inputted username and password to then be checked against the database
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string userName = tbUsername.Text;

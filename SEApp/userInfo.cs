@@ -20,5 +20,14 @@ namespace SEApp
             public int companyRole;
             public string salt; // Add this line for the salt
         }
+
+        // Stores the login details the user enters and 
+        public struct login
+        {
+            public string username;
+            public string password;
+            public string dbPassword;
+            public string dbSalt;
+        }
     }
 }

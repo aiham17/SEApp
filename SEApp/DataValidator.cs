@@ -109,5 +109,29 @@ namespace SEApp
             // If all validations pass, return true
             return true;
         }
+        public static bool loginValidator(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter a Username & Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            // Check if the username format is valid
+            string usernamePattern = @"^[a-zA-Z]{3,}$";
+            if (!Regex.IsMatch(username, usernamePattern))
+            {
+                MessageBox.Show("Incorrect Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            // Check if the password meets the minimum length requirement
+            if (password.Length < 8)
+            {
+                MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+
+
+        }
     }
 }
