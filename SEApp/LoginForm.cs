@@ -72,12 +72,13 @@ namespace SEApp
         // Collects Users inputted username and password to then be checked against the database
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
+            userInfo.login login = new userInfo.login();
             string userName = tbUsername.Text;
             string password = tbPassword.Text;
 
             // Validate inputs
             DataValidator.ValidateInputs(userName, password, "", "", "", 0);
-            
+            connectDB.readUsername("SELECT Username FROM UserInformation WHERE Username = @User", login.username, login.password);
         }
     }
 }
