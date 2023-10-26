@@ -82,7 +82,7 @@ namespace SEApp
                 user.email = tbEmail.Text;
                 user.companyRole = cmbRole.SelectedIndex;
 
-                connectDB.saveUserInfo("INSERT INTO Userinformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)", user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
+                connectDB.saveUserInfo("INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)", user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
 
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

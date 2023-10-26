@@ -19,6 +19,14 @@ namespace SEApp
             InitializeComponent();
             connectDB = Database.getConnectString();
         }
+        private bool loginInputs()
+        {
+            // We're passing the user-provided data from the input fields as arguments to this method.
+            // This includes the username, password, first name, last name, and email entered by the user
+
+            return DataValidator.loginValidator(tbUsername.Text, tbPassword.Text);
+
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -72,13 +80,19 @@ namespace SEApp
         // Collects Users inputted username and password to then be checked against the database
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            userInfo.login login = new userInfo.login();
-            string userName = tbUsername.Text;
-            string password = tbPassword.Text;
+            
+            if (loginInputs())
+            {
+                userInfo.login login = new userInfo.login();
+                login.username= tbUsername.Text;
+                login.password = tbPassword.Text;
+                connectDB.readUsername(login.username, login.password);
+
+            }
 
             // Validate inputs
-            DataValidator.ValidateInputs(userName, password, "", "", "", 0);
-            connectDB.readUsername("SELECT Username FROM UserInformation WHERE Username = @User", login.username, login.password);
+            
+            
         }
     }
 }

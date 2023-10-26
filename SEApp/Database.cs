@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.CodeDom.Compiler;
 using System.Collections;
+using SEApp.CitisoftDBDataSetTableAdapters;
 
 namespace SEApp
 {
@@ -16,6 +17,7 @@ namespace SEApp
     {
         private static Database dbGetString;
         private string dbConnectstr;
+        
 
         // Constructor initializes dbConnectstr to the DBConnectionString (stores it)
         private Database()
@@ -64,21 +66,54 @@ namespace SEApp
         }
 
         // Reads the Database for a username match, then gets the password and the salt code from the same row
-        public void readUsername(string sqlQuery, string user, string pass)
+        public void readUsername(string user, string pass)
         {
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
+                using (SqlCommand readUsername = new SqlCommand("SELECT * FROM UserInformation WHERE Username=@user AND Password=HASHBYTES('SHA1',@password)", connectDB))
+                {
+                    readUsername.Parameters.AddWithValue("@user", user);
+                    readUsername.Parameters.AddWithValue("@password", pass);
+                    connectDB.Open();
+                    DataSet loginData = new DataSet();
+                    // Trying to find a way to see if the username and hashed password is stored in this data set :)
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter = new SqlDataAdapter(readUsername);
+                    dataAdapter.Fill(loginData,"user");
+                    
+
+                    
+
+                }
+            }
+            
+
+            //using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            //{
+                //string readUserInfo = ("SELECT * FROM UserInformation WHERE Username =@user");
+                //SqlCommand command = new SqlCommand(readUserInfo, connectDB);
+
+                //command.Parameters.Add("@user",SqlDbType.VarChar).Value = user;
+                //command.Parameters.Add("pass", SqlDbType.NVarChar).Value = pass;
+
+                //DataSet loginData = new DataSet();
+                //SqlDataAdapter dataAdapter;
+                //connectDB.Open();
+                //dataAdapter = new SqlDataAdapter(command);
+                //dataAdapter.Fill(loginData);
+                //MessageBox.Show(loginData.ToString());
+
 
                 //https://stackoverflow.com/questions/28928543/compare-a-string-with-column-values-in-a-tablehttps://stackoverflow.com/questions/28928543/compare-a-string-with-column-values-in-a-table
-                connectDB.Open();
-                SqlCommand readUsername = new SqlCommand(sqlQuery, connectDB);
-                SqlParameter userRead = readUsername.Parameters.AddWithValue("@User", user);
+                //connectDB.Open();
+                //SqlCommand readUsername = new SqlCommand(sqlQuery, connectDB);
+                //SqlParameter userRead = readUsername.Parameters.AddWithValue("@User", user);
 
-                readUsername.ExecuteNonQuery();
+                //readUsername.ExecuteNonQuery();
                 // NEED TO GET VALUES BROUGHT UP BY THE SQL COMMAND: USERNAME, PASSWORD AND SALT
                 // THEN HAVE TO DECRYPT THE VALUES
 
-            }
+            //}
         }
 
 
