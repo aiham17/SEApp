@@ -10,13 +10,13 @@ using System.Security.Policy;
 
 namespace SEApp
 {
-    public partial class Registeration_Form : Form
+    public partial class RegistrationForm : Form
     {
         // Database connection object
         private Database connectDB;
 
         // Constructor for the Registration Form
-        public Registeration_Form()
+        public RegistrationForm()
         {
             // Initialize the database connection
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace SEApp
 
         }
 
-
+       
         // This method generates a random value (salt) for each user.
         // It's crucial for password security because it ensures that even if two users have the same password,
         // their hashed passwords will be different.This helps prevent attacks like rainbow table attacks.
@@ -149,7 +149,7 @@ namespace SEApp
             // Show the login Form
             loginForm.Show();
 
-            // Hide the current form (Registeration form)
+            // Hide the current form (Registration form)
             this.Hide();
 
         }

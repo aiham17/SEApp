@@ -49,10 +49,10 @@ namespace SEApp
         private void accountCreationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Create an instance of the login Form
-            Registeration_Form registerationForm = new Registeration_Form();
+            RegistrationForm registrationForm = new RegistrationForm();
 
-            // Show the Registeration_ Form
-            registerationForm.Show();
+            // Show the Registration_ Form
+            registrationForm.Show();
 
 
             // Hide the current form(Login form)

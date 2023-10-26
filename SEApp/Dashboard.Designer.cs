@@ -1,6 +1,6 @@
 ﻿namespace SEApp
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,231 +28,284 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnAddOrAdjustVendors = new System.Windows.Forms.Button();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.btnActiveVendors = new System.Windows.Forms.Button();
+            this.btnHighestPerformingVendors = new System.Windows.Forms.Button();
+            this.btnLowestPerformingVendors = new System.Windows.Forms.Button();
+            this.btnHighestPerformingProducts = new System.Windows.Forms.Button();
+            this.btnLowestPerformingProducts = new System.Windows.Forms.Button();
+            this.btnHighestPerformingMarketSectors = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.btnVendorsAndProducts = new System.Windows.Forms.Button();
+            this.btnDashBoard = new System.Windows.Forms.Button();
+            this.btnTotalNumberOfVendors = new System.Windows.Forms.Button();
+            this.btnNumbersOfRequests = new System.Windows.Forms.Button();
+            this.btnLowestPerformingMarketSectors = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 83);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // textBox1
+            // btnAddOrAdjustVendors
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBox1.Location = new System.Drawing.Point(-1, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "DashBoard";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.UseWaitCursor = true;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.btnAddOrAdjustVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(0, 214);
+            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
+            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(196, 49);
+            this.btnAddOrAdjustVendors.TabIndex = 3;
+            this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
+            this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
+            this.btnAddOrAdjustVendors.Click += new System.EventHandler(this.btnAddOrAdjustVendors_Click);
             // 
-            // button1
+            // btnSetting
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(-1, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 40);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Vendors and Products";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSetting.Location = new System.Drawing.Point(-1, 507);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(196, 49);
+            this.btnSetting.TabIndex = 4;
+            this.btnSetting.Text = "Settings";
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
-            // button2
+            // btnActiveVendors
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(-1, 149);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 40);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Add or Adjust Vendors";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnActiveVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnActiveVendors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnActiveVendors.Location = new System.Drawing.Point(447, 127);
+            this.btnActiveVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActiveVendors.Name = "btnActiveVendors";
+            this.btnActiveVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnActiveVendors.TabIndex = 6;
+            this.btnActiveVendors.Text = "Active Vendors";
+            this.btnActiveVendors.UseVisualStyleBackColor = false;
+            this.btnActiveVendors.Click += new System.EventHandler(this.btnActiveVendors_Click);
             // 
-            // button3
+            // btnHighestPerformingVendors
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(-1, 412);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 40);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Settings";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnHighestPerformingVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHighestPerformingVendors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnHighestPerformingVendors.Location = new System.Drawing.Point(252, 265);
+            this.btnHighestPerformingVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHighestPerformingVendors.Name = "btnHighestPerformingVendors";
+            this.btnHighestPerformingVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnHighestPerformingVendors.TabIndex = 8;
+            this.btnHighestPerformingVendors.Text = "Highest Performing Vendors";
+            this.btnHighestPerformingVendors.UseVisualStyleBackColor = false;
+            this.btnHighestPerformingVendors.Click += new System.EventHandler(this.btnHighestPerformingVendors_Click);
             // 
-            // button4
+            // btnLowestPerformingVendors
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Location = new System.Drawing.Point(189, 103);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 89);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Number of Requests";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnLowestPerformingVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLowestPerformingVendors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLowestPerformingVendors.Location = new System.Drawing.Point(447, 265);
+            this.btnLowestPerformingVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLowestPerformingVendors.Name = "btnLowestPerformingVendors";
+            this.btnLowestPerformingVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnLowestPerformingVendors.TabIndex = 9;
+            this.btnLowestPerformingVendors.Text = "Lowest Performing Vendors";
+            this.btnLowestPerformingVendors.UseVisualStyleBackColor = false;
+            this.btnLowestPerformingVendors.Click += new System.EventHandler(this.btnLowestPerformingVendors_Click);
             // 
-            // button5
+            // btnHighestPerformingProducts
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(335, 103);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(140, 89);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Active Vendors";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnHighestPerformingProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHighestPerformingProducts.BackColor = System.Drawing.SystemColors.Window;
+            this.btnHighestPerformingProducts.Location = new System.Drawing.Point(641, 265);
+            this.btnHighestPerformingProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHighestPerformingProducts.Name = "btnHighestPerformingProducts";
+            this.btnHighestPerformingProducts.Size = new System.Drawing.Size(187, 110);
+            this.btnHighestPerformingProducts.TabIndex = 10;
+            this.btnHighestPerformingProducts.Text = "Highest Performing Products";
+            this.btnHighestPerformingProducts.UseVisualStyleBackColor = false;
+            this.btnHighestPerformingProducts.Click += new System.EventHandler(this.btnHighestPerformingProducts_Click);
             // 
-            // button6
+            // btnLowestPerformingProducts
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(481, 103);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 89);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Total Number of Vendors";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnLowestPerformingProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLowestPerformingProducts.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLowestPerformingProducts.Location = new System.Drawing.Point(252, 400);
+            this.btnLowestPerformingProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLowestPerformingProducts.Name = "btnLowestPerformingProducts";
+            this.btnLowestPerformingProducts.Size = new System.Drawing.Size(187, 110);
+            this.btnLowestPerformingProducts.TabIndex = 11;
+            this.btnLowestPerformingProducts.Text = "Lowest Performing Products";
+            this.btnLowestPerformingProducts.UseVisualStyleBackColor = false;
+            this.btnLowestPerformingProducts.Click += new System.EventHandler(this.btnLowestPerformingProducts_Click);
             // 
-            // button7
+            // btnHighestPerformingMarketSectors
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.Window;
-            this.button7.Location = new System.Drawing.Point(189, 215);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(140, 89);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Highest Performing Vendors";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.Location = new System.Drawing.Point(335, 215);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(140, 89);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Lowest Performing Vendors";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.SystemColors.Window;
-            this.button9.Location = new System.Drawing.Point(481, 215);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(140, 89);
-            this.button9.TabIndex = 10;
-            this.button9.Text = "Highest Performing Products";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.SystemColors.Window;
-            this.button10.Location = new System.Drawing.Point(189, 325);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(140, 89);
-            this.button10.TabIndex = 11;
-            this.button10.Text = "Lowest Performing Products";
-            this.button10.UseVisualStyleBackColor = false;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.SystemColors.Window;
-            this.button11.Location = new System.Drawing.Point(335, 325);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(140, 89);
-            this.button11.TabIndex = 12;
-            this.button11.Text = "Highest Performing Market Sectors";
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.SystemColors.Window;
-            this.button12.Location = new System.Drawing.Point(481, 325);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(140, 89);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Lowest Performing Market Sectors";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnHighestPerformingMarketSectors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHighestPerformingMarketSectors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnHighestPerformingMarketSectors.Location = new System.Drawing.Point(447, 400);
+            this.btnHighestPerformingMarketSectors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHighestPerformingMarketSectors.Name = "btnHighestPerformingMarketSectors";
+            this.btnHighestPerformingMarketSectors.Size = new System.Drawing.Size(187, 110);
+            this.btnHighestPerformingMarketSectors.TabIndex = 12;
+            this.btnHighestPerformingMarketSectors.Text = "Highest Performing Market Sectors";
+            this.btnHighestPerformingMarketSectors.UseVisualStyleBackColor = false;
+            this.btnHighestPerformingMarketSectors.Click += new System.EventHandler(this.btnHighestPerformingMarketSectors_Click);
             // 
             // button13
             // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.button13.BackColor = System.Drawing.SystemColors.Window;
-            this.button13.Location = new System.Drawing.Point(628, 103);
+            this.button13.Location = new System.Drawing.Point(837, 127);
+            this.button13.Margin = new System.Windows.Forms.Padding(4);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(160, 311);
+            this.button13.Size = new System.Drawing.Size(213, 383);
             this.button13.TabIndex = 14;
             this.button13.Text = "Project Status\n\nShows number of current projects not started, working on and fini" +
     "shed";
             this.button13.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // btnVendorsAndProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnVendorsAndProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnVendorsAndProducts.BackColor = System.Drawing.SystemColors.Window;
+            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-1, 158);
+            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVendorsAndProducts.Name = "btnVendorsAndProducts";
+            this.btnVendorsAndProducts.Size = new System.Drawing.Size(196, 49);
+            this.btnVendorsAndProducts.TabIndex = 15;
+            this.btnVendorsAndProducts.Text = "Vendors and Products";
+            this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
+            this.btnVendorsAndProducts.Click += new System.EventHandler(this.btnVendorsAndProducts_Click);
+            // 
+            // btnDashBoard
+            // 
+            this.btnDashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDashBoard.BackColor = System.Drawing.SystemColors.Window;
+            this.btnDashBoard.Location = new System.Drawing.Point(-1, 86);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDashBoard.Name = "btnDashBoard";
+            this.btnDashBoard.Size = new System.Drawing.Size(197, 48);
+            this.btnDashBoard.TabIndex = 16;
+            this.btnDashBoard.Text = "DashBoard";
+            this.btnDashBoard.UseVisualStyleBackColor = false;
+            this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
+            // 
+            // btnTotalNumberOfVendors
+            // 
+            this.btnTotalNumberOfVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTotalNumberOfVendors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnTotalNumberOfVendors.Location = new System.Drawing.Point(642, 127);
+            this.btnTotalNumberOfVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTotalNumberOfVendors.Name = "btnTotalNumberOfVendors";
+            this.btnTotalNumberOfVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnTotalNumberOfVendors.TabIndex = 17;
+            this.btnTotalNumberOfVendors.Text = "Total Number of Vendors";
+            this.btnTotalNumberOfVendors.UseVisualStyleBackColor = false;
+            this.btnTotalNumberOfVendors.Click += new System.EventHandler(this.btnTotalNumberOfVendors_Click);
+            // 
+            // btnNumbersOfRequests
+            // 
+            this.btnNumbersOfRequests.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNumbersOfRequests.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNumbersOfRequests.Location = new System.Drawing.Point(252, 127);
+            this.btnNumbersOfRequests.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNumbersOfRequests.Name = "btnNumbersOfRequests";
+            this.btnNumbersOfRequests.Size = new System.Drawing.Size(187, 110);
+            this.btnNumbersOfRequests.TabIndex = 18;
+            this.btnNumbersOfRequests.Text = "Numbers of Requests";
+            this.btnNumbersOfRequests.UseVisualStyleBackColor = false;
+            this.btnNumbersOfRequests.Click += new System.EventHandler(this.btnNumbersOfRequests_Click);
+            // 
+            // btnLowestPerformingMarketSectors
+            // 
+            this.btnLowestPerformingMarketSectors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLowestPerformingMarketSectors.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLowestPerformingMarketSectors.Location = new System.Drawing.Point(641, 400);
+            this.btnLowestPerformingMarketSectors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLowestPerformingMarketSectors.Name = "btnLowestPerformingMarketSectors";
+            this.btnLowestPerformingMarketSectors.Size = new System.Drawing.Size(187, 110);
+            this.btnLowestPerformingMarketSectors.TabIndex = 19;
+            this.btnLowestPerformingMarketSectors.Text = "Lowest Performing Market Sectors";
+            this.btnLowestPerformingMarketSectors.UseVisualStyleBackColor = false;
+            this.btnLowestPerformingMarketSectors.Click += new System.EventHandler(this.btnLowestPerformingMarketSectors_Click);
+            // 
+            // Dashboard
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnLowestPerformingMarketSectors);
+            this.Controls.Add(this.btnNumbersOfRequests);
+            this.Controls.Add(this.btnTotalNumberOfVendors);
+            this.Controls.Add(this.btnDashBoard);
+            this.Controls.Add(this.btnVendorsAndProducts);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnHighestPerformingMarketSectors);
+            this.Controls.Add(this.btnLowestPerformingProducts);
+            this.Controls.Add(this.btnHighestPerformingProducts);
+            this.Controls.Add(this.btnLowestPerformingVendors);
+            this.Controls.Add(this.btnHighestPerformingVendors);
+            this.Controls.Add(this.btnActiveVendors);
+            this.Controls.Add(this.btnSetting);
+            this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Dashboard";
+            this.Text = "Dashbaord";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private PictureBox pictureBox1;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
+        private Button btnAddOrAdjustVendors;
+        private Button btnSetting;
+        private Button btnActiveVendors;
+        private Button btnHighestPerformingVendors;
+        private Button btnLowestPerformingVendors;
+        private Button btnHighestPerformingProducts;
+        private Button btnLowestPerformingProducts;
+        private Button btnHighestPerformingMarketSectors;
         private Button button13;
+        private Button btnVendorsAndProducts;
+        private Button btnDashBoard;
+        private Button btnTotalNumberOfVendors;
+        private Button btnNumbersOfRequests;
+        private Button btnLowestPerformingMarketSectors;
     }
 }
