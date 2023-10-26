@@ -44,6 +44,7 @@
             this.btnTotalNumberOfVendors = new System.Windows.Forms.Button();
             this.btnNumbersOfRequests = new System.Windows.Forms.Button();
             this.btnLowestPerformingMarketSectors = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
             this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetting.Location = new System.Drawing.Point(-1, 507);
+            this.btnSetting.Location = new System.Drawing.Point(-1, 400);
             this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(196, 49);
@@ -259,6 +260,21 @@
             this.btnLowestPerformingMarketSectors.UseVisualStyleBackColor = false;
             this.btnLowestPerformingMarketSectors.Click += new System.EventHandler(this.btnLowestPerformingMarketSectors_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogout.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLogout.Location = new System.Drawing.Point(-1, 507);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(196, 49);
+            this.btnLogout.TabIndex = 20;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,6 +282,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnLowestPerformingMarketSectors);
             this.Controls.Add(this.btnNumbersOfRequests);
             this.Controls.Add(this.btnTotalNumberOfVendors);
@@ -307,5 +324,6 @@
         private Button btnTotalNumberOfVendors;
         private Button btnNumbersOfRequests;
         private Button btnLowestPerformingMarketSectors;
+        private Button btnLogout;
     }
 }

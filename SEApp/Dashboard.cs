@@ -77,8 +77,22 @@ namespace SEApp
            
             this.Hide();
         }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the LoginForm
+            LoginForm loginForm = new LoginForm();
 
-      
+            // Show the LoginForm
+            loginForm.Show();
+
+            // Close the current form (Dashboard Form)
+            //this.Close();
+
+            // Hide the current form (Dashboard Form)
+            this.Hide();
+
+        }
+
 
         private void btnTotalNumberOfVendors_Click(object sender, EventArgs e)
         {
@@ -124,5 +138,7 @@ namespace SEApp
         {
 
         }
+
+       
     }
 }
