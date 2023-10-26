@@ -65,9 +65,16 @@ namespace SEApp
             MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Reads the Database for a username match, then gets the password and the salt code that corresponds to it
-        public void readUsername(string user, string pass)
+        //Adam:
+        /* Reads the Database for a username match, then gets the password and the salt code that corresponds to it
+         * https://stackoverflow.com/questions/565425/how-can-i-get-a-username-and-password-from-my-database-in-c
+         * Post by: Abel Gaxiola Feb 2009 with understanding how to read results into a Data Table
+         * Post by: Geochet for understanding how to read from database.
+         */
+        public bool readUsername(string user, string pass)
         {
+            string testPass, testSalt, testUser;
+            
             using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                
@@ -78,17 +85,32 @@ namespace SEApp
                     SqlDataReader readUser = readUsername.ExecuteReader();
                     DataTable readResult = new DataTable();
                     readResult.Load(readUser);
-                    string testUser = readResult.Rows[0].Field<string>("Username");
-                    string testPass = readResult.Rows[0].Field<string>("Password");
-                    string testSalt = readResult.Rows[0].Field<string>("Salt");
-                    
+                    testUser = readResult.Rows[0].Field<string>("Username");
+                    testPass = readResult.Rows[0].Field<string>("Password");
+                    testSalt = readResult.Rows[0].Field<string>("Salt");
 
+                    if (readResult != null)
+                    {
+                        EncryptDecrypt passVerify = new EncryptDecrypt();
+                        return passVerify.passwordVerify(testPass, testSalt, pass);
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
+                
             }
+            
+            
+
+            
+            
             
 
             
         }
+        
 
 
 

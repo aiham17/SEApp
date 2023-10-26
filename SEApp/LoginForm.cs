@@ -22,11 +22,11 @@ namespace SEApp
         private bool loginInputs()
         {
             // We're passing the user-provided data from the input fields as arguments to this method.
-            // This includes the username, password, first name, last name, and email entered by the user
-
+            // This includes the username, password.
             return DataValidator.loginValidator(tbUsername.Text, tbPassword.Text);
 
         }
+       
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -86,11 +86,19 @@ namespace SEApp
                 userInfo.login login = new userInfo.login();
                 login.username= tbUsername.Text;
                 login.password = tbPassword.Text;
-                connectDB.readUsername(login.username, login.password);
-
+                bool response;
+                response = connectDB.readUsername(login.username, login.password);
+                if (response==true)
+                {
+                    this.Hide();
+                    Dashboard open = new Dashboard();
+                    open.Show();
+                }
             }
+            
+            
 
-            // Validate inputs
+            
             
             
         }

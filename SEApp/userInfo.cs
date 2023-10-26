@@ -26,8 +26,8 @@ namespace SEApp
         {
             public string username;
             public string password;
-            public string dbPassword;
-            public string dbSalt;
+            
         }
+
     }
 }
