@@ -10,6 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.CodeDom.Compiler;
 using System.Collections;
 using SEApp.CitisoftDBDataSetTableAdapters;
+using IronXL;
 
 namespace SEApp
 {
@@ -34,6 +35,23 @@ namespace SEApp
             }
             return dbGetString;
         }
+
+        // Retrieves Vendor Information from Excel File
+        //public void getVendorData()
+        //{
+            //C:\Git\CitisoftAssignmentV2\SEApp\Spreadsheets\
+            //WorkBook vendorData = WorkBook.LoadExcel("C:\\Git\\CitisoftAssignmentV2\\SEApp\\Spreadsheets\\VendorInfo.xlsx");
+            //DataSet dataSet = vendorData.ToDataSet();
+
+            //string sqlGet = "SELECT* FROM  Citisoft [dbo].[VendorInfo]";
+            //using (SqlConnection retrieve = new SqlConnection(dbConnectstr))
+            //{
+                //retrieve.Open();
+                //SqlDataAdapter adapter = new SqlDataAdapter(sqlGet, retrieve);
+                //adapter.Update(dataSet);
+            //}
+
+        //}
 
 
         // Fixed issue in saveUserInfo method

@@ -14,11 +14,14 @@ namespace SEApp
     public partial class LoginForm : Form
     {
         private Database connectDB;
+        
         public LoginForm()
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
+            //connectDB.getVendorData();
         }
+
         private bool loginInputs()
         {
             // We're passing the user-provided data from the input fields as arguments to this method.
