@@ -62,11 +62,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLogout.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogout.Location = new System.Drawing.Point(-1, 412);
+            this.btnLogout.Location = new System.Drawing.Point(-2, 634);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(147, 40);
+            this.btnLogout.Size = new System.Drawing.Size(220, 62);
             this.btnLogout.TabIndex = 26;
-            this.btnLogout.Text = "btn - Logout";
+            this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
             // 
             // btnDashBoard
@@ -74,11 +75,12 @@
             this.btnDashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDashBoard.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDashBoard.Location = new System.Drawing.Point(-1, 70);
+            this.btnDashBoard.Location = new System.Drawing.Point(-2, 108);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(148, 39);
+            this.btnDashBoard.Size = new System.Drawing.Size(222, 60);
             this.btnDashBoard.TabIndex = 25;
-            this.btnDashBoard.Text = "btn - DashBoard";
+            this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.UseVisualStyleBackColor = false;
             this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
@@ -87,11 +89,12 @@
             this.btnVendorsAndProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVendorsAndProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-1, 128);
+            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-2, 197);
+            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVendorsAndProducts.Name = "btnVendorsAndProducts";
-            this.btnVendorsAndProducts.Size = new System.Drawing.Size(147, 40);
+            this.btnVendorsAndProducts.Size = new System.Drawing.Size(220, 62);
             this.btnVendorsAndProducts.TabIndex = 24;
-            this.btnVendorsAndProducts.Text = "btn - Vendors and Products";
+            this.btnVendorsAndProducts.Text = "Vendors and Products";
             this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
             // 
             // btnSetting
@@ -100,11 +103,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
             this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetting.Location = new System.Drawing.Point(-1, 325);
+            this.btnSetting.Location = new System.Drawing.Point(-2, 500);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(147, 40);
+            this.btnSetting.Size = new System.Drawing.Size(220, 62);
             this.btnSetting.TabIndex = 23;
-            this.btnSetting.Text = "btn - Settings";
+            this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = false;
             // 
             // btnAddOrAdjustVendors
@@ -112,11 +116,12 @@
             this.btnAddOrAdjustVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-1, 174);
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-2, 268);
+            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
-            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(147, 40);
+            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(220, 62);
             this.btnAddOrAdjustVendors.TabIndex = 22;
-            this.btnAddOrAdjustVendors.Text = "btn - Add or Adjust Vendors";
+            this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
@@ -125,9 +130,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -3);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 83);
+            this.pictureBox1.Size = new System.Drawing.Size(220, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
@@ -135,9 +141,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(230, 102);
+            this.pictureBox2.Location = new System.Drawing.Point(345, 157);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(69, 69);
+            this.pictureBox2.Size = new System.Drawing.Size(104, 106);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 27;
             this.pictureBox2.TabStop = false;
@@ -145,9 +152,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(230, 218);
+            this.pictureBox3.Location = new System.Drawing.Point(345, 335);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(69, 64);
+            this.pictureBox3.Size = new System.Drawing.Size(104, 98);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 28;
             this.pictureBox3.TabStop = false;
@@ -155,9 +163,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(230, 325);
+            this.pictureBox4.Location = new System.Drawing.Point(345, 500);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(69, 64);
+            this.pictureBox4.Size = new System.Drawing.Size(104, 98);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 29;
             this.pictureBox4.TabStop = false;
@@ -165,9 +174,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(476, 102);
+            this.pictureBox5.Location = new System.Drawing.Point(714, 157);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(69, 69);
+            this.pictureBox5.Size = new System.Drawing.Size(104, 106);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 30;
             this.pictureBox5.TabStop = false;
@@ -175,9 +185,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(476, 218);
+            this.pictureBox6.Location = new System.Drawing.Point(714, 335);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(69, 64);
+            this.pictureBox6.Size = new System.Drawing.Size(104, 98);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 31;
             this.pictureBox6.TabStop = false;
@@ -185,9 +196,10 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(476, 325);
+            this.pictureBox7.Location = new System.Drawing.Point(714, 500);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(69, 64);
+            this.pictureBox7.Size = new System.Drawing.Size(104, 98);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 32;
             this.pictureBox7.TabStop = false;
@@ -195,70 +207,76 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(299, 102);
+            this.button1.Location = new System.Drawing.Point(448, 157);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 69);
+            this.button1.Size = new System.Drawing.Size(218, 106);
             this.button1.TabIndex = 33;
-            this.button1.Text = "btn - Login and Security";
+            this.button1.Text = "Login and Security";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(542, 102);
+            this.button2.Location = new System.Drawing.Point(813, 157);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 69);
+            this.button2.Size = new System.Drawing.Size(218, 106);
             this.button2.TabIndex = 34;
-            this.button2.Text = "btn - Personal Details";
+            this.button2.Text = "Personal Details";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Location = new System.Drawing.Point(299, 218);
+            this.button3.Location = new System.Drawing.Point(448, 335);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 64);
+            this.button3.Size = new System.Drawing.Size(218, 98);
             this.button3.TabIndex = 35;
-            this.button3.Text = "btn - Support";
+            this.button3.Text = "Support";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Location = new System.Drawing.Point(542, 218);
+            this.button4.Location = new System.Drawing.Point(813, 335);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(145, 64);
+            this.button4.Size = new System.Drawing.Size(218, 98);
             this.button4.TabIndex = 36;
-            this.button4.Text = "btn - Company Details";
+            this.button4.Text = "Company Details";
             this.button4.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.Location = new System.Drawing.Point(299, 325);
+            this.button5.Location = new System.Drawing.Point(448, 500);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(145, 64);
+            this.button5.Size = new System.Drawing.Size(218, 98);
             this.button5.TabIndex = 37;
-            this.button5.Text = "btn - Company Role";
+            this.button5.Text = "Company Role";
             this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(542, 325);
+            this.button6.Location = new System.Drawing.Point(813, 500);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(145, 64);
+            this.button6.Size = new System.Drawing.Size(218, 98);
             this.button6.TabIndex = 38;
-            this.button6.Text = "btn - Current Tasks";
+            this.button6.Text = "Current Tasks";
             this.button6.UseVisualStyleBackColor = false;
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -277,6 +295,7 @@
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
