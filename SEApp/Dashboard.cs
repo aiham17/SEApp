@@ -12,9 +12,13 @@ namespace SEApp
 {
     public partial class Dashboard : Form
     {
+        private Database connectDB;
+
         public Dashboard ()
         {
             InitializeComponent();
+            connectDB = Database.getConnectString();
+            
         }
 
         private void Dashboard_Load(object sender, EventArgs e)

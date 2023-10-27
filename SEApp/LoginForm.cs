@@ -19,7 +19,7 @@ namespace SEApp
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
-            //connectDB.getVendorData();
+            
         }
 
         private bool loginInputs()
