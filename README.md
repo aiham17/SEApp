@@ -6,7 +6,7 @@ A software vendor application for our Software Engineering Module and Citisoft
 -------------------------------------------------------------------------------------------------------------
 **Tasks Working on:**<br>
 Connor: AddAdjust , setting and ProductsVendor form designs in VS app<br>
-Adam: Importing Data From Excel sheet. (Installed IronXL to attempt to import it straight from the excel file)<br>
+Adam: Adding Dummy Data to the Databases.<br>
 Sultan: Vendor products layout in program<br>
 -------------------------------------------------------------------------------------------------------------
 **Completed:** <br>
