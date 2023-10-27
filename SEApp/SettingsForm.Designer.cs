@@ -112,7 +112,7 @@
             this.btnAddOrAdjustVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(0, 174);
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-1, 174);
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
             this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(147, 40);
             this.btnAddOrAdjustVendors.TabIndex = 22;

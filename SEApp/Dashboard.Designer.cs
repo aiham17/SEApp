@@ -55,9 +55,8 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 102);
+            this.pictureBox1.Size = new System.Drawing.Size(147, 83);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -68,10 +67,9 @@
             this.btnAddOrAdjustVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(0, 214);
-            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-1, 174);
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
-            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(196, 49);
+            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(147, 40);
             this.btnAddOrAdjustVendors.TabIndex = 3;
             this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
@@ -83,10 +81,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
             this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetting.Location = new System.Drawing.Point(-1, 400);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetting.Location = new System.Drawing.Point(-1, 325);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(196, 49);
+            this.btnSetting.Size = new System.Drawing.Size(147, 40);
             this.btnSetting.TabIndex = 4;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = false;
@@ -97,10 +94,9 @@
             this.btnActiveVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnActiveVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnActiveVendors.Location = new System.Drawing.Point(447, 127);
-            this.btnActiveVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActiveVendors.Location = new System.Drawing.Point(335, 103);
             this.btnActiveVendors.Name = "btnActiveVendors";
-            this.btnActiveVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnActiveVendors.Size = new System.Drawing.Size(140, 89);
             this.btnActiveVendors.TabIndex = 6;
             this.btnActiveVendors.Text = "Active Vendors";
             this.btnActiveVendors.UseVisualStyleBackColor = false;
@@ -111,10 +107,9 @@
             this.btnHighestPerformingVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnHighestPerformingVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnHighestPerformingVendors.Location = new System.Drawing.Point(252, 265);
-            this.btnHighestPerformingVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHighestPerformingVendors.Location = new System.Drawing.Point(189, 215);
             this.btnHighestPerformingVendors.Name = "btnHighestPerformingVendors";
-            this.btnHighestPerformingVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnHighestPerformingVendors.Size = new System.Drawing.Size(140, 89);
             this.btnHighestPerformingVendors.TabIndex = 8;
             this.btnHighestPerformingVendors.Text = "Highest Performing Vendors";
             this.btnHighestPerformingVendors.UseVisualStyleBackColor = false;
@@ -125,10 +120,9 @@
             this.btnLowestPerformingVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLowestPerformingVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnLowestPerformingVendors.Location = new System.Drawing.Point(447, 265);
-            this.btnLowestPerformingVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLowestPerformingVendors.Location = new System.Drawing.Point(335, 215);
             this.btnLowestPerformingVendors.Name = "btnLowestPerformingVendors";
-            this.btnLowestPerformingVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnLowestPerformingVendors.Size = new System.Drawing.Size(140, 89);
             this.btnLowestPerformingVendors.TabIndex = 9;
             this.btnLowestPerformingVendors.Text = "Lowest Performing Vendors";
             this.btnLowestPerformingVendors.UseVisualStyleBackColor = false;
@@ -139,10 +133,9 @@
             this.btnHighestPerformingProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnHighestPerformingProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnHighestPerformingProducts.Location = new System.Drawing.Point(641, 265);
-            this.btnHighestPerformingProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHighestPerformingProducts.Location = new System.Drawing.Point(481, 215);
             this.btnHighestPerformingProducts.Name = "btnHighestPerformingProducts";
-            this.btnHighestPerformingProducts.Size = new System.Drawing.Size(187, 110);
+            this.btnHighestPerformingProducts.Size = new System.Drawing.Size(140, 89);
             this.btnHighestPerformingProducts.TabIndex = 10;
             this.btnHighestPerformingProducts.Text = "Highest Performing Products";
             this.btnHighestPerformingProducts.UseVisualStyleBackColor = false;
@@ -153,10 +146,9 @@
             this.btnLowestPerformingProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLowestPerformingProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnLowestPerformingProducts.Location = new System.Drawing.Point(252, 400);
-            this.btnLowestPerformingProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLowestPerformingProducts.Location = new System.Drawing.Point(189, 325);
             this.btnLowestPerformingProducts.Name = "btnLowestPerformingProducts";
-            this.btnLowestPerformingProducts.Size = new System.Drawing.Size(187, 110);
+            this.btnLowestPerformingProducts.Size = new System.Drawing.Size(140, 89);
             this.btnLowestPerformingProducts.TabIndex = 11;
             this.btnLowestPerformingProducts.Text = "Lowest Performing Products";
             this.btnLowestPerformingProducts.UseVisualStyleBackColor = false;
@@ -167,10 +159,9 @@
             this.btnHighestPerformingMarketSectors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnHighestPerformingMarketSectors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnHighestPerformingMarketSectors.Location = new System.Drawing.Point(447, 400);
-            this.btnHighestPerformingMarketSectors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHighestPerformingMarketSectors.Location = new System.Drawing.Point(335, 325);
             this.btnHighestPerformingMarketSectors.Name = "btnHighestPerformingMarketSectors";
-            this.btnHighestPerformingMarketSectors.Size = new System.Drawing.Size(187, 110);
+            this.btnHighestPerformingMarketSectors.Size = new System.Drawing.Size(140, 89);
             this.btnHighestPerformingMarketSectors.TabIndex = 12;
             this.btnHighestPerformingMarketSectors.Text = "Highest Performing Market Sectors";
             this.btnHighestPerformingMarketSectors.UseVisualStyleBackColor = false;
@@ -181,10 +172,9 @@
             this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button13.BackColor = System.Drawing.SystemColors.Window;
-            this.button13.Location = new System.Drawing.Point(837, 127);
-            this.button13.Margin = new System.Windows.Forms.Padding(4);
+            this.button13.Location = new System.Drawing.Point(628, 103);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(213, 383);
+            this.button13.Size = new System.Drawing.Size(160, 311);
             this.button13.TabIndex = 14;
             this.button13.Text = "Project Status\n\nShows number of current projects not started, working on and fini" +
     "shed";
@@ -195,10 +185,9 @@
             this.btnVendorsAndProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVendorsAndProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-1, 158);
-            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-1, 128);
             this.btnVendorsAndProducts.Name = "btnVendorsAndProducts";
-            this.btnVendorsAndProducts.Size = new System.Drawing.Size(196, 49);
+            this.btnVendorsAndProducts.Size = new System.Drawing.Size(147, 40);
             this.btnVendorsAndProducts.TabIndex = 15;
             this.btnVendorsAndProducts.Text = "Vendors and Products";
             this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
@@ -209,10 +198,9 @@
             this.btnDashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDashBoard.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDashBoard.Location = new System.Drawing.Point(-1, 86);
-            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDashBoard.Location = new System.Drawing.Point(-1, 70);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(197, 48);
+            this.btnDashBoard.Size = new System.Drawing.Size(148, 39);
             this.btnDashBoard.TabIndex = 16;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.UseVisualStyleBackColor = false;
@@ -223,10 +211,9 @@
             this.btnTotalNumberOfVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTotalNumberOfVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnTotalNumberOfVendors.Location = new System.Drawing.Point(642, 127);
-            this.btnTotalNumberOfVendors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTotalNumberOfVendors.Location = new System.Drawing.Point(482, 103);
             this.btnTotalNumberOfVendors.Name = "btnTotalNumberOfVendors";
-            this.btnTotalNumberOfVendors.Size = new System.Drawing.Size(187, 110);
+            this.btnTotalNumberOfVendors.Size = new System.Drawing.Size(140, 89);
             this.btnTotalNumberOfVendors.TabIndex = 17;
             this.btnTotalNumberOfVendors.Text = "Total Number of Vendors";
             this.btnTotalNumberOfVendors.UseVisualStyleBackColor = false;
@@ -237,10 +224,9 @@
             this.btnNumbersOfRequests.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNumbersOfRequests.BackColor = System.Drawing.SystemColors.Window;
-            this.btnNumbersOfRequests.Location = new System.Drawing.Point(252, 127);
-            this.btnNumbersOfRequests.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNumbersOfRequests.Location = new System.Drawing.Point(189, 103);
             this.btnNumbersOfRequests.Name = "btnNumbersOfRequests";
-            this.btnNumbersOfRequests.Size = new System.Drawing.Size(187, 110);
+            this.btnNumbersOfRequests.Size = new System.Drawing.Size(140, 89);
             this.btnNumbersOfRequests.TabIndex = 18;
             this.btnNumbersOfRequests.Text = "Numbers of Requests";
             this.btnNumbersOfRequests.UseVisualStyleBackColor = false;
@@ -251,10 +237,9 @@
             this.btnLowestPerformingMarketSectors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLowestPerformingMarketSectors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnLowestPerformingMarketSectors.Location = new System.Drawing.Point(641, 400);
-            this.btnLowestPerformingMarketSectors.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLowestPerformingMarketSectors.Location = new System.Drawing.Point(481, 325);
             this.btnLowestPerformingMarketSectors.Name = "btnLowestPerformingMarketSectors";
-            this.btnLowestPerformingMarketSectors.Size = new System.Drawing.Size(187, 110);
+            this.btnLowestPerformingMarketSectors.Size = new System.Drawing.Size(140, 89);
             this.btnLowestPerformingMarketSectors.TabIndex = 19;
             this.btnLowestPerformingMarketSectors.Text = "Lowest Performing Market Sectors";
             this.btnLowestPerformingMarketSectors.UseVisualStyleBackColor = false;
@@ -266,10 +251,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLogout.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogout.Location = new System.Drawing.Point(-1, 507);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Location = new System.Drawing.Point(-1, 412);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(196, 49);
+            this.btnLogout.Size = new System.Drawing.Size(147, 40);
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -277,11 +261,11 @@
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnLowestPerformingMarketSectors);
             this.Controls.Add(this.btnNumbersOfRequests);
@@ -298,7 +282,6 @@
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashbaord";
             this.Load += new System.EventHandler(this.Dashboard_Load);

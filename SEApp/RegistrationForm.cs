@@ -153,5 +153,10 @@ namespace SEApp
             this.Hide();
 
         }
+
+        private void FirstName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
