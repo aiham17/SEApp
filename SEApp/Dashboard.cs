@@ -117,13 +117,21 @@ namespace SEApp
         {
             string query = sqlQuery.ActiveVendorsQuery;
             DataTable result = connectDB.ExecuteQuery(query);
-
+            StringBuilder message = new StringBuilder();
+            foreach (DataRow row in result.Rows)
+            {
+                message.AppendLine("Company Name: " + row["Company_Name"].ToString());
+                // Add other columns as needed
+            }
+            MessageBox.Show("Active Vendors:\n\n" + message.ToString());
         }
         // calling HighestPerformingVendorsQuery from sqlQuery class
         private void btnHighestPerformingVendors_Click(object sender, EventArgs e)
         {
             string query = sqlQuery.HighestPerformingVendorsQuery;
             DataTable result = connectDB.ExecuteQuery(query);
+            MessageBox.Show("Highest Performing Vendor ID:\n\n" + result.Rows[0]["VendorID"].ToString() +
+                    "\nAverage Rating: " + result.Rows[0]["AverageRating"].ToString());
         }
 
         private void btnLowestPerformingVendors_Click(object sender, EventArgs e)
