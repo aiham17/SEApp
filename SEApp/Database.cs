@@ -18,7 +18,7 @@ namespace SEApp
     {
         private static Database dbGetString;
         private string dbConnectstr;
-        
+
 
         // Constructor initializes dbConnectstr to the DBConnectionString (stores it)
         private Database()
@@ -36,7 +36,7 @@ namespace SEApp
             return dbGetString;
         }
 
-        
+
 
 
         // Fixed issue in saveUserInfo method
@@ -46,10 +46,10 @@ namespace SEApp
 
 
         public void saveUserInfo(string SQLQuery, string userName, string password, string salt, string firstName, string lastName, string email, int CompanyRole)
-    {
-        List<string> parameterNames = new List<string> { "@Username", "@Password", "@Salt", "@FirstName", "@LastName", "@Email", "@CompanyRole" };
-        using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
         {
+            List<string> parameterNames = new List<string> { "@Username", "@Password", "@Salt", "@FirstName", "@LastName", "@Email", "@CompanyRole" };
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
                 connectDB.Open();
                 SqlCommand addUser = new SqlCommand(SQLQuery, connectDB);
 
@@ -77,10 +77,10 @@ namespace SEApp
         public bool readUsername(string user, string pass)
         {
             string testPass, testSalt, testUser;
-            
-            using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
+
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
-               
+
                 using (SqlCommand readUsername = new SqlCommand("SELECT * FROM UserInformation WHERE Username=@user", connectDB))
                 {
                     readUsername.Parameters.AddWithValue("@user", user);
@@ -102,20 +102,31 @@ namespace SEApp
                         return false;
                     }
                 }
-                
+
             }
-            
-            
 
-            
-            
-            
-
-            
         }
-        
 
 
+        // The ExecuteQuery method in the Database class streamlines database interactions.
+        // It executes SQL queries and presents results as DataTables, simplifying database operations.
+        // It Utilized in the dashboard form to perform database queries when buttons are clicked, such as retrieving total vendor count.
+        public DataTable ExecuteQuery(string sqlQuery)
+        {
+            DataTable result = new DataTable();
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand command = new SqlCommand(sqlQuery, connectDB))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        result.Load(reader);
+                    }
+                }
+            }
+            return result;
 
+        }
     }
 }
