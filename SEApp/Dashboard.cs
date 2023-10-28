@@ -15,8 +15,10 @@ namespace SEApp
     // and primary keys ready to be populated. Need to discuss the DB ERD as there is overlapping data between Vendor table etc
     public partial class Dashboard : Form
     {
+        // Database connection object
         private Database connectDB;
 
+        // Initialize the database connection
         public Dashboard ()
         {
             InitializeComponent();
@@ -100,20 +102,28 @@ namespace SEApp
 
         }
 
-
+        // calling TotalNumberOfVendorsQuery from sqlQuery class
         private void btnTotalNumberOfVendors_Click(object sender, EventArgs e)
         {
 
-        }
+            String query = sqlQuery.TotalNumberOfVendorsQuery;
+            DataTable result = connectDB.ExecuteQuery(query);
 
+            MessageBox.Show($"Total number of vendors: {result.Rows[0]["TotalVendors"]}");
+
+        }
+        // calling ActiveVendorsQuery from sqlQuery class
         private void btnActiveVendors_Click(object sender, EventArgs e)
         {
+            string query = sqlQuery.ActiveVendorsQuery;
+            DataTable result = connectDB.ExecuteQuery(query);
 
         }
-
+        // calling HighestPerformingVendorsQuery from sqlQuery class
         private void btnHighestPerformingVendors_Click(object sender, EventArgs e)
         {
-
+            string query = sqlQuery.HighestPerformingVendorsQuery;
+            DataTable result = connectDB.ExecuteQuery(query);
         }
 
         private void btnLowestPerformingVendors_Click(object sender, EventArgs e)
