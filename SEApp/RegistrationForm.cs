@@ -15,6 +15,9 @@ namespace SEApp
         // Database connection object
         private Database connectDB;
 
+        // Create an instance of the login Form
+        LoginForm loginForm = new LoginForm();
+
         // Constructor for the Registration Form
         public RegistrationForm()
         {
@@ -85,6 +88,12 @@ namespace SEApp
                 connectDB.saveUserInfo("INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)", user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
 
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Show the login Form
+                loginForm.Show();
+
+                // Hide the current form (Registration form)
+                this.Close();
             }
         }
 
@@ -143,8 +152,7 @@ namespace SEApp
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            // Create an instance of the login Form
-            LoginForm loginForm = new LoginForm();
+          
 
             // Show the login Form
             loginForm.Show();

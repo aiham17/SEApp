@@ -63,9 +63,7 @@ namespace SEApp
 
                 addUser.ExecuteNonQuery();
             }
-            // Display a message box indicating successful registration
-
-            MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         //Adam:
