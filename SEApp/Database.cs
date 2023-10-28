@@ -74,32 +74,61 @@ namespace SEApp
          */
         public bool readUsername(string user, string pass)
         {
-            string testPass, testSalt, testUser;
+            EncryptDecrypt passVerify = new EncryptDecrypt();
+
 
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
+                bool readPassword;
 
                 using (SqlCommand readUsername = new SqlCommand("SELECT * FROM UserInformation WHERE Username=@user", connectDB))
                 {
+
                     readUsername.Parameters.AddWithValue("@user", user);
                     connectDB.Open();
                     SqlDataReader readUser = readUsername.ExecuteReader();
                     DataTable readResult = new DataTable();
                     readResult.Load(readUser);
-                    testUser = readResult.Rows[0].Field<string>("Username");
-                    testPass = readResult.Rows[0].Field<string>("Password");
-                    testSalt = readResult.Rows[0].Field<string>("Salt");
+                    string place, testUser, testPass, testSalt;
 
-                    if (readResult != null)
+                    int i;
+                    for (i = 0; i < readResult.Rows.Count; i++)
                     {
-                        EncryptDecrypt passVerify = new EncryptDecrypt();
-                        return passVerify.passwordVerify(testPass, testSalt, pass);
+                        place = readResult.Rows[i].Field<string>("Username").ToString();
+                        if (place == user)
+                        {
+
+                            break;
+
+                        }
+                        else if (i >= readResult.Rows.Count)
+                        {
+                            MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+
+
                     }
-                    else
+                    i = i - 1;
+                    if (i < 0)
                     {
+                        MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
+                    place = readResult.Rows[i].Field<string>("Username").ToString();
+                    testUser = place;
+                    testPass = readResult.Rows[i].Field<string>("Password").ToString();
+                    testSalt = readResult.Rows[i].Field<string>("Salt").ToString();
+                    return readPassword = passVerify.passwordVerify(testPass, testSalt, pass);
+
+
+
+
+
+
                 }
+
+
 
             }
 

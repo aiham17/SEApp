@@ -28,7 +28,7 @@ namespace SEApp
             }
             else
             {
-                MessageBox.Show("Credentials Incorrect");
+                MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             
