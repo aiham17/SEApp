@@ -12,10 +12,14 @@ Adam: Adding Dummy Data to the Databases.<br>
 Sultan: Vendor products layout in program<br>
 -------------------------------------------------------------------------------------------------------------
 **Completed:** <br>
-Aiham: Encryption & Database writing for Registration. Input validation Registration. Clear Button <br>
-Aiham: Dashboard button programming<br>
+*Aiham:*<br>
+Encryption & Database writing for Registration. Input validation Registration. Clear Button <br>
+Dashboard button programming<br>
 Aiham: 3 SQL Queries for Dashboard<br>
-Adam: Creating DB and Connection. <br>
-Adam: Reading from DB for Login, comparing hashed passwords. Input validation for Login (Used the same as registration) <br>
-Connor: Dashboard layout in program <br>
+*Adam*<br>
+Creating DB and Connection. <br>
+Reading from DB for Login, comparing hashed passwords. Input validation for Login (for initial inputs slightly adapted Aihams registration code) <br>
+*Connor*<br>
+Dashboard layout in program <br>
+Add or Adjust Vendor Layout <br>
 -------------------------------------------------------------------------------------------------------------
