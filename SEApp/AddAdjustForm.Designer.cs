@@ -89,6 +89,7 @@
             this.btnLogout.TabIndex = 32;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnDashBoard
             // 
@@ -102,6 +103,7 @@
             this.btnDashBoard.TabIndex = 31;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.UseVisualStyleBackColor = false;
+            this.btnDashBoard.Click += new System.EventHandler(this.btnDashBoard_Click);
             // 
             // btnVendorsAndProducts
             // 
@@ -115,6 +117,7 @@
             this.btnVendorsAndProducts.TabIndex = 30;
             this.btnVendorsAndProducts.Text = "Vendors and Products";
             this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
+            this.btnVendorsAndProducts.Click += new System.EventHandler(this.btnVendorsAndProducts_Click);
             // 
             // btnSetting
             // 
@@ -129,6 +132,7 @@
             this.btnSetting.TabIndex = 29;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnAddOrAdjustVendors
             // 
@@ -142,6 +146,7 @@
             this.btnAddOrAdjustVendors.TabIndex = 28;
             this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
+            this.btnAddOrAdjustVendors.Click += new System.EventHandler(this.btnAddOrAdjustVendors_Click);
             // 
             // pictureBox1
             // 

@@ -18,6 +18,23 @@ namespace SEApp
         // Database connection object
         private Database connectDB;
 
+        // Create an instance of the LoginForm
+        LoginForm loginForm = new LoginForm();
+
+        // Create an instance of the SettingsForm
+        SettingsForm settingsForm = new SettingsForm();
+
+        // Create an instance of the AddAdjustForm
+        AddAdjustForm addAdjustForm = new AddAdjustForm();
+
+        // Create an instance of the VendorsProductsForm
+        VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
+
+        // Create an instance of the Dashboard Form
+        Dashboard dashboard = new Dashboard();
+
+
+
         // Initialize the database connection
         public Dashboard ()
         {
@@ -39,73 +56,57 @@ namespace SEApp
         // Implemented the dashboard buttons
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            // Create an instance of the SettingsForm
-            SettingsForm settingsForm = new SettingsForm();
-
             // Show the SettingsForm
             settingsForm.Show();
 
-            // Hide the current form (Dashboard form)
-            this.Hide();
+            // Close the current form (Dashboard form)
+            this.Close();
         }
 
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
-            // Create an instance of the AddAdjustForm
-            AddAdjustForm addAdjustForm = new AddAdjustForm();
-
             // Show the AddAdjustForm
             addAdjustForm.Show();
 
-            // Hide the current form (Dashboard form)
-            this.Hide();
+            // Close the current form (Dashboard form)
+            this.Close();
 
         }
 
         private void btnVendorsAndProducts_Click(object sender, EventArgs e)
         {
-            // Create an instance of the VendorsProductsForm
-            VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
-
             // Show the VendorsProductsForm
             vendorsProductsForm.Show();
 
-            // Hide the current form (Dashboard form)
-            this.Hide();
+            // Close the current form (Dashboard form)
+            this.Close();
 
         }
 
         // 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
-           // Create an instance of the Dashboard Form
-            Dashboard dashboard = new Dashboard();
-
+        
             // Show the Dashboard form
             dashboard.Show();
-           
-            this.Hide();
+
+            // Close the current form (Dashboard form)
+            this.Close();
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            // Create an instance of the LoginForm
-            LoginForm loginForm = new LoginForm();
-
+        
             // Show the LoginForm
             loginForm.Show();
 
-            // Close the current form (Dashboard Form)
-            //this.Close();
-
-            // Hide the current form (Dashboard Form)
-            this.Hide();
+            // Close the current form (Dashboard form)
+            this.Close();
 
         }
 
         // calling TotalNumberOfVendorsQuery from sqlQuery class
         private void btnTotalNumberOfVendors_Click(object sender, EventArgs e)
         {
-
             String query = sqlQuery.TotalNumberOfVendorsQuery;
             DataTable result = connectDB.ExecuteQuery(query);
 
@@ -123,15 +124,21 @@ namespace SEApp
                 message.AppendLine("Company Name: " + row["Company_Name"].ToString());
                 // Add other columns as needed
             }
-            MessageBox.Show("Active Vendors:\n\n" + message.ToString());
+            MessageBox.Show(message.ToString(), "Active Vendors:");
         }
         // calling HighestPerformingVendorsQuery from sqlQuery class
         private void btnHighestPerformingVendors_Click(object sender, EventArgs e)
         {
             string query = sqlQuery.HighestPerformingVendorsQuery;
             DataTable result = connectDB.ExecuteQuery(query);
-            MessageBox.Show("Highest Performing Vendor ID:\n\n" + result.Rows[0]["VendorID"].ToString() +
-                    "\nAverage Rating: " + result.Rows[0]["AverageRating"].ToString());
+            StringBuilder message = new StringBuilder();
+            foreach (DataRow row in result.Rows)
+            {
+                message.AppendLine($"Company Name: {row["Company_Name"]}\nTotal Products:{row["TotalProducts"]}\n");
+            }
+
+            MessageBox.Show(message.ToString(), "Top 3 Highest Performing Vendors");
+
         }
 
         private void btnLowestPerformingVendors_Click(object sender, EventArgs e)
