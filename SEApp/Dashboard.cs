@@ -18,26 +18,6 @@ namespace SEApp
         // Database connection object
         private Database connectDB;
 
-        /* Adam: 
-         * These Instances were causing the Dashboard not to load when running the program so 
-         * for now have commented them out and reverted back to the original way we set up the buttons
-        */
-
-        // Create an instance of the LoginForm
-        //LoginForm loginForm = new LoginForm();
-
-        // Create an instance of the SettingsForm
-        //SettingsForm settingsForm = new SettingsForm();
-
-        // Create an instance of the AddAdjustForm
-        //AddAdjustForm addAdjustForm = new AddAdjustForm();
-
-        // Create an instance of the VendorsProductsForm
-        //VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
-
-        // Create an instance of the Dashboard Form
-        //Dashboard dashboard = new Dashboard();
-
 
 
         // Initialize the database connection
@@ -57,8 +37,9 @@ namespace SEApp
         // Implemented the dashboard buttons
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            // Show the SettingsForm
+            // Create an instance of the SettingsForm
             SettingsForm settingsForm = new SettingsForm();
+
             settingsForm.Show();
 
             // Close the current form (Dashboard form)
@@ -67,8 +48,11 @@ namespace SEApp
 
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
-            // Show the AddAdjustForm
+            // Create an instance of the AddAdjustForm
             AddAdjustForm addAdjustForm = new AddAdjustForm();
+
+            // Show the AddAdjustForm
+           
             addAdjustForm.Show();
 
             // Close the current form (Dashboard form)
@@ -78,8 +62,12 @@ namespace SEApp
 
         private void btnVendorsAndProducts_Click(object sender, EventArgs e)
         {
-            // Show the VendorsProductsForm
+
+            // Create an instance of the VendorsProductsForm
             VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
+
+            // Show the VendorsProductsForm
+            
             vendorsProductsForm.Show();
 
             // Close the current form (Dashboard form)
@@ -91,18 +79,24 @@ namespace SEApp
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
 
-            // Show the Dashboard form
+
+            // Create an instance of the Dashboard Form
             Dashboard dashboard = new Dashboard();
+
+            // Show the Dashboard form
             dashboard.Show();
 
-            // Close the current form (Dashboard form)
-            this.Close();
+            // Hide the current form (Dashboard form)
+            this.Hide();
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
 
-            // Show the LoginForm
+
+            // Create an instance of the LoginForm
             LoginForm loginForm = new LoginForm();
+
+            // Show the LoginForm
             loginForm.Show();
 
             // Close the current form (Dashboard form)

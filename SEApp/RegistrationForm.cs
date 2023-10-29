@@ -15,8 +15,7 @@ namespace SEApp
         // Database connection object
         private Database connectDB;
 
-        // Create an instance of the login Form
-        LoginForm loginForm = new LoginForm();
+       
 
         // Constructor for the Registration Form
         public RegistrationForm()
@@ -73,6 +72,13 @@ namespace SEApp
         {
             if (ValidateInputs())
             {
+                bool userExists = connectDB.CheckUserExists(tbUsername.Text, tbEmail.Text);
+                if (userExists)
+                {
+                    MessageBox.Show("Username or email already exists. Please choose a different one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 string salt = GenerateRandomSalt();
                 string hashedPassword = HashPassword(tbPassword.Text, salt);
 
@@ -89,6 +95,8 @@ namespace SEApp
 
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Create an instance of the login Form
+                LoginForm loginForm = new LoginForm();
                 // Show the login Form
                 loginForm.Show();
 
@@ -152,7 +160,9 @@ namespace SEApp
 
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-          
+
+            // Create an instance of the login Form
+            LoginForm loginForm = new LoginForm();
 
             // Show the login Form
             loginForm.Show();

@@ -37,6 +37,22 @@ namespace SEApp
         }
 
 
+        public bool CheckUserExists(string username, string email)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM UserInformation WHERE Username=@username OR Email=@email", connectDB))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@email", email);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
 
 
         // Fixed issue in saveUserInfo method
