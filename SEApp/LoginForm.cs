@@ -94,7 +94,7 @@ namespace SEApp
                 if (response==true)
                 {
                     this.Hide();
-                    Dashboard open = new Dashboard();
+                    Dashboard open = new();
                     open.Show();
                 }
             }

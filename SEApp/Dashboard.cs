@@ -18,20 +18,25 @@ namespace SEApp
         // Database connection object
         private Database connectDB;
 
+        /* Adam: 
+         * These Instances were causing the Dashboard not to load when running the program so 
+         * for now have commented them out and reverted back to the original way we set up the buttons
+        */
+
         // Create an instance of the LoginForm
-        LoginForm loginForm = new LoginForm();
+        //LoginForm loginForm = new LoginForm();
 
         // Create an instance of the SettingsForm
-        SettingsForm settingsForm = new SettingsForm();
+        //SettingsForm settingsForm = new SettingsForm();
 
         // Create an instance of the AddAdjustForm
-        AddAdjustForm addAdjustForm = new AddAdjustForm();
+        //AddAdjustForm addAdjustForm = new AddAdjustForm();
 
         // Create an instance of the VendorsProductsForm
-        VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
+        //VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
 
         // Create an instance of the Dashboard Form
-        Dashboard dashboard = new Dashboard();
+        //Dashboard dashboard = new Dashboard();
 
 
 
@@ -43,10 +48,6 @@ namespace SEApp
             
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -57,6 +58,7 @@ namespace SEApp
         private void btnSetting_Click(object sender, EventArgs e)
         {
             // Show the SettingsForm
+            SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
 
             // Close the current form (Dashboard form)
@@ -66,6 +68,7 @@ namespace SEApp
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
             // Show the AddAdjustForm
+            AddAdjustForm addAdjustForm = new AddAdjustForm();
             addAdjustForm.Show();
 
             // Close the current form (Dashboard form)
@@ -76,6 +79,7 @@ namespace SEApp
         private void btnVendorsAndProducts_Click(object sender, EventArgs e)
         {
             // Show the VendorsProductsForm
+            VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
             vendorsProductsForm.Show();
 
             // Close the current form (Dashboard form)
@@ -86,8 +90,9 @@ namespace SEApp
         // 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
-        
+
             // Show the Dashboard form
+            Dashboard dashboard = new Dashboard();
             dashboard.Show();
 
             // Close the current form (Dashboard form)
@@ -95,8 +100,9 @@ namespace SEApp
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-        
+
             // Show the LoginForm
+            LoginForm loginForm = new LoginForm();
             loginForm.Show();
 
             // Close the current form (Dashboard form)
@@ -141,23 +147,56 @@ namespace SEApp
 
         }
 
+        // Calls lowest PeformingVendorsQuery from sqlQUery Class
         private void btnLowestPerformingVendors_Click(object sender, EventArgs e)
         {
+            string vendorQuery = sqlQuery.LowestPerformingVendorsQuery;
+            DataTable vendorResult = connectDB.ExecuteQuery(vendorQuery);
+            StringBuilder vendorList = new StringBuilder();
+            foreach(DataRow row in vendorResult.Rows)
+            {
+                vendorList.AppendLine($"\nCompany Name: {row["Company_Name"]}\nTotal Products:{ row["TotalProducts"]}\n");
+            }
+            MessageBox.Show(vendorList.ToString(), "3 lowest Performing Vendors");
 
         }
 
+        // Based of Highest Average Rating Product wise
         private void btnHighestPerformingProducts_Click(object sender, EventArgs e)
         {
+            StringBuilder vendorList = new StringBuilder();
+            string lowProduct = sqlQuery.HighestPerformingProductsQuery;
+
+            DataTable queryResult = connectDB.ExecuteQuery(lowProduct);
+            foreach (DataRow row in queryResult.Rows)
+            {
+                vendorList.AppendLine($"\nProductID: {row["ProductID"]}\nOverall Rating: {row["OverallRating"]}\n");
+
+            }
+
+            MessageBox.Show("Top 5 Rated Products\n" + vendorList.ToString());
 
         }
 
+        // Based of Lowest Average Rating Product wise
         private void btnLowestPerformingProducts_Click(object sender, EventArgs e)
         {
+            StringBuilder vendorList = new StringBuilder();
+            string lowProduct = sqlQuery.LowestPerformingProductsQuery;
 
+            DataTable queryResult = connectDB.ExecuteQuery(lowProduct);
+            foreach (DataRow row in queryResult.Rows)
+            {
+                vendorList.AppendLine($"\nProductID: { row["ProductID"]}\nOverall Rating: {row["OverallRating"]}\n");
+
+            }
+
+            MessageBox.Show("5 Worst Rated Products\n" + vendorList.ToString());
         }
 
         private void btnHighestPerformingMarketSectors_Click(object sender, EventArgs e)
         {
+           
 
         }
 
