@@ -181,7 +181,7 @@ namespace SEApp
             DataTable queryResult = connectDB.ExecuteQuery(lowProduct);
             foreach (DataRow row in queryResult.Rows)
             {
-                vendorList.AppendLine($"\nProductID: { row["ProductID"]}\nOverall Rating: {row["OverallRating"]}\n");
+                vendorList.AppendLine($"\nProductID: {row["ProductID"]}\nOverall Rating: {row["OverallRating"]}\n");
 
             }
 
