@@ -158,7 +158,7 @@
             this.btnLowestPerformingProducts.Name = "btnLowestPerformingProducts";
             this.btnLowestPerformingProducts.Size = new System.Drawing.Size(210, 137);
             this.btnLowestPerformingProducts.TabIndex = 11;
-            this.btnLowestPerformingProducts.Text = "Lowest Lowest Products";
+            this.btnLowestPerformingProducts.Text = "Lowest Rated Products";
             this.btnLowestPerformingProducts.UseVisualStyleBackColor = false;
             this.btnLowestPerformingProducts.Click += new System.EventHandler(this.btnLowestPerformingProducts_Click);
             // 
