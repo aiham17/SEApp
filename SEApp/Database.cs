@@ -21,12 +21,14 @@ namespace SEApp
 
 
         // Constructor initializes dbConnectstr to the DBConnectionString (stores it)
+        // Source Videos on Canvas: Software Engineering
         private Database()
         {
             dbConnectstr = Properties.Settings.Default.DBConnectionString;
         }
 
         // Get access to DB (Run the method to get connection string)
+        // Source Videos on Canvas: Software Engineering
         public static Database getConnectString()
         {
             if (dbGetString == null)
@@ -91,20 +93,20 @@ namespace SEApp
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
-
+            string readUser = sqlQuery.readUser;
 
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 bool readPassword;
-
-                using (SqlCommand readUsername = new SqlCommand("SELECT * FROM UserInformation WHERE Username=@user", connectDB))
+                
+                using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
                 {
 
                     readUsername.Parameters.AddWithValue("@user", user);
                     connectDB.Open();
-                    SqlDataReader readUser = readUsername.ExecuteReader();
+                    SqlDataReader readUsers = readUsername.ExecuteReader();
                     DataTable readResult = new DataTable();
-                    readResult.Load(readUser);
+                    readResult.Load(readUsers);
                     string place, testUser, testPass, testSalt;
 
                     int i;

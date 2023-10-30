@@ -11,6 +11,8 @@ namespace SEApp
 
     internal class sqlQuery
     {
+        public const string readUser = "SELECT * FROM UserInformation WHERE Username=@user";
+
         // Query to get total number of vendors
         public const string TotalNumberOfVendorsQuery = "SELECT COUNT(*) AS TotalVendors FROM VendorInfo";
 
