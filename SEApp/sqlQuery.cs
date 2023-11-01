@@ -24,13 +24,13 @@ namespace SEApp
         public const string HighestPerformingVendorsQuery = "SELECT TOP 3 v.Company_Name,(SELECT COUNT(*) FROM ProductInfo p WHERE p.VendorID = v.VendorID) AS TotalProducts FROM VendorInfo v ORDER BY TotalProducts DESC";
 
         // Query to get lowest performing vendors
-        public const string LowestPerformingVendorsQuery = "SELECT TOP 3 v.Company_Name,(SELECT COUNT(*) FROM ProductInfo p WHERE p.VendorID = v.VendorID) AS TotalProducts FROM VendorInfo v ORDER BY TotalProducts ASC";
+        public const string LowestPerformingVendorsQuery = "SELECT TOP 5 v.Company_Name,(SELECT COUNT(*) FROM ProductInfo p WHERE p.VendorID = v.VendorID) AS TotalProducts FROM VendorInfo v ORDER BY TotalProducts ASC";
 
         // Query to get Highest Rated products
-        public const string HighestPerformingProductsQuery = "SELECT TOP 5 ProductID, AVG(Rating) AS OverallRating FROM Review GROUP BY ProductID Order BY OverallRating DESC";
+        public const string HighestPerformingProductsQuery = "SELECT TOP 5 p.Software_Name, AVG(r.Rating) AS OverallRating FROM ProductInfo p JOIN Review r ON p.ProductID = r.ProductID GROUP BY p.Software_Name ORDER BY OverallRating DESC";
 
         // Query to get Lowest Rated products
-        public const string LowestPerformingProductsQuery = "SELECT TOP 5 ProductID, AVG(Rating) AS OverallRating FROM Review GROUP BY ProductID Order BY OverallRating ASC";
+        public const string LowestPerformingProductsQuery = "SELECT TOP 5 p.Software_Name , MIN(r.Rating) AS LowestRating FROM ProductInfo p JOIN Review r ON p.ProductID = r.ProductID GROUP BY p.Software_Name ORDER BY LowestRating ";
 
         // SELECT TOP 5 VendorID, AVG(Rating) AS AverageRating FROM Review GROUP BY VendorID Order BY AverageRating ASC
         // SELECT TOP 3 ProductInfo.Software_Name, (SELECT COUNT(*) FROM ProductInfo p WHERE p.ProductID=v.ProductID) AS AverageRating FROM Review  GROUP BY ProductID Order BY AverageRating ASC

@@ -26,7 +26,14 @@ namespace SEApp
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
-            
+
+            // Call the chart functions here to display them automatically
+            chActiveVendors_Click(null, null);
+            chHPVendors_Click(null, null);
+            chLPVendors_Click(null, null);
+            chHighestProduct_Click(null, null);
+            chLowestProduct_Click(null, null);
+
         }
 
 
@@ -43,8 +50,8 @@ namespace SEApp
 
             settingsForm.Show();
 
-            // Close the current form (Dashboard form)
-            this.Close();
+            // Hide the current form (Dashboard form)
+            this.Hide();
         }
 
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
@@ -56,8 +63,8 @@ namespace SEApp
            
             addAdjustForm.Show();
 
-            // Close the current form (Dashboard form)
-            this.Close();
+            // Hide the current form (Dashboard form)
+            this.Hide();
 
         }
 
@@ -71,8 +78,8 @@ namespace SEApp
             
             vendorsProductsForm.Show();
 
-            // Close the current form (Dashboard form)
-            this.Close();
+            // Hide the current form (Dashboard form)
+            this.Hide();
 
         }
 
@@ -100,10 +107,11 @@ namespace SEApp
             // Show the LoginForm
             loginForm.Show();
 
-            // Close the current form (Dashboard form)
-            this.Close();
+            // Hide the current form (Dashboard form)
+            this.Hide();
 
         }
+       
 
         // calling TotalNumberOfVendorsQuery from sqlQuery class
         private void btnTotalNumberOfVendors_Click(object sender, EventArgs e)
@@ -149,7 +157,7 @@ namespace SEApp
             chActiveVendors.Show();
 
         }
-        // Added Bar chart and Implemented it to display the HighestPerformingVendorsQuery
+        // Added Column chart and Implemented it to display the HighestPerformingVendorsQuery
         private void chHPVendors_Click(object sender, EventArgs e)
         {
 
@@ -173,6 +181,136 @@ namespace SEApp
             }
         }
 
-        
+        // Added Bar chart and Implemented it to display the LowestPerformingVendorsQuery
+        private void chLPVendors_Click(object sender, EventArgs e)
+        {
+            string vendorQuery = sqlQuery.LowestPerformingVendorsQuery;
+            DataTable vendorResult = connectDB.ExecuteQuery(vendorQuery);
+
+            // Clear any existing data in the chart
+            chLPVendors.Series.Clear();
+
+
+            // Create a new series for the chart
+            Series series = new Series();
+
+            // Set the chart type (Bar)
+            series.ChartType = SeriesChartType.Bar;
+
+            // Add data points to the series
+            foreach (DataRow row in vendorResult.Rows)
+            {
+                string companyName = row["Company_Name"].ToString();
+                int totalProducts = Convert.ToInt32(row["TotalProducts"]);
+
+                series.Points.AddXY(companyName, totalProducts);
+            }
+
+            // Add the series to the chart
+            chLPVendors.Series.Add(series);
+
+            if (chLPVendors.Series.Count > 0)
+            {
+                chLPVendors.Series[0].IsVisibleInLegend = false;
+            }
+
+
+
+            // Set the minimum and maximum values for the Y-axis
+            chLPVendors.ChartAreas[0].AxisY.Minimum = 0;
+            chLPVendors.ChartAreas[0].AxisY.Maximum = 5;
+
+            chLPVendors.Titles.Add("Lowest Performing Vendors");
+            // Set the title for the Y-axis
+            chLPVendors.ChartAreas[0].AxisY.Title = "Total Products";
+
+        }
+
+        // Added Spline chart and Implemented it to display theHighestPerformingProductsQuery
+        private void chHighestProduct_Click(object sender, EventArgs e)
+        {
+            string query = sqlQuery.HighestPerformingProductsQuery;
+            DataTable result = connectDB.ExecuteQuery(query);
+
+            // Clear any existing data in the chart
+            chHighestProduct.Series.Clear();
+
+            // Create a new series for the chart
+            Series series = new Series();
+            series.ChartType = SeriesChartType.Spline;
+
+            // Add data to the series
+            foreach (DataRow row in result.Rows)
+            {
+                string softwareName = row["Software_Name"].ToString();
+                double overallRating = Convert.ToDouble(row["OverallRating"]);
+
+                // Add a data point to the series
+                DataPoint dataPoint = new DataPoint();
+                dataPoint.SetValueY(overallRating);
+                dataPoint.AxisLabel = softwareName;
+                series.Points.Add(dataPoint);
+            }
+
+            // Add the series to the chart
+            chHighestProduct.Series.Add(series);
+
+            if (chHighestProduct.Series.Count > 0)
+            {
+                chHighestProduct.Series[0].IsVisibleInLegend = false;
+            }
+
+            // Set chart title and axis labels as needed
+            chHighestProduct.Titles.Add("Highest Performing Products");
+            chHighestProduct.ChartAreas[0].AxisX.Title = "Software Name";
+            chHighestProduct.ChartAreas[0].AxisY.Title = "Overall Rating";
+        }
+
+        // Added Doughnut chart and Implemented it to display the LowestPerformingProductsQuery
+        private void chLowestProduct_Click(object sender, EventArgs e)
+        {
+            string lowestRatingQuery = sqlQuery.LowestPerformingProductsQuery;
+            DataTable queryResult = connectDB.ExecuteQuery(lowestRatingQuery);
+
+            // Clear any existing data in the chart
+            chLowestProduct.Series.Clear();
+            chLowestProduct.Titles.Clear();
+            chLowestProduct.Legends.Clear();
+
+            // Create a new series
+            Series series = new Series("LowestRatedProducts");
+            series.ChartType = SeriesChartType.Doughnut;
+
+            // Add the series to the chart
+            chLowestProduct.Series.Add(series);
+
+            // Create a legend
+            Legend legend = new Legend("Legend");
+            legend.Docking = Docking.Bottom;
+            chLowestProduct.Legends.Add(legend);
+
+            // Iterate through the query result and add data points to the series
+            foreach (DataRow row in queryResult.Rows)
+            {
+                string productName = row["Software_Name"].ToString();
+                double lowestRating = Convert.ToDouble(row["LowestRating"]);
+
+                DataPoint dataPoint = new DataPoint();
+                dataPoint.SetValueY(lowestRating);
+
+                // Set the data point label to include rating
+                dataPoint.Label = $"{lowestRating:F1}";
+
+                // Add the data point to the series
+                series.Points.Add(dataPoint);
+
+                // Add the product name to the legend
+                series.Points[series.Points.Count - 1].LegendText = productName;
+            }
+
+            // Set chart title
+            chLowestProduct.Titles.Add("Lowest Rated Products");
+        }
     }
+
 }
