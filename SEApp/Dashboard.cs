@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SEApp
 {
@@ -113,97 +114,65 @@ namespace SEApp
             MessageBox.Show($"Total number of vendors: {result.Rows[0]["TotalVendors"]}");
 
         }
-        // calling ActiveVendorsQuery from sqlQuery class
-        private void btnActiveVendors_Click(object sender, EventArgs e)
+        // Added pie chart and Implemented it to display the ActiveVendorsQuery
+        private void chActiveVendors_Click(object sender, EventArgs e)
         {
             string query = sqlQuery.ActiveVendorsQuery;
             DataTable result = connectDB.ExecuteQuery(query);
-            StringBuilder message = new StringBuilder();
+
+            // Clear any existing data in the chart
+            chActiveVendors.Series.Clear();
+
+            // Add a new series to the chart
+            Series series = new Series("ActiveVendors");
+            series.ChartType = SeriesChartType.Pie;
+
+            // Add data points to the series
             foreach (DataRow row in result.Rows)
             {
-                message.AppendLine("Company Name: " + row["Company_Name"].ToString());
-                // Add other columns as needed
+                string companyName = row["Company_Name"].ToString();
+                series.Points.AddXY(companyName, 1);
             }
-            MessageBox.Show(message.ToString(), "Active Vendors:");
+
+            // Set label properties
+            series["PieLabelStyle"] = "Disabled"; // Disable regular pie labels
+            series.IsValueShownAsLabel = true; // Show data point values as labels inside the slices
+
+            // Add the series to the chart
+            chActiveVendors.Series.Add(series);
+
+            // Set some chart properties if needed
+            chActiveVendors.Titles.Add("Active Vendors");
+            chActiveVendors.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+            // Show the chart
+            chActiveVendors.Show();
+
         }
-        // calling HighestPerformingVendorsQuery from sqlQuery class
-        private void btnHighestPerformingVendors_Click(object sender, EventArgs e)
+        // Added Bar chart and Implemented it to display the HighestPerformingVendorsQuery
+        private void chHPVendors_Click(object sender, EventArgs e)
         {
+
             string query = sqlQuery.HighestPerformingVendorsQuery;
             DataTable result = connectDB.ExecuteQuery(query);
-            StringBuilder message = new StringBuilder();
+
+            chHPVendors.Series.Clear();
+            chHPVendors.ChartAreas[0].AxisX.Title = "Company Name";
+            chHPVendors.ChartAreas[0].AxisY.Title = "Total Products";
+
+            // Set the chart title
+            chHPVendors.Titles.Add("Highest Performing Vendors");
+
             foreach (DataRow row in result.Rows)
             {
-                message.AppendLine($"Company Name: {row["Company_Name"]}\nTotal Products:{row["TotalProducts"]}\n");
+                string companyName = row["Company_Name"].ToString();
+                int totalProducts = Convert.ToInt32(row["TotalProducts"]);
+
+                chHPVendors.Series.Add(companyName);
+                chHPVendors.Series[companyName].Points.AddXY(companyName, totalProducts);
             }
-
-            MessageBox.Show(message.ToString(), "Top 3 Highest Performing Vendors");
-
         }
 
-        // Calls lowest PeformingVendorsQuery from sqlQUery Class
-        private void btnLowestPerformingVendors_Click(object sender, EventArgs e)
-        {
-            string vendorQuery = sqlQuery.LowestPerformingVendorsQuery;
-            DataTable vendorResult = connectDB.ExecuteQuery(vendorQuery);
-            StringBuilder vendorList = new StringBuilder();
-            foreach(DataRow row in vendorResult.Rows)
-            {
-                vendorList.AppendLine($"\nCompany Name: {row["Company_Name"]}\nTotal Products:{ row["TotalProducts"]}\n");
-            }
-            MessageBox.Show(vendorList.ToString(), "3 lowest Performing Vendors");
-
-        }
-
-        // Based of Highest Average Rating Product wise
-        private void btnHighestPerformingProducts_Click(object sender, EventArgs e)
-        {
-            StringBuilder vendorList = new StringBuilder();
-            string lowProduct = sqlQuery.HighestPerformingProductsQuery;
-
-            DataTable queryResult = connectDB.ExecuteQuery(lowProduct);
-            foreach (DataRow row in queryResult.Rows)
-            {
-                vendorList.AppendLine($"\nProductID: {row["ProductID"]}\nOverall Rating: {row["OverallRating"]}\n");
-
-            }
-
-            MessageBox.Show("Top 5 Rated Products\n" + vendorList.ToString());
-
-        }
-
-        // Based of Lowest Average Rating Product wise
-        private void btnLowestPerformingProducts_Click(object sender, EventArgs e)
-        {
-            StringBuilder vendorList = new StringBuilder();
-            string lowProduct = sqlQuery.LowestPerformingProductsQuery;
-
-            DataTable queryResult = connectDB.ExecuteQuery(lowProduct);
-            foreach (DataRow row in queryResult.Rows)
-            {
-                vendorList.AppendLine($"\nProductID: {row["ProductID"]}\nOverall Rating: {row["OverallRating"]}\n");
-
-            }
-
-            MessageBox.Show("5 Worst Rated Products\n" + vendorList.ToString());
-        }
-
-        private void btnHighestPerformingMarketSectors_Click(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void btnNumbersOfRequests_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLowestPerformingMarketSectors_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
+        
     }
 }
