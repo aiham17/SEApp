@@ -173,5 +173,16 @@ namespace SEApp
             return result;
 
         }
+
+
+        public DataTable getVendorProducts()
+        {
+            DataTable vendorProduct = ExecuteQuery(sqlQuery.getVendorProductData);
+
+            return vendorProduct;
+
+
+        }
     }
 }
+

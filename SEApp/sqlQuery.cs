@@ -12,6 +12,7 @@ namespace SEApp
     internal class sqlQuery
     {
         public const string readUser = "SELECT * FROM UserInformation WHERE Username=@user";
+        public const string addUser = "INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)";
 
         // Query to get total number of vendors
         public const string TotalNumberOfVendorsQuery = "SELECT COUNT(*) AS TotalVendors FROM VendorInfo";
@@ -42,6 +43,8 @@ namespace SEApp
 
         // Query to get number of requests
         public const string NumberOfRequestsQuery = "";
+
+        public const string getVendorProductData = "SELECT * FROM VendorInfo RIGHT JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID ORDER BY VendorInfo.VendorID ";
     }
 
 }

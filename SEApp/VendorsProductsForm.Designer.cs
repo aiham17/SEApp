@@ -36,37 +36,25 @@
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnAddOrAdjustVendors = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vendorProducts = new SEApp.VendorProducts();
+            this.dgvVendorProduct = new System.Windows.Forms.DataGridView();
+            this.vendorInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.vendorProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorProducts = new SEApp.VendorProducts();
             this.productInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productInfoTableAdapter = new SEApp.VendorProductsTableAdapters.ProductInfoTableAdapter();
             this.vendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vendorInfoTableAdapter = new SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter();
             this.vendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.companyWebsiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.establishedYearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contactTelephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noEmployeesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastReviewedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastDemoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.additionalInfoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.internalProServicesDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorProductsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -155,41 +143,31 @@
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // dgvVendorProduct
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.vendorIDDataGridViewTextBoxColumn,
-            this.companyNameDataGridViewTextBoxColumn,
-            this.companyWebsiteDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.establishedYearDataGridViewTextBoxColumn,
-            this.contactTelephoneDataGridViewTextBoxColumn,
-            this.addressDataGridViewTextBoxColumn,
-            this.noEmployeesDataGridViewTextBoxColumn,
-            this.lastReviewedDataGridViewTextBoxColumn,
-            this.lastDemoDataGridViewTextBoxColumn,
-            this.additionalInfoDataGridViewTextBoxColumn,
-            this.internalProServicesDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.vendorInfoBindingSource2;
-            this.dataGridView1.Location = new System.Drawing.Point(255, 159);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(917, 426);
-            this.dataGridView1.TabIndex = 33;
+            this.dgvVendorProduct.AllowUserToOrderColumns = true;
+            this.dgvVendorProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVendorProduct.Location = new System.Drawing.Point(255, 159);
+            this.dgvVendorProduct.Name = "dgvVendorProduct";
+            this.dgvVendorProduct.RowHeadersWidth = 62;
+            this.dgvVendorProduct.RowTemplate.Height = 28;
+            this.dgvVendorProduct.Size = new System.Drawing.Size(917, 426);
+            this.dgvVendorProduct.TabIndex = 33;
             // 
-            // vendorProducts
+            // vendorInfoBindingSource2
             // 
-            this.vendorProducts.DataSetName = "VendorProducts";
-            this.vendorProducts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.vendorInfoBindingSource2.DataMember = "VendorInfo";
+            this.vendorInfoBindingSource2.DataSource = this.vendorProductsBindingSource;
             // 
             // vendorProductsBindingSource
             // 
             this.vendorProductsBindingSource.DataSource = this.vendorProducts;
             this.vendorProductsBindingSource.Position = 0;
+            // 
+            // vendorProducts
+            // 
+            this.vendorProducts.DataSetName = "VendorProducts";
+            this.vendorProducts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productInfoBindingSource
             // 
@@ -219,114 +197,12 @@
             this.productInfoBindingSource1.DataMember = "ProductInfo";
             this.productInfoBindingSource1.DataSource = this.vendorProductsBindingSource;
             // 
-            // vendorInfoBindingSource2
-            // 
-            this.vendorInfoBindingSource2.DataMember = "VendorInfo";
-            this.vendorInfoBindingSource2.DataSource = this.vendorProductsBindingSource;
-            // 
-            // vendorIDDataGridViewTextBoxColumn
-            // 
-            this.vendorIDDataGridViewTextBoxColumn.DataPropertyName = "VendorID";
-            this.vendorIDDataGridViewTextBoxColumn.HeaderText = "VendorID";
-            this.vendorIDDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.vendorIDDataGridViewTextBoxColumn.Name = "vendorIDDataGridViewTextBoxColumn";
-            this.vendorIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vendorIDDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // companyNameDataGridViewTextBoxColumn
-            // 
-            this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "Company_Name";
-            this.companyNameDataGridViewTextBoxColumn.HeaderText = "Company_Name";
-            this.companyNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
-            this.companyNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // companyWebsiteDataGridViewTextBoxColumn
-            // 
-            this.companyWebsiteDataGridViewTextBoxColumn.DataPropertyName = "Company_Website";
-            this.companyWebsiteDataGridViewTextBoxColumn.HeaderText = "Company_Website";
-            this.companyWebsiteDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.companyWebsiteDataGridViewTextBoxColumn.Name = "companyWebsiteDataGridViewTextBoxColumn";
-            this.companyWebsiteDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // establishedYearDataGridViewTextBoxColumn
-            // 
-            this.establishedYearDataGridViewTextBoxColumn.DataPropertyName = "Established_Year";
-            this.establishedYearDataGridViewTextBoxColumn.HeaderText = "Established_Year";
-            this.establishedYearDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.establishedYearDataGridViewTextBoxColumn.Name = "establishedYearDataGridViewTextBoxColumn";
-            this.establishedYearDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // contactTelephoneDataGridViewTextBoxColumn
-            // 
-            this.contactTelephoneDataGridViewTextBoxColumn.DataPropertyName = "Contact_Telephone";
-            this.contactTelephoneDataGridViewTextBoxColumn.HeaderText = "Contact_Telephone";
-            this.contactTelephoneDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.contactTelephoneDataGridViewTextBoxColumn.Name = "contactTelephoneDataGridViewTextBoxColumn";
-            this.contactTelephoneDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            this.addressDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // noEmployeesDataGridViewTextBoxColumn
-            // 
-            this.noEmployeesDataGridViewTextBoxColumn.DataPropertyName = "No_Employees";
-            this.noEmployeesDataGridViewTextBoxColumn.HeaderText = "No_Employees";
-            this.noEmployeesDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.noEmployeesDataGridViewTextBoxColumn.Name = "noEmployeesDataGridViewTextBoxColumn";
-            this.noEmployeesDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastReviewedDataGridViewTextBoxColumn
-            // 
-            this.lastReviewedDataGridViewTextBoxColumn.DataPropertyName = "Last_Reviewed";
-            this.lastReviewedDataGridViewTextBoxColumn.HeaderText = "Last_Reviewed";
-            this.lastReviewedDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lastReviewedDataGridViewTextBoxColumn.Name = "lastReviewedDataGridViewTextBoxColumn";
-            this.lastReviewedDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastDemoDataGridViewTextBoxColumn
-            // 
-            this.lastDemoDataGridViewTextBoxColumn.DataPropertyName = "Last_Demo";
-            this.lastDemoDataGridViewTextBoxColumn.HeaderText = "Last_Demo";
-            this.lastDemoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.lastDemoDataGridViewTextBoxColumn.Name = "lastDemoDataGridViewTextBoxColumn";
-            this.lastDemoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // additionalInfoDataGridViewTextBoxColumn
-            // 
-            this.additionalInfoDataGridViewTextBoxColumn.DataPropertyName = "Additional_Info";
-            this.additionalInfoDataGridViewTextBoxColumn.HeaderText = "Additional_Info";
-            this.additionalInfoDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.additionalInfoDataGridViewTextBoxColumn.Name = "additionalInfoDataGridViewTextBoxColumn";
-            this.additionalInfoDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // internalProServicesDataGridViewCheckBoxColumn
-            // 
-            this.internalProServicesDataGridViewCheckBoxColumn.DataPropertyName = "Internal_Pro_Services";
-            this.internalProServicesDataGridViewCheckBoxColumn.HeaderText = "Internal_Pro_Services";
-            this.internalProServicesDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.internalProServicesDataGridViewCheckBoxColumn.Name = "internalProServicesDataGridViewCheckBoxColumn";
-            this.internalProServicesDataGridViewCheckBoxColumn.Width = 150;
-            // 
             // VendorsProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvVendorProduct);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnDashBoard);
             this.Controls.Add(this.btnVendorsAndProducts);
@@ -338,14 +214,14 @@
             this.Text = "VendorsProductsForm";
             this.Load += new System.EventHandler(this.VendorsProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorProductsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -358,25 +234,13 @@
         private Button btnSetting;
         private Button btnAddOrAdjustVendors;
         private PictureBox pictureBox1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvVendorProduct;
         private BindingSource vendorProductsBindingSource;
         private VendorProducts vendorProducts;
         private BindingSource productInfoBindingSource;
         private VendorProductsTableAdapters.ProductInfoTableAdapter productInfoTableAdapter;
         private BindingSource vendorInfoBindingSource;
         private VendorProductsTableAdapters.VendorInfoTableAdapter vendorInfoTableAdapter;
-        private DataGridViewTextBoxColumn vendorIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn companyWebsiteDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn establishedYearDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn contactTelephoneDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn noEmployeesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastReviewedDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastDemoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn additionalInfoDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn internalProServicesDataGridViewCheckBoxColumn;
         private BindingSource vendorInfoBindingSource2;
         private BindingSource vendorInfoBindingSource1;
         private BindingSource productInfoBindingSource1;

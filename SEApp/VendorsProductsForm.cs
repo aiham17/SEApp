@@ -1,11 +1,15 @@
-﻿namespace SEApp
+﻿using System.Data;
+using System.Data.SqlClient;
+namespace SEApp
 {
     public partial class VendorsProductsForm : Form
     {
-       
+        private Database connectDB;
+
         public VendorsProductsForm()
         {
             InitializeComponent();
+            connectDB = Database.getConnectString();
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
@@ -56,6 +60,9 @@
 
         private void VendorsProductsForm_Load(object sender, EventArgs e)
         {
+            DataTable vendorProData = connectDB.getVendorProducts();
+            vendorProData.Columns.Remove("VendorID1");
+            dgvVendorProduct.DataSource = vendorProData;
             // TODO: This line of code loads data into the 'vendorProducts.VendorInfo' table. You can move, or remove it, as needed.
             this.vendorInfoTableAdapter.Fill(this.vendorProducts.VendorInfo);
             // TODO: This line of code loads data into the 'vendorProducts.ProductInfo' table. You can move, or remove it, as needed.

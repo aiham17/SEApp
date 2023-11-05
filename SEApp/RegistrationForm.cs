@@ -36,33 +36,11 @@ namespace SEApp
 
         }
 
-       
-        // This method generates a random value (salt) for each user.
-        // It's crucial for password security because it ensures that even if two users have the same password,
-        // their hashed passwords will be different.This helps prevent attacks like rainbow table attacks.
-        private string GenerateRandomSalt()
-        {
-            byte[] saltBytes = new byte[16];
-            using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
-            {
-                rngCsp.GetBytes(saltBytes);
-            }
-            return BitConverter.ToString(saltBytes).Replace("-", "").ToLower();
-        }
+        
 
-        // This method takes a user's password and a salt, then uses the SHA-256 algorithm to securely hash the password.
-        // The resulting hash is stored in the database. Hashing ensures that even if the database is compromised,
-        // attackers won't have direct access to user passwords.
-        // The combination of the user's unique salt and their password ensures that the resulting hash is unique to that user.
-        private string HashPassword(string password, string salt)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] saltedPasswordBytes = Encoding.UTF8.GetBytes(password + salt);
-                byte[] hashedBytes = sha256.ComputeHash(saltedPasswordBytes);
-                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-            }
-        }
+        
+       
+       
 
         // Implement secure password hashing and salting in user registration button
         // This method now introduces password security measures by generating a random salt
@@ -79,8 +57,11 @@ namespace SEApp
                     return;
                 }
 
-                string salt = GenerateRandomSalt();
-                string hashedPassword = HashPassword(tbPassword.Text, salt);
+                EncryptDecrypt generatePassword = new EncryptDecrypt();
+                string salt = generatePassword.GenerateRandomSalt();
+                string hashedPassword = generatePassword.HashPassword(tbPassword.Text, salt);
+                //string salt = GenerateRandomSalt();
+               // string hashedPassword = HashPassword(tbPassword.Text, salt);
 
                 userInfo.userRegister user = new userInfo.userRegister();
                 user.userName = tbUsername.Text;
@@ -90,8 +71,10 @@ namespace SEApp
                 user.lastName = tbLname.Text;
                 user.email = tbEmail.Text;
                 user.companyRole = cmbRole.SelectedIndex;
+                string addUser = sqlQuery.addUser;
+                connectDB.saveUserInfo(addUser, user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
 
-                connectDB.saveUserInfo("INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)", user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
+                
 
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
