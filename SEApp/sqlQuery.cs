@@ -13,7 +13,7 @@ namespace SEApp
     {
         public const string readUser = "SELECT * FROM UserInformation WHERE Username=@user";
         public const string addUser = "INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)";
-
+        public const string checkUser = "SELECT COUNT(*) FROM UserInformation WHERE Username=@username OR Email=@email";
         // Query to get total number of vendors
         public const string TotalNumberOfVendorsQuery = "SELECT COUNT(*) AS TotalVendors FROM VendorInfo";
 
@@ -45,6 +45,16 @@ namespace SEApp
         public const string NumberOfRequestsQuery = "";
 
         public const string getVendorProductData = "SELECT * FROM VendorInfo RIGHT JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID ORDER BY VendorInfo.VendorID ";
+        public const string activeVendorData = "SELECT * Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Last_Reviewed DESC";
+
+        // Need to look into adding company name into this sql query also
+        public const string vendorProRatings = "SELECT p.Software_Name, AVG(r.Rating) AS Average_Rating FROM ProductInfo p JOIN Review r ON p.ProductID = r.ProductID  GROUP BY p.Software_Name ORDER BY Average_Rating DESC";
+        public const string allVendors = "SELECT * FROM VendorInfo";
+        public const string allProducts = "SELECT * FROM ProductInfo";
+        public const string basedCloud = "";
+
+        //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
+
     }
 
 }

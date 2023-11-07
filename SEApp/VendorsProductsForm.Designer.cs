@@ -46,6 +46,12 @@
             this.vendorInfoTableAdapter = new SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter();
             this.vendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnActiveVendors = new System.Windows.Forms.Button();
+            this.btnRatings = new System.Windows.Forms.Button();
+            this.btnRevertData = new System.Windows.Forms.Button();
+            this.btnVendor = new System.Windows.Forms.Button();
+            this.btnProduct = new System.Windows.Forms.Button();
+            this.cmbCloud = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
@@ -197,11 +203,82 @@
             this.productInfoBindingSource1.DataMember = "ProductInfo";
             this.productInfoBindingSource1.DataSource = this.vendorProductsBindingSource;
             // 
+            // btnActiveVendors
+            // 
+            this.btnActiveVendors.Location = new System.Drawing.Point(255, 118);
+            this.btnActiveVendors.Name = "btnActiveVendors";
+            this.btnActiveVendors.Size = new System.Drawing.Size(137, 35);
+            this.btnActiveVendors.TabIndex = 34;
+            this.btnActiveVendors.Text = "Active Vendors";
+            this.btnActiveVendors.UseVisualStyleBackColor = true;
+            this.btnActiveVendors.Click += new System.EventHandler(this.btnActiveVendors_Click);
+            // 
+            // btnRatings
+            // 
+            this.btnRatings.Location = new System.Drawing.Point(398, 118);
+            this.btnRatings.Name = "btnRatings";
+            this.btnRatings.Size = new System.Drawing.Size(154, 35);
+            this.btnRatings.TabIndex = 35;
+            this.btnRatings.Text = "Software Ratings";
+            this.btnRatings.UseVisualStyleBackColor = true;
+            this.btnRatings.Click += new System.EventHandler(this.btnRatings_Click);
+            // 
+            // btnRevertData
+            // 
+            this.btnRevertData.Location = new System.Drawing.Point(255, 591);
+            this.btnRevertData.Name = "btnRevertData";
+            this.btnRevertData.Size = new System.Drawing.Size(137, 35);
+            this.btnRevertData.TabIndex = 36;
+            this.btnRevertData.Text = "Original";
+            this.btnRevertData.UseVisualStyleBackColor = true;
+            this.btnRevertData.Click += new System.EventHandler(this.btnRevertData_Click);
+            // 
+            // btnVendor
+            // 
+            this.btnVendor.Location = new System.Drawing.Point(398, 591);
+            this.btnVendor.Name = "btnVendor";
+            this.btnVendor.Size = new System.Drawing.Size(137, 35);
+            this.btnVendor.TabIndex = 37;
+            this.btnVendor.Text = "Vendor Data";
+            this.btnVendor.UseVisualStyleBackColor = true;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
+            // 
+            // btnProduct
+            // 
+            this.btnProduct.Location = new System.Drawing.Point(541, 591);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(136, 34);
+            this.btnProduct.TabIndex = 38;
+            this.btnProduct.Text = "Product Data";
+            this.btnProduct.UseVisualStyleBackColor = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
+            // 
+            // cmbCloud
+            // 
+            this.cmbCloud.FormattingEnabled = true;
+            this.cmbCloud.Items.AddRange(new object[] {
+            "Based",
+            "Native",
+            "Enabled",
+            "None"});
+            this.cmbCloud.Location = new System.Drawing.Point(558, 122);
+            this.cmbCloud.Name = "cmbCloud";
+            this.cmbCloud.Size = new System.Drawing.Size(145, 28);
+            this.cmbCloud.TabIndex = 39;
+            this.cmbCloud.Text = "Cloud Services";
+            this.cmbCloud.SelectedIndexChanged += new System.EventHandler(this.cmbCloud_SelectedIndexChanged);
+            // 
             // VendorsProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.cmbCloud);
+            this.Controls.Add(this.btnProduct);
+            this.Controls.Add(this.btnVendor);
+            this.Controls.Add(this.btnRevertData);
+            this.Controls.Add(this.btnRatings);
+            this.Controls.Add(this.btnActiveVendors);
             this.Controls.Add(this.dgvVendorProduct);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnDashBoard);
@@ -244,5 +321,11 @@
         private BindingSource vendorInfoBindingSource2;
         private BindingSource vendorInfoBindingSource1;
         private BindingSource productInfoBindingSource1;
+        private Button btnActiveVendors;
+        private Button btnRatings;
+        private Button btnRevertData;
+        private Button btnVendor;
+        private Button btnProduct;
+        private ComboBox cmbCloud;
     }
 }

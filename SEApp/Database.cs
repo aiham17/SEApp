@@ -44,7 +44,8 @@ namespace SEApp
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM UserInformation WHERE Username=@username OR Email=@email", connectDB))
+                string checkUser = sqlQuery.checkUser;
+                using (SqlCommand command = new SqlCommand(checkUser, connectDB))
                 {
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@email", email);
@@ -175,9 +176,9 @@ namespace SEApp
         }
 
 
-        public DataTable getVendorProducts()
+        public DataTable getVendorProducts(string sqlQuery)
         {
-            DataTable vendorProduct = ExecuteQuery(sqlQuery.getVendorProductData);
+            DataTable vendorProduct = ExecuteQuery(sqlQuery);
 
             return vendorProduct;
 
