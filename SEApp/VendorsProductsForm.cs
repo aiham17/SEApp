@@ -98,6 +98,7 @@ namespace SEApp
 
         private void btnVendor_Click(object sender, EventArgs e)
         {
+            
             vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
             dgvVendorProduct.DataSource = vendorProData;
             dgvVendorProduct.ReadOnly = true;
@@ -105,6 +106,7 @@ namespace SEApp
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
+            
             vendorProData = connectDB.getVendorProducts(sqlQuery.allProducts);
             dgvVendorProduct.DataSource = vendorProData;
             dgvVendorProduct.ReadOnly = true;
@@ -118,20 +120,31 @@ namespace SEApp
                 {
                     //Based Cloud
                     case 0:
-                        //vendorProData = connectDB.getVendorProducts();
+
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.basedCloud);
+
 
                         break;
                     //Native Cloud
                     case 1:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.nativeCloud);
                         break;
                     //Enabled Cloud
                     case 2:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.enabledCloud);
                         break;
                     // None
                     case 3:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.noCloud);
+                        break;
+                    default:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
                         break;
 
+
                 }
+                dgvVendorProduct.DataSource = vendorProData;
+                dgvVendorProduct.ReadOnly = true;
             }
             catch (Exception ex)
             {

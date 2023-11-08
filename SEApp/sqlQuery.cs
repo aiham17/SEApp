@@ -51,8 +51,10 @@ namespace SEApp
         public const string vendorProRatings = "SELECT p.Software_Name, AVG(r.Rating) AS Average_Rating FROM ProductInfo p JOIN Review r ON p.ProductID = r.ProductID  GROUP BY p.Software_Name ORDER BY Average_Rating DESC";
         public const string allVendors = "SELECT * FROM VendorInfo";
         public const string allProducts = "SELECT * FROM ProductInfo";
-        public const string basedCloud = "";
-
+        public const string basedCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Based'";
+        public const string nativeCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Native'";
+        public const string enabledCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Enabled'";
+        public const string noCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type IS NULL";
         //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
 
     }

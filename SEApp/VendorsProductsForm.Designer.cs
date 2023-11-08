@@ -38,12 +38,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvVendorProduct = new System.Windows.Forms.DataGridView();
             this.vendorInfoBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorProducts = new SEApp.VendorProducts();
             this.productInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productInfoTableAdapter = new SEApp.VendorProductsTableAdapters.ProductInfoTableAdapter();
             this.vendorInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vendorInfoTableAdapter = new SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter();
             this.vendorInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productInfoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.btnActiveVendors = new System.Windows.Forms.Button();
@@ -52,15 +48,20 @@
             this.btnVendor = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.cmbCloud = new System.Windows.Forms.ComboBox();
+            this.vendorProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendorProducts = new SEApp.VendorProducts();
+            this.productInfoTableAdapter = new SEApp.VendorProductsTableAdapters.ProductInfoTableAdapter();
+            this.vendorInfoTableAdapter = new SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter();
+            this.lblCloudServices = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorProductsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorProductsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -165,33 +166,15 @@
             this.vendorInfoBindingSource2.DataMember = "VendorInfo";
             this.vendorInfoBindingSource2.DataSource = this.vendorProductsBindingSource;
             // 
-            // vendorProductsBindingSource
-            // 
-            this.vendorProductsBindingSource.DataSource = this.vendorProducts;
-            this.vendorProductsBindingSource.Position = 0;
-            // 
-            // vendorProducts
-            // 
-            this.vendorProducts.DataSetName = "VendorProducts";
-            this.vendorProducts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // productInfoBindingSource
             // 
             this.productInfoBindingSource.DataMember = "ProductInfo";
             this.productInfoBindingSource.DataSource = this.vendorProductsBindingSource;
             // 
-            // productInfoTableAdapter
-            // 
-            this.productInfoTableAdapter.ClearBeforeFill = true;
-            // 
             // vendorInfoBindingSource
             // 
             this.vendorInfoBindingSource.DataMember = "VendorInfo";
             this.vendorInfoBindingSource.DataSource = this.vendorProductsBindingSource;
-            // 
-            // vendorInfoTableAdapter
-            // 
-            this.vendorInfoTableAdapter.ClearBeforeFill = true;
             // 
             // vendorInfoBindingSource1
             // 
@@ -260,7 +243,8 @@
             "Based",
             "Native",
             "Enabled",
-            "None"});
+            "None",
+            "Remove"});
             this.cmbCloud.Location = new System.Drawing.Point(558, 122);
             this.cmbCloud.Name = "cmbCloud";
             this.cmbCloud.Size = new System.Drawing.Size(145, 28);
@@ -268,11 +252,39 @@
             this.cmbCloud.Text = "Cloud Services";
             this.cmbCloud.SelectedIndexChanged += new System.EventHandler(this.cmbCloud_SelectedIndexChanged);
             // 
+            // vendorProductsBindingSource
+            // 
+            this.vendorProductsBindingSource.DataSource = this.vendorProducts;
+            this.vendorProductsBindingSource.Position = 0;
+            // 
+            // vendorProducts
+            // 
+            this.vendorProducts.DataSetName = "VendorProducts";
+            this.vendorProducts.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productInfoTableAdapter
+            // 
+            this.productInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // vendorInfoTableAdapter
+            // 
+            this.vendorInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // lblCloudServices
+            // 
+            this.lblCloudServices.AutoSize = true;
+            this.lblCloudServices.Location = new System.Drawing.Point(554, 99);
+            this.lblCloudServices.Name = "lblCloudServices";
+            this.lblCloudServices.Size = new System.Drawing.Size(114, 20);
+            this.lblCloudServices.TabIndex = 40;
+            this.lblCloudServices.Text = "Cloud Services";
+            // 
             // VendorsProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.lblCloudServices);
             this.Controls.Add(this.cmbCloud);
             this.Controls.Add(this.btnProduct);
             this.Controls.Add(this.btnVendor);
@@ -293,13 +305,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorProductsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productInfoBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorProductsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendorProducts)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -327,5 +340,6 @@
         private Button btnVendor;
         private Button btnProduct;
         private ComboBox cmbCloud;
+        private Label lblCloudServices;
     }
 }
