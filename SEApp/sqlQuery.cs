@@ -44,17 +44,34 @@ namespace SEApp
         // Query to get number of requests
         public const string NumberOfRequestsQuery = "";
 
+
+
+        /* All of the SQL Queries below are for the Vendor Products Page.
+         */
+        // Gets all the vendor and product data from their respective tables
         public const string getVendorProductData = "SELECT * FROM VendorInfo RIGHT JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID ORDER BY VendorInfo.VendorID ";
+
+        // Only grabs the vendor data that have been reviewed in the last 6 months
         public const string activeVendorData = "SELECT * Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Last_Reviewed DESC";
 
         // Need to look into adding company name into this sql query also
+        // Gets the average ratings for all the products with reviews
         public const string vendorProRatings = "SELECT p.Software_Name, AVG(r.Rating) AS Average_Rating FROM ProductInfo p JOIN Review r ON p.ProductID = r.ProductID  GROUP BY p.Software_Name ORDER BY Average_Rating DESC";
+
+        // Gets all the vendor data
         public const string allVendors = "SELECT * FROM VendorInfo";
+
+        // Gets all the Product data
         public const string allProducts = "SELECT * FROM ProductInfo";
+
+        // All of these get the company and software names based on what cloud service they offer
         public const string basedCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Based'";
         public const string nativeCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Native'";
         public const string enabledCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Enabled'";
         public const string noCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type IS NULL";
+
+        // Gets the Active Vendors Contact Information
+
         //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
 
     }

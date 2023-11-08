@@ -48,11 +48,13 @@
             this.btnVendor = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.cmbCloud = new System.Windows.Forms.ComboBox();
+            this.lblCloudServices = new System.Windows.Forms.Label();
             this.vendorProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vendorProducts = new SEApp.VendorProducts();
             this.productInfoTableAdapter = new SEApp.VendorProductsTableAdapters.ProductInfoTableAdapter();
             this.vendorInfoTableAdapter = new SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter();
-            this.lblCloudServices = new System.Windows.Forms.Label();
+            this.cmbContactInfo = new System.Windows.Forms.ComboBox();
+            this.lblContact = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
@@ -249,8 +251,16 @@
             this.cmbCloud.Name = "cmbCloud";
             this.cmbCloud.Size = new System.Drawing.Size(145, 28);
             this.cmbCloud.TabIndex = 39;
-            this.cmbCloud.Text = "Cloud Services";
             this.cmbCloud.SelectedIndexChanged += new System.EventHandler(this.cmbCloud_SelectedIndexChanged);
+            // 
+            // lblCloudServices
+            // 
+            this.lblCloudServices.AutoSize = true;
+            this.lblCloudServices.Location = new System.Drawing.Point(563, 99);
+            this.lblCloudServices.Name = "lblCloudServices";
+            this.lblCloudServices.Size = new System.Drawing.Size(114, 20);
+            this.lblCloudServices.TabIndex = 40;
+            this.lblCloudServices.Text = "Cloud Services";
             // 
             // vendorProductsBindingSource
             // 
@@ -270,20 +280,34 @@
             // 
             this.vendorInfoTableAdapter.ClearBeforeFill = true;
             // 
-            // lblCloudServices
+            // cmbContactInfo
             // 
-            this.lblCloudServices.AutoSize = true;
-            this.lblCloudServices.Location = new System.Drawing.Point(554, 99);
-            this.lblCloudServices.Name = "lblCloudServices";
-            this.lblCloudServices.Size = new System.Drawing.Size(114, 20);
-            this.lblCloudServices.TabIndex = 40;
-            this.lblCloudServices.Text = "Cloud Services";
+            this.cmbContactInfo.FormattingEnabled = true;
+            this.cmbContactInfo.Items.AddRange(new object[] {
+            "All",
+            "Active"});
+            this.cmbContactInfo.Location = new System.Drawing.Point(709, 122);
+            this.cmbContactInfo.Name = "cmbContactInfo";
+            this.cmbContactInfo.Size = new System.Drawing.Size(150, 28);
+            this.cmbContactInfo.TabIndex = 41;
+            this.cmbContactInfo.SelectedIndexChanged += new System.EventHandler(this.cmbContactInfo_SelectedIndexChanged);
+            // 
+            // lblContact
+            // 
+            this.lblContact.AutoSize = true;
+            this.lblContact.Location = new System.Drawing.Point(709, 96);
+            this.lblContact.Name = "lblContact";
+            this.lblContact.Size = new System.Drawing.Size(150, 20);
+            this.lblContact.TabIndex = 42;
+            this.lblContact.Text = "Contact Information";
             // 
             // VendorsProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.lblContact);
+            this.Controls.Add(this.cmbContactInfo);
             this.Controls.Add(this.lblCloudServices);
             this.Controls.Add(this.cmbCloud);
             this.Controls.Add(this.btnProduct);
@@ -341,5 +365,7 @@
         private Button btnProduct;
         private ComboBox cmbCloud;
         private Label lblCloudServices;
+        private ComboBox cmbContactInfo;
+        private Label lblContact;
     }
 }

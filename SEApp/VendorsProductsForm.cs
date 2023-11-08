@@ -13,6 +13,14 @@ namespace SEApp
             connectDB = Database.getConnectString();
         }
 
+        // Sets the Data source of the Data grid with the new data when a filter is applied
+        private void setDataSource(DataTable sourcedData)
+        {
+            dgvVendorProduct.DataSource = null;
+            dgvVendorProduct.DataSource = sourcedData;
+            dgvVendorProduct.ReadOnly = true;
+        }
+
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             // Create an instance of the Dashboard Form
@@ -63,8 +71,8 @@ namespace SEApp
         {
             DataTable vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
             vendorProData.Columns.Remove("VendorID1");
-            dgvVendorProduct.DataSource = vendorProData;
-            dgvVendorProduct.ReadOnly = true;
+            setDataSource(vendorProData);
+            
             // TODO: This line of code loads data into the 'vendorProducts.VendorInfo' table. You can move, or remove it, as needed.
             //this.vendorInfoTableAdapter.Fill(this.vendorProducts.VendorInfo);
             // TODO: This line of code loads data into the 'vendorProducts.ProductInfo' table. You can move, or remove it, as needed.
@@ -76,54 +84,53 @@ namespace SEApp
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.ActiveVendorsQuery);
             vendorProData.Columns.Remove("Company_Name1");
-            dgvVendorProduct.DataSource = vendorProData;
-            dgvVendorProduct.ReadOnly = true;
+            setDataSource(vendorProData);
+            
         }
 
         private void btnRatings_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.vendorProRatings);
-            dgvVendorProduct.DataSource = vendorProData;
-            dgvVendorProduct.ReadOnly = true;
+            setDataSource(vendorProData);
+            
         }
 
         private void btnRevertData_Click(object sender, EventArgs e)
         {
-            vendorProData.Reset();
+           
             vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
             vendorProData.Columns.Remove("VendorID1");
-            dgvVendorProduct.DataSource = vendorProData;
-            dgvVendorProduct.ReadOnly = true;
+            setDataSource(vendorProData);
+            
         }
 
         private void btnVendor_Click(object sender, EventArgs e)
         {
             
             vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
-            dgvVendorProduct.DataSource = vendorProData;
-            dgvVendorProduct.ReadOnly = true;
+            setDataSource(vendorProData);
+            
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
             
             vendorProData = connectDB.getVendorProducts(sqlQuery.allProducts);
-            dgvVendorProduct.DataSource = vendorProData;
-            dgvVendorProduct.ReadOnly = true;
+            setDataSource(vendorProData);
+           
         }
 
+        // Filters the data table shown in the data grid by cloud service type
         private void cmbCloud_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                
                 switch (cmbCloud.SelectedIndex)
                 {
-                    //Based Cloud
+                   //Based Cloud
                     case 0:
-
                         vendorProData = connectDB.getVendorProducts(sqlQuery.basedCloud);
-
-
                         break;
                     //Native Cloud
                     case 1:
@@ -138,18 +145,40 @@ namespace SEApp
                         vendorProData = connectDB.getVendorProducts(sqlQuery.noCloud);
                         break;
                     default:
+                        
                         vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
                         break;
-
-
                 }
-                dgvVendorProduct.DataSource = vendorProData;
-                dgvVendorProduct.ReadOnly = true;
+                setDataSource(vendorProData);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("You cannot apply this filter to this data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This filter has an encountered an error. Please Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cmbContactInfo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (cmbContactInfo.SelectedIndex)
+                {
+                    case 0:
+
+                        break;
+                    case 1:
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("This filter has an encountered an error. Please Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
     }
 }
