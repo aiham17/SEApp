@@ -82,8 +82,8 @@ namespace SEApp
 
         private void btnActiveVendors_Click(object sender, EventArgs e)
         {
-            vendorProData = connectDB.getVendorProducts(sqlQuery.ActiveVendorsQuery);
-            vendorProData.Columns.Remove("Company_Name1");
+            vendorProData = connectDB.getVendorProducts(sqlQuery.activeVendorData);
+            
             setDataSource(vendorProData);
             
         }
@@ -151,7 +151,7 @@ namespace SEApp
                 }
                 setDataSource(vendorProData);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("This filter has an encountered an error. Please Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -164,13 +164,16 @@ namespace SEApp
                 switch (cmbContactInfo.SelectedIndex)
                 {
                     case 0:
-
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.allContact);
                         break;
                     case 1:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.activeContact);
                         break;
                     default:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
                         break;
                 }
+                setDataSource(vendorProData);
 
             }
             catch

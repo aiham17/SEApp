@@ -52,7 +52,7 @@ namespace SEApp
         public const string getVendorProductData = "SELECT * FROM VendorInfo RIGHT JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID ORDER BY VendorInfo.VendorID ";
 
         // Only grabs the vendor data that have been reviewed in the last 6 months
-        public const string activeVendorData = "SELECT * Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Last_Reviewed DESC";
+        public const string activeVendorData = "SELECT Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY VendorID";
 
         // Need to look into adding company name into this sql query also
         // Gets the average ratings for all the products with reviews
@@ -70,8 +70,9 @@ namespace SEApp
         public const string enabledCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type='Enabled'";
         public const string noCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type IS NULL";
 
-        // Gets the Active Vendors Contact Information
-
+        // Gets all of the Vendors Contact Information
+        public const string allContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo ORDER BY VendorID";
+        public const string activeContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY VendorID";
         //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
 
     }
