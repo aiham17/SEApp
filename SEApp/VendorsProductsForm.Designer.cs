@@ -49,12 +49,15 @@
             this.btnProduct = new System.Windows.Forms.Button();
             this.cmbCloud = new System.Windows.Forms.ComboBox();
             this.lblCloudServices = new System.Windows.Forms.Label();
+            this.cmbContactInfo = new System.Windows.Forms.ComboBox();
+            this.lblContact = new System.Windows.Forms.Label();
+            this.btnExportPDF = new System.Windows.Forms.Button();
+            this.cmbCompanyAge = new System.Windows.Forms.ComboBox();
+            this.lblCompanyAge = new System.Windows.Forms.Label();
             this.vendorProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vendorProducts = new SEApp.VendorProducts();
             this.productInfoTableAdapter = new SEApp.VendorProductsTableAdapters.ProductInfoTableAdapter();
             this.vendorInfoTableAdapter = new SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter();
-            this.cmbContactInfo = new System.Windows.Forms.ComboBox();
-            this.lblContact = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
@@ -160,7 +163,7 @@
             this.dgvVendorProduct.Name = "dgvVendorProduct";
             this.dgvVendorProduct.RowHeadersWidth = 62;
             this.dgvVendorProduct.RowTemplate.Height = 28;
-            this.dgvVendorProduct.Size = new System.Drawing.Size(917, 426);
+            this.dgvVendorProduct.Size = new System.Drawing.Size(1066, 426);
             this.dgvVendorProduct.TabIndex = 33;
             // 
             // vendorInfoBindingSource2
@@ -246,7 +249,7 @@
             "Native",
             "Enabled",
             "None",
-            "Remove"});
+            "Remove Filter"});
             this.cmbCloud.Location = new System.Drawing.Point(558, 122);
             this.cmbCloud.Name = "cmbCloud";
             this.cmbCloud.Size = new System.Drawing.Size(145, 28);
@@ -256,11 +259,65 @@
             // lblCloudServices
             // 
             this.lblCloudServices.AutoSize = true;
-            this.lblCloudServices.Location = new System.Drawing.Point(563, 99);
+            this.lblCloudServices.Location = new System.Drawing.Point(554, 99);
             this.lblCloudServices.Name = "lblCloudServices";
             this.lblCloudServices.Size = new System.Drawing.Size(114, 20);
             this.lblCloudServices.TabIndex = 40;
             this.lblCloudServices.Text = "Cloud Services";
+            // 
+            // cmbContactInfo
+            // 
+            this.cmbContactInfo.FormattingEnabled = true;
+            this.cmbContactInfo.Items.AddRange(new object[] {
+            "All",
+            "Active",
+            "Remove Filter"});
+            this.cmbContactInfo.Location = new System.Drawing.Point(709, 122);
+            this.cmbContactInfo.Name = "cmbContactInfo";
+            this.cmbContactInfo.Size = new System.Drawing.Size(150, 28);
+            this.cmbContactInfo.TabIndex = 41;
+            this.cmbContactInfo.SelectedIndexChanged += new System.EventHandler(this.cmbContactInfo_SelectedIndexChanged);
+            // 
+            // lblContact
+            // 
+            this.lblContact.AutoSize = true;
+            this.lblContact.Location = new System.Drawing.Point(705, 99);
+            this.lblContact.Name = "lblContact";
+            this.lblContact.Size = new System.Drawing.Size(150, 20);
+            this.lblContact.TabIndex = 42;
+            this.lblContact.Text = "Contact Information";
+            // 
+            // btnExportPDF
+            // 
+            this.btnExportPDF.Location = new System.Drawing.Point(1205, 118);
+            this.btnExportPDF.Name = "btnExportPDF";
+            this.btnExportPDF.Size = new System.Drawing.Size(116, 32);
+            this.btnExportPDF.TabIndex = 43;
+            this.btnExportPDF.Text = "Export";
+            this.btnExportPDF.UseVisualStyleBackColor = true;
+            this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
+            // 
+            // cmbCompanyAge
+            // 
+            this.cmbCompanyAge.FormattingEnabled = true;
+            this.cmbCompanyAge.Items.AddRange(new object[] {
+            "<5 Years",
+            "<10 Years",
+            "Older"});
+            this.cmbCompanyAge.Location = new System.Drawing.Point(865, 122);
+            this.cmbCompanyAge.Name = "cmbCompanyAge";
+            this.cmbCompanyAge.Size = new System.Drawing.Size(150, 28);
+            this.cmbCompanyAge.TabIndex = 44;
+            this.cmbCompanyAge.SelectedIndexChanged += new System.EventHandler(this.cmbCompanyAge_SelectedIndexChanged);
+            // 
+            // lblCompanyAge
+            // 
+            this.lblCompanyAge.AutoSize = true;
+            this.lblCompanyAge.Location = new System.Drawing.Point(861, 99);
+            this.lblCompanyAge.Name = "lblCompanyAge";
+            this.lblCompanyAge.Size = new System.Drawing.Size(109, 20);
+            this.lblCompanyAge.TabIndex = 45;
+            this.lblCompanyAge.Text = "Company Age";
             // 
             // vendorProductsBindingSource
             // 
@@ -280,32 +337,14 @@
             // 
             this.vendorInfoTableAdapter.ClearBeforeFill = true;
             // 
-            // cmbContactInfo
-            // 
-            this.cmbContactInfo.FormattingEnabled = true;
-            this.cmbContactInfo.Items.AddRange(new object[] {
-            "All",
-            "Active"});
-            this.cmbContactInfo.Location = new System.Drawing.Point(709, 122);
-            this.cmbContactInfo.Name = "cmbContactInfo";
-            this.cmbContactInfo.Size = new System.Drawing.Size(150, 28);
-            this.cmbContactInfo.TabIndex = 41;
-            this.cmbContactInfo.SelectedIndexChanged += new System.EventHandler(this.cmbContactInfo_SelectedIndexChanged);
-            // 
-            // lblContact
-            // 
-            this.lblContact.AutoSize = true;
-            this.lblContact.Location = new System.Drawing.Point(709, 96);
-            this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(150, 20);
-            this.lblContact.TabIndex = 42;
-            this.lblContact.Text = "Contact Information";
-            // 
             // VendorsProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1416, 692);
+            this.Controls.Add(this.lblCompanyAge);
+            this.Controls.Add(this.cmbCompanyAge);
+            this.Controls.Add(this.btnExportPDF);
             this.Controls.Add(this.lblContact);
             this.Controls.Add(this.cmbContactInfo);
             this.Controls.Add(this.lblCloudServices);
@@ -367,5 +406,8 @@
         private Label lblCloudServices;
         private ComboBox cmbContactInfo;
         private Label lblContact;
+        private Button btnExportPDF;
+        private ComboBox cmbCompanyAge;
+        private Label lblCompanyAge;
     }
 }

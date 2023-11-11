@@ -74,7 +74,7 @@ namespace SEApp
         public const string allContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo ORDER BY VendorID";
         public const string activeContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY VendorID";
         //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
-
+        //public const string companyAge1 = "SELECT Company_Name FROM VendorInfo WHERE "
     }
 
 }

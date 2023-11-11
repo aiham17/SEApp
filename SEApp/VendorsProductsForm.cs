@@ -182,6 +182,31 @@ namespace SEApp
             }
         }
 
-        
+        private void cmbCompanyAge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (cmbCompanyAge.SelectedIndex)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("This filter has an encountered an error. Please Try Again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExportPDF_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
