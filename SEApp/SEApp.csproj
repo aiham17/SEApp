@@ -60,6 +60,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Update="VendorProducts.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VendorProducts.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -73,6 +78,10 @@
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="VendorProducts.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VendorProducts.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
