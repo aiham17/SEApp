@@ -1,6 +1,6 @@
 ﻿namespace SEApp
 {
-    partial class Form1
+    partial class LoginSecurity
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginSecurity));
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnVendorsAndProducts = new System.Windows.Forms.Button();
@@ -162,7 +162,6 @@
             this.label4.Size = new System.Drawing.Size(141, 20);
             this.label4.TabIndex = 30;
             this.label4.Text = "Confirm Password:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -252,7 +251,7 @@
             this.dgvUserData.Size = new System.Drawing.Size(564, 267);
             this.dgvUserData.TabIndex = 42;
             // 
-            // Form1
+            // LoginSecurity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -280,8 +279,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LoginSecurity";
+            this.Text = "LoginSecurity";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserData)).EndInit();
             this.ResumeLayout(false);

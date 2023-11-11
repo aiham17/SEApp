@@ -58,5 +58,13 @@ namespace SEApp
             loginForm.Show();
             this.Close();
         }
+
+        private void btnLoginSecurity_Click(object sender, EventArgs e)
+        {
+            LoginSecurity loginSForm = new LoginSecurity();
+            this.Close();
+            loginSForm.Show();
+            
+        }
     }
 }

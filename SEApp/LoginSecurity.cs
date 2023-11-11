@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace SEApp
 {
-    public partial class Form1 : Form
+    public partial class LoginSecurity : Form
     {
-        public Form1()
+        public LoginSecurity()
         {
             InitializeComponent();
         }
@@ -22,19 +21,6 @@ namespace SEApp
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
