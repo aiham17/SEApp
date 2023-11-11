@@ -206,7 +206,11 @@ namespace SEApp
 
         private void btnExportPDF_Click(object sender, EventArgs e)
         {
+            if(dgvVendorProduct.Rows.Count > 0)
+            {
+                SaveFileDialog saveDT = new SaveFileDialog();
 
+            }
         }
     }
 }
