@@ -75,6 +75,11 @@ namespace SEApp
         public const string activeContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY VendorID";
         //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
         //public const string companyAge1 = "SELECT Company_Name FROM VendorInfo WHERE "
+        public const string zeroFiveVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) BETWEEN 0 AND 5";
+        public const string fiveTenVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) BETWEEN 6 AND 10";
+        public const string tenVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) >10";
+        // SELECT * FROM VendorInfo WHERE (YEAR(GETDATE())-YEAR(Established_Year)) - (RIGHT(GETDATE(),3)<RIGHT(Established_Year,3)) BETWEEN 1 AND 5
+
     }
 
 }

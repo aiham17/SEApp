@@ -201,14 +201,18 @@ namespace SEApp
                 switch (cmbCompanyAge.SelectedIndex)
                 {
                     case 0:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.zeroFiveVendor);
                         break;
                     case 1:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.fiveTenVendor);
                         break;
                     case 2:
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.tenVendor);
                         break;
                     default:
                         break;
                 }
+                setDataSource(vendorProData);
             }
             catch
             {
