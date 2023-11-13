@@ -80,6 +80,11 @@ namespace SEApp
         public const string tenVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) >10";
         // SELECT * FROM VendorInfo WHERE (YEAR(GETDATE())-YEAR(Established_Year)) - (RIGHT(GETDATE(),3)<RIGHT(Established_Year,3)) BETWEEN 1 AND 5
 
+
+
+        // Grab all the usernames, passwords and emails from the UserInfo Database table
+        public const string userInfo = "SELECT * FROM UserInformation";
+
     }
 
 }

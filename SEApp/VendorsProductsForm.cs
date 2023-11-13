@@ -26,11 +26,11 @@ namespace SEApp
         }
 
         // Sets the Data source of the Data grid with the new data when a filter is applied
-        private void setDataSource(DataTable sourcedData)
+        public void setDataSource(DataTable sourcedData, DataGridView display)
         {
-            dgvVendorProduct.DataSource = null;
-            dgvVendorProduct.DataSource = sourcedData;
-            dgvVendorProduct.ReadOnly = true;
+            display.DataSource = null;
+            display.DataSource = sourcedData;
+            display.ReadOnly = true;
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace SEApp
         {
             DataTable vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
             vendorProData.Columns.Remove("VendorID1");
-            setDataSource(vendorProData);
+            setDataSource(vendorProData, dgvVendorProduct);
             
             // TODO: This line of code loads data into the 'vendorProducts.VendorInfo' table. You can move, or remove it, as needed.
             //this.vendorInfoTableAdapter.Fill(this.vendorProducts.VendorInfo);
@@ -96,14 +96,14 @@ namespace SEApp
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.activeVendorData);
             
-            setDataSource(vendorProData);
+            setDataSource(vendorProData, dgvVendorProduct);
             
         }
 
         private void btnRatings_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.vendorProRatings);
-            setDataSource(vendorProData);
+            setDataSource(vendorProData, dgvVendorProduct);
             
         }
 
@@ -112,7 +112,7 @@ namespace SEApp
            
             vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
             vendorProData.Columns.Remove("VendorID1");
-            setDataSource(vendorProData);
+            setDataSource(vendorProData, dgvVendorProduct);
             
         }
 
@@ -120,7 +120,7 @@ namespace SEApp
         {
             
             vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
-            setDataSource(vendorProData);
+            setDataSource(vendorProData, dgvVendorProduct);
             
         }
 
@@ -128,7 +128,7 @@ namespace SEApp
         {
             
             vendorProData = connectDB.getVendorProducts(sqlQuery.allProducts);
-            setDataSource(vendorProData);
+            setDataSource(vendorProData, dgvVendorProduct);
            
         }
 
@@ -161,7 +161,7 @@ namespace SEApp
                         vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
                         break;
                 }
-                setDataSource(vendorProData);
+                setDataSource(vendorProData, dgvVendorProduct);
             }
             catch
             {
@@ -186,7 +186,7 @@ namespace SEApp
                         vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
                         break;
                 }
-                setDataSource(vendorProData);
+                setDataSource(vendorProData, dgvVendorProduct);
 
             }
             catch
@@ -214,7 +214,7 @@ namespace SEApp
                     default:
                         break;
                 }
-                setDataSource(vendorProData);
+                setDataSource(vendorProData, dgvVendorProduct);
             }
             catch
             {

@@ -236,7 +236,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(865, 108);
+            this.btnEdit.Location = new System.Drawing.Point(294, 65);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(112, 35);
@@ -251,7 +251,7 @@
             this.dgvUserData.Name = "dgvUserData";
             this.dgvUserData.RowHeadersWidth = 62;
             this.dgvUserData.RowTemplate.Height = 28;
-            this.dgvUserData.Size = new System.Drawing.Size(564, 267);
+            this.dgvUserData.Size = new System.Drawing.Size(843, 267);
             this.dgvUserData.TabIndex = 42;
             this.dgvUserData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserData_CellContentClick);
             // 
@@ -285,6 +285,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoginSecurity";
             this.Text = "LoginSecurity";
+            this.Load += new System.EventHandler(this.LoginSecurity_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserData)).EndInit();
             this.ResumeLayout(false);

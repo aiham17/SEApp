@@ -11,9 +11,12 @@ namespace SEApp
 {
     public partial class LoginSecurity : Form
     {
+        private Database connectDB;
+        DataTable vendorProData;
         public LoginSecurity()
         {
             InitializeComponent();
+            connectDB = Database.getConnectString();
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
@@ -56,6 +59,13 @@ namespace SEApp
         private void dgvUserData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void LoginSecurity_Load(object sender, EventArgs e)
+        {
+            DataTable vendorProData = connectDB.getVendorProducts(sqlQuery.userInfo);
+            VendorsProductsForm dataSource = new VendorsProductsForm();
+            dataSource.setDataSource(vendorProData, dgvUserData);
         }
     }
 }
