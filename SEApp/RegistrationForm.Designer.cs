@@ -181,6 +181,7 @@ namespace SEApp
             this.tbPassword.Location = new System.Drawing.Point(196, 243);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(246, 26);
             this.tbPassword.TabIndex = 11;
             // 
@@ -202,7 +203,7 @@ namespace SEApp
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(392, 155);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 

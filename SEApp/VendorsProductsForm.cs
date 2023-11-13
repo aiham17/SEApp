@@ -30,6 +30,12 @@ namespace SEApp
         {
             display.DataSource = null;
             display.DataSource = sourcedData;
+            //display.Columns["Description"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //display.Columns["Additional_Info"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //display.Columns["Address"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            //display.Columns["Contact_Telephone"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            
+            display.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             display.ReadOnly = true;
         }
 
@@ -37,7 +43,6 @@ namespace SEApp
         {
             // Create an instance of the Dashboard Form
             Dashboard dashboard = new Dashboard();
-
             dashboard.Show();
             this.Close();
         }
@@ -46,7 +51,6 @@ namespace SEApp
         {
             // Create an instance of the VendorsProductsForm
             VendorsProductsForm vendorsProductsForm = new VendorsProductsForm();
-
             vendorsProductsForm.Show();
             this.Close();
         }
@@ -55,7 +59,6 @@ namespace SEApp
         {
             // Create an instance of the AddAdjustForm
             AddAdjustForm addAdjustForm = new AddAdjustForm();
-
             addAdjustForm.Show();
             this.Close();
         }
@@ -104,32 +107,26 @@ namespace SEApp
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.vendorProRatings);
             setDataSource(vendorProData, dgvVendorProduct);
-            
         }
 
         private void btnRevertData_Click(object sender, EventArgs e)
         {
-           
             vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
             vendorProData.Columns.Remove("VendorID1");
             setDataSource(vendorProData, dgvVendorProduct);
-            
         }
 
         private void btnVendor_Click(object sender, EventArgs e)
         {
-            
             vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
             setDataSource(vendorProData, dgvVendorProduct);
-            
         }
 
+        
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            
             vendorProData = connectDB.getVendorProducts(sqlQuery.allProducts);
             setDataSource(vendorProData, dgvVendorProduct);
-           
         }
 
         // Filters the data table shown in the data grid by cloud service type
@@ -137,7 +134,6 @@ namespace SEApp
         {
             try
             {
-                
                 switch (cmbCloud.SelectedIndex)
                 {
                    //Based Cloud
