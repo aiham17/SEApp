@@ -169,6 +169,7 @@ namespace SEApp
             }
         }
 
+        // Filters the data table by either showing all contact information for all vendors or only active ones
         private void cmbContactInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -194,6 +195,7 @@ namespace SEApp
             }
         }
 
+        // Filters the companies based of age, and sets a range for them to be apart of: 0-5 years, 6-10 year and then 10+
         private void cmbCompanyAge_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

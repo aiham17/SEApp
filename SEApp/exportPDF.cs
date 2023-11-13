@@ -44,15 +44,19 @@ namespace SEApp
                 {
                     try
                     {
+                        
                         PdfPTable pdfTable = new PdfPTable(dgvVendorProduct.Columns.Count);
                         pdfTable.DefaultCell.Padding = 1;
                         pdfTable.WidthPercentage = 100;
                         pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                        // Grabs the column headers
                         foreach (DataGridViewColumn column in dgvVendorProduct.Columns)
                         {
                             PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
                             pdfTable.AddCell(cell);
                         }
+                        // Grabs the data from each row and cell to then be added to the pdfTable, which will then be written to the pdf document
                         foreach (DataGridViewRow row in dgvVendorProduct.Rows)
                         {
                             foreach (DataGridViewCell cell in row.Cells)
@@ -60,6 +64,7 @@ namespace SEApp
                                 pdfTable.AddCell(cell.Value?.ToString());
                             }
                         }
+                        // Opens a file stream to enable a pdf document to be created, written to and then closed.
                         using (FileStream fstream = new FileStream(saveDT.FileName, FileMode.Create))
                         {
                             Document pdfDoc = new Document(PageSize.A4_LANDSCAPE, 20f, 40f, 60f, 80f);
