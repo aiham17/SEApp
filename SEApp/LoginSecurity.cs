@@ -52,5 +52,10 @@ namespace SEApp
             loginForm.Show();
             this.Close();
         }
+
+        private void dgvUserData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

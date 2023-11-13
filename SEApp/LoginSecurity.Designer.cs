@@ -253,6 +253,7 @@
             this.dgvUserData.RowTemplate.Height = 28;
             this.dgvUserData.Size = new System.Drawing.Size(564, 267);
             this.dgvUserData.TabIndex = 42;
+            this.dgvUserData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserData_CellContentClick);
             // 
             // LoginSecurity
             // 
