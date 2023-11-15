@@ -14,7 +14,10 @@ namespace SEApp
     public partial class LoginForm : Form
     {
         private Database connectDB;
-        
+
+        // Static variable to store the logged-in username
+        private static string loggedInUsername;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -81,29 +84,47 @@ namespace SEApp
         }
 
         // Collects Users inputted username and password to then be checked against the database
+
+
+        /*  Added GetLoggedInUsername method to retrieve the logged-in username. 
+         *  This static method returns the value stored in the loggedInUsername variable. 
+         *  Utilized in SettingsForm for role-based access control. */
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            
             if (loginInputs())
             {
                 userInfo.login login = new userInfo.login();
-                login.username= tbUsername.Text;
+                login.username = tbUsername.Text;
                 login.password = tbPassword.Text;
-                bool response;
-                response = connectDB.readUsername(login.username, login.password);
-                if (response==true)
+
+                // Use the readUsername method to check the login
+                bool response = connectDB.readUsername(login.username, login.password);
+
+                if (response)
                 {
+                    // Store the logged-in username in the static variable
+                    loggedInUsername = login.username;
+
                     this.Hide();
-                    Dashboard open = new();
+                    Dashboard open = new Dashboard();
                     open.Show();
                 }
+                else
+                {
+                    loggedInUsername = null; // Reset the username if the login fails
+                    MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            
-            
 
-            
-            
-            
+        }
+
+
+
+
+        // Method to retrieve the logged-in username
+        public static string GetLoggedInUsername()
+        {
+            return loggedInUsername;
         }
     }
 }
