@@ -34,7 +34,12 @@ namespace SEApp
             //display.Columns["Additional_Info"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             //display.Columns["Address"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             //display.Columns["Contact_Telephone"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            
+
+            for (int i = 0; i < display.Columns.Count; i++)
+            {
+                display.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopLeft;
+            }
+
             display.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             display.ReadOnly = true;
         }
