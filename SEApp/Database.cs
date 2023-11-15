@@ -39,30 +39,10 @@ namespace SEApp
         }
 
 
-        public bool CheckUserExists(string username, string email)
-        {
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-            {
-                connectDB.Open();
-                string checkUser = sqlQuery.checkUser;
-                using (SqlCommand command = new SqlCommand(checkUser, connectDB))
-                {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@email", email);
-
-                    int count = (int)command.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-
-
         // Fixed issue in saveUserInfo method
         // In the saveUserInfo method, replaced the line `addUser.Parameters.Add(SQLQuery);`
         // with individual parameter additions using `addUser.Parameters.AddWithValue()` to correctly bind parameters for the SQL query execution.
         // This ensures that user information is properly saved to the database.
-
 
         public void saveUserInfo(string SQLQuery, string userName, string password, string salt, string firstName, string lastName, string email, int CompanyRole)
         {
@@ -165,6 +145,56 @@ namespace SEApp
             return result;
 
         }
+
+        public bool CheckUserExists(string username, string email)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                string checkUser = sqlQuery.checkUser;
+                using (SqlCommand command = new SqlCommand(checkUser, connectDB))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@email", email);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
+        /* Implemented GetUserRole method in the  class to retrieve the role of a user from the database based on their username.
+         * This functionality is utilized for role-based access control in the application, 
+         * allowing certain features to be accessible only to users with specific roles. 
+         * Updated Login and Settings forms to use this method for checking user roles.*/
+        public string GetUserRole(string username)
+        {
+            string query = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
+
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand command = new SqlCommand(query, connectDB))
+                {
+                    try
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+
+                        object result = command.ExecuteScalar();
+
+                        return result != null ? result.ToString() : null;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log or display the exception details
+                        Console.WriteLine("Error in GetUserRole: " + ex.Message);
+                        return null; // Return null or handle the error as needed
+                    }
+                }
+            }
+        }
+
 
 
         public DataTable getVendorProducts(string sqlQuery)
