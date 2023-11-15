@@ -91,67 +91,58 @@ namespace SEApp
          * Post by: Abel Gaxiola Feb 2009 with understanding how to read results into a Data Table
          * Post by: Geochet for understanding how to read from database.
          */
+
+
+        /* The updated code for the readUsername method improves the authentication logic by utilizing a SqlDataReader to directly read query results.
+         * It checks for the existence of rows in the result, iterates through each row, 
+         * and compares the provided username and password with the stored values in the database.
+         * If a match is found, it immediately returns true for a successful login. 
+         * This streamlined approach enhances clarity, efficiency, and error handling compared to the previous version, which used a DataTable and a more complex loop structure.  */
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
             string readUser = sqlQuery.readUser;
 
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            try
             {
-                bool readPassword;
-                
-                using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
+                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
                 {
-
-                    readUsername.Parameters.AddWithValue("@user", user);
-                    connectDB.Open();
-                    SqlDataReader readUsers = readUsername.ExecuteReader();
-                    DataTable readResult = new DataTable();
-                    readResult.Load(readUsers);
-                    string place, testUser, testPass, testSalt;
-
-                    int i;
-                    for (i = 0; i < readResult.Rows.Count; i++)
+                    using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
                     {
-                        place = readResult.Rows[i].Field<string>("Username").ToString();
-                        if (place == user)
+                        readUsername.Parameters.AddWithValue("@user", user);
+                        connectDB.Open();
+
+                        using (SqlDataReader readUsers = readUsername.ExecuteReader())
                         {
+                            if (readUsers.HasRows)
+                            {
+                                while (readUsers.Read())
+                                {
+                                    string storedUser = readUsers["Username"].ToString();
+                                    string storedPass = readUsers["Password"].ToString();
+                                    string storedSalt = readUsers["Salt"].ToString();
 
-                            break;
-
+                                    if (user == storedUser && passVerify.passwordVerify(storedPass, storedSalt, pass))
+                                    {
+                                        return true; // Username and password match
+                                    }
+                                }
+                            }
                         }
-                        else if (i >= readResult.Rows.Count)
-                        {
-                            MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
-
-
                     }
-                    i = i - 1;
-                    if (i < 0)
-                    {
-                        MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                    place = readResult.Rows[i].Field<string>("Username").ToString();
-                    testUser = place;
-                    testPass = readResult.Rows[i].Field<string>("Password").ToString();
-                    testSalt = readResult.Rows[i].Field<string>("Salt").ToString();
-                    return readPassword = passVerify.passwordVerify(testPass, testSalt, pass);
-
-
-
-
-
-
                 }
 
-
-
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-
+            catch (Exception ex)
+            {
+                // Log or display the exception details
+                MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
+
 
 
         // The ExecuteQuery method in the Database class streamlines database interactions.
