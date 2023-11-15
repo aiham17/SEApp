@@ -57,10 +57,10 @@
             // 
             this.btnLogout.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogout.Location = new System.Drawing.Point(-2, 634);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Location = new System.Drawing.Point(-2, 507);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(220, 63);
+            this.btnLogout.Size = new System.Drawing.Size(196, 50);
             this.btnLogout.TabIndex = 26;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -69,10 +69,10 @@
             // btnDashBoard
             // 
             this.btnDashBoard.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDashBoard.Location = new System.Drawing.Point(-2, 108);
-            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDashBoard.Location = new System.Drawing.Point(-2, 86);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(222, 60);
+            this.btnDashBoard.Size = new System.Drawing.Size(197, 48);
             this.btnDashBoard.TabIndex = 25;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.UseVisualStyleBackColor = false;
@@ -81,10 +81,10 @@
             // btnVendorsAndProducts
             // 
             this.btnVendorsAndProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-2, 197);
-            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-2, 158);
+            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVendorsAndProducts.Name = "btnVendorsAndProducts";
-            this.btnVendorsAndProducts.Size = new System.Drawing.Size(220, 63);
+            this.btnVendorsAndProducts.Size = new System.Drawing.Size(196, 50);
             this.btnVendorsAndProducts.TabIndex = 24;
             this.btnVendorsAndProducts.Text = "Vendors and Products";
             this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
@@ -94,10 +94,10 @@
             // 
             this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
             this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetting.Location = new System.Drawing.Point(-2, 500);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSetting.Location = new System.Drawing.Point(-2, 400);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(220, 63);
+            this.btnSetting.Size = new System.Drawing.Size(196, 50);
             this.btnSetting.TabIndex = 23;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = false;
@@ -106,22 +106,23 @@
             // btnAddOrAdjustVendors
             // 
             this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-2, 268);
-            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-2, 214);
+            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
-            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(220, 63);
+            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(196, 50);
             this.btnAddOrAdjustVendors.TabIndex = 22;
             this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
+            this.btnAddOrAdjustVendors.Click += new System.EventHandler(this.btnAddOrAdjustVendors_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -3);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 128);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
@@ -129,117 +130,117 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(351, 418);
+            this.label1.Location = new System.Drawing.Point(312, 334);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 20);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 27;
             this.label1.Text = "Edit User:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 458);
+            this.label2.Location = new System.Drawing.Point(302, 366);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(76, 16);
             this.label2.TabIndex = 28;
             this.label2.Text = "UserName:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(346, 498);
+            this.label3.Location = new System.Drawing.Point(308, 398);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 20);
+            this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 29;
             this.label3.Text = "Password:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(290, 538);
+            this.label4.Location = new System.Drawing.Point(258, 430);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 20);
+            this.label4.Size = new System.Drawing.Size(118, 16);
             this.label4.TabIndex = 30;
             this.label4.Text = "Confirm Password:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(378, 578);
+            this.label5.Location = new System.Drawing.Point(336, 462);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 20);
+            this.label5.Size = new System.Drawing.Size(44, 16);
             this.label5.TabIndex = 31;
             this.label5.Text = "Email:";
             // 
             // tbUserEdit
             // 
-            this.tbUserEdit.Location = new System.Drawing.Point(440, 414);
-            this.tbUserEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbUserEdit.Location = new System.Drawing.Point(391, 331);
+            this.tbUserEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUserEdit.Name = "tbUserEdit";
-            this.tbUserEdit.Size = new System.Drawing.Size(199, 26);
+            this.tbUserEdit.Size = new System.Drawing.Size(177, 22);
             this.tbUserEdit.TabIndex = 32;
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(440, 454);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbUsername.Location = new System.Drawing.Point(391, 363);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(199, 26);
+            this.tbUsername.Size = new System.Drawing.Size(177, 22);
             this.tbUsername.TabIndex = 33;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(440, 494);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbPassword.Location = new System.Drawing.Point(391, 395);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbPassword.Size = new System.Drawing.Size(177, 22);
             this.tbPassword.TabIndex = 34;
             // 
             // tbConfirmPassword
             // 
-            this.tbConfirmPassword.Location = new System.Drawing.Point(440, 534);
-            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(391, 427);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.Size = new System.Drawing.Size(199, 26);
+            this.tbConfirmPassword.Size = new System.Drawing.Size(177, 22);
             this.tbConfirmPassword.TabIndex = 35;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(440, 574);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tbEmail.Location = new System.Drawing.Point(391, 459);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(199, 26);
+            this.tbEmail.Size = new System.Drawing.Size(177, 22);
             this.tbEmail.TabIndex = 36;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(528, 614);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Location = new System.Drawing.Point(469, 491);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 35);
+            this.btnSave.Size = new System.Drawing.Size(100, 28);
             this.btnSave.TabIndex = 38;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(294, 405);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(261, 324);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 273);
+            this.panel1.Size = new System.Drawing.Size(356, 218);
             this.panel1.TabIndex = 41;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(294, 65);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEdit.Location = new System.Drawing.Point(261, 52);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(112, 35);
+            this.btnEdit.Size = new System.Drawing.Size(100, 28);
             this.btnEdit.TabIndex = 40;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -247,21 +248,22 @@
             // dgvUserData
             // 
             this.dgvUserData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUserData.Location = new System.Drawing.Point(294, 108);
+            this.dgvUserData.Location = new System.Drawing.Point(261, 86);
+            this.dgvUserData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUserData.Name = "dgvUserData";
             this.dgvUserData.RowHeadersWidth = 62;
             this.dgvUserData.RowTemplate.Height = 28;
-            this.dgvUserData.Size = new System.Drawing.Size(843, 267);
+            this.dgvUserData.Size = new System.Drawing.Size(749, 214);
             this.dgvUserData.TabIndex = 42;
             this.dgvUserData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserData_CellContentClick);
             // 
             // LoginSecurity
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.dgvUserData);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
@@ -282,7 +284,7 @@
             this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LoginSecurity";
             this.Text = "LoginSecurity";
             this.Load += new System.EventHandler(this.LoginSecurity_Load);

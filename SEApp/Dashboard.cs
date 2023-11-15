@@ -54,17 +54,28 @@ namespace SEApp
             this.Hide();
         }
 
+        // added functionality to btnAddOrAdjustVendors in the dashboard form to allow access to AddAdjustForm for admins and owners.
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
-            // Create an instance of the AddAdjustForm
-            AddAdjustForm addAdjustForm = new AddAdjustForm();
+            // Retrieve the logged-in username using the static method
+            string username = LoginForm.GetLoggedInUsername();
 
-            // Show the AddAdjustForm
-           
-            addAdjustForm.Show();
+            // Fetch the user's role from the database using the Database class
+            string userRole = connectDB.GetUserRole(username);
 
-            // Hide the current form (Dashboard form)
-            this.Hide();
+            // Check if the user is an admin or owner
+            if (userRole == "0" || userRole == "1")
+            {
+                // Allow access to the AddAdjustForm
+                AddAdjustForm addAdjustForm = new AddAdjustForm();
+                addAdjustForm.Show();
+                this.Close();
+            }
+            else
+            {
+                // Display access denied message
+                MessageBox.Show("Access Denied. You do not have permission to access this feature.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
