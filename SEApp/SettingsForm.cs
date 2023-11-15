@@ -12,11 +12,16 @@ namespace SEApp
 {
     public partial class SettingsForm : Form
     {
-     
+        // Database connection object
+        private Database connectDB;
+
+
 
         public SettingsForm()
         {
             InitializeComponent();
+
+            connectDB = Database.getConnectString();
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
@@ -59,12 +64,54 @@ namespace SEApp
             this.Close();
         }
 
+        // added functionality to  btnLoginSecurity to allow access to LoginSecurity form for admins and owners.
         private void btnLoginSecurity_Click(object sender, EventArgs e)
         {
-            LoginSecurity loginSForm = new LoginSecurity();
-            this.Close();
-            loginSForm.Show();
-            
+
+            // Retrieve the logged-in username using the static method
+            string username = LoginForm.GetLoggedInUsername();
+
+            // Fetch the user's role from the database using the Database class
+            string userRole = connectDB.GetUserRole(username);
+
+            // Check if the user is an admin 
+            if (userRole == "0")
+            {
+                // Allow access to the LoginSecurity form
+                LoginSecurity loginSForm = new LoginSecurity();
+                loginSForm.Show();
+                this.Close();
+            }
+            else
+            {
+                // Display access denied message
+                MessageBox.Show("Access Denied. You do not have permission to access this feature.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+        // added functionality to btnCompanyRole to allow access to AddAdjustForm for admins and owners.
+        private void btnCompanyRole_Click(object sender, EventArgs e)
+        {
+            // Retrieve the logged-in username using the static method
+            string username = LoginForm.GetLoggedInUsername();
+
+            // Fetch the user's role from the database using the Database class
+            string userRole = connectDB.GetUserRole(username);
+
+            // Check if the user is an admin or owner
+            if (userRole == "0" || userRole == "1")
+            {
+                // Allow access to the AddAdjustForm
+                AddAdjustForm addAdjustForm = new AddAdjustForm();
+                addAdjustForm.Show();
+                this.Close();
+            }
+            else
+            {
+                // Display access denied message
+                MessageBox.Show("Access Denied. You do not have permission to access this feature.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
     }
 }
