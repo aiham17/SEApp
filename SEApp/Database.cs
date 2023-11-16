@@ -78,48 +78,45 @@ namespace SEApp
          * and compares the provided username and password with the stored values in the database.
          * If a match is found, it immediately returns true for a successful login. 
          * This streamlined approach enhances clarity, efficiency, and error handling compared to the previous version, which used a DataTable and a more complex loop structure.  */
+        // Removed the for loop as the SQL Query will
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
             string readUser = sqlQuery.readUser;
-
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            try
             {
-                bool readPassword;
-
-                using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
+                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
                 {
-
-                    readUsername.Parameters.AddWithValue("@user", user);
-                    connectDB.Open();
-                    SqlDataReader readUsers = readUsername.ExecuteReader();
-                    DataTable readResult = new DataTable();
-                    readResult.Load(readUsers);
-                    string storedUser, storedPass, storedSalt;
-                    if(readResult.Rows.Count > 0)
+                    using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
                     {
-                        storedUser = readResult.Rows[0].Field<string>("Username").ToString();
-                        storedPass = readResult.Rows[0].Field<string>("Password").ToString();
-                        storedSalt = readResult.Rows[0].Field<string>("Salt").ToString();
-                        return readPassword = passVerify.passwordVerify(storedPass, storedSalt, pass);
+                        readUsername.Parameters.AddWithValue("@user", user);
+                        connectDB.Open();
+                        SqlDataReader readUsers = readUsername.ExecuteReader();
+                        DataTable readResult = new DataTable();
+                        readResult.Load(readUsers);
+                        string storedUser, storedPass, storedSalt;
+                        if (readResult.Rows.Count > 0)
+                        {
+                            storedUser = readResult.Rows[0].Field<string>("Username").ToString();
+                            storedPass = readResult.Rows[0].Field<string>("Password").ToString();
+                            storedSalt = readResult.Rows[0].Field<string>("Salt").ToString();
+                            return passVerify.passwordVerify(storedPass, storedSalt, pass);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-                   
-
-
-
-
-
 
                 }
-
-
-
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
 
         
             /*try

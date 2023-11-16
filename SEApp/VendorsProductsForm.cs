@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -109,7 +110,8 @@ namespace SEApp
             DataTable vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
             vendorProData.Columns.Remove("VendorID1");
             setDataSource(vendorProData, dgvVendorProduct);
-            
+            dgvVendorProduct.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             // TODO: This line of code loads data into the 'vendorProducts.VendorInfo' table. You can move, or remove it, as needed.
             //this.vendorInfoTableAdapter.Fill(this.vendorProducts.VendorInfo);
             // TODO: This line of code loads data into the 'vendorProducts.ProductInfo' table. You can move, or remove it, as needed.
@@ -246,6 +248,41 @@ namespace SEApp
         {
             exportPDF pdf = new exportPDF();
             pdf.exportPDFDoc(dgvVendorProduct);
+            
+        }
+
+        private void dgvVendorProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            int selectedRow = dgvVendorProduct.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            string vendorName, productName;
+            //int selectedVendor, selectedProduct;
+            if(selectedRow > 0)
+            {
+                // Gets the the row index that the user has clicked on in the data grid.
+                // Based off this selection will get the VendorID and the Product ID
+                if (dgvVendorProduct.Columns.Contains("Company_Name"))
+                {
+                    vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
+                    //selectedVendor = Int32.Parse(vendorID);
+                    MessageBox.Show(vendorName);
+                }
+                else if (dgvVendorProduct.Columns.Contains("Software_Name"))
+                {
+                    productName = dgvVendorProduct.Rows[e.RowIndex].Cells["Software_Name"].Value.ToString();
+                    //selectedProduct = Int32.Parse(productID);
+                    MessageBox.Show(productName);
+                }
+                else
+                {
+                    MessageBox.Show("You cannot view extra information here");
+                }
+                
+                
+                
+                               
+
+            }
             
         }
     }

@@ -167,6 +167,7 @@
             this.dgvVendorProduct.RowTemplate.Height = 28;
             this.dgvVendorProduct.Size = new System.Drawing.Size(1066, 426);
             this.dgvVendorProduct.TabIndex = 33;
+            this.dgvVendorProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVendorProduct_CellContentClick);
             // 
             // vendorInfoBindingSource2
             // 
