@@ -83,10 +83,52 @@ namespace SEApp
             EncryptDecrypt passVerify = new EncryptDecrypt();
             string readUser = sqlQuery.readUser;
 
-            try
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
+                bool readPassword;
+
+                using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
+                {
+
+                    readUsername.Parameters.AddWithValue("@user", user);
+                    connectDB.Open();
+                    SqlDataReader readUsers = readUsername.ExecuteReader();
+                    DataTable readResult = new DataTable();
+                    readResult.Load(readUsers);
+                    string storedUser, storedPass, storedSalt;
+                    if(readResult.Rows.Count > 0)
+                    {
+                        storedUser = readResult.Rows[0].Field<string>("Username").ToString();
+                        storedPass = readResult.Rows[0].Field<string>("Password").ToString();
+                        storedSalt = readResult.Rows[0].Field<string>("Salt").ToString();
+                        return readPassword = passVerify.passwordVerify(storedPass, storedSalt, pass);
+                    }
+                    else
+                    {
+                        MessageBox.Show("The Username & Password entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                   
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+        
+            /*try
+            {
+                
+
                 using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
                 {
+                   
                     using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
                     {
                         readUsername.Parameters.AddWithValue("@user", user);
@@ -106,13 +148,17 @@ namespace SEApp
                                     {
                                         return true; // Username and password match
                                     }
+                                    
                                 }
+                                
                             }
+                            
+                            
                         }
                     }
                 }
 
-                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             catch (Exception ex)
@@ -120,7 +166,7 @@ namespace SEApp
                 // Log or display the exception details
                 MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }
+            }*/
         }
 
 
@@ -170,12 +216,12 @@ namespace SEApp
          * Updated Login and Settings forms to use this method for checking user roles.*/
         public string GetUserRole(string username)
         {
-            string query = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
+            
 
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
-                using (SqlCommand command = new SqlCommand(query, connectDB))
+                using (SqlCommand command = new SqlCommand(sqlQuery.getUserRole, connectDB))
                 {
                     try
                     {

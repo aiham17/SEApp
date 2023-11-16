@@ -130,9 +130,9 @@ namespace SEApp
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Items.AddRange(new object[] {
-            "Financial Advisor",
-            "Admin",
             "Owner",
+            "Admin",
+            "Financial Advisor",
             "General User"});
             this.cmbRole.Location = new System.Drawing.Point(196, 425);
             this.cmbRole.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

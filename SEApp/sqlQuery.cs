@@ -17,6 +17,8 @@ namespace SEApp
         // Query to get total number of vendors
         public const string TotalNumberOfVendorsQuery = "SELECT COUNT(*) AS TotalVendors FROM VendorInfo";
 
+        public const string getUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
+
 
         // Query to get active vendors
         public const string ActiveVendorsQuery = "SELECT TOP 5 Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Last_Reviewed DESC"; // the LastReviewedDate should be in datetime format.
