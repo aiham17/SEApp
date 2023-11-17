@@ -30,7 +30,7 @@ namespace SEApp
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Close();
-        }
+        }//Functionality 
 
         private void btnVendorsAndProducts_Click(object sender, EventArgs e)
         {
@@ -91,8 +91,8 @@ namespace SEApp
             // Fetch the user's role from the database using the Database class
             string userRole = connectDB.GetUserRole(username);
 
-            // Check if the user is an admin 
-            if (userRole == "0")
+            // Check if the user is an admin
+            if (userRole == "0" )
             {
                 // Allow access to the LoginSecurity form
                 LoginSecurity loginSForm = new LoginSecurity();
