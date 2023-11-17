@@ -166,6 +166,37 @@ namespace SEApp
             }*/
         }
 
+        /* The UpdateUserInfo method serves the purpose of updating user information in the database.
+         * It is specifically designed to modify the records in the UserInformation table based on the provided UserID. 
+         * It constructs an SQL query that updates the username, password, salt, and email for a user with a specific UserID.
+         * The method establishes a connection to the database, creates a SqlCommand to execute the update query, and sets parameters with the provided values.
+         * Finally, it executes the query to apply the modifications.*/
+        public void UpdateUserInfo(int userID, string newUsername, string newPasswordHash, string newSalt, string newEmail)
+        {
+            // SQL query to update user information in the UserInformation table based on the provided UserID
+            string updateQuery = "UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID";
+
+            // Establish a connection to the database
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                // Open the database connection
+                connectDB.Open();
+                // Create a SqlCommand to execute the update query
+                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connectDB))
+                {
+                    // Set parameters for the update query with values provided as arguments
+                    updateCommand.Parameters.AddWithValue("@UserID", userID);
+                    updateCommand.Parameters.AddWithValue("@Username", newUsername);
+                    updateCommand.Parameters.AddWithValue("@Password", newPasswordHash);
+                    updateCommand.Parameters.AddWithValue("@Salt", newSalt);
+                    updateCommand.Parameters.AddWithValue("@Email", newEmail);
+
+                    // Execute the update query to modify user information in the database
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
 
 
         // The ExecuteQuery method in the Database class streamlines database interactions.
