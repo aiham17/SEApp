@@ -109,9 +109,28 @@ namespace SEApp
 
         }
 
+        /* When the "Edit" button is clicked.
+         * checks if a row is selected in the DataGridView.
+         * If a row is selected, it retrieves values from the selected row and populates the text boxes for editing.
+         * If no row is selected, it displays an error message.*/
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // Check if a row is selected in the DataGridView
+            if (dgvUserData.SelectedRows.Count > 0)
+            {
+                // Get the first selected row
+                DataGridViewRow selectedRow = dgvUserData.SelectedRows[0];
 
+                // Populate text boxes with values from the selected row for editing
+                tbUsername.Text = selectedRow.Cells["Username"].Value.ToString();
+                tbPassword.Text = selectedRow.Cells["Password"].Value.ToString();
+                tbEmail.Text = selectedRow.Cells["Email"].Value.ToString();
+            }
+            else
+            {
+                // Display an error message if no row is selected for editing
+                MessageBox.Show("Please select a row to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
