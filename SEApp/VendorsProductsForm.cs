@@ -197,7 +197,7 @@ namespace SEApp
                 switch (cmbContactInfo.SelectedIndex)
                 {
                     case 0:
-                        vendorProData = connectDB.getVendorProducts(sqlQuery.allContact);
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.trialContact);
                         break;
                     case 1:
                         vendorProData = connectDB.getVendorProducts(sqlQuery.activeContact);
@@ -251,6 +251,8 @@ namespace SEApp
             
         }
 
+        // Gets the company name or software name in the row the user has selected to then have a pop up screen to display the vendor and product information in a 
+        // more readable format.
         private void dgvVendorProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
@@ -259,24 +261,36 @@ namespace SEApp
             //int selectedVendor, selectedProduct;
             if(selectedRow > 0)
             {
+                try
+                {
+                    if (dgvVendorProduct.Columns.Contains("Company_Name") && dgvVendorProduct.Columns.Contains("Software_Name"))
+                    {
+                        vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
+                        productName = dgvVendorProduct.Rows[e.RowIndex].Cells["Software_Name"].Value.ToString();
+
+                    }
+                    else if (dgvVendorProduct.Columns.Contains("Software_Name"))
+                    {
+                        productName = dgvVendorProduct.Rows[e.RowIndex].Cells["Software_Name"].Value.ToString();
+
+
+                    }
+                    else if (dgvVendorProduct.Columns.Contains("Company_Name"))
+                    {
+                        vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You cannot view extra information here");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please do NOT SELECT the Column Name" + ex.Message);    
+                }
                 // Gets the the row index that the user has clicked on in the data grid.
                 // Based off this selection will get the VendorID and the Product ID
-                if (dgvVendorProduct.Columns.Contains("Company_Name"))
-                {
-                    vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
-                    //selectedVendor = Int32.Parse(vendorID);
-                    MessageBox.Show(vendorName);
-                }
-                else if (dgvVendorProduct.Columns.Contains("Software_Name"))
-                {
-                    productName = dgvVendorProduct.Rows[e.RowIndex].Cells["Software_Name"].Value.ToString();
-                    //selectedProduct = Int32.Parse(productID);
-                    MessageBox.Show(productName);
-                }
-                else
-                {
-                    MessageBox.Show("You cannot view extra information here");
-                }
+                
                 
                 
                 

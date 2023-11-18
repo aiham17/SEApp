@@ -74,7 +74,8 @@ namespace SEApp
 
         // Gets all of the Vendors Contact Information
         public const string allContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo ORDER BY VendorID";
-        public const string activeContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY VendorID";
+        public const string trialContact = "SELECT VendorInfo.Company_Name, Contact.Addresses, Contact.Telephone_Numbers FROM VendorInfo  JOIN Contact  on VendorInfo.VendorID = Contact.VendorID ORDER BY Contact.ContactID";
+        public const string activeContact = "SELECT VendorInfo.Company_Name, Contact.Addresses, Contact.Telephone_Numbers FROM VendorInfo  JOIN Contact  on VendorInfo.VendorID = Contact.VendorID WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Contact.ContactID";
         //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
         //public const string companyAge1 = "SELECT Company_Name FROM VendorInfo WHERE "
         public const string zeroFiveVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) BETWEEN 0 AND 5";
@@ -86,7 +87,7 @@ namespace SEApp
 
         // Grab all the usernames, passwords and emails from the UserInfo Database table
         public const string userInfo = "SELECT * FROM UserInformation";
-
+       
     }
 
 }
