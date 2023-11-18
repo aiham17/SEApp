@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Linq;
 using iTextSharp;
 using iTextSharp.text;
@@ -197,7 +198,7 @@ namespace SEApp
                 switch (cmbContactInfo.SelectedIndex)
                 {
                     case 0:
-                        vendorProData = connectDB.getVendorProducts(sqlQuery.trialContact);
+                        vendorProData = connectDB.getVendorProducts(sqlQuery.allContact);
                         break;
                     case 1:
                         vendorProData = connectDB.getVendorProducts(sqlQuery.activeContact);
@@ -207,6 +208,11 @@ namespace SEApp
                         break;
                 }
                 setDataSource(vendorProData, dgvVendorProduct);
+                dgvVendorProduct.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvVendorProduct.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //grd.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //grd.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //grd.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             }
             catch

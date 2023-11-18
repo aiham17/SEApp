@@ -73,11 +73,10 @@ namespace SEApp
         public const string noCloud = "SELECT Company_Name, Software_Name, Cloud_Service_Type FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE Cloud_Service_Type IS NULL";
 
         // Gets all of the Vendors Contact Information
-        public const string allContact = "SELECT Company_Name, Contact_Telephone, Address FROM VendorInfo ORDER BY VendorID";
-        public const string trialContact = "SELECT VendorInfo.Company_Name, Contact.Addresses, Contact.Telephone_Numbers FROM VendorInfo  JOIN Contact  on VendorInfo.VendorID = Contact.VendorID ORDER BY Contact.ContactID";
-        public const string activeContact = "SELECT VendorInfo.Company_Name, Contact.Addresses, Contact.Telephone_Numbers FROM VendorInfo  JOIN Contact  on VendorInfo.VendorID = Contact.VendorID WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Contact.ContactID";
-        //VendorInfo v ON p.VendorID=v.VendorID v.Company_Name
-        //public const string companyAge1 = "SELECT Company_Name FROM VendorInfo WHERE "
+        
+        public const string allContact = "SELECT VendorInfo.Company_Name,Contact.Telephone_Numbers, Contact.Addresses FROM VendorInfo  JOIN Contact  on VendorInfo.VendorID = Contact.VendorID ORDER BY Contact.ContactID";
+        public const string activeContact = "SELECT VendorInfo.Company_Name,Contact.Telephone_Numbers, Contact.Addresses FROM VendorInfo  JOIN Contact  on VendorInfo.VendorID = Contact.VendorID WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Contact.ContactID";
+       
         public const string zeroFiveVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) BETWEEN 0 AND 5";
         public const string fiveTenVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) BETWEEN 6 AND 10";
         public const string tenVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) >10";
