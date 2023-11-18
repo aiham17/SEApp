@@ -40,17 +40,33 @@ namespace SEApp
 
         private void EditVendorProduct_Load(object sender, EventArgs e)
         {
-            DataTable vendorData = new DataTable();
-            vendorData= connectDB.getVendorProductInfo(vendorName, productName);
-            tbVendorName.Text = vendorData.Rows[0][1].ToString();
-            tbVendorWebsite.Text = vendorData.Rows[0][2].ToString();
-            rtbDescription.Text = vendorData.Rows[0][3].ToString();
-            dtpVendorEstablished.Value = Convert.ToDateTime(vendorData.Rows[0][4].ToString());
-            tbEmployees.Text= vendorData.Rows[0][5].ToString();
-            dtpLastReviewDate.Value = Convert.ToDateTime(vendorData.Rows[0][6].ToString());
-            dtpDemoDate.Value = Convert.ToDateTime(vendorData.Rows[0][7].ToString());
-            rtbAddInfo.Text = vendorData.Rows[0][8].ToString();
-            cbInternalProServices.Checked = Convert.ToBoolean(vendorData.Rows[0][9].ToString());
+            try
+            {
+                DataTable vendorData = new DataTable();
+                vendorData = connectDB.getVendorProductInfo(vendorName, productName);
+                if(vendorData != null)
+                {
+                    tbVendorName.Text = vendorData.Rows[0][1].ToString();
+                    tbVendorWebsite.Text = vendorData.Rows[0][2].ToString();
+                    rtbDescription.Text = vendorData.Rows[0][3].ToString();
+                    dtpVendorEstablished.Value = Convert.ToDateTime(vendorData.Rows[0][4].ToString());
+                    tbEmployees.Text = vendorData.Rows[0][5].ToString();
+                    dtpLastReviewDate.Value = Convert.ToDateTime(vendorData.Rows[0][6].ToString());
+                    dtpDemoDate.Value = Convert.ToDateTime(vendorData.Rows[0][7].ToString());
+                    rtbAddInfo.Text = vendorData.Rows[0][8].ToString();
+                    cbInternalProServices.Checked = Convert.ToBoolean(vendorData.Rows[0][9].ToString());
+                }
+                else
+                {
+                    MessageBox.Show("An error has occurred");
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("An error has occurred");
+            }
+            
         }
     }
 }
