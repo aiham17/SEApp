@@ -10,6 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.CodeDom.Compiler;
 using System.Collections;
 using SEApp.CitisoftDBDataSetTableAdapters;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace SEApp
@@ -164,6 +165,38 @@ namespace SEApp
                 MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }*/
+        }
+
+        public DataTable getVendorProductInfo(string vendorName, string productName)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                using (SqlCommand getData = new SqlCommand(sqlQuery.editVendor, connectDB))
+                {
+                    getData.Parameters.Add("@company", vendorName);
+                    getData.Parameters.Add("@software", productName);
+                    //List<SqlParameter> prm = new List<SqlParameter>()
+                       // {
+                           // new SqlParameter("@company",SqlDbType.NVarChar,0) {Value = vendorName}
+                          //  , new SqlParameter("Password",SqlDbType.NVarChar,0) { Value = productName}
+                       // };
+                    //getData.Parameters.Add(prm.ToArray());
+
+                    connectDB.Open();
+                    SqlDataReader getDataVP = getData.ExecuteReader();
+                    DataTable readData = new DataTable();
+                    readData.Load(getDataVP);
+                    return readData;
+                }
+            }
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred");
+            }
         }
 
         /* The UpdateUserInfo method serves the purpose of updating user information in the database.

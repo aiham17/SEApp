@@ -18,6 +18,8 @@ namespace SEApp
 {
     public partial class VendorsProductsForm : Form
     {
+        public string vendorName;
+        public string productName;
         private Database connectDB;
         DataTable vendorProData;
 
@@ -265,7 +267,7 @@ namespace SEApp
         {
            
             int selectedRow = dgvVendorProduct.Rows.GetRowCount(DataGridViewElementStates.Selected);
-            string vendorName, productName;
+            
             //int selectedVendor, selectedProduct;
             if(selectedRow > 0)
             {
@@ -275,17 +277,26 @@ namespace SEApp
                     {
                         vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
                         productName = dgvVendorProduct.Rows[e.RowIndex].Cells["Software_Name"].Value.ToString();
+                        EditVendorProduct open = new EditVendorProduct();
+                        open.vendorName = vendorName;
+                        open.productName = productName;
+                        open.Show();
 
                     }
                     else if (dgvVendorProduct.Columns.Contains("Software_Name"))
                     {
                         productName = dgvVendorProduct.Rows[e.RowIndex].Cells["Software_Name"].Value.ToString();
-
+                        EditVendorProduct open = new EditVendorProduct();
+                        open.productName = productName;
+                        open.Show();
 
                     }
                     else if (dgvVendorProduct.Columns.Contains("Company_Name"))
                     {
                         vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
+                        EditVendorProduct open = new EditVendorProduct();
+                        open.vendorName = vendorName;
+                        open.Show();
                     }
                     else
                     {

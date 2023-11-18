@@ -162,7 +162,7 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(177, 36);
             this.tbUsername.TabIndex = 33;
-            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
+            
             // 
             // tbPassword
             // 

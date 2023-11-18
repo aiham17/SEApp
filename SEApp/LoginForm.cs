@@ -113,6 +113,7 @@ namespace SEApp
                 {
                     loggedInUsername = null; // Reset the username if the login fails
                     MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
                 }
             }
 
