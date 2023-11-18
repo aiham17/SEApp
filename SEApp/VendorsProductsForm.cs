@@ -208,11 +208,13 @@ namespace SEApp
                         break;
                 }
                 setDataSource(vendorProData, dgvVendorProduct);
-                dgvVendorProduct.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvVendorProduct.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                //grd.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                //grd.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                //grd.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                if (dgvVendorProduct.Columns.Contains("Addresses") && dgvVendorProduct.Columns.Contains("Telephone_Numbers"))
+                {
+                    dgvVendorProduct.Columns["Addresses"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    dgvVendorProduct.Columns["Telephone_Numbers"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
+                
+                
 
             }
             catch

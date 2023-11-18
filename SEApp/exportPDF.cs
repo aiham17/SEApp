@@ -67,7 +67,7 @@ namespace SEApp
                         // Opens a file stream to enable a pdf document to be created, written to and then closed.
                         using (FileStream fstream = new FileStream(saveDT.FileName, FileMode.Create))
                         {
-                            Document pdfDoc = new Document(PageSize.A4_LANDSCAPE, 20f, 40f, 60f, 80f);
+                            Document pdfDoc = new Document(PageSize.A4, 20f, 40f, 60f, 80f);
                             pdfDoc.SetPageSize(iTextSharp.text.PageSize.A4.Rotate());
                             PdfWriter.GetInstance(pdfDoc, fstream);
                             pdfDoc.Open();
