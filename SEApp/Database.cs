@@ -11,6 +11,8 @@ using System.CodeDom.Compiler;
 using System.Collections;
 using SEApp.CitisoftDBDataSetTableAdapters;
 using System.Security.Cryptography.X509Certificates;
+using Org.BouncyCastle.Ocsp;
+using Org.BouncyCastle.Asn1.Cms;
 
 
 namespace SEApp
@@ -171,27 +173,24 @@ namespace SEApp
         {
             try
             {
-                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                DataTable readData = new DataTable();
+                if (vendorName != null && productName != null)
                 {
-
-                    using (SqlCommand getData = new SqlCommand(sqlQuery.editVendor, connectDB))
-                    {
-                        getData.Parameters.Add("@company", vendorName);
-                        getData.Parameters.Add("@software", productName);
-                        //List<SqlParameter> prm = new List<SqlParameter>()
-                        // {
-                        // new SqlParameter("@company",SqlDbType.NVarChar,0) {Value = vendorName}
-                        //  , new SqlParameter("Password",SqlDbType.NVarChar,0) { Value = productName}
-                        // };
-                        //getData.Parameters.Add(prm.ToArray());
-
-                        connectDB.Open();
-                        SqlDataReader getDataVP = getData.ExecuteReader();
-                        DataTable readData = new DataTable();
-                        readData.Load(getDataVP);
-                        return readData;
-                    }
+                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.editVendor);
+                    return readData;
                 }
+                else if (vendorName != null && productName == null)
+                {
+                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.editVendor2);
+                    return readData;
+                }
+
+                else
+                {
+                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.editVendor3);
+                    return readData;
+                }    
+               
             }
             catch (Exception ex)
             {
@@ -199,6 +198,54 @@ namespace SEApp
                 return null;
             }
         }
+
+        public DataTable readVendorProductInfo(DataTable readData,string vendorName, string productName, string sqlQuery)
+        {
+            try
+            {
+                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                {
+                    using (SqlCommand getData = new SqlCommand(sqlQuery, connectDB))
+                    {
+                        if (vendorName != null && productName != null)
+                        {
+                            getData.Parameters.Add("@company", vendorName);
+                            getData.Parameters.Add("@software", productName);
+                            connectDB.Open();
+                            SqlDataReader getDataVP = getData.ExecuteReader();
+
+                            readData.Load(getDataVP);
+                            return readData;
+                        }
+                        else if (vendorName != null && productName == null)
+                        {
+                            getData.Parameters.Add("@company", vendorName);
+                            connectDB.Open();
+                            SqlDataReader getDataVP = getData.ExecuteReader();
+
+                            readData.Load(getDataVP);
+                            return readData;
+                        }
+                        else {
+                            getData.Parameters.Add("@software", productName);
+                            connectDB.Open();
+                            SqlDataReader getDataVP = getData.ExecuteReader();
+                            readData.Load(getDataVP);
+                            return readData;
+                            
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            
+        }
+
+        
 
         /* The UpdateUserInfo method serves the purpose of updating user information in the database.
          * It is specifically designed to modify the records in the UserInformation table based on the provided UserID. 

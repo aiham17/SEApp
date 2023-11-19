@@ -40,11 +40,12 @@ namespace SEApp
 
         private void EditVendorProduct_Load(object sender, EventArgs e)
         {
+
             try
             {
                 DataTable vendorData = new DataTable();
                 vendorData = connectDB.getVendorProductInfo(vendorName, productName);
-                if(vendorData != null)
+                if (vendorData != null)
                 {
                     tbVendorName.Text = vendorData.Rows[0][1].ToString();
                     tbVendorWebsite.Text = vendorData.Rows[0][2].ToString();
@@ -55,16 +56,26 @@ namespace SEApp
                     dtpDemoDate.Value = Convert.ToDateTime(vendorData.Rows[0][7].ToString());
                     rtbAddInfo.Text = vendorData.Rows[0][8].ToString();
                     cbInternalProServices.Checked = Convert.ToBoolean(vendorData.Rows[0][9].ToString());
+                    tbSoftwareName.Text = vendorData.Rows[0][12].ToString();
+                    tbSoftwareType.Text = vendorData.Rows[0][13].ToString();
+                    tbBusinessArea.Text = vendorData.Rows[0][14].ToString();
+                    tbModule.Text = vendorData.Rows[0][15].ToString();
+                    tbFinancialServices.Text = vendorData.Rows[0][16].ToString();
                 }
+                
                 else
                 {
-                    MessageBox.Show("An error has occurred");
+                    MessageBox.Show("An error has occurred with viewing the data");
                 }
+                
+
                 
             }
             catch(Exception ex)
             {
                 MessageBox.Show("An error has occurred");
+                EditVendorProduct close = new EditVendorProduct();
+                close.Close();
             }
             
         }

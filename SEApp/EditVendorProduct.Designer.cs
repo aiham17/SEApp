@@ -337,14 +337,14 @@
             // 
             this.tbSoftwareType.Location = new System.Drawing.Point(794, 136);
             this.tbSoftwareType.Name = "tbSoftwareType";
-            this.tbSoftwareType.Size = new System.Drawing.Size(164, 22);
+            this.tbSoftwareType.Size = new System.Drawing.Size(235, 22);
             this.tbSoftwareType.TabIndex = 68;
             // 
             // tbBusinessArea
             // 
             this.tbBusinessArea.Location = new System.Drawing.Point(794, 167);
             this.tbBusinessArea.Name = "tbBusinessArea";
-            this.tbBusinessArea.Size = new System.Drawing.Size(164, 22);
+            this.tbBusinessArea.Size = new System.Drawing.Size(235, 22);
             this.tbBusinessArea.TabIndex = 70;
             // 
             // label12
@@ -369,7 +369,7 @@
             // 
             this.tbModule.Location = new System.Drawing.Point(794, 195);
             this.tbModule.Name = "tbModule";
-            this.tbModule.Size = new System.Drawing.Size(164, 22);
+            this.tbModule.Size = new System.Drawing.Size(235, 22);
             this.tbModule.TabIndex = 72;
             // 
             // label15
@@ -385,7 +385,7 @@
             // 
             this.tbFinancialServices.Location = new System.Drawing.Point(794, 226);
             this.tbFinancialServices.Name = "tbFinancialServices";
-            this.tbFinancialServices.Size = new System.Drawing.Size(164, 22);
+            this.tbFinancialServices.Size = new System.Drawing.Size(235, 22);
             this.tbFinancialServices.TabIndex = 74;
             // 
             // label16
