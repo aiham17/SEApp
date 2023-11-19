@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SEApp
 {
@@ -64,15 +65,14 @@ namespace SEApp
                     dtpDemoDate.Value = Convert.ToDateTime(vendorData.Rows[0][7].ToString());
                     rtbAddInfo.Text = vendorData.Rows[0][8].ToString();
                     cbInternalProServices.Checked = Convert.ToBoolean(vendorData.Rows[0][9].ToString());
+                    cbInternalProServices.Enabled = false;
                     tbSoftwareName.Text = vendorData.Rows[0][12].ToString();
                     tbSoftwareType.Text = vendorData.Rows[0][13].ToString();
                     tbBusinessArea.Text = vendorData.Rows[0][14].ToString();
                     tbModule.Text = vendorData.Rows[0][15].ToString();
                     tbFinancialServices.Text = vendorData.Rows[0][16].ToString();
                     cmbContactID.DisplayMember = "ContactID";
-                    //cmbContactID.ValueMember = "ID";
                     cmbContactID.DataSource = contactInfo;
-
                     cmbCloud.DisplayMember = "Cloud_Service_Type";
                     cmbCloud.ValueMember = "ID";
                     cmbCloud.DataSource = vendorData;
@@ -81,6 +81,16 @@ namespace SEApp
                 {
                     MessageBox.Show("An error has occurred with viewing the data");
                 }
+
+                foreach (TextBox textbox in this.Controls.OfType<TextBox>())
+                {
+                    textbox.ReadOnly = true;
+                }
+                foreach(RichTextBox richText in this.Controls.OfType<RichTextBox>())
+                {
+                    richText.ReadOnly = true;
+                }
+                
                 
 
                 
@@ -94,11 +104,14 @@ namespace SEApp
             
         }
 
+        
+
         private void LLVendorWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(LLVendorWebsite.Text);
         }
 
+        // Gets all the different contact information depending upon the selected ContactID. 
         private void cmbContactID_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox selected = (ComboBox)sender;
@@ -116,12 +129,31 @@ namespace SEApp
                     }
                 }
             }
+        }
 
-            //DataRow selectedDR = contactInfo.AsEnumerable().SingleOrDefault(r=>r.Field<int>("ContactID")==selectedID);
-            //int row = Int32.Parse(selectedDR[0].ToString());
-            //MessageBox.Show(row.ToString());
-            //tbTeleNumber.Text = contactInfo.Rows[row][3].ToString();
-            //tbTeleNumber.Text = selectedDR[0][2].ToString();
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            string username = LoginForm.GetLoggedInUsername();
+            string userRole = connectDB.GetUserRole(username);
+            if (userRole == "0" || userRole == "1")
+            {
+                foreach (TextBox textbox in this.Controls.OfType<TextBox>())
+                {
+                    textbox.ReadOnly = false;
+                }
+                foreach (RichTextBox richText in this.Controls.OfType<RichTextBox>())
+                {
+                    richText.ReadOnly = false;
+                }
+                cbInternalProServices.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Access Denied. You do not have permission to access this feature.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
+
         }
     }
 }
