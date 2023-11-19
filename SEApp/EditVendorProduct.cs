@@ -15,6 +15,8 @@ namespace SEApp
         public string vendorName { get; set;}
         public string productName { get; set;}
         private Database connectDB;
+        DataTable vendorData = new DataTable();
+        DataTable contactInfo = new DataTable();
         public EditVendorProduct()
         {
             InitializeComponent();
@@ -38,17 +40,23 @@ namespace SEApp
 
         }
 
+        // Loads all the vendor and product data stored in the datatable into their respective fields on the form
         private void EditVendorProduct_Load(object sender, EventArgs e)
         {
 
             try
             {
-                DataTable vendorData = new DataTable();
+                //DataTable vendorData = new DataTable();
                 vendorData = connectDB.getVendorProductInfo(vendorName, productName);
-                if (vendorData != null)
+                //DataTable contactInfo = new DataTable();
+                int vendorID = (int)vendorData.Rows[0][0];
+                contactInfo = connectDB.readVendorContact(contactInfo, vendorID);
+                
+
+                if ((vendorData != null) && (contactInfo!=null))
                 {
                     tbVendorName.Text = vendorData.Rows[0][1].ToString();
-                    tbVendorWebsite.Text = vendorData.Rows[0][2].ToString();
+                    LLVendorWebsite.Text = vendorData.Rows[0][2].ToString();
                     rtbDescription.Text = vendorData.Rows[0][3].ToString();
                     dtpVendorEstablished.Value = Convert.ToDateTime(vendorData.Rows[0][4].ToString());
                     tbEmployees.Text = vendorData.Rows[0][5].ToString();
@@ -61,8 +69,14 @@ namespace SEApp
                     tbBusinessArea.Text = vendorData.Rows[0][14].ToString();
                     tbModule.Text = vendorData.Rows[0][15].ToString();
                     tbFinancialServices.Text = vendorData.Rows[0][16].ToString();
+                    cmbContactID.DisplayMember = "ContactID";
+                    //cmbContactID.ValueMember = "ID";
+                    cmbContactID.DataSource = contactInfo;
+
+                    cmbCloud.DisplayMember = "Cloud_Service_Type";
+                    cmbCloud.ValueMember = "ID";
+                    cmbCloud.DataSource = vendorData;
                 }
-                
                 else
                 {
                     MessageBox.Show("An error has occurred with viewing the data");
@@ -78,6 +92,36 @@ namespace SEApp
                 close.Close();
             }
             
+        }
+
+        private void LLVendorWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(LLVendorWebsite.Text);
+        }
+
+        private void cmbContactID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox selected = (ComboBox)sender;
+            string contactID = selected.Text;
+            int selectedID = Int32.Parse(contactID);
+            if(contactInfo.Rows.Count > 1)
+            {
+                for(int i = 0; i<contactInfo.Rows.Count; i++)
+                {
+                    int value = Convert.ToInt32(contactInfo.Rows[i][0]);
+                    if (value == selectedID)
+                    {
+                        tbTeleNumber.Text = contactInfo.Rows[i][2].ToString();
+                        tbAddress.Text = contactInfo.Rows[i][3].ToString();
+                    }
+                }
+            }
+
+            //DataRow selectedDR = contactInfo.AsEnumerable().SingleOrDefault(r=>r.Field<int>("ContactID")==selectedID);
+            //int row = Int32.Parse(selectedDR[0].ToString());
+            //MessageBox.Show(row.ToString());
+            //tbTeleNumber.Text = contactInfo.Rows[row][3].ToString();
+            //tbTeleNumber.Text = selectedDR[0][2].ToString();
         }
     }
 }

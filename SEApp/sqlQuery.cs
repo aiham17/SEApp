@@ -82,10 +82,10 @@ namespace SEApp
         public const string tenVendor = "SELECT * FROM VendorInfo WHERE DATEDIFF(yy,Established_Year, GETDATE()) >10";
         // SELECT * FROM VendorInfo WHERE (YEAR(GETDATE())-YEAR(Established_Year)) - (RIGHT(GETDATE(),3)<RIGHT(Established_Year,3)) BETWEEN 1 AND 5
 
-        public const string editVendor = "SELECT * FROM VendorInfo, ProductInfo WHERE VendorInfo.Company_Name=@company AND ProductInfo.Software_Name=@software";
-        public const string editVendor2 = "SELECT * FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE VendorInfo.Company_Name=@company";
-        public const string editVendor3 = "SELECT * FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE ProductInfo.Software_Name = @software";
-
+        public const string loadVendor = "SELECT * FROM VendorInfo, ProductInfo WHERE VendorInfo.Company_Name=@company AND ProductInfo.Software_Name=@software";
+        public const string loadVendor2 = "SELECT * FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE VendorInfo.Company_Name=@company";
+        public const string loadVendor3 = "SELECT * FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE ProductInfo.Software_Name = @software";
+        public const string loadContact = "SELECT * FROM Contact WHERE Contact.VendorID=@VendorID";
         // Grab all the usernames, passwords and emails from the UserInfo Database table
         public const string userInfo = "SELECT * FROM UserInformation";
        

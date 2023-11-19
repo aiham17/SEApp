@@ -119,56 +119,11 @@ namespace SEApp
                 MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            
 
-        
-            /*try
-            {
-                
-
-                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                {
-                   
-                    using (SqlCommand readUsername = new SqlCommand(readUser, connectDB))
-                    {
-                        readUsername.Parameters.AddWithValue("@user", user);
-                        connectDB.Open();
-
-                        using (SqlDataReader readUsers = readUsername.ExecuteReader())
-                        {
-                            if (readUsers.HasRows)
-                            {
-                                while (readUsers.Read())
-                                {
-                                    string storedUser = readUsers["Username"].ToString();
-                                    string storedPass = readUsers["Password"].ToString();
-                                    string storedSalt = readUsers["Salt"].ToString();
-
-                                    if (user == storedUser && passVerify.passwordVerify(storedPass, storedSalt, pass))
-                                    {
-                                        return true; // Username and password match
-                                    }
-                                    
-                                }
-                                
-                            }
-                            
-                            
-                        }
-                    }
-                }
-
-                //MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                // Log or display the exception details
-                MessageBox.Show($"An error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }*/
         }
 
+        // Gets the vendor and product names to then pass to readVendorProductInfo and select which SQL Query should be passed.
+        // Will return either a filled DataTable or a null one
         public DataTable getVendorProductInfo(string vendorName, string productName)
         {
             try
@@ -176,18 +131,18 @@ namespace SEApp
                 DataTable readData = new DataTable();
                 if (vendorName != null && productName != null)
                 {
-                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.editVendor);
+                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.loadVendor);
                     return readData;
                 }
                 else if (vendorName != null && productName == null)
                 {
-                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.editVendor2);
+                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.loadVendor2);
                     return readData;
                 }
 
                 else
                 {
-                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.editVendor3);
+                    readData = readVendorProductInfo(readData, vendorName, productName, sqlQuery.loadVendor3);
                     return readData;
                 }    
                
@@ -199,6 +154,9 @@ namespace SEApp
             }
         }
 
+
+
+        // Opens a connection to the database and will run a SQL Query dependant upon the values of vendorName and productName to then return the datatable filled or not
         public DataTable readVendorProductInfo(DataTable readData,string vendorName, string productName, string sqlQuery)
         {
             try
@@ -232,7 +190,6 @@ namespace SEApp
                             SqlDataReader getDataVP = getData.ExecuteReader();
                             readData.Load(getDataVP);
                             return readData;
-                            
                         }
                     }
                 }
@@ -243,6 +200,31 @@ namespace SEApp
                 return null;
             }
             
+        }
+
+        // Opens a connection to the database and reads all the contact information associated with the vendor selected and stores it in the datatable.
+        // This datatable is then returned.
+        public DataTable readVendorContact(DataTable contactData, int vendorID)
+        {
+            try
+            {
+                using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                {
+                    using(SqlCommand getContact = new SqlCommand(sqlQuery.loadContact, connectDB))
+                    {
+                        getContact.Parameters.Add("@VendorID", vendorID);
+                        connectDB.Open();
+                        SqlDataReader getContactVP = getContact.ExecuteReader();
+                        contactData.Load(getContactVP);
+                        return contactData;
+
+                    }
+                }
+            }
+            catch(Exception ex) {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         
