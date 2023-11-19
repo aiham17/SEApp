@@ -124,7 +124,7 @@ namespace SEApp
                     if (value == selectedID)
                     {
                         tbTeleNumber.Text = contactInfo.Rows[i][2].ToString();
-                        tbAddress.Text = contactInfo.Rows[i][3].ToString();
+                        rtbAddress.Text = contactInfo.Rows[i][3].ToString();
                     }
                 }
             }
