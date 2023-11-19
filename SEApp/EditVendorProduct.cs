@@ -117,7 +117,7 @@ namespace SEApp
             ComboBox selected = (ComboBox)sender;
             string contactID = selected.Text;
             int selectedID = Int32.Parse(contactID);
-            if(contactInfo.Rows.Count > 1)
+            if(contactInfo.Rows.Count > 0)
             {
                 for(int i = 0; i<contactInfo.Rows.Count; i++)
                 {
