@@ -36,10 +36,11 @@ namespace SEApp
             dash.Show();
         }
 
+        // Get the text, integers or date time values entered by the user and add them into their respective columns based off VendorID, Contact ID and ProductID
         private void btnSave_Click(object sender, EventArgs e)
         {
             // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
-            
+
         }
 
         // Loads all the vendor and product data stored in the datatable into their respective fields on the form
