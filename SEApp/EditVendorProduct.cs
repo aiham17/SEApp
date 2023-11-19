@@ -38,7 +38,8 @@ namespace SEApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
+            
         }
 
         // Loads all the vendor and product data stored in the datatable into their respective fields on the form
@@ -47,9 +48,7 @@ namespace SEApp
 
             try
             {
-                //DataTable vendorData = new DataTable();
                 vendorData = connectDB.getVendorProductInfo(vendorName, productName);
-                //DataTable contactInfo = new DataTable();
                 int vendorID = (int)vendorData.Rows[0][0];
                 contactInfo = connectDB.readVendorContact(contactInfo, vendorID);
                 
