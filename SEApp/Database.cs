@@ -342,6 +342,7 @@ namespace SEApp
             return vendorProduct;
         }
 
+        // Updates the vendor information according to what the admin has entered
         public void updateVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate,  int intPro, int vendorID)
         {
             using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -373,6 +374,7 @@ namespace SEApp
             // UPDATE ProductInfo SET Software_Name=@software, Type_Of_Software=@type, Business_Areas=@area, Modules=@module, Financial_Service_Clients=@fsc, Cloud_Service_Type=@cloud WHERE ProductID=@ID
         }
 
+        // Updates the contact information of the specific vendor, according to what the admin has adjusted
         public void updateContact(string address, string teleNumber, int contactID)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -387,6 +389,7 @@ namespace SEApp
                 }
             }
         }
+        // Updates the products information with what the admin has edited
         public void updateProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int productID)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -403,6 +406,20 @@ namespace SEApp
                     updateProduct.Parameters.AddWithValue("@productID", productID);
                     updateProduct.ExecuteNonQuery();
                 }
+            }
+        }
+
+        public void deleteVendorProduct(int vendor)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand deleteVendor = new SqlCommand(sqlQuery.deleteVendor, connectDB))
+                {
+                    deleteVendor.Parameters.AddWithValue("@vendor", vendor);
+                    deleteVendor.ExecuteNonQuery();
+                }
+                
             }
         }
     }

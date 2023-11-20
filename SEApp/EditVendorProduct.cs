@@ -18,7 +18,7 @@ namespace SEApp
         private Database connectDB;
         DataTable vendorData = new DataTable();
         DataTable contactInfo = new DataTable();
-        int vendorID, productID;
+        int vendorID, productID, contactID;
         string cloud;
         public EditVendorProduct()
         {
@@ -44,10 +44,11 @@ namespace SEApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             // Need to make sure the textboxes etc are NOT EQUAL TO NULL
+            // NEED TO ADD DELETE BUTTON
             try
             {
                 string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
-                int contactID = Int32.Parse(cmbContactID.Text.ToString());
+                contactID = Int32.Parse(cmbContactID.Text.ToString());
                 vendor = tbVendorName.Text;
                 website = LLVendorWebsite.Text;
                 description = rtbDescription.Text;
@@ -169,6 +170,29 @@ namespace SEApp
                         tbTeleNumber.Text = contactInfo.Rows[i][2].ToString();
                         rtbAddress.Text = contactInfo.Rows[i][3].ToString();
                     }
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string username = LoginForm.GetLoggedInUsername();
+            string userRole = connectDB.GetUserRole(username);
+            if (userRole == "0" || userRole == "1")
+            {
+                DialogResult delete = MessageBox.Show("Do you wish to delete this vendor?", "Delete Vendor", MessageBoxButtons.YesNo);
+                if (delete == DialogResult.Yes)
+                {
+                    connectDB.deleteVendorProduct(vendorID);
+                    this.Close();
+                    VendorsProductsForm open = new VendorsProductsForm();
+                    open.Show();
+                }
+                else if (delete == DialogResult.No)
+                {
+                    this.Close();
+                    VendorsProductsForm open = new VendorsProductsForm();
+                    open.Show();
                 }
             }
         }

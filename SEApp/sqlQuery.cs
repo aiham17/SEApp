@@ -90,6 +90,10 @@ namespace SEApp
         public const string updateContact = "UPDATE Contact SET Telephone_Numbers=@number, Addresses=@address WHERE ContactID=@contactID";
         public const string updateProduct = "UPDATE ProductInfo SET Software_Name=@software, Type_Of_Software=@type, Business_Areas=@area, Modules=@module, Financial_Service_Clients=@fsc, Cloud_Service_Type=@cloud WHERE ProductID=@productID";
 
+        // Need to sort DELETE SQL Query
+        public const string deleteVendor = "";
+        
+
         // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
         // Grab all the usernames, passwords and emails from the UserInfo Database table
         public const string userInfo = "SELECT * FROM UserInformation";

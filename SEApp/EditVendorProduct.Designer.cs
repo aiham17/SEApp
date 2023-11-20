@@ -68,6 +68,7 @@
             this.cmbCloud = new System.Windows.Forms.ComboBox();
             this.LLVendorWebsite = new System.Windows.Forms.LinkLabel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbCitisoftLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -421,11 +422,24 @@
             this.rtbAddress.TabIndex = 79;
             this.rtbAddress.Text = "";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Snow;
+            this.btnDelete.Location = new System.Drawing.Point(809, 552);
+            this.btnDelete.MinimumSize = new System.Drawing.Size(120, 45);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(120, 45);
+            this.btnDelete.TabIndex = 80;
+            this.btnDelete.Text = "Delete Vendor";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // EditVendorProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 713);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.rtbAddress);
             this.Controls.Add(this.LLVendorWebsite);
             this.Controls.Add(this.rtbAddInfo);
@@ -515,5 +529,6 @@
         private ComboBox cmbCloud;
         private LinkLabel LLVendorWebsite;
         private RichTextBox rtbAddress;
+        private Button btnDelete;
     }
 }
