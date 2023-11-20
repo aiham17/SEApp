@@ -28,6 +28,8 @@ namespace SEApp
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            VendorsProductsForm open = new VendorsProductsForm();
+            open.Show();
             this.Close();
         }
 
@@ -41,27 +43,41 @@ namespace SEApp
         // Get the text, integers or date time values entered by the user and add them into their respective columns based off VendorID, Contact ID and ProductID
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
-            string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
-            int contactID = Int32.Parse(cmbContactID.Text.ToString());
-            vendor = tbVendorName.Text;
-            website = LLVendorWebsite.Text;
-            description = rtbDescription.Text;
-            additionalInfo = rtbAddInfo.Text;
-            address = rtbAddress.Text;
-            teleNumber = tbTeleNumber.Text;
-            employees = tbEmployees.Text;
-            eYear = dtpVendorEstablished.Text;
-            reviewDate = dtpLastReviewDate.Text;
-            DemoDate = dtpDemoDate.Text;
-
-            software = tbSoftwareName.Text;
-            softwareType = tbSoftwareType.Text;
-            businessArea = tbBusinessArea.Text;
-            module = tbModule.Text;
-            financialService = tbFinancialServices.Text;
-            cloud = cmbCloud.Text;
-
+            try
+            {
+                string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
+                int contactID = Int32.Parse(cmbContactID.Text.ToString());
+                vendor = tbVendorName.Text;
+                website = LLVendorWebsite.Text;
+                description = rtbDescription.Text;
+                additionalInfo = rtbAddInfo.Text;
+                address = rtbAddress.Text;
+                teleNumber = tbTeleNumber.Text;
+                employees = tbEmployees.Text;
+                eYear = dtpVendorEstablished.Text;
+                reviewDate = dtpLastReviewDate.Text;
+                DemoDate = dtpDemoDate.Text;
+                int intPro = Convert.ToInt32(cbInternalProServices.Checked);
+                software = tbSoftwareName.Text;
+                softwareType = tbSoftwareType.Text;
+                businessArea = tbBusinessArea.Text;
+                module = tbModule.Text;
+                financialService = tbFinancialServices.Text;
+                cloud = cmbCloud.Text;
+                connectDB.updateVendor(vendor, website, description, additionalInfo, employees, eYear, reviewDate, DemoDate, intPro, vendorID);
+                connectDB.updateContact(address, teleNumber, contactID);
+                connectDB.updateProduct(software, softwareType, businessArea, module, financialService, cloud, productID);
+                MessageBox.Show("The changes made have been successful");
+                this.Close();
+                VendorsProductsForm open = new VendorsProductsForm();
+                open.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The changes made could not be saved to the database");
+            }
+            
+            
         }
 
         // Loads all the vendor and product data stored in the datatable into their respective fields on the form
@@ -71,7 +87,7 @@ namespace SEApp
             try
             {
                 vendorData = connectDB.getVendorProductInfo(vendorName, productName);
-                int vendorID = (int)vendorData.Rows[0][0];
+                vendorID = (int)vendorData.Rows[0][0];
                 productID = (int)vendorData.Rows[0][10];
                 contactInfo = connectDB.readVendorContact(contactInfo, vendorID);
                 

@@ -86,9 +86,18 @@ namespace SEApp
         public const string loadVendor2 = "SELECT * FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE VendorInfo.Company_Name=@company";
         public const string loadVendor3 = "SELECT * FROM VendorInfo JOIN ProductInfo ON VendorInfo.VendorID = ProductInfo.VendorID WHERE ProductInfo.Software_Name = @software";
         public const string loadContact = "SELECT * FROM Contact WHERE Contact.VendorID=@VendorID";
+        public const string updateVendor = "UPDATE VendorInfo SET Company_Name=@vendor, Company_Website=@web, Description=@description, Established_Year=@eYear, No_Employees=@employ, Last_Reviewed=@lreview, Last_Demo=@lDemo, Additional_Info=@addInfo,Internal_Pro_Services=@intProService WHERE VendorID=@vendorID";
+        public const string updateContact = "UPDATE Contact SET Telephone_Numbers=@number, Addresses=@address WHERE ContactID=@contactID";
+        public const string updateProduct = "UPDATE ProductInfo SET Software_Name=@software, Type_Of_Software=@type, Business_Areas=@area, Modules=@module, Financial_Service_Clients=@fsc, Cloud_Service_Type=@cloud WHERE ProductID=@productID";
+
+        // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
         // Grab all the usernames, passwords and emails from the UserInfo Database table
         public const string userInfo = "SELECT * FROM UserInformation";
        
+
+
+
+
     }
 
 }

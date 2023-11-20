@@ -289,6 +289,7 @@ namespace SEApp
                         open.vendorName = vendorName;
                         open.productName = productName;
                         open.Show();
+                        this.Close();
 
                     }
                     else if (dgvVendorProduct.Columns.Contains("Software_Name"))
@@ -297,6 +298,7 @@ namespace SEApp
                         
                         open.productName = productName;
                         open.Show();
+                        this.Close();
 
                     }
                     else if (dgvVendorProduct.Columns.Contains("Company_Name"))
@@ -304,6 +306,7 @@ namespace SEApp
                         vendorName = dgvVendorProduct.Rows[e.RowIndex].Cells["Company_Name"].Value.ToString();
                         open.vendorName = vendorName;
                         open.Show();
+                        this.Close();
                     }
                     else
                     {

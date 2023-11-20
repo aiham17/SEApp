@@ -13,6 +13,8 @@ using SEApp.CitisoftDBDataSetTableAdapters;
 using System.Security.Cryptography.X509Certificates;
 using Org.BouncyCastle.Ocsp;
 using Org.BouncyCastle.Asn1.Cms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 
 namespace SEApp
@@ -337,10 +339,71 @@ namespace SEApp
         public DataTable getVendorProducts(string sqlQuery)
         {
             DataTable vendorProduct = ExecuteQuery(sqlQuery);
-
             return vendorProduct;
+        }
 
+        public void updateVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate,  int intPro, int vendorID)
+        {
+            using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand command = new SqlCommand(sqlQuery.updateVendor, connectDB))
+                {
+                    command.Parameters.AddWithValue("@vendor", vendor);
+                    command.Parameters.AddWithValue("@web", website);
+                    command.Parameters.AddWithValue("@description", description);
+                    command.Parameters.AddWithValue("@eyear", eYear);
+                    command.Parameters.AddWithValue("@employ", employees);
+                    command.Parameters.AddWithValue("@lreview", DateTime.Parse(reviewDate));
+                    command.Parameters.AddWithValue("@lDemo", DateTime.Parse(DemoDate));
+                    command.Parameters.AddWithValue("@addInfo", additionalInfo);
+                    command.Parameters.AddWithValue("@intProService", intPro);
+                    command.Parameters.AddWithValue("@vendorID",vendorID);
+                    command.ExecuteNonQuery();
+                }
+                
+            }
+           
+            
+           
+            
 
+            //"UPDATE VendorInfo SET Company_Name=@vendor, Company_Website=@web, Description=@description, Established_Year=@eYear, No_Employees=@employ, Last_Reviewed=@lreview, Last_Demo=@lDemo, Additional_Info=@addInfo,Internal_Pro_Services=@intProService WHERE VendorID=@vendorID"
+            // UPDATE Contact SET Telephone_Numbers=@number, Addresses=@address WHERE ContactID=@ID
+            // UPDATE ProductInfo SET Software_Name=@software, Type_Of_Software=@type, Business_Areas=@area, Modules=@module, Financial_Service_Clients=@fsc, Cloud_Service_Type=@cloud WHERE ProductID=@ID
+        }
+
+        public void updateContact(string address, string teleNumber, int contactID)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand updateContact = new SqlCommand(sqlQuery.updateContact, connectDB))
+                {
+                    updateContact.Parameters.AddWithValue("@number", teleNumber);
+                    updateContact.Parameters.AddWithValue("@address", address);
+                    updateContact.Parameters.AddWithValue("@contactID", contactID);
+                    updateContact.ExecuteNonQuery();
+                }
+            }
+        }
+        public void updateProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int productID)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand updateProduct = new SqlCommand(sqlQuery.updateProduct, connectDB))
+                {
+                    updateProduct.Parameters.AddWithValue("@software", software);
+                    updateProduct.Parameters.AddWithValue("@type", softwareType);
+                    updateProduct.Parameters.AddWithValue("@area", businessArea);
+                    updateProduct.Parameters.AddWithValue("@module", module);
+                    updateProduct.Parameters.AddWithValue("@fsc", financialService);
+                    updateProduct.Parameters.AddWithValue("@cloud", cloud);
+                    updateProduct.Parameters.AddWithValue("@productID", productID);
+                    updateProduct.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
