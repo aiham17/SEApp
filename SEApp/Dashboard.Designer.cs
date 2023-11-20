@@ -275,7 +275,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashbaord";
-            this.Load += new System.EventHandler(this.Dashboard_Load_1);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chActiveVendors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chHPVendors)).EndInit();

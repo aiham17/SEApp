@@ -335,7 +335,7 @@ namespace SEApp
 
         }
 
-        private void Dashboard_Load_1(object sender, EventArgs e)
+        private void Dashboard_Load(object sender, EventArgs e)
         {
 
         }
