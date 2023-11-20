@@ -17,6 +17,12 @@ namespace SEApp
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
+
+            // Get the logged-in username
+            string loggedInUsername = LoginForm.GetLoggedInUsername();
+
+            // Set the displayed username in the TextBox
+            tbDisplayedUsername.Text = loggedInUsername;
         }
 
         private void btnDashBoard_Click(object sender, EventArgs e)
@@ -189,5 +195,9 @@ namespace SEApp
             }
         }
 
+        private void tbDisplayedUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

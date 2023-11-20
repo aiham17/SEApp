@@ -26,7 +26,6 @@ namespace SEApp
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
-
             // Call the chart functions here to display them automatically
             chActiveVendors_Click(null, null);
             chHPVendors_Click(null, null);
@@ -34,7 +33,15 @@ namespace SEApp
             chHighestProduct_Click(null, null);
             chLowestProduct_Click(null, null);
 
+            // Get the logged-in username
+            string loggedInUsername = LoginForm.GetLoggedInUsername();
+
+            // Set the displayed username in the TextBox along with a welcome message
+            tbDisplayedUsername.Text = $"Welcome, {loggedInUsername} !";
+
         }
+        
+
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -321,6 +328,16 @@ namespace SEApp
 
             // Set chart title
             chLowestProduct.Titles.Add("Lowest Rated Products");
+        }
+
+        private void tbDisplayedUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dashboard_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 

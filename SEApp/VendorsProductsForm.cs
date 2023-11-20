@@ -23,10 +23,17 @@ namespace SEApp
         private Database connectDB;
         DataTable vendorProData;
 
+
         public VendorsProductsForm()
         {
             InitializeComponent();
             connectDB = Database.getConnectString();
+
+            // Get the logged-in username
+            string loggedInUsername = LoginForm.GetLoggedInUsername();
+
+            // Set the displayed username in the TextBox
+            tbDisplayedUsername.Text = loggedInUsername;
         }
 
         // Sets the Data source of the Data grid with the new data when a filter is applied
@@ -319,6 +326,11 @@ namespace SEApp
 
             }
             
+        }
+
+        private void tbDisplayedUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -45,6 +45,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dgvUserData = new System.Windows.Forms.DataGridView();
+            this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserData)).BeginInit();
@@ -162,7 +163,6 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(177, 36);
             this.tbUsername.TabIndex = 33;
-            
             // 
             // tbPassword
             // 
@@ -231,6 +231,20 @@
             this.dgvUserData.TabIndex = 42;
             this.dgvUserData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserData_CellContentClick);
             // 
+            // tbDisplayedUsername
+            // 
+            this.tbDisplayedUsername.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbDisplayedUsername.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDisplayedUsername.Location = new System.Drawing.Point(896, -2);
+            this.tbDisplayedUsername.Multiline = true;
+            this.tbDisplayedUsername.Name = "tbDisplayedUsername";
+            this.tbDisplayedUsername.ReadOnly = true;
+            this.tbDisplayedUsername.Size = new System.Drawing.Size(171, 36);
+            this.tbDisplayedUsername.TabIndex = 43;
+            this.tbDisplayedUsername.TabStop = false;
+            this.tbDisplayedUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDisplayedUsername.TextChanged += new System.EventHandler(this.tbDisplayedUsername_TextChanged);
+            // 
             // LoginSecurity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -238,6 +252,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.tbDisplayedUsername);
             this.Controls.Add(this.dgvUserData);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
@@ -280,5 +295,6 @@
         private Panel panel1;
         private Button btnEdit;
         private DataGridView dgvUserData;
+        private TextBox tbDisplayedUsername;
     }
 }

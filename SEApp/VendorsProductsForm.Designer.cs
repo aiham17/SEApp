@@ -59,6 +59,7 @@
             this.cmbCloud = new System.Windows.Forms.ComboBox();
             this.lblCloudServices = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
@@ -77,10 +78,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLogout.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogout.Location = new System.Drawing.Point(-2, 634);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogout.Location = new System.Drawing.Point(-2, 507);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(220, 62);
+            this.btnLogout.Size = new System.Drawing.Size(196, 50);
             this.btnLogout.TabIndex = 32;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -91,10 +92,10 @@
             this.btnDashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDashBoard.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDashBoard.Location = new System.Drawing.Point(-2, 108);
-            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDashBoard.Location = new System.Drawing.Point(-2, 86);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(222, 60);
+            this.btnDashBoard.Size = new System.Drawing.Size(197, 48);
             this.btnDashBoard.TabIndex = 31;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.UseVisualStyleBackColor = false;
@@ -105,10 +106,10 @@
             this.btnVendorsAndProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnVendorsAndProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-2, 198);
-            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-2, 158);
+            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4);
             this.btnVendorsAndProducts.Name = "btnVendorsAndProducts";
-            this.btnVendorsAndProducts.Size = new System.Drawing.Size(220, 62);
+            this.btnVendorsAndProducts.Size = new System.Drawing.Size(196, 50);
             this.btnVendorsAndProducts.TabIndex = 30;
             this.btnVendorsAndProducts.Text = "Vendors and Products";
             this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
@@ -120,10 +121,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
             this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetting.Location = new System.Drawing.Point(-2, 500);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSetting.Location = new System.Drawing.Point(-2, 400);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(220, 62);
+            this.btnSetting.Size = new System.Drawing.Size(196, 50);
             this.btnSetting.TabIndex = 29;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = false;
@@ -134,10 +135,10 @@
             this.btnAddOrAdjustVendors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-2, 268);
-            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-2, 214);
+            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
-            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(220, 62);
+            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(196, 50);
             this.btnAddOrAdjustVendors.TabIndex = 28;
             this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
@@ -150,9 +151,9 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 128);
+            this.pictureBox1.Size = new System.Drawing.Size(196, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
@@ -161,11 +162,12 @@
             // 
             this.dgvVendorProduct.AllowUserToOrderColumns = true;
             this.dgvVendorProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVendorProduct.Location = new System.Drawing.Point(4, 77);
+            this.dgvVendorProduct.Location = new System.Drawing.Point(4, 62);
+            this.dgvVendorProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvVendorProduct.Name = "dgvVendorProduct";
             this.dgvVendorProduct.RowHeadersWidth = 62;
             this.dgvVendorProduct.RowTemplate.Height = 28;
-            this.dgvVendorProduct.Size = new System.Drawing.Size(1066, 426);
+            this.dgvVendorProduct.Size = new System.Drawing.Size(948, 341);
             this.dgvVendorProduct.TabIndex = 33;
             this.dgvVendorProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVendorProduct_CellContentClick);
             // 
@@ -206,9 +208,10 @@
             // 
             // btnRevertData
             // 
-            this.btnRevertData.Location = new System.Drawing.Point(4, 509);
+            this.btnRevertData.Location = new System.Drawing.Point(4, 407);
+            this.btnRevertData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRevertData.Name = "btnRevertData";
-            this.btnRevertData.Size = new System.Drawing.Size(137, 35);
+            this.btnRevertData.Size = new System.Drawing.Size(122, 28);
             this.btnRevertData.TabIndex = 36;
             this.btnRevertData.Text = "Original";
             this.btnRevertData.UseVisualStyleBackColor = true;
@@ -216,9 +219,10 @@
             // 
             // btnVendor
             // 
-            this.btnVendor.Location = new System.Drawing.Point(147, 509);
+            this.btnVendor.Location = new System.Drawing.Point(131, 407);
+            this.btnVendor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVendor.Name = "btnVendor";
-            this.btnVendor.Size = new System.Drawing.Size(137, 35);
+            this.btnVendor.Size = new System.Drawing.Size(122, 28);
             this.btnVendor.TabIndex = 37;
             this.btnVendor.Text = "Vendor Data";
             this.btnVendor.UseVisualStyleBackColor = true;
@@ -226,9 +230,10 @@
             // 
             // btnProduct
             // 
-            this.btnProduct.Location = new System.Drawing.Point(290, 509);
+            this.btnProduct.Location = new System.Drawing.Point(258, 407);
+            this.btnProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(136, 34);
+            this.btnProduct.Size = new System.Drawing.Size(121, 27);
             this.btnProduct.TabIndex = 38;
             this.btnProduct.Text = "Product Data";
             this.btnProduct.UseVisualStyleBackColor = true;
@@ -241,26 +246,28 @@
             "All",
             "Active",
             "Remove Filter"});
-            this.cmbContactInfo.Location = new System.Drawing.Point(458, 40);
+            this.cmbContactInfo.Location = new System.Drawing.Point(407, 32);
+            this.cmbContactInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbContactInfo.Name = "cmbContactInfo";
-            this.cmbContactInfo.Size = new System.Drawing.Size(150, 28);
+            this.cmbContactInfo.Size = new System.Drawing.Size(134, 24);
             this.cmbContactInfo.TabIndex = 41;
             this.cmbContactInfo.SelectedIndexChanged += new System.EventHandler(this.cmbContactInfo_SelectedIndexChanged);
             // 
             // lblContact
             // 
             this.lblContact.AutoSize = true;
-            this.lblContact.Location = new System.Drawing.Point(454, 17);
+            this.lblContact.Location = new System.Drawing.Point(404, 14);
             this.lblContact.Name = "lblContact";
-            this.lblContact.Size = new System.Drawing.Size(150, 20);
+            this.lblContact.Size = new System.Drawing.Size(120, 16);
             this.lblContact.TabIndex = 42;
             this.lblContact.Text = "Contact Information";
             // 
             // btnExportPDF
             // 
-            this.btnExportPDF.Location = new System.Drawing.Point(954, 36);
+            this.btnExportPDF.Location = new System.Drawing.Point(848, 29);
+            this.btnExportPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportPDF.Name = "btnExportPDF";
-            this.btnExportPDF.Size = new System.Drawing.Size(116, 32);
+            this.btnExportPDF.Size = new System.Drawing.Size(103, 26);
             this.btnExportPDF.TabIndex = 43;
             this.btnExportPDF.Text = "Export";
             this.btnExportPDF.UseVisualStyleBackColor = true;
@@ -273,18 +280,19 @@
             "<5 Years",
             "<10 Years",
             "Older"});
-            this.cmbCompanyAge.Location = new System.Drawing.Point(614, 40);
+            this.cmbCompanyAge.Location = new System.Drawing.Point(546, 32);
+            this.cmbCompanyAge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCompanyAge.Name = "cmbCompanyAge";
-            this.cmbCompanyAge.Size = new System.Drawing.Size(150, 28);
+            this.cmbCompanyAge.Size = new System.Drawing.Size(134, 24);
             this.cmbCompanyAge.TabIndex = 44;
             this.cmbCompanyAge.SelectedIndexChanged += new System.EventHandler(this.cmbCompanyAge_SelectedIndexChanged);
             // 
             // lblCompanyAge
             // 
             this.lblCompanyAge.AutoSize = true;
-            this.lblCompanyAge.Location = new System.Drawing.Point(610, 17);
+            this.lblCompanyAge.Location = new System.Drawing.Point(542, 14);
             this.lblCompanyAge.Name = "lblCompanyAge";
-            this.lblCompanyAge.Size = new System.Drawing.Size(109, 20);
+            this.lblCompanyAge.Size = new System.Drawing.Size(93, 16);
             this.lblCompanyAge.TabIndex = 45;
             this.lblCompanyAge.Text = "Company Age";
             // 
@@ -298,9 +306,10 @@
             // 
             // btnActiveVendors
             // 
-            this.btnActiveVendors.Location = new System.Drawing.Point(4, 36);
+            this.btnActiveVendors.Location = new System.Drawing.Point(4, 29);
+            this.btnActiveVendors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActiveVendors.Name = "btnActiveVendors";
-            this.btnActiveVendors.Size = new System.Drawing.Size(137, 35);
+            this.btnActiveVendors.Size = new System.Drawing.Size(122, 28);
             this.btnActiveVendors.TabIndex = 34;
             this.btnActiveVendors.Text = "Active Vendors";
             this.btnActiveVendors.UseVisualStyleBackColor = true;
@@ -308,9 +317,10 @@
             // 
             // btnRatings
             // 
-            this.btnRatings.Location = new System.Drawing.Point(147, 36);
+            this.btnRatings.Location = new System.Drawing.Point(131, 29);
+            this.btnRatings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRatings.Name = "btnRatings";
-            this.btnRatings.Size = new System.Drawing.Size(154, 35);
+            this.btnRatings.Size = new System.Drawing.Size(137, 28);
             this.btnRatings.TabIndex = 35;
             this.btnRatings.Text = "Software Ratings";
             this.btnRatings.UseVisualStyleBackColor = true;
@@ -325,18 +335,19 @@
             "Enabled",
             "None",
             "Remove Filter"});
-            this.cmbCloud.Location = new System.Drawing.Point(307, 40);
+            this.cmbCloud.Location = new System.Drawing.Point(273, 32);
+            this.cmbCloud.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbCloud.Name = "cmbCloud";
-            this.cmbCloud.Size = new System.Drawing.Size(145, 28);
+            this.cmbCloud.Size = new System.Drawing.Size(129, 24);
             this.cmbCloud.TabIndex = 39;
             this.cmbCloud.SelectedIndexChanged += new System.EventHandler(this.cmbCloud_SelectedIndexChanged);
             // 
             // lblCloudServices
             // 
             this.lblCloudServices.AutoSize = true;
-            this.lblCloudServices.Location = new System.Drawing.Point(303, 17);
+            this.lblCloudServices.Location = new System.Drawing.Point(269, 14);
             this.lblCloudServices.Name = "lblCloudServices";
-            this.lblCloudServices.Size = new System.Drawing.Size(114, 20);
+            this.lblCloudServices.Size = new System.Drawing.Size(98, 16);
             this.lblCloudServices.TabIndex = 40;
             this.lblCloudServices.Text = "Cloud Services";
             // 
@@ -355,16 +366,32 @@
             this.panel1.Controls.Add(this.btnRatings);
             this.panel1.Controls.Add(this.btnActiveVendors);
             this.panel1.Controls.Add(this.dgvVendorProduct);
-            this.panel1.Location = new System.Drawing.Point(251, 82);
+            this.panel1.Location = new System.Drawing.Point(223, 66);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1093, 552);
+            this.panel1.Size = new System.Drawing.Size(972, 442);
             this.panel1.TabIndex = 46;
+            // 
+            // tbDisplayedUsername
+            // 
+            this.tbDisplayedUsername.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbDisplayedUsername.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDisplayedUsername.Location = new System.Drawing.Point(1071, -2);
+            this.tbDisplayedUsername.Multiline = true;
+            this.tbDisplayedUsername.Name = "tbDisplayedUsername";
+            this.tbDisplayedUsername.ReadOnly = true;
+            this.tbDisplayedUsername.Size = new System.Drawing.Size(188, 37);
+            this.tbDisplayedUsername.TabIndex = 47;
+            this.tbDisplayedUsername.TabStop = false;
+            this.tbDisplayedUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDisplayedUsername.TextChanged += new System.EventHandler(this.tbDisplayedUsername_TextChanged);
             // 
             // VendorsProductsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1416, 692);
+            this.ClientSize = new System.Drawing.Size(1259, 554);
+            this.Controls.Add(this.tbDisplayedUsername);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnDashBoard);
             this.Controls.Add(this.btnVendorsAndProducts);
@@ -372,7 +399,7 @@
             this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VendorsProductsForm";
             this.Text = "VendorsProductsForm";
             this.Load += new System.EventHandler(this.VendorsProductsForm_Load);
@@ -388,6 +415,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -422,5 +450,6 @@
         private ComboBox cmbCloud;
         private Label lblCloudServices;
         private Panel panel1;
+        private TextBox tbDisplayedUsername;
     }
 }

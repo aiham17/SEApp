@@ -55,6 +55,7 @@
             this.chLPVendors = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chHighestProduct = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chLowestProduct = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chActiveVendors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chHPVendors)).BeginInit();
@@ -68,7 +69,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-3, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(196, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,10 +80,10 @@
             // btnAddOrAdjustVendors
             // 
             this.btnAddOrAdjustVendors.BackColor = System.Drawing.SystemColors.Window;
-            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(-3, 214);
-            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddOrAdjustVendors.Location = new System.Drawing.Point(1, 321);
+            this.btnAddOrAdjustVendors.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
-            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(196, 50);
+            this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(195, 66);
             this.btnAddOrAdjustVendors.TabIndex = 3;
             this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
@@ -92,10 +93,10 @@
             // 
             this.btnSetting.BackColor = System.Drawing.SystemColors.Window;
             this.btnSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSetting.Location = new System.Drawing.Point(-3, 400);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSetting.Location = new System.Drawing.Point(-2, 468);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(196, 50);
+            this.btnSetting.Size = new System.Drawing.Size(195, 66);
             this.btnSetting.TabIndex = 4;
             this.btnSetting.Text = "Settings";
             this.btnSetting.UseVisualStyleBackColor = false;
@@ -104,10 +105,10 @@
             // btnVendorsAndProducts
             // 
             this.btnVendorsAndProducts.BackColor = System.Drawing.SystemColors.Window;
-            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-3, 158);
-            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVendorsAndProducts.Location = new System.Drawing.Point(-2, 226);
+            this.btnVendorsAndProducts.Margin = new System.Windows.Forms.Padding(4);
             this.btnVendorsAndProducts.Name = "btnVendorsAndProducts";
-            this.btnVendorsAndProducts.Size = new System.Drawing.Size(196, 50);
+            this.btnVendorsAndProducts.Size = new System.Drawing.Size(195, 66);
             this.btnVendorsAndProducts.TabIndex = 15;
             this.btnVendorsAndProducts.Text = "Vendors and Products";
             this.btnVendorsAndProducts.UseVisualStyleBackColor = false;
@@ -116,10 +117,10 @@
             // btnDashBoard
             // 
             this.btnDashBoard.BackColor = System.Drawing.SystemColors.Window;
-            this.btnDashBoard.Location = new System.Drawing.Point(-3, 86);
-            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDashBoard.Location = new System.Drawing.Point(-3, 108);
+            this.btnDashBoard.Margin = new System.Windows.Forms.Padding(4);
             this.btnDashBoard.Name = "btnDashBoard";
-            this.btnDashBoard.Size = new System.Drawing.Size(197, 48);
+            this.btnDashBoard.Size = new System.Drawing.Size(196, 64);
             this.btnDashBoard.TabIndex = 16;
             this.btnDashBoard.Text = "DashBoard";
             this.btnDashBoard.UseVisualStyleBackColor = false;
@@ -129,10 +130,10 @@
             // 
             this.btnLogout.BackColor = System.Drawing.SystemColors.Window;
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnLogout.Location = new System.Drawing.Point(-3, 507);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Location = new System.Drawing.Point(-2, 575);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(196, 50);
+            this.btnLogout.Size = new System.Drawing.Size(195, 66);
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -143,9 +144,10 @@
             this.chActiveVendors.BackColor = System.Drawing.Color.CadetBlue;
             chartArea1.Name = "ChartArea1";
             this.chActiveVendors.ChartAreas.Add(chartArea1);
+            this.chActiveVendors.Enabled = false;
             legend1.Name = "Legend1";
             this.chActiveVendors.Legends.Add(legend1);
-            this.chActiveVendors.Location = new System.Drawing.Point(957, 25);
+            this.chActiveVendors.Location = new System.Drawing.Point(978, 71);
             this.chActiveVendors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chActiveVendors.Name = "chActiveVendors";
             this.chActiveVendors.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
@@ -165,14 +167,14 @@
             this.chHPVendors.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chHPVendors.Legends.Add(legend2);
-            this.chHPVendors.Location = new System.Drawing.Point(215, 384);
+            this.chHPVendors.Location = new System.Drawing.Point(203, 432);
             this.chHPVendors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chHPVendors.Name = "chHPVendors";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chHPVendors.Series.Add(series2);
-            this.chHPVendors.Size = new System.Drawing.Size(549, 308);
+            this.chHPVendors.Size = new System.Drawing.Size(572, 300);
             this.chHPVendors.TabIndex = 22;
             this.chHPVendors.Text = "chart1";
             this.chHPVendors.Click += new System.EventHandler(this.chHPVendors_Click);
@@ -183,7 +185,7 @@
             this.chLPVendors.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chLPVendors.Legends.Add(legend3);
-            this.chLPVendors.Location = new System.Drawing.Point(620, 25);
+            this.chLPVendors.Location = new System.Drawing.Point(641, 71);
             this.chLPVendors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chLPVendors.Name = "chLPVendors";
             this.chLPVendors.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
@@ -203,7 +205,7 @@
             this.chHighestProduct.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
             this.chHighestProduct.Legends.Add(legend4);
-            this.chHighestProduct.Location = new System.Drawing.Point(800, 391);
+            this.chHighestProduct.Location = new System.Drawing.Point(809, 432);
             this.chHighestProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chHighestProduct.Name = "chHighestProduct";
             series4.ChartArea = "ChartArea1";
@@ -211,7 +213,7 @@
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.chHighestProduct.Series.Add(series4);
-            this.chHighestProduct.Size = new System.Drawing.Size(552, 300);
+            this.chHighestProduct.Size = new System.Drawing.Size(580, 300);
             this.chHighestProduct.TabIndex = 24;
             this.chHighestProduct.Text = "chart1";
             this.chHighestProduct.Click += new System.EventHandler(this.chHighestProduct_Click);
@@ -223,7 +225,7 @@
             this.chLowestProduct.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
             this.chLowestProduct.Legends.Add(legend5);
-            this.chLowestProduct.Location = new System.Drawing.Point(203, 25);
+            this.chLowestProduct.Location = new System.Drawing.Point(203, 71);
             this.chLowestProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chLowestProduct.Name = "chLowestProduct";
             series5.ChartArea = "ChartArea1";
@@ -231,10 +233,24 @@
             series5.Legend = "Legend1";
             series5.Name = "Series1";
             this.chLowestProduct.Series.Add(series5);
-            this.chLowestProduct.Size = new System.Drawing.Size(412, 352);
+            this.chLowestProduct.Size = new System.Drawing.Size(418, 352);
             this.chLowestProduct.TabIndex = 25;
             this.chLowestProduct.Text = "chart1";
             this.chLowestProduct.Click += new System.EventHandler(this.chLowestProduct_Click);
+            // 
+            // tbDisplayedUsername
+            // 
+            this.tbDisplayedUsername.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbDisplayedUsername.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDisplayedUsername.Location = new System.Drawing.Point(1213, -2);
+            this.tbDisplayedUsername.Multiline = true;
+            this.tbDisplayedUsername.Name = "tbDisplayedUsername";
+            this.tbDisplayedUsername.ReadOnly = true;
+            this.tbDisplayedUsername.Size = new System.Drawing.Size(207, 45);
+            this.tbDisplayedUsername.TabIndex = 26;
+            this.tbDisplayedUsername.TabStop = false;
+            this.tbDisplayedUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDisplayedUsername.TextChanged += new System.EventHandler(this.tbDisplayedUsername_TextChanged);
             // 
             // Dashboard
             // 
@@ -242,7 +258,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1380, 694);
+            this.ClientSize = new System.Drawing.Size(1420, 734);
+            this.Controls.Add(this.tbDisplayedUsername);
             this.Controls.Add(this.chLowestProduct);
             this.Controls.Add(this.chHighestProduct);
             this.Controls.Add(this.chLPVendors);
@@ -254,9 +271,11 @@
             this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashbaord";
+            this.Load += new System.EventHandler(this.Dashboard_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chActiveVendors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chHPVendors)).EndInit();
@@ -264,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chHighestProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chLowestProduct)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -280,5 +300,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chLPVendors;
         private System.Windows.Forms.DataVisualization.Charting.Chart chHighestProduct;
         private System.Windows.Forms.DataVisualization.Charting.Chart chLowestProduct;
+        private TextBox tbDisplayedUsername;
     }
 }
