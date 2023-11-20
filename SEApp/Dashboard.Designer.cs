@@ -240,7 +240,7 @@
             // 
             // tbDisplayedUsername
             // 
-            this.tbDisplayedUsername.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tbDisplayedUsername.BackColor = System.Drawing.Color.Snow;
             this.tbDisplayedUsername.Font = new System.Drawing.Font("Calibri", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDisplayedUsername.Location = new System.Drawing.Point(1213, -2);
             this.tbDisplayedUsername.Multiline = true;

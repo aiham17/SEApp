@@ -18,6 +18,8 @@ namespace SEApp
         private Database connectDB;
         DataTable vendorData = new DataTable();
         DataTable contactInfo = new DataTable();
+        int vendorID, productID;
+        string cloud;
         public EditVendorProduct()
         {
             InitializeComponent();
@@ -40,6 +42,25 @@ namespace SEApp
         private void btnSave_Click(object sender, EventArgs e)
         {
             // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
+            string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
+            int contactID = Int32.Parse(cmbContactID.Text.ToString());
+            vendor = tbVendorName.Text;
+            website = LLVendorWebsite.Text;
+            description = rtbDescription.Text;
+            additionalInfo = rtbAddInfo.Text;
+            address = rtbAddress.Text;
+            teleNumber = tbTeleNumber.Text;
+            employees = tbEmployees.Text;
+            eYear = dtpVendorEstablished.Text;
+            reviewDate = dtpLastReviewDate.Text;
+            DemoDate = dtpDemoDate.Text;
+
+            software = tbSoftwareName.Text;
+            softwareType = tbSoftwareType.Text;
+            businessArea = tbBusinessArea.Text;
+            module = tbModule.Text;
+            financialService = tbFinancialServices.Text;
+            cloud = cmbCloud.Text;
 
         }
 
@@ -51,6 +72,7 @@ namespace SEApp
             {
                 vendorData = connectDB.getVendorProductInfo(vendorName, productName);
                 int vendorID = (int)vendorData.Rows[0][0];
+                productID = (int)vendorData.Rows[0][10];
                 contactInfo = connectDB.readVendorContact(contactInfo, vendorID);
                 
 
@@ -75,6 +97,7 @@ namespace SEApp
                     cmbContactID.DataSource = contactInfo;
                     cmbCloud.DisplayMember = "Cloud_Service_Type";
                     cmbCloud.ValueMember = "ID";
+                    cloud = vendorData.Rows[0][17].ToString();
                     cmbCloud.DataSource = vendorData;
                 }
                 else
@@ -146,6 +169,15 @@ namespace SEApp
                     richText.ReadOnly = false;
                 }
                 cbInternalProServices.Enabled = true;
+                cmbCloud.DataSource = null;
+                cmbCloud.Items.Add("Enabled");
+                cmbCloud.Items.Add("Native");
+                cmbCloud.Items.Add("Based");
+                cmbCloud.Items.Add("NULL");
+                cloud = cloud.Trim();
+                int index = cmbCloud.Items.IndexOf(cloud);
+                cmbCloud.SelectedIndex = index;
+                cmbCloud.DisplayMember = (string)cmbCloud.Items[index];
             }
             else
             {
