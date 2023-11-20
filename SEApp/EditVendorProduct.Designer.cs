@@ -56,7 +56,6 @@
             this.cmbContactID = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbTeleNumber = new System.Windows.Forms.TextBox();
-            this.tbAddress = new System.Windows.Forms.TextBox();
             this.tbSoftwareType = new System.Windows.Forms.TextBox();
             this.tbBusinessArea = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.cmbCloud = new System.Windows.Forms.ComboBox();
             this.LLVendorWebsite = new System.Windows.Forms.LinkLabel();
+            this.rtbAddress = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbCitisoftLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,6 +129,7 @@
             this.btnEdit.TabIndex = 41;
             this.btnEdit.Text = "Edit Vendor";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -320,13 +321,6 @@
             this.tbTeleNumber.Size = new System.Drawing.Size(240, 22);
             this.tbTeleNumber.TabIndex = 66;
             // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(278, 578);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(240, 22);
-            this.tbAddress.TabIndex = 67;
-            // 
             // tbSoftwareType
             // 
             this.tbSoftwareType.Location = new System.Drawing.Point(794, 226);
@@ -419,11 +413,20 @@
             this.LLVendorWebsite.Text = "linkLabel1";
             this.LLVendorWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLVendorWebsite_LinkClicked);
             // 
+            // rtbAddress
+            // 
+            this.rtbAddress.Location = new System.Drawing.Point(278, 578);
+            this.rtbAddress.Name = "rtbAddress";
+            this.rtbAddress.Size = new System.Drawing.Size(312, 63);
+            this.rtbAddress.TabIndex = 79;
+            this.rtbAddress.Text = "";
+            // 
             // EditVendorProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 713);
+            this.Controls.Add(this.rtbAddress);
             this.Controls.Add(this.LLVendorWebsite);
             this.Controls.Add(this.rtbAddInfo);
             this.Controls.Add(this.dtpDemoDate);
@@ -438,7 +441,6 @@
             this.Controls.Add(this.tbBusinessArea);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tbSoftwareType);
-            this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbTeleNumber);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbContactID);
@@ -501,7 +503,6 @@
         private ComboBox cmbContactID;
         private Label label13;
         private TextBox tbTeleNumber;
-        private TextBox tbAddress;
         private TextBox tbSoftwareType;
         private TextBox tbBusinessArea;
         private Label label12;
@@ -513,5 +514,6 @@
         private Label label17;
         private ComboBox cmbCloud;
         private LinkLabel LLVendorWebsite;
+        private RichTextBox rtbAddress;
     }
 }
