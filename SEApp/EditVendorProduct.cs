@@ -43,6 +43,7 @@ namespace SEApp
         // Get the text, integers or date time values entered by the user and add them into their respective columns based off VendorID, Contact ID and ProductID
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // Need to make sure the textboxes etc are NOT EQUAL TO NULL
             try
             {
                 string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
@@ -53,6 +54,8 @@ namespace SEApp
                 additionalInfo = rtbAddInfo.Text;
                 address = rtbAddress.Text;
                 teleNumber = tbTeleNumber.Text;
+                //https://stackoverflow.com/questions/46311753/c-sharp-how-to-restrict-textbox-decimal-places-to-2
+                // Look at preventing decimal points being added
                 employees = tbEmployees.Text;
                 eYear = dtpVendorEstablished.Text;
                 reviewDate = dtpLastReviewDate.Text;
