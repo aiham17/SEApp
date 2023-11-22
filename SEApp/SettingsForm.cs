@@ -140,5 +140,15 @@ namespace SEApp
         {
 
         }
+
+        private void btnSupport_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.citisoft.com/contact-us/");
+        }
+
+        private void btnCompanyDetails_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.citisoft.com/about");
+        }
     }
 }

@@ -133,5 +133,12 @@ namespace SEApp
 
 
         }
+
+        // Used to validate integer values entered into a text box. Will return true if it is an integer otherwise false
+        public static bool validateInt(string number)
+        {
+            int integer;
+            return int.TryParse(number, out integer) && integer != 0;
+        }
     }
 }

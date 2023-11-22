@@ -43,8 +43,8 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnLoginSecurity = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSupport = new System.Windows.Forms.Button();
+            this.btnCompanyDetails = new System.Windows.Forms.Button();
             this.btnCompanyRole = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
@@ -232,27 +232,29 @@
             this.button2.Text = "Personal Details";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnSupport
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Location = new System.Drawing.Point(398, 268);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(194, 78);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Support";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSupport.BackColor = System.Drawing.SystemColors.Window;
+            this.btnSupport.Location = new System.Drawing.Point(398, 268);
+            this.btnSupport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSupport.Name = "btnSupport";
+            this.btnSupport.Size = new System.Drawing.Size(194, 78);
+            this.btnSupport.TabIndex = 35;
+            this.btnSupport.Text = "Support";
+            this.btnSupport.UseVisualStyleBackColor = false;
+            this.btnSupport.Click += new System.EventHandler(this.btnSupport_Click);
             // 
-            // button4
+            // btnCompanyDetails
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Location = new System.Drawing.Point(723, 268);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(194, 78);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "Company Details";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnCompanyDetails.BackColor = System.Drawing.SystemColors.Window;
+            this.btnCompanyDetails.Location = new System.Drawing.Point(723, 268);
+            this.btnCompanyDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCompanyDetails.Name = "btnCompanyDetails";
+            this.btnCompanyDetails.Size = new System.Drawing.Size(194, 78);
+            this.btnCompanyDetails.TabIndex = 36;
+            this.btnCompanyDetails.Text = "Company Details";
+            this.btnCompanyDetails.UseVisualStyleBackColor = false;
+            this.btnCompanyDetails.Click += new System.EventHandler(this.btnCompanyDetails_Click);
             // 
             // btnCompanyRole
             // 
@@ -300,8 +302,8 @@
             this.Controls.Add(this.tbDisplayedUsername);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.btnCompanyRole);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnCompanyDetails);
+            this.Controls.Add(this.btnSupport);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnLoginSecurity);
             this.Controls.Add(this.pictureBox7);
@@ -347,8 +349,8 @@
         private PictureBox pictureBox7;
         private Button btnLoginSecurity;
         private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btnSupport;
+        private Button btnCompanyDetails;
         private Button btnCompanyRole;
         private Button button6;
         private TextBox tbDisplayedUsername;

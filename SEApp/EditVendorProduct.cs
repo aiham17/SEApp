@@ -58,23 +58,32 @@ namespace SEApp
                 //https://stackoverflow.com/questions/46311753/c-sharp-how-to-restrict-textbox-decimal-places-to-2
                 // Look at preventing decimal points being added
                 employees = tbEmployees.Text;
-                eYear = dtpVendorEstablished.Text;
-                reviewDate = dtpLastReviewDate.Text;
-                DemoDate = dtpDemoDate.Text;
-                int intPro = Convert.ToInt32(cbInternalProServices.Checked);
-                software = tbSoftwareName.Text;
-                softwareType = tbSoftwareType.Text;
-                businessArea = tbBusinessArea.Text;
-                module = tbModule.Text;
-                financialService = tbFinancialServices.Text;
-                cloud = cmbCloud.Text;
-                connectDB.updateVendor(vendor, website, description, additionalInfo, employees, eYear, reviewDate, DemoDate, intPro, vendorID);
-                connectDB.updateContact(address, teleNumber, contactID);
-                connectDB.updateProduct(software, softwareType, businessArea, module, financialService, cloud, productID);
-                MessageBox.Show("The changes made have been successful");
-                this.Close();
-                VendorsProductsForm open = new VendorsProductsForm();
-                open.Show();
+                bool integer = DataValidator.validateInt(employees);
+                if (integer)
+                {
+                    eYear = dtpVendorEstablished.Text;
+                    reviewDate = dtpLastReviewDate.Text;
+                    DemoDate = dtpDemoDate.Text;
+                    int intPro = Convert.ToInt32(cbInternalProServices.Checked);
+                    software = tbSoftwareName.Text;
+                    softwareType = tbSoftwareType.Text;
+                    businessArea = tbBusinessArea.Text;
+                    module = tbModule.Text;
+                    financialService = tbFinancialServices.Text;
+                    cloud = cmbCloud.Text;
+                    connectDB.updateVendor(vendor, website, description, additionalInfo, employees, eYear, reviewDate, DemoDate, intPro, vendorID);
+                    connectDB.updateContact(address, teleNumber, contactID);
+                    connectDB.updateProduct(software, softwareType, businessArea, module, financialService, cloud, productID);
+                    MessageBox.Show("The changes made have been successful");
+                    this.Close();
+                    VendorsProductsForm open = new VendorsProductsForm();
+                    open.Show();
+                }
+                else
+                {
+                    MessageBox.Show("An whole number needs to be added to employees");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -83,6 +92,8 @@ namespace SEApp
             
             
         }
+
+        
 
         // Loads all the vendor and product data stored in the datatable into their respective fields on the form
         private void EditVendorProduct_Load(object sender, EventArgs e)
