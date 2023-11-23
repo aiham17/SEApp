@@ -7,22 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static iTextSharp.text.pdf.PRTokeniser;
 
 namespace SEApp
 {
     public partial class AddAdjustForm : Form
     {
 
+        // Database conection object
+        private Database connectDB;
+
         
-     
+
+        // Constructor for the AddAdjustForm
         public AddAdjustForm()
         {
+            //initilize the database connection
             InitializeComponent();
+            connectDB = Database.getConnectString();
+        }
 
-            
+        //Here, we're calling the ValidateInputs method from the DataValidator class to perform input validation.
 
-        }   
+        private bool ValidateInputs()
+        {
+            // We're passing the user-provided data from the input fields as arguments to this method.
+            // This includes the username, password, first name, last name, and email entered by the user.
 
+            return DataValidator.ValidateInputs(tbCname.text, tbSname.text, tbWebsite.text, tbStype.text, datetimepicker2.selectedIndex, tbTelephoneno.text, tbNoemployees.text, dateTimePicker1.selectedIndex, cmbRole.selectedIndex, tbdescription.text, tbAddress.text, tbBarea.text, tbModules.text, tbFSCT.text, tbAdditionalinfo.text);
+
+        }
+
+
+
+
+
+        
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -107,6 +127,27 @@ namespace SEApp
             AddAdjustForm addAdjustForm = new AddAdjustForm();
             addAdjustForm.Show();
             this.Close();
+
+        }
+
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
