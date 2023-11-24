@@ -44,15 +44,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tbIndex = new System.Windows.Forms.TextBox();
+            this.tbCompanyName = new System.Windows.Forms.TextBox();
+            this.tbSoftwareName = new System.Windows.Forms.TextBox();
+            this.tbWebsite = new System.Windows.Forms.TextBox();
+            this.tbSoftwareType = new System.Windows.Forms.TextBox();
+            this.tbTelephoneNo = new System.Windows.Forms.TextBox();
+            this.tbNoEmployees = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tbProductDescription = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -61,17 +61,17 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbBusinessArea = new System.Windows.Forms.TextBox();
+            this.tbModules = new System.Windows.Forms.TextBox();
+            this.tbFSCT = new System.Windows.Forms.TextBox();
+            this.datePickerReviewDate = new System.Windows.Forms.DateTimePicker();
+            this.DatepickerCestablished = new System.Windows.Forms.DateTimePicker();
+            this.tbAdditionalInfo = new System.Windows.Forms.TextBox();
+            this.cbNorthAmerica = new System.Windows.Forms.CheckBox();
+            this.cbSouthAmerica = new System.Windows.Forms.CheckBox();
+            this.cbEMEA = new System.Windows.Forms.CheckBox();
+            this.cbAPAC = new System.Windows.Forms.CheckBox();
             this.cmbCloud = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -249,56 +249,56 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "Website:";
             // 
-            // textBox1
+            // tbIndex
             // 
-            this.textBox1.Location = new System.Drawing.Point(335, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
-            this.textBox1.TabIndex = 43;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbIndex.Location = new System.Drawing.Point(335, 15);
+            this.tbIndex.Name = "tbIndex";
+            this.tbIndex.Size = new System.Drawing.Size(152, 20);
+            this.tbIndex.TabIndex = 43;
+            this.tbIndex.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // tbCompanyName
             // 
-            this.textBox2.Location = new System.Drawing.Point(335, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
-            this.textBox2.TabIndex = 44;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.tbCompanyName.Location = new System.Drawing.Point(335, 41);
+            this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.Size = new System.Drawing.Size(152, 20);
+            this.tbCompanyName.TabIndex = 44;
+            this.tbCompanyName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // tbSoftwareName
             // 
-            this.textBox3.Location = new System.Drawing.Point(335, 68);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(152, 20);
-            this.textBox3.TabIndex = 45;
+            this.tbSoftwareName.Location = new System.Drawing.Point(335, 68);
+            this.tbSoftwareName.Name = "tbSoftwareName";
+            this.tbSoftwareName.Size = new System.Drawing.Size(152, 20);
+            this.tbSoftwareName.TabIndex = 45;
             // 
-            // textBox4
+            // tbWebsite
             // 
-            this.textBox4.Location = new System.Drawing.Point(335, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 20);
-            this.textBox4.TabIndex = 46;
+            this.tbWebsite.Location = new System.Drawing.Point(335, 95);
+            this.tbWebsite.Name = "tbWebsite";
+            this.tbWebsite.Size = new System.Drawing.Size(152, 20);
+            this.tbWebsite.TabIndex = 46;
             // 
-            // textBox5
+            // tbSoftwareType
             // 
-            this.textBox5.Location = new System.Drawing.Point(335, 122);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(152, 20);
-            this.textBox5.TabIndex = 47;
+            this.tbSoftwareType.Location = new System.Drawing.Point(335, 122);
+            this.tbSoftwareType.Name = "tbSoftwareType";
+            this.tbSoftwareType.Size = new System.Drawing.Size(152, 20);
+            this.tbSoftwareType.TabIndex = 47;
             // 
-            // textBox7
+            // tbTelephoneNo
             // 
-            this.textBox7.Location = new System.Drawing.Point(335, 176);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(152, 20);
-            this.textBox7.TabIndex = 49;
+            this.tbTelephoneNo.Location = new System.Drawing.Point(335, 176);
+            this.tbTelephoneNo.Name = "tbTelephoneNo";
+            this.tbTelephoneNo.Size = new System.Drawing.Size(152, 20);
+            this.tbTelephoneNo.TabIndex = 49;
             // 
-            // textBox8
+            // tbNoEmployees
             // 
-            this.textBox8.Location = new System.Drawing.Point(335, 203);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(152, 20);
-            this.textBox8.TabIndex = 50;
+            this.tbNoEmployees.Location = new System.Drawing.Point(335, 203);
+            this.tbNoEmployees.Name = "tbNoEmployees";
+            this.tbNoEmployees.Size = new System.Drawing.Size(152, 20);
+            this.tbNoEmployees.TabIndex = 50;
             // 
             // label10
             // 
@@ -311,13 +311,13 @@
             this.label10.Text = "Cloud:";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // textBox10
+            // tbProductDescription
             // 
-            this.textBox10.Location = new System.Drawing.Point(335, 305);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(152, 60);
-            this.textBox10.TabIndex = 54;
+            this.tbProductDescription.Location = new System.Drawing.Point(335, 305);
+            this.tbProductDescription.Multiline = true;
+            this.tbProductDescription.Name = "tbProductDescription";
+            this.tbProductDescription.Size = new System.Drawing.Size(152, 60);
+            this.tbProductDescription.TabIndex = 54;
             // 
             // label11
             // 
@@ -401,101 +401,101 @@
             this.label18.TabIndex = 63;
             this.label18.Text = "Additional Info:";
             // 
-            // textBox11
+            // tbAddress
             // 
-            this.textBox11.Location = new System.Drawing.Point(640, 20);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(152, 67);
-            this.textBox11.TabIndex = 68;
+            this.tbAddress.Location = new System.Drawing.Point(640, 20);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(152, 67);
+            this.tbAddress.TabIndex = 68;
             // 
-            // textBox12
+            // tbBusinessArea
             // 
-            this.textBox12.Location = new System.Drawing.Point(640, 92);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(152, 67);
-            this.textBox12.TabIndex = 69;
+            this.tbBusinessArea.Location = new System.Drawing.Point(640, 92);
+            this.tbBusinessArea.Multiline = true;
+            this.tbBusinessArea.Name = "tbBusinessArea";
+            this.tbBusinessArea.Size = new System.Drawing.Size(152, 67);
+            this.tbBusinessArea.TabIndex = 69;
             // 
-            // textBox13
+            // tbModules
             // 
-            this.textBox13.Location = new System.Drawing.Point(640, 165);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(151, 71);
-            this.textBox13.TabIndex = 70;
+            this.tbModules.Location = new System.Drawing.Point(640, 165);
+            this.tbModules.Multiline = true;
+            this.tbModules.Name = "tbModules";
+            this.tbModules.Size = new System.Drawing.Size(151, 71);
+            this.tbModules.TabIndex = 70;
             // 
-            // textBox14
+            // tbFSCT
             // 
-            this.textBox14.Location = new System.Drawing.Point(640, 240);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(151, 71);
-            this.textBox14.TabIndex = 71;
+            this.tbFSCT.Location = new System.Drawing.Point(640, 240);
+            this.tbFSCT.Multiline = true;
+            this.tbFSCT.Name = "tbFSCT";
+            this.tbFSCT.Size = new System.Drawing.Size(151, 71);
+            this.tbFSCT.TabIndex = 71;
             // 
-            // dateTimePicker1
+            // datePickerReviewDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(335, 229);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(152, 20);
-            this.dateTimePicker1.TabIndex = 73;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.datePickerReviewDate.Location = new System.Drawing.Point(335, 229);
+            this.datePickerReviewDate.Name = "datePickerReviewDate";
+            this.datePickerReviewDate.Size = new System.Drawing.Size(152, 20);
+            this.datePickerReviewDate.TabIndex = 73;
+            this.datePickerReviewDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // dateTimePicker2
+            // DatepickerCestablished
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(336, 149);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker2.TabIndex = 74;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.DatepickerCestablished.Location = new System.Drawing.Point(336, 149);
+            this.DatepickerCestablished.Name = "DatepickerCestablished";
+            this.DatepickerCestablished.Size = new System.Drawing.Size(151, 20);
+            this.DatepickerCestablished.TabIndex = 74;
+            this.DatepickerCestablished.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
-            // textBox6
+            // tbAdditionalInfo
             // 
-            this.textBox6.Location = new System.Drawing.Point(640, 339);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(151, 59);
-            this.textBox6.TabIndex = 75;
+            this.tbAdditionalInfo.Location = new System.Drawing.Point(640, 339);
+            this.tbAdditionalInfo.Multiline = true;
+            this.tbAdditionalInfo.Name = "tbAdditionalInfo";
+            this.tbAdditionalInfo.Size = new System.Drawing.Size(151, 59);
+            this.tbAdditionalInfo.TabIndex = 75;
             // 
-            // checkBox1
+            // cbNorthAmerica
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(334, 374);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(93, 17);
-            this.checkBox1.TabIndex = 76;
-            this.checkBox1.Text = "North America";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbNorthAmerica.AutoSize = true;
+            this.cbNorthAmerica.Location = new System.Drawing.Point(334, 374);
+            this.cbNorthAmerica.Name = "cbNorthAmerica";
+            this.cbNorthAmerica.Size = new System.Drawing.Size(93, 17);
+            this.cbNorthAmerica.TabIndex = 76;
+            this.cbNorthAmerica.Text = "North America";
+            this.cbNorthAmerica.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbSouthAmerica
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(334, 388);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(95, 17);
-            this.checkBox2.TabIndex = 77;
-            this.checkBox2.Text = "South America";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbSouthAmerica.AutoSize = true;
+            this.cbSouthAmerica.Location = new System.Drawing.Point(334, 388);
+            this.cbSouthAmerica.Name = "cbSouthAmerica";
+            this.cbSouthAmerica.Size = new System.Drawing.Size(95, 17);
+            this.cbSouthAmerica.TabIndex = 77;
+            this.cbSouthAmerica.Text = "South America";
+            this.cbSouthAmerica.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // cbEMEA
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(334, 405);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(56, 17);
-            this.checkBox3.TabIndex = 78;
-            this.checkBox3.Text = "EMEA";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbEMEA.AutoSize = true;
+            this.cbEMEA.Location = new System.Drawing.Point(334, 405);
+            this.cbEMEA.Name = "cbEMEA";
+            this.cbEMEA.Size = new System.Drawing.Size(56, 17);
+            this.cbEMEA.TabIndex = 78;
+            this.cbEMEA.Text = "EMEA";
+            this.cbEMEA.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // cbAPAC
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(334, 418);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(54, 17);
-            this.checkBox4.TabIndex = 79;
-            this.checkBox4.Text = "APAC";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.cbAPAC.AutoSize = true;
+            this.cbAPAC.Location = new System.Drawing.Point(334, 418);
+            this.cbAPAC.Name = "cbAPAC";
+            this.cbAPAC.Size = new System.Drawing.Size(54, 17);
+            this.cbAPAC.TabIndex = 79;
+            this.cbAPAC.Text = "APAC";
+            this.cbAPAC.UseVisualStyleBackColor = true;
             // 
             // cmbCloud
             // 
@@ -532,17 +532,17 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbCloud);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.cbAPAC);
+            this.Controls.Add(this.cbEMEA);
+            this.Controls.Add(this.cbSouthAmerica);
+            this.Controls.Add(this.cbNorthAmerica);
+            this.Controls.Add(this.tbAdditionalInfo);
+            this.Controls.Add(this.DatepickerCestablished);
+            this.Controls.Add(this.datePickerReviewDate);
+            this.Controls.Add(this.tbFSCT);
+            this.Controls.Add(this.tbModules);
+            this.Controls.Add(this.tbBusinessArea);
+            this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -551,15 +551,15 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.tbProductDescription);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbNoEmployees);
+            this.Controls.Add(this.tbTelephoneNo);
+            this.Controls.Add(this.tbSoftwareType);
+            this.Controls.Add(this.tbWebsite);
+            this.Controls.Add(this.tbSoftwareName);
+            this.Controls.Add(this.tbCompanyName);
+            this.Controls.Add(this.tbIndex);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -600,15 +600,15 @@
         private Label label8;
         private Label label9;
         private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox7;
-        private TextBox textBox8;
+        private TextBox tbIndex;
+        private TextBox tbCompanyName;
+        private TextBox tbSoftwareName;
+        private TextBox tbWebsite;
+        private TextBox tbSoftwareType;
+        private TextBox tbTelephoneNo;
+        private TextBox tbNoEmployees;
         private Label label10;
-        private TextBox textBox10;
+        private TextBox tbProductDescription;
         private Label label11;
         private Label label12;
         private Label label13;
@@ -617,17 +617,17 @@
         private Label label16;
         private Label label17;
         private Label label18;
-        private TextBox textBox11;
-        private TextBox textBox12;
-        private TextBox textBox13;
-        private TextBox textBox14;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private TextBox textBox6;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
+        private TextBox tbAddress;
+        private TextBox tbBusinessArea;
+        private TextBox tbModules;
+        private TextBox tbFSCT;
+        private DateTimePicker datePickerReviewDate;
+        private DateTimePicker DatepickerCestablished;
+        private TextBox tbAdditionalInfo;
+        private CheckBox cbNorthAmerica;
+        private CheckBox cbSouthAmerica;
+        private CheckBox cbEMEA;
+        private CheckBox cbAPAC;
         private ComboBox cmbCloud;
         private Button btnSave;
     }
