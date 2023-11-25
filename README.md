@@ -12,10 +12,11 @@ Sultan: Settings pages layouts<br>
 -------------------------------------------------------------------------------------------------------------
 **Completed:** <br>
 *Aiham:*<br>
+-DB Connection and edits
 -Encryption & Database writing for Registration. Input validation Registration. Clear Button <br>
-- Login code edit, to make it more efficient<br>
+-Login code edit, to make it more efficient<br>
 -Dashboard (including programming<br>
-- Editing User Account Information Page (Including programming) <br>
+-Editing User Account Information Page (Including programming) <br>
 *Adam:*<br>
 -Creating DB and Connection. <br>
 -Reading from DB for Login, comparing hashed passwords. Input validation for Login (for initial inputs slightly adapted Aihams registration code) <br>
