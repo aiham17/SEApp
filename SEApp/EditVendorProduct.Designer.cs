@@ -180,7 +180,7 @@
             // 
             // rtbDescription
             // 
-            this.rtbDescription.Location = new System.Drawing.Point(278, 388);
+            this.rtbDescription.Location = new System.Drawing.Point(272, 177);
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.Size = new System.Drawing.Size(312, 90);
             this.rtbDescription.TabIndex = 47;
@@ -254,7 +254,7 @@
             // 
             // rtbAddInfo
             // 
-            this.rtbAddInfo.Location = new System.Drawing.Point(278, 180);
+            this.rtbAddInfo.Location = new System.Drawing.Point(272, 391);
             this.rtbAddInfo.Name = "rtbAddInfo";
             this.rtbAddInfo.Size = new System.Drawing.Size(312, 90);
             this.rtbAddInfo.TabIndex = 56;

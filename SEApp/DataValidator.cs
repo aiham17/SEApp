@@ -14,7 +14,7 @@ namespace SEApp
     public static class DataValidator
     {
         // Method for validating user inputs
-        public static bool ValidateInputs(string username, string password, string fname, string lname, string email, int companyRole)
+        public static bool ValidateUserInputs(string username, string password, string fname, string lname, string email, int companyRole)
         {
             // Check if username is empty or whitespace
             if (string.IsNullOrWhiteSpace(username))

@@ -15,6 +15,8 @@ using Org.BouncyCastle.Ocsp;
 using Org.BouncyCastle.Asn1.Cms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using iTextSharp.text.pdf.parser;
 
 
 namespace SEApp
@@ -309,8 +311,6 @@ namespace SEApp
          * Updated Login and Settings forms to use this method for checking user roles.*/
         public string GetUserRole(string username)
         {
-            
-
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
@@ -335,7 +335,7 @@ namespace SEApp
         }
 
 
-
+        //Adam:
         public DataTable getVendorProducts(string sqlQuery)
         {
             DataTable vendorProduct = ExecuteQuery(sqlQuery);
@@ -343,72 +343,72 @@ namespace SEApp
         }
 
         // Updates the vendor information according to what the admin has entered
+        // Adjusted the parameters assigned to a list for loop as this looked better. This has been applied to all the updateVendor methods etc and addVendor methods etc
+        // Adam
         public void updateVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate,  int intPro, int vendorID)
         {
-            using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            List<string> parameterNames = new List<string> { "@vendor", "@web", "@description", "@eyear", "@employ", "@lreview", "@ldemo", "@addInfo", "@intProService", "@vendorID" };
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
                 using (SqlCommand command = new SqlCommand(sqlQuery.updateVendor, connectDB))
                 {
-                    command.Parameters.AddWithValue("@vendor", vendor);
-                    command.Parameters.AddWithValue("@web", website);
-                    command.Parameters.AddWithValue("@description", description);
-                    command.Parameters.AddWithValue("@eyear", eYear);
-                    command.Parameters.AddWithValue("@employ", employees);
-                    command.Parameters.AddWithValue("@lreview", DateTime.Parse(reviewDate));
-                    command.Parameters.AddWithValue("@lDemo", DateTime.Parse(DemoDate));
-                    command.Parameters.AddWithValue("@addInfo", additionalInfo);
-                    command.Parameters.AddWithValue("@intProService", intPro);
-                    command.Parameters.AddWithValue("@vendorID",vendorID);
+                    command.CommandType = CommandType.Text;
+                    for (int i = 0; i < parameterNames.Count; i++)
+                    {
+                        command.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? website : (i == 2 ? description : (i == 3 ? eYear : (i == 4 ? employees : (i == 5 ? reviewDate : (i == 6 ? DemoDate : (i == 7 ? additionalInfo : (i==8 ? intPro :vendorID)))))))));
+                    }
+                   
                     command.ExecuteNonQuery();
                 }
                 
             }
            
-            
-           
-            
-
-            //"UPDATE VendorInfo SET Company_Name=@vendor, Company_Website=@web, Description=@description, Established_Year=@eYear, No_Employees=@employ, Last_Reviewed=@lreview, Last_Demo=@lDemo, Additional_Info=@addInfo,Internal_Pro_Services=@intProService WHERE VendorID=@vendorID"
-            // UPDATE Contact SET Telephone_Numbers=@number, Addresses=@address WHERE ContactID=@ID
-            // UPDATE ProductInfo SET Software_Name=@software, Type_Of_Software=@type, Business_Areas=@area, Modules=@module, Financial_Service_Clients=@fsc, Cloud_Service_Type=@cloud WHERE ProductID=@ID
         }
 
         // Updates the contact information of the specific vendor, according to what the admin has adjusted
+        // Adam:
         public void updateContact(string address, string teleNumber, int contactID)
         {
+            List<string> parameterNames = new List<string> {"@number", "@address", "@contactID"};
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
                 using (SqlCommand updateContact = new SqlCommand(sqlQuery.updateContact, connectDB))
                 {
-                    updateContact.Parameters.AddWithValue("@number", teleNumber);
-                    updateContact.Parameters.AddWithValue("@address", address);
-                    updateContact.Parameters.AddWithValue("@contactID", contactID);
+                    updateContact.CommandType = CommandType.Text;
+                    for (int i = 0; i < parameterNames.Count; i++)
+                    {
+                        updateContact.Parameters.AddWithValue(parameterNames[i], i == 0 ? teleNumber : (i == 1 ? address : contactID));
+                    }
+                    
                     updateContact.ExecuteNonQuery();
                 }
             }
         }
+
         // Updates the products information with what the admin has edited
+        // Adam:
         public void updateProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int productID)
         {
+            List<string> parameterNames = new List<string> {"@software", "@type", "@area", "@module", "@fsc", "@cloud", "@productID"};
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
                 using (SqlCommand updateProduct = new SqlCommand(sqlQuery.updateProduct, connectDB))
                 {
-                    updateProduct.Parameters.AddWithValue("@software", software);
-                    updateProduct.Parameters.AddWithValue("@type", softwareType);
-                    updateProduct.Parameters.AddWithValue("@area", businessArea);
-                    updateProduct.Parameters.AddWithValue("@module", module);
-                    updateProduct.Parameters.AddWithValue("@fsc", financialService);
-                    updateProduct.Parameters.AddWithValue("@cloud", cloud);
-                    updateProduct.Parameters.AddWithValue("@productID", productID);
+                    updateProduct.CommandType = CommandType.Text;
+                    for (int i = 0; i < parameterNames.Count; i++)
+                    {
+                        updateProduct.Parameters.AddWithValue(parameterNames[i], i == 0 ? software : (i == 1 ? softwareType : (i == 2 ? businessArea : (i == 3 ? module : (i == 4 ? financialService : (i == 5 ? cloud : productID))))));
+                    }
+                   
                     updateProduct.ExecuteNonQuery();
                 }
             }
         }
 
+        //Adam:
         public void deleteVendorProduct(int vendor)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -420,6 +420,65 @@ namespace SEApp
                     deleteVendor.ExecuteNonQuery();
                 }
                 
+            }
+        }
+
+
+        // Adam:
+        public int addVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate, int intPro)
+        {
+            List<string> parameterNames = new List<string> { "@vendor", "@web", "@description", "@eyear", "@employ", "@lreview", "@ldemo", "@addInfo", "@intProService" };
+            using(SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using(SqlCommand addVendor = new SqlCommand(sqlQuery.addVendor, connectDB))
+                {
+                    addVendor.CommandType = CommandType.Text;
+                    for(int i = 0; i < parameterNames.Count; i++)
+                    {
+                        addVendor.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? website : (i == 2 ? description : (i == 3 ? eYear : (i == 4 ? employees : (i == 5 ? reviewDate : (i == 6 ? DemoDate : (i == 7 ? additionalInfo : intPro))))))));
+                    }
+                    
+                    int vendorID = Convert.ToInt32(addVendor.ExecuteScalar());
+                    return vendorID;
+                }
+            }
+        }
+        
+        //Adam:
+        public void addProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int vendor)
+        {
+            List<string> parameterNames = new List<string> { "@vendor", "@software", "@type", "@area", "@module", "@fsc", "@cloud"};
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand addProduct = new SqlCommand(sqlQuery.addProduct, connectDB))
+                {
+                    addProduct.CommandType = CommandType.Text;
+                    for (int i = 0; i < parameterNames.Count; i++)
+                    {
+                        addProduct.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? software : (i == 2 ? softwareType : (i == 3 ? businessArea : (i == 4 ? module : (i == 5 ? financialService : cloud))))));
+                    }
+                   
+                }
+            }
+        }
+        
+        // Adam:
+        public void addContact(string address, string teleNumber, int vendor)
+        {
+            List<string> parameterNames = new List<string> { "@vendor", "@number", "@address"};
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand addContact = new SqlCommand(sqlQuery.addContact, connectDB))
+                {
+                    addContact.CommandType = CommandType.Text;
+                    for (int i = 0; i < parameterNames.Count; i++)
+                    {
+                        addContact.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? teleNumber : address));
+                    }
+                }
             }
         }
     }

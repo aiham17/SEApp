@@ -85,7 +85,7 @@
             this.btnAddOrAdjustVendors.Name = "btnAddOrAdjustVendors";
             this.btnAddOrAdjustVendors.Size = new System.Drawing.Size(195, 66);
             this.btnAddOrAdjustVendors.TabIndex = 3;
-            this.btnAddOrAdjustVendors.Text = "Add or Adjust Vendors";
+            this.btnAddOrAdjustVendors.Text = "Add Vendors";
             this.btnAddOrAdjustVendors.UseVisualStyleBackColor = false;
             this.btnAddOrAdjustVendors.Click += new System.EventHandler(this.btnAddOrAdjustVendors_Click);
             // 

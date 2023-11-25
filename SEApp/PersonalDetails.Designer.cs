@@ -84,7 +84,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 50);
             this.button1.TabIndex = 28;
-            this.button1.Text = "Add or Adjust Vendors";
+            this.button1.Text = "Add Vendors";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // button2

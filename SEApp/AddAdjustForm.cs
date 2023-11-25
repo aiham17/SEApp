@@ -33,13 +33,7 @@ namespace SEApp
 
         //Here, we're calling the ValidateInputs method from the DataValidator class to perform input validation.
 
-        private bool ValidateInputs()
-        {
-            // We're passing the user-provided data from the input fields as arguments to this method.
-            // This includes the username, password, first name, last name, and email entered by the user.
-
-            return DataValidator.ValidateInputs(tbIndex, tbCompanyName.text, tbSoftwareName.text, tbWebsite.text, tbSoftwareType.text, datePickerCompanyEstablished.selectedIndex, tbTelephoneNo.text, tbNoEmployees.text, datePickerReviewDate.selectedIndex, cmbCloud.selectedIndex, tbProductDescription.text, tbAddress.text, tbBusinessArea.text, tbModules.text, tbFSCT.text, tbAdditionalInfo.text);
-        }
+     
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -128,30 +122,55 @@ namespace SEApp
 
         }
 
+        // Adam:
+        // Changed variable names to the struct found in companyInfo. Connor made the initial one, I had to make changes to it because there were errors and wrongly used variable types within it. Can see that in the his github commit
+        // Correctly assign the values entered by the user to the values in the struct addVendor
+        // Created the equivalent "saveCompanyInfo" Connor did not make but referenced and expected to work. Removed the validateinputs method as that is for registering a user NOT company information
+        // Created the SQL Queries for adding the vendor, product and contact information in their retrospective tables
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ValidateInputs())
+            try
             {
-                companyInfo.corpInfo corp = new companyInfo.corpInfo();
-                corp.Index = tbIndex.Text;
-                corp.CompanyName = tbCompanyName.Text;
-                corp.SoftwareName = tbSoftwareName.Text;
-                corp.Website = tbWebsite.Text;
-                corp.SoftwareType = tbSoftwareType.Text;
-                corp.CompanyEstablished = datePickerCompanyEstablished.selectedIndex;
-                corp.TelephoneNumber = tbTelephoneNo.Text;
-                corp.NumberOfEmployees = tbNoEmployees.Text;
-                corp.LastReviewDate = datePickerReviewDate.Text;
-                corp.Cloud = cmdCloud.selectedIndex;
-                corp.ProductDescription = tbProductDescription.Text;
-                corp.Address = tbAddress.Text;
-                corp.BusinessArea = tbBusinessArea.Text;
-                corp.Modules = tbModules.Text;
-                corp.FSCT = tbFSCT.Text;
-                corp.AdditionalInfo = tbAdditionalInfo.Text;
-                string addCompany = sqlQuery.addCompany;
-                connectDB.saveCompanyInfo(addCompany, corp.Index, corp.CompanyName, corp.SoftwareName, corp.Website, corp.SoftwareType, corp.CompanyEstablished, corp.TelephoneNumber, corp.NumberOfEmployees, corp.LastReviewDate, corp.Cloud, corp.ProductDescription, corp.Address, corp.BusinessArea, corp.Modules, corp.FSCT, corp.AdditionalInfo);
+                companyInfo.vendorInfo addVendor = new companyInfo.vendorInfo();
+                addVendor.vendor = tbVendorName.Text;
+                addVendor.website = tbWebsite.Text;
+                addVendor.description = rtbDescription.Text;
+                addVendor.additionalInfo = rtbAddInfo.Text;
+                addVendor.address = rtbAddress.Text;
+                addVendor.teleNumber = tbTeleNumber.Text;
+                //https://stackoverflow.com/questions/46311753/c-sharp-how-to-restrict-textbox-decimal-places-to-2
+                // Look at preventing decimal points being added
+                addVendor.employees = tbEmployees.Text;
+                bool integer = DataValidator.validateInt(addVendor.employees);
+                if (integer)
+                {
+                    addVendor.eYear = dtpVendorEstablished.Text;
+                    addVendor.reviewDate = dtpLastReviewDate.Text;
+                    addVendor.demoDate = dtpDemoDate.Text;
+                    addVendor.intPro = Convert.ToInt32(cbInternalProServices.Checked);
+                    addVendor.software = tbSoftwareName.Text;
+                    addVendor.softwareType = tbSoftwareType.Text;
+                    addVendor.businessArea = tbBusinessArea.Text;
+                    addVendor.module = tbModule.Text;
+                    addVendor.financialService = tbFinancialServices.Text;
+                    addVendor.cloud = cmbCloud.Text;
+                    int vendorID = connectDB.addVendor(addVendor.vendor, addVendor.website, addVendor.description, addVendor.additionalInfo, addVendor.employees, addVendor.eYear, addVendor.reviewDate, addVendor.demoDate, addVendor.intPro);
+                    connectDB.addContact(addVendor.address, addVendor.teleNumber, vendorID);
+                    connectDB.addProduct(addVendor.software, addVendor.softwareType, addVendor.businessArea, addVendor.module, addVendor.financialService, addVendor.cloud, vendorID);
+                    MessageBox.Show("The changes made have been successful");
+
+                }
+                else
+                {
+                    MessageBox.Show("An whole number needs to be added to employees");
+                }
+
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The changes made could not be saved to the database");
+            }
+
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)

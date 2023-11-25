@@ -97,11 +97,14 @@ namespace SEApp
         // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID
         // Grab all the usernames, passwords and emails from the UserInfo Database table
         public const string userInfo = "SELECT * FROM UserInformation";
-       
 
-
-
-
+        public const string addVendor = "INSERT INTO VendorInfo (Company_Name, Company_Website, Description, Established_Year, No_Employees, Last_Reviewed, Last_Demo, Additional_Info, Internal_Pro_Services) VALUES (@vendor,@web,@description,@eYear,@employ,@lreview,@lDemo,@addInfo,@intProService) SELECT CAST(scope_identity() AS int)";
+        public const string addContact = "INSERT INTO Contact (VendorID,Telephone_Numbers, Addresses) VALUES (@vendor,@number,@address)";
+        public const string addProduct = "INSERT INTO ProductInfo (VendorID,Software_Name,Type_Of_Software, Business_Areas,Modules,Financial_Service_Clients,Cloud_Service_Type) VALUES (@vendor,@software,@type,@area,@module,@fsc,@cloud)";
+        
+        //Software_Name=@software, Type_Of_Software=@type, Business_Areas=@area, Modules=@module, Financial_Service_Clients=@fsc, Cloud_Service_Type=@cloud
+        //INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)
+        // UPDATE VendorInfo SET Company_Name=@vendor, Company_Website=@web, Description=@description, Established_Year=@eYear, No_Employees=@employ, Last_Reviewed=@lreview, Last_Demo=@lDemo, Additional_Info=@addInfo,Internal_Pro_Services=@intProService WHERE VendorID=@vendorID
     }
 
 }

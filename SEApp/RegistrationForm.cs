@@ -32,7 +32,7 @@ namespace SEApp
             // We're passing the user-provided data from the input fields as arguments to this method.
             // This includes the username, password, first name, last name, and email entered by the user
 
-            return DataValidator.ValidateInputs(tbUsername.Text, tbPassword.Text, tbFname.Text, tbLname.Text, tbEmail.Text, cmbRole.SelectedIndex);
+            return DataValidator.ValidateUserInputs(tbUsername.Text, tbPassword.Text, tbFname.Text, tbLname.Text, tbEmail.Text, cmbRole.SelectedIndex);
 
         }
 

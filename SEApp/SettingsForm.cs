@@ -120,6 +120,7 @@ namespace SEApp
 
             // Fetch the user's role from the database using the Database class
             string userRole = connectDB.GetUserRole(username);
+            
 
             // Check if the user is an admin or owner
             if (userRole == "0" || userRole == "1")

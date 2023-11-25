@@ -41,39 +41,41 @@ namespace SEApp
         }
 
         // Get the text, integers or date time values entered by the user and add them into their respective columns based off VendorID, Contact ID and ProductID
+        // Changed variable names to the struct found in companyInfo. Connor made the initial one, I had to make changes to it because there were errors and wrongly used variable types within it. Can see that in the his github commit
         private void btnSave_Click(object sender, EventArgs e)
         {
             // Need to make sure the textboxes etc are NOT EQUAL TO NULL
             // NEED TO ADD DELETE BUTTON
             try
             {
-                string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
+                companyInfo.vendorInfo editVendor = new companyInfo.vendorInfo();
+                //string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
                 contactID = Int32.Parse(cmbContactID.Text.ToString());
-                vendor = tbVendorName.Text;
-                website = LLVendorWebsite.Text;
-                description = rtbDescription.Text;
-                additionalInfo = rtbAddInfo.Text;
-                address = rtbAddress.Text;
-                teleNumber = tbTeleNumber.Text;
+                editVendor.vendor = tbVendorName.Text;
+                editVendor.website = LLVendorWebsite.Text;
+                editVendor.description = rtbDescription.Text;
+                editVendor.additionalInfo = rtbAddInfo.Text;
+                editVendor.address = rtbAddress.Text;
+                editVendor.teleNumber = tbTeleNumber.Text;
                 //https://stackoverflow.com/questions/46311753/c-sharp-how-to-restrict-textbox-decimal-places-to-2
                 // Look at preventing decimal points being added
-                employees = tbEmployees.Text;
-                bool integer = DataValidator.validateInt(employees);
+                editVendor.employees = tbEmployees.Text;
+                bool integer = DataValidator.validateInt(editVendor.employees);
                 if (integer)
                 {
-                    eYear = dtpVendorEstablished.Text;
-                    reviewDate = dtpLastReviewDate.Text;
-                    DemoDate = dtpDemoDate.Text;
-                    int intPro = Convert.ToInt32(cbInternalProServices.Checked);
-                    software = tbSoftwareName.Text;
-                    softwareType = tbSoftwareType.Text;
-                    businessArea = tbBusinessArea.Text;
-                    module = tbModule.Text;
-                    financialService = tbFinancialServices.Text;
-                    cloud = cmbCloud.Text;
-                    connectDB.updateVendor(vendor, website, description, additionalInfo, employees, eYear, reviewDate, DemoDate, intPro, vendorID);
-                    connectDB.updateContact(address, teleNumber, contactID);
-                    connectDB.updateProduct(software, softwareType, businessArea, module, financialService, cloud, productID);
+                    editVendor.eYear = dtpVendorEstablished.Text;
+                    editVendor.reviewDate = dtpLastReviewDate.Text;
+                    editVendor.demoDate = dtpDemoDate.Text;
+                    editVendor.intPro = Convert.ToInt32(cbInternalProServices.Checked);
+                    editVendor.software = tbSoftwareName.Text;
+                    editVendor.softwareType = tbSoftwareType.Text;
+                    editVendor.businessArea = tbBusinessArea.Text;
+                    editVendor.module = tbModule.Text;
+                    editVendor.financialService = tbFinancialServices.Text;
+                    editVendor.cloud = cmbCloud.Text;
+                    connectDB.updateVendor(editVendor.vendor, editVendor.website, editVendor.description, editVendor.additionalInfo, editVendor.employees, editVendor.eYear, editVendor.reviewDate, editVendor.demoDate, editVendor.intPro, vendorID);
+                    connectDB.updateContact(editVendor.address, editVendor.teleNumber, contactID);
+                    connectDB.updateProduct(editVendor.software, editVendor.softwareType, editVendor.businessArea, editVendor.module, editVendor.financialService, editVendor.cloud, productID);
                     MessageBox.Show("The changes made have been successful");
                     this.Close();
                     VendorsProductsForm open = new VendorsProductsForm();

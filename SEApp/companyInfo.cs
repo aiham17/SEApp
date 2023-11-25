@@ -8,24 +8,25 @@ namespace SEApp
 {
     public class companyInfo
     {
-        public struct corpInfo
+        public struct vendorInfo
         {
-            public int Index;
-            public string CompanyName;
-            public string SoftwareName;
-            public string Website;
-            public string SoftwareType;
-            public int CompanyEstablised;
-            public string TelephoneNumber;
-            public string NumberOfEmployees;
-            public int LastReviewDate;
-            public int Cloud;
-            public string ProductDescription;
-            public string Address;
-            public string BusinessArea;
-            public string Modules;
-            public string FSCT;
-            public string Additional Info;
+            public string vendor;
+            public string website;
+            public string description;
+            public string additionalInfo;
+            public string address;
+            public string teleNumber;
+            public string employees;
+            public string eYear;
+            public string reviewDate;
+            public string demoDate;
+            public int intPro;
+            public string software;
+            public string softwareType;
+            public string businessArea;
+            public string module;
+            public string financialService;
+            public string cloud;
 
         }
     }
