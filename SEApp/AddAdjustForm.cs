@@ -159,6 +159,26 @@ namespace SEApp
                     connectDB.addProduct(addVendor.software, addVendor.softwareType, addVendor.businessArea, addVendor.module, addVendor.financialService, addVendor.cloud, vendorID);
                     MessageBox.Show("The changes made have been successful");
 
+                    foreach (TextBox textbox in this.Controls.OfType<TextBox>())
+                    {
+                        textbox.Clear();
+                    }
+                    foreach (RichTextBox richText in this.Controls.OfType<RichTextBox>())
+                    {
+                        richText.Clear();
+                    }
+                    foreach (ComboBox cmb in this.Controls.OfType<ComboBox>())
+                    {
+                        cmb.Controls.Clear();
+                    }
+                    foreach(CheckBox cb in this.Controls.OfType<CheckBox>())
+                    {
+                        if (cb.Checked)
+                        {
+                            cb.Checked = false;
+                        }
+                    }
+
                 }
                 else
                 {
