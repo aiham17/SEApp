@@ -423,6 +423,20 @@ namespace SEApp
             }
         }
 
+        public void deleteProduct(int productID)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand deleteVendor = new SqlCommand(sqlQuery.deleteProduct, connectDB))
+                {
+                    deleteVendor.Parameters.AddWithValue("@product", productID);
+                    deleteVendor.ExecuteNonQuery();
+                }
+
+            }
+        }
+
 
         // Adam:
         public int addVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate, int intPro)

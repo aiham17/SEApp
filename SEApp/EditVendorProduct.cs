@@ -187,6 +187,30 @@ namespace SEApp
             }
         }
 
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            string username = LoginForm.GetLoggedInUsername();
+            string userRole = connectDB.GetUserRole(username);
+            if (userRole == "0" || userRole == "1")
+            {
+                DialogResult delete = MessageBox.Show("Do you wish to delete this Product?", "Delete Product", MessageBoxButtons.YesNo);
+                if (delete == DialogResult.Yes)
+                {
+                    connectDB.deleteProduct(productID);
+                    this.Close();
+                    VendorsProductsForm open = new VendorsProductsForm();
+                    open.Show();
+                }
+                else if (delete == DialogResult.No)
+                {
+                    this.Close();
+                    VendorsProductsForm open = new VendorsProductsForm();
+                    open.Show();
+                }
+            }
+        }
+    
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string username = LoginForm.GetLoggedInUsername();

@@ -69,6 +69,7 @@
             this.LLVendorWebsite = new System.Windows.Forms.LinkLabel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeleteProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbCitisoftLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -434,11 +435,24 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnDeleteProduct
+            // 
+            this.btnDeleteProduct.BackColor = System.Drawing.Color.Snow;
+            this.btnDeleteProduct.Location = new System.Drawing.Point(935, 552);
+            this.btnDeleteProduct.MinimumSize = new System.Drawing.Size(120, 45);
+            this.btnDeleteProduct.Name = "btnDeleteProduct";
+            this.btnDeleteProduct.Size = new System.Drawing.Size(120, 45);
+            this.btnDeleteProduct.TabIndex = 81;
+            this.btnDeleteProduct.Text = "Delete Product";
+            this.btnDeleteProduct.UseVisualStyleBackColor = false;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+            // 
             // EditVendorProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 713);
+            this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.rtbAddress);
             this.Controls.Add(this.LLVendorWebsite);
@@ -530,5 +544,6 @@
         private LinkLabel LLVendorWebsite;
         private RichTextBox rtbAddress;
         private Button btnDelete;
+        private Button btnDeleteProduct;
     }
 }
