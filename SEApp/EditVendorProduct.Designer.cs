@@ -70,6 +70,7 @@
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
+            this.btnOpenPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbCitisoftLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -447,11 +448,24 @@
             this.btnDeleteProduct.UseVisualStyleBackColor = false;
             this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
+            // btnOpenPDF
+            // 
+            this.btnOpenPDF.BackColor = System.Drawing.Color.Snow;
+            this.btnOpenPDF.Location = new System.Drawing.Point(794, 391);
+            this.btnOpenPDF.MinimumSize = new System.Drawing.Size(120, 45);
+            this.btnOpenPDF.Name = "btnOpenPDF";
+            this.btnOpenPDF.Size = new System.Drawing.Size(153, 45);
+            this.btnOpenPDF.TabIndex = 82;
+            this.btnOpenPDF.Text = "Open Attached PDF";
+            this.btnOpenPDF.UseVisualStyleBackColor = false;
+            this.btnOpenPDF.Click += new System.EventHandler(this.btnOpenPDF_Click);
+            // 
             // EditVendorProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 713);
+            this.Controls.Add(this.btnOpenPDF);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.rtbAddress);
@@ -545,5 +559,6 @@
         private RichTextBox rtbAddress;
         private Button btnDelete;
         private Button btnDeleteProduct;
+        private Button btnOpenPDF;
     }
 }

@@ -209,7 +209,27 @@ namespace SEApp
                 }
             }
         }
-    
+
+        // Opens the associated pdf document with the vendor and its products. Not all of them have one so a message box will pop informing the user
+        // if there isnt one.
+        // https://stackoverflow.com/questions/12335618/file-path-for-project-files
+        // The website above I used to enable a temporary file path to be created so the pdf document can be opened no matter the machine
+        private void btnOpenPDF_Click(object sender, EventArgs e)
+        {
+            string fileName = connectDB.getPdfName(vendorID, productID);
+            if(fileName != null)
+            {
+                string filePath = Path.Combine(Environment.CurrentDirectory, @"PDF Documents\", fileName);
+                System.Diagnostics.Process.Start(filePath);
+            }
+            else
+            {
+                MessageBox.Show("No PDF Documents are attached", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+           
+            
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {

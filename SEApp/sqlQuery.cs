@@ -93,6 +93,8 @@ namespace SEApp
         // Need to sort DELETE SQL Query
         public const string deleteVendor = "DELETE FROM VendorInfo WHERE VendorID=@vendor";
         public const string deleteProduct = "DELETE FROM ProductInfo WHERE ProductID=@product";
+
+        public const string getPDFPath = "SELECT DocumentName FROM Document WHERE VendorID=@vendor AND ProductID=@product";
         
 
         // UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID

@@ -428,15 +428,43 @@ namespace SEApp
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
-                using (SqlCommand deleteVendor = new SqlCommand(sqlQuery.deleteProduct, connectDB))
+                using (SqlCommand deleteProduct = new SqlCommand(sqlQuery.deleteProduct, connectDB))
                 {
-                    deleteVendor.Parameters.AddWithValue("@product", productID);
-                    deleteVendor.ExecuteNonQuery();
+                    deleteProduct.Parameters.AddWithValue("@product", productID);
+                    deleteProduct.ExecuteNonQuery();
                 }
 
             }
         }
 
+        // This method grabs the PDF Documents Name corresponding to the vendor and product ids passed to the method. 
+        // The file name is stored in the Documents table and then this file name is returned if it is found otherwise it returns null
+        public string getPdfName(int vendorID, int productID)
+        {
+            string fileName;
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand getPath = new SqlCommand(sqlQuery.getPDFPath, connectDB))
+                {
+                    getPath.Parameters.AddWithValue("@vendor", vendorID);
+                    getPath.Parameters.AddWithValue("@product", productID);
+                    SqlDataReader reader = getPath.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        fileName = reader.GetString(0);
+                        return fileName;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+
+            }
+            
+            
+        }
 
         // Adam:
         public int addVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate, int intPro)
