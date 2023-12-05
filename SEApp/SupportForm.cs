@@ -12,9 +12,12 @@ namespace SEApp
 {
     public partial class SupportForm : Form
     {
+        private Database connectDB;
+        string username, userRole;
         public SupportForm()
         {
             InitializeComponent();
+            connectDB = Database.getConnectString();
         }
 
         private void lblCitisoftUSA_Click(object sender, EventArgs e)
@@ -24,8 +27,12 @@ namespace SEApp
 
         private void SupportForm_Load(object sender, EventArgs e)
         {
-            
-
+            username = LoginForm.GetLoggedInUsername();
+            userRole = connectDB.GetUserRole(username);
+            if((userRole == null)||(username == null)) 
+            {
+                btnDashboard.Text = "Login";
+            }
 
             // Populate labels with contact details
             lblCitisoftUSA.Text = "Citisoft USA\n303 Congress Street, 5th floor\nBoston, MA 02210\nUSA\n\nT +1 617 428 9580\nF +1 617 428 9588\nEmail: USA.contact@citisoft.com";
@@ -76,15 +83,22 @@ namespace SEApp
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            
+            if ((userRole != null) &&(username!=null)) {
+                // Create an instance of the Dashboard Form
+                Dashboard dashboard = new Dashboard();
 
-            // Create an instance of the Dashboard Form
-            Dashboard dashboard = new Dashboard();
+                // Show the Dashboard form
+                dashboard.Show();
 
-            // Show the Dashboard form
-            dashboard.Show();
-
-            // Close the current form (Support form)
-            this.Hide();
+                // Close the current form (Support form)
+                this.Hide();
+            }
+            else
+            {
+                this.Hide();
+            }
+            
         }
 
       

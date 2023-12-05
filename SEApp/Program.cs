@@ -14,7 +14,7 @@ namespace SEApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //ApplicationConfiguration.Initialize();
-            Application.Run(new SupportForm());
+            Application.Run(new LoginForm());
         }
     }
 }

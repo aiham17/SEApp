@@ -46,7 +46,7 @@
             this.btnSupport = new System.Windows.Forms.Button();
             this.btnCompanyDetails = new System.Windows.Forms.Button();
             this.btnCompanyRole = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnCurSupportTicket = new System.Windows.Forms.Button();
             this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -268,16 +268,16 @@
             this.btnCompanyRole.UseVisualStyleBackColor = false;
             this.btnCompanyRole.Click += new System.EventHandler(this.btnCompanyRole_Click);
             // 
-            // button6
+            // btnCurSupportTicket
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(723, 400);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(194, 78);
-            this.button6.TabIndex = 38;
-            this.button6.Text = "Current Tasks";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnCurSupportTicket.BackColor = System.Drawing.SystemColors.Window;
+            this.btnCurSupportTicket.Location = new System.Drawing.Point(723, 400);
+            this.btnCurSupportTicket.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCurSupportTicket.Name = "btnCurSupportTicket";
+            this.btnCurSupportTicket.Size = new System.Drawing.Size(194, 78);
+            this.btnCurSupportTicket.TabIndex = 38;
+            this.btnCurSupportTicket.Text = "Current Support Tickets";
+            this.btnCurSupportTicket.UseVisualStyleBackColor = false;
             // 
             // tbDisplayedUsername
             // 
@@ -300,7 +300,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tbDisplayedUsername);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnCurSupportTicket);
             this.Controls.Add(this.btnCompanyRole);
             this.Controls.Add(this.btnCompanyDetails);
             this.Controls.Add(this.btnSupport);
@@ -352,7 +352,7 @@
         private Button btnSupport;
         private Button btnCompanyDetails;
         private Button btnCompanyRole;
-        private Button button6;
+        private Button btnCurSupportTicket;
         private TextBox tbDisplayedUsername;
     }
 }
