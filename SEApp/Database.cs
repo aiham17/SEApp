@@ -544,15 +544,32 @@ namespace SEApp
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
-                using (SqlCommand addTicket = new SqlCommand(sqlQuery.addSupportTickets, connectDB))
+                if (userID != null)
                 {
-                    addTicket.CommandType = CommandType.Text;
-                    for (int i = 0; i < parameterNames.Count; i++)
+                    using (SqlCommand addTicket = new SqlCommand(sqlQuery.addSupportTickets, connectDB))
                     {
-                        addTicket.Parameters.AddWithValue(parameterNames[i], i == 0 ? userID : (i == 1 ? name :(i==2 ? email : (i==3 ? title: message))));
+                        addTicket.CommandType = CommandType.Text;
+                        for (int i = 0; i < parameterNames.Count; i++)
+                        {
+                            addTicket.Parameters.AddWithValue(parameterNames[i], i == 0 ? userID : (i == 1 ? name : (i == 2 ? email : (i == 3 ? title : message))));
+                        }
+                        addTicket.ExecuteNonQuery();
                     }
-                    addTicket.ExecuteNonQuery();
                 }
+                else
+                {
+                    List<string> excludeUserIDParameters = new List<string> { "@name", "@email", "@title", "@message" };
+                    using (SqlCommand addTicket = new SqlCommand(sqlQuery.addSupportTickets2, connectDB))
+                    {
+                        addTicket.CommandType = CommandType.Text;
+                        for (int i = 0; i < parameterNames.Count; i++)
+                        {
+                            addTicket.Parameters.AddWithValue(parameterNames[i], i == 1 ? name : (i == 2 ? email: (i == 3 ? title : message)));
+                        }
+                        addTicket.ExecuteNonQuery();
+                    }
+                }
+                
             }
         }
 

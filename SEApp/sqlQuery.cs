@@ -108,6 +108,7 @@ namespace SEApp
 
         
         public const string addSupportTickets = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (@userID, @name, @email, @title, @message)";
+        public const string addSupportTickets2 = "INSERT INTO supportTickets (Name, Email, Topic, Message) VALUES (@name, @email, @title, @message)";
 
     }
 
