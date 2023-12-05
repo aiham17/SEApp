@@ -54,7 +54,8 @@ namespace SEApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-           
+
+            
 
             try
             {
@@ -71,10 +72,10 @@ namespace SEApp
                     MessageBox.Show("The support ticket has been submitted");
                     this.Close();
                 }
-                else if (userID == 0)
+                if (userID == 0)
                 {
                     string nullID = null;
-                    connectDB.addSupportTicket(supportTickets.Name, supportTickets.Email, supportTickets.Title, supportTickets.Message, nullID = null);
+                    connectDB.addSupportTicket(supportTickets.Name, supportTickets.Email, supportTickets.Title, supportTickets.Message, nullID);
                     MessageBox.Show("The support ticket has been submitted without an account");
                     this.Close();
                 }
