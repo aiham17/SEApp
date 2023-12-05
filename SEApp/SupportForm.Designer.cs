@@ -33,6 +33,8 @@
             this.lblCitisoftEMEA = new System.Windows.Forms.Label();
             this.lblCitisoftCanada = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Title = new System.Windows.Forms.Label();
+            this.tbTitle = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,8 +45,6 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.tbTitle = new System.Windows.Forms.TextBox();
-            this.Title = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.lblCitisoftEMEA.AutoSize = true;
             this.lblCitisoftEMEA.BackColor = System.Drawing.Color.White;
             this.lblCitisoftEMEA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCitisoftEMEA.Location = new System.Drawing.Point(41, 329);
+            this.lblCitisoftEMEA.Location = new System.Drawing.Point(41, 352);
             this.lblCitisoftEMEA.Name = "lblCitisoftEMEA";
             this.lblCitisoftEMEA.Size = new System.Drawing.Size(121, 20);
             this.lblCitisoftEMEA.TabIndex = 1;
@@ -101,25 +101,45 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // Title
+            // 
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Location = new System.Drawing.Point(30, 320);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(114, 20);
+            this.Title.TabIndex = 9;
+            this.Title.Text = "Message Title";
+            // 
+            // tbTitle
+            // 
+            this.tbTitle.Location = new System.Drawing.Point(175, 309);
+            this.tbTitle.Multiline = true;
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(220, 43);
+            this.tbTitle.TabIndex = 8;
+            this.tbTitle.TextChanged += new System.EventHandler(this.tbTitle_TextChanged);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(112, 60);
+            this.label4.Location = new System.Drawing.Point(138, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(225, 29);
+            this.label4.Size = new System.Drawing.Size(139, 29);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Send Us Message";
+            this.label4.Text = "Contact Us";
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.Snow;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(240, 497);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(155, 39);
             this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label3
@@ -191,32 +211,15 @@
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.Snow;
+            this.btnDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.Location = new System.Drawing.Point(-1, -4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(189, 58);
             this.btnDashboard.TabIndex = 5;
             this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
-            // 
-            // tbTitle
-            // 
-            this.tbTitle.Location = new System.Drawing.Point(175, 309);
-            this.tbTitle.Multiline = true;
-            this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(220, 43);
-            this.tbTitle.TabIndex = 8;
-            this.tbTitle.TextChanged += new System.EventHandler(this.tbTitle_TextChanged);
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(53, 332);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(46, 20);
-            this.Title.TabIndex = 9;
-            this.Title.Text = "Title";
             // 
             // SupportForm
             // 

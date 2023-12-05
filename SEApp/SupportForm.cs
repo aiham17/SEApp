@@ -54,6 +54,37 @@ namespace SEApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            
+
+            try
+            {
+                supportTicket.Ticket supportTickets = new supportTicket.Ticket();
+                supportTickets.Name = tbName.Text;
+                supportTickets.Email = tbEmail.Text;
+                supportTickets.Title = tbTitle.Text;
+                supportTickets.Message = tbMessage.Text;
+                int userID = connectDB.getUserID(supportTickets.Email);
+                if (userID != 0)
+                {
+                    string userString = userID.ToString();
+                    connectDB.addSupportTicket(supportTickets.Name, supportTickets.Email, supportTickets.Title, supportTickets.Message, userString);
+                    MessageBox.Show("The support ticket has been submitted");
+                    this.Close();
+                }
+                else if (userID == 0)
+                {
+                    string nullID = null;
+                    connectDB.addSupportTicket(supportTickets.Name, supportTickets.Email, supportTickets.Title, supportTickets.Message, nullID);
+                    MessageBox.Show("The support ticket has been submitted without an account");
+                    this.Close();
+                }
+
+            }
+            catch 
+            {
+                MessageBox.Show("The support ticket could not be submitted");
+            }
+            
 
         }
 

@@ -27,7 +27,6 @@ namespace SEApp
             public string module;
             public string financialService;
             public string cloud;
-
         }
     }
 }

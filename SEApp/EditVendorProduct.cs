@@ -49,7 +49,6 @@ namespace SEApp
             try
             {
                 companyInfo.vendorInfo editVendor = new companyInfo.vendorInfo();
-                //string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
                 contactID = Int32.Parse(cmbContactID.Text.ToString());
                 editVendor.vendor = tbVendorName.Text;
                 editVendor.website = LLVendorWebsite.Text;

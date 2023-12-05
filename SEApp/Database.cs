@@ -86,6 +86,7 @@ namespace SEApp
          * If a match is found, it immediately returns true for a successful login. 
          * This streamlined approach enhances clarity, efficiency, and error handling compared to the previous version, which used a DataTable and a more complex loop structure.  */
         // Removed the for loop as the SQL Query will
+        // Adam: Aiham optimised the code but it kept returning NULL and I fixed it.
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
@@ -161,6 +162,7 @@ namespace SEApp
 
 
         // Opens a connection to the database and will run a SQL Query dependant upon the values of vendorName and productName to then return the datatable filled or not
+        // Depending upon which information is grabbed from the data table will determine which SQL Query is given ran.
         public DataTable readVendorProductInfo(DataTable readData,string vendorName, string productName, string sqlQuery)
         {
             try
@@ -367,7 +369,8 @@ namespace SEApp
         }
 
         // Updates the contact information of the specific vendor, according to what the admin has adjusted
-        // Adam:
+        // Adam: This method grabs the ContactID the user has selected and updates the Number and address in that identified row..
+        // It uses a for loop to assign all the parameters that are stored in a list.
         public void updateContact(string address, string teleNumber, int contactID)
         {
             List<string> parameterNames = new List<string> {"@number", "@address", "@contactID"};
@@ -388,7 +391,8 @@ namespace SEApp
         }
 
         // Updates the products information with what the admin has edited
-        // Adam:
+        // Adam: This method grabs the Product Information entered and updates the row that contains that specific productid with the information. This will be updated in the ProductInfo Table.
+        // It uses a for loop to assign all the parameters that are stored in a list.
         public void updateProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int productID)
         {
             List<string> parameterNames = new List<string> {"@software", "@type", "@area", "@module", "@fsc", "@cloud", "@productID"};
@@ -408,7 +412,8 @@ namespace SEApp
             }
         }
 
-        //Adam:
+        // Adam: This method grabs the VendorID and Deletes all the rows that contain that VendorID in the database
+        // This includes: all the product and contact information also.
         public void deleteVendorProduct(int vendor)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -423,6 +428,8 @@ namespace SEApp
             }
         }
 
+        //// Adam: This method gets the Product ID and Deletes the row that contains the same ProductID in the ProductInfo Table.
+        // This method adds the ProductID as a parameter and executes the SQL Query.
         public void deleteProduct(int productID)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -437,7 +444,7 @@ namespace SEApp
             }
         }
 
-        // This method grabs the PDF Documents Name corresponding to the vendor and product ids passed to the method. 
+        // Adam: This method grabs the PDF Documents Name corresponding to the vendor and product ids passed to the method. 
         // The file name is stored in the Documents table and then this file name is returned if it is found otherwise it returns null
         public string getPdfName(int vendorID, int productID)
         {
@@ -466,7 +473,8 @@ namespace SEApp
             
         }
 
-        // Adam:
+        // Adam: This method grabs all the vendor information entered by the user and inserts this data into the database, in the VendorInfo Table.
+        // It creates a list of parameters and uses a for loop to insert them into the SQL Query. This then returns the Vendor ID once it has been added
         public int addVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate, int intPro)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@web", "@description", "@eyear", "@employ", "@lreview", "@ldemo", "@addInfo", "@intProService" };
@@ -486,8 +494,9 @@ namespace SEApp
                 }
             }
         }
-        
-        //Adam:
+
+        // Adam: This method grabs all the product information entered by the user and inserts this data into the database, in the ProductInfo Table.
+        // It creates a list of parameters and uses a for loop to insert them into the SQL Query.
         public void addProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int vendor)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@software", "@type", "@area", "@module", "@fsc", "@cloud"};
@@ -501,12 +510,14 @@ namespace SEApp
                     {
                         addProduct.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? software : (i == 2 ? softwareType : (i == 3 ? businessArea : (i == 4 ? module : (i == 5 ? financialService : cloud))))));
                     }
+                    addProduct.ExecuteScalar();
                    
                 }
             }
         }
-        
-        // Adam:
+
+        // Adam: This method grabs all the vendor contact information entered by the user and inserts this data into the database, in the Contact Table.
+        // It creates a list of parameters and uses a for loop to insert them into the SQL Query.
         public void addContact(string address, string teleNumber, int vendor)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@number", "@address"};
@@ -519,6 +530,53 @@ namespace SEApp
                     for (int i = 0; i < parameterNames.Count; i++)
                     {
                         addContact.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? teleNumber : address));
+                    }
+                    addContact.ExecuteNonQuery();
+                }
+                
+            }
+        }
+
+        //Adam: This method grabs all the user entered information submitted in the support ticket and then adds this to the database table supportTickets
+        public void addSupportTicket(string name, string email, string title, string message, string userID)
+        {
+            List<string> parameterNames = new List<string> {"@userID","@name", "@email", "@title", "@message" };
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand addTicket = new SqlCommand(sqlQuery.addSupportTickets, connectDB))
+                {
+                    addTicket.CommandType = CommandType.Text;
+                    for (int i = 0; i < parameterNames.Count; i++)
+                    {
+                        addTicket.Parameters.AddWithValue(parameterNames[i], i == 0 ? userID : (i == 1 ? name :(i==2 ? email : (i==3 ? title: message))));
+                    }
+                    addTicket.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // Gets the users UserID based off their Email Address. Otherwise it returns null
+        public int getUserID(string email)
+        {
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                connectDB.Open();
+                using (SqlCommand getUserID = new SqlCommand(sqlQuery.getUserID, connectDB))
+                {
+                    try
+                    {
+                         getUserID.Parameters.AddWithValue("@email", email);
+                         int userID = Convert.ToInt32(getUserID.ExecuteScalar());
+                         return userID;
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                        return 0;
                     }
                 }
             }
