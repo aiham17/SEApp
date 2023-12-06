@@ -13,7 +13,7 @@ using static iTextSharp.text.pdf.PRTokeniser;
 
 namespace SEApp
 {
-    public partial class AddAdjustForm : Form
+    public partial class AddVendorForm : Form
     {
 
         // Database conection object
@@ -22,7 +22,7 @@ namespace SEApp
         
 
         // Constructor for the AddAdjustForm
-        public AddAdjustForm()
+        public AddVendorForm()
         {
             //initilize the database connection
             InitializeComponent();
@@ -116,7 +116,7 @@ namespace SEApp
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
             // Create an instance of the AddAdjustForm
-            AddAdjustForm addAdjustForm = new AddAdjustForm();
+            AddVendorForm addAdjustForm = new AddVendorForm();
             addAdjustForm.Show();
             this.Close();
 

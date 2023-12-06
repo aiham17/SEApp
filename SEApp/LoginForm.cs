@@ -14,12 +14,14 @@ namespace SEApp
     public partial class LoginForm : Form
     {
         private Database connectDB;
-
+        
         // Static variable to store the logged-in username
         private static string loggedInUsername;
 
         public LoginForm()
         {
+            
+            
             InitializeComponent();
             connectDB = Database.getConnectString();
             

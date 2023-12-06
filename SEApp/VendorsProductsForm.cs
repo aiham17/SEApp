@@ -84,7 +84,7 @@ namespace SEApp
             if (userRole == "0" || userRole == "1")
             {
                 // Allow access to the AddAdjustForm
-                AddAdjustForm addAdjustForm = new AddAdjustForm();
+                AddVendorForm addAdjustForm = new AddVendorForm();
                 addAdjustForm.Show();
                 this.Close();
             }

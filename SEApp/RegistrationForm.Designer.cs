@@ -268,6 +268,8 @@ namespace SEApp
             this.ClientSize = new System.Drawing.Size(848, 502);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.MaximumSize = new System.Drawing.Size(866, 549);
+            this.MinimumSize = new System.Drawing.Size(866, 549);
             this.Name = "RegistrationForm";
             this.Text = "RegisterationForm";
             this.panel1.ResumeLayout(false);

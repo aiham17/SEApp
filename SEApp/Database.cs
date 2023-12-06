@@ -578,7 +578,8 @@ namespace SEApp
                     {
                         addProduct.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? software : (i == 2 ? softwareType : (i == 3 ? businessArea : (i == 4 ? module : (i == 5 ? financialService : cloud))))));
                     }
-                   
+                    addProduct.ExecuteNonQuery();
+
                 }
             }
         }
@@ -598,6 +599,7 @@ namespace SEApp
                     {
                         addContact.Parameters.AddWithValue(parameterNames[i], i == 0 ? vendor : (i == 1 ? teleNumber : address));
                     }
+                    addContact.ExecuteNonQuery();
                 }
             }
         }

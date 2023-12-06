@@ -178,6 +178,8 @@ namespace SEApp
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(789, 453);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(807, 500);
+            this.MinimumSize = new System.Drawing.Size(807, 500);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.panel1.ResumeLayout(false);

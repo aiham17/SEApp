@@ -234,6 +234,8 @@
             this.Controls.Add(this.lblCitisoftCanada);
             this.Controls.Add(this.lblCitisoftEMEA);
             this.Controls.Add(this.lblCitisoftUSA);
+            this.MaximumSize = new System.Drawing.Size(1053, 765);
+            this.MinimumSize = new System.Drawing.Size(1053, 765);
             this.Name = "SupportForm";
             this.Text = "SupportForm";
             this.Load += new System.EventHandler(this.SupportForm_Load);

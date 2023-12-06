@@ -59,8 +59,8 @@
             this.cmbCloud = new System.Windows.Forms.ComboBox();
             this.lblCloudServices = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             this.btnEditVendor = new System.Windows.Forms.Button();
+            this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
@@ -374,6 +374,16 @@
             this.panel1.Size = new System.Drawing.Size(972, 442);
             this.panel1.TabIndex = 46;
             // 
+            // btnEditVendor
+            // 
+            this.btnEditVendor.Location = new System.Drawing.Point(426, 404);
+            this.btnEditVendor.Name = "btnEditVendor";
+            this.btnEditVendor.Size = new System.Drawing.Size(115, 31);
+            this.btnEditVendor.TabIndex = 46;
+            this.btnEditVendor.Text = "EditVendor";
+            this.btnEditVendor.UseVisualStyleBackColor = true;
+            this.btnEditVendor.Click += new System.EventHandler(this.btnEditVendor_Click);
+            // 
             // tbDisplayedUsername
             // 
             this.tbDisplayedUsername.BackColor = System.Drawing.Color.Snow;
@@ -387,16 +397,6 @@
             this.tbDisplayedUsername.TabStop = false;
             this.tbDisplayedUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbDisplayedUsername.TextChanged += new System.EventHandler(this.tbDisplayedUsername_TextChanged);
-            // 
-            // btnEditVendor
-            // 
-            this.btnEditVendor.Location = new System.Drawing.Point(426, 404);
-            this.btnEditVendor.Name = "btnEditVendor";
-            this.btnEditVendor.Size = new System.Drawing.Size(115, 31);
-            this.btnEditVendor.TabIndex = 46;
-            this.btnEditVendor.Text = "EditVendor";
-            this.btnEditVendor.UseVisualStyleBackColor = true;
-            this.btnEditVendor.Click += new System.EventHandler(this.btnEditVendor_Click);
             // 
             // VendorsProductsForm
             // 
@@ -412,6 +412,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1277, 601);
+            this.MinimumSize = new System.Drawing.Size(1277, 601);
             this.Name = "VendorsProductsForm";
             this.Text = "VendorsProductsForm";
             this.Load += new System.EventHandler(this.VendorsProductsForm_Load);

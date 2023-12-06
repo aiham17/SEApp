@@ -1,6 +1,6 @@
 ﻿namespace SEApp
 {
-    partial class AddAdjustForm
+    partial class AddVendorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAdjustForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddVendorForm));
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnVendorsAndProducts = new System.Windows.Forms.Button();
@@ -551,6 +551,8 @@
             this.Controls.Add(this.btnAddOrAdjustVendors);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1085, 601);
+            this.MinimumSize = new System.Drawing.Size(1085, 601);
             this.Name = "AddAdjustForm";
             this.Text = "AddAdjustForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -507,7 +507,8 @@
             this.Controls.Add(this.tbVendorName);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbCitisoftLogo);
-            this.MinimumSize = new System.Drawing.Size(1085, 601);
+            this.MaximumSize = new System.Drawing.Size(1085, 760);
+            this.MinimumSize = new System.Drawing.Size(1085, 760);
             this.Name = "EditVendorProduct";
             this.Text = "EditVendorProduct";
             this.Load += new System.EventHandler(this.EditVendorProduct_Load);

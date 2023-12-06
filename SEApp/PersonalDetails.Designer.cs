@@ -402,6 +402,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1085, 601);
+            this.MinimumSize = new System.Drawing.Size(1085, 601);
             this.Name = "PersonalDetails";
             this.Text = "PersonalDetails";
             this.Load += new System.EventHandler(this.PersonalDetails_Load);

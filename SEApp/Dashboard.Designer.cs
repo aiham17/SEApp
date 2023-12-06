@@ -273,6 +273,8 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1438, 781);
+            this.MinimumSize = new System.Drawing.Size(1438, 781);
             this.Name = "Dashboard";
             this.Text = "Dashbaord";
             this.Load += new System.EventHandler(this.Dashboard_Load);

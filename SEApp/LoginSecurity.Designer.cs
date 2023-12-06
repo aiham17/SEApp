@@ -265,6 +265,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1085, 601);
+            this.MinimumSize = new System.Drawing.Size(1085, 601);
             this.Name = "LoginSecurity";
             this.Text = "LoginSecurity";
             this.Load += new System.EventHandler(this.LoginSecurity_Load);

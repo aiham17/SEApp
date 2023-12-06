@@ -59,7 +59,7 @@ namespace SEApp
             if (userRole == "0" || userRole == "1")
             {
                 // Allow access to the AddAdjustForm
-                AddAdjustForm addAdjustForm = new AddAdjustForm();
+                AddVendorForm addAdjustForm = new AddVendorForm();
                 addAdjustForm.Show();
                 this.Close();
             }
@@ -126,7 +126,7 @@ namespace SEApp
             if (userRole == "0" || userRole == "1")
             {
                 // Allow access to the AddAdjustForm
-                AddAdjustForm addAdjustForm = new AddAdjustForm();
+                AddVendorForm addAdjustForm = new AddVendorForm();
                 addAdjustForm.Show();
                 this.Close();
             }
@@ -144,6 +144,8 @@ namespace SEApp
 
         private void btnSupport_Click(object sender, EventArgs e)
         {
+            SupportForm supportForm = new SupportForm();
+            supportForm.Show();
             System.Diagnostics.Process.Start("https://www.citisoft.com/contact-us/");
         }
 
