@@ -60,6 +60,7 @@
             this.lblCloudServices = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
+            this.btnEditVendor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendorInfoBindingSource2)).BeginInit();
@@ -353,6 +354,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnEditVendor);
             this.panel1.Controls.Add(this.lblCompanyAge);
             this.panel1.Controls.Add(this.cmbCompanyAge);
             this.panel1.Controls.Add(this.btnExportPDF);
@@ -385,6 +387,16 @@
             this.tbDisplayedUsername.TabStop = false;
             this.tbDisplayedUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbDisplayedUsername.TextChanged += new System.EventHandler(this.tbDisplayedUsername_TextChanged);
+            // 
+            // btnEditVendor
+            // 
+            this.btnEditVendor.Location = new System.Drawing.Point(426, 404);
+            this.btnEditVendor.Name = "btnEditVendor";
+            this.btnEditVendor.Size = new System.Drawing.Size(115, 31);
+            this.btnEditVendor.TabIndex = 46;
+            this.btnEditVendor.Text = "EditVendor";
+            this.btnEditVendor.UseVisualStyleBackColor = true;
+            this.btnEditVendor.Click += new System.EventHandler(this.btnEditVendor_Click);
             // 
             // VendorsProductsForm
             // 
@@ -451,5 +463,6 @@
         private Label lblCloudServices;
         private Panel panel1;
         private TextBox tbDisplayedUsername;
+        private Button btnEditVendor;
     }
 }

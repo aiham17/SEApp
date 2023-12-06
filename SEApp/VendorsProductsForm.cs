@@ -335,5 +335,47 @@ namespace SEApp
         {
 
         }
+
+        private void btnEditVendor_Click(object sender, EventArgs e)
+        {
+            // Retrieve the logged-in username using the static method
+            string username = LoginForm.GetLoggedInUsername();
+
+            // Fetch the user's role from the database using the Database class
+            string userRole = connectDB.GetUserRole(username);
+
+            // Check if the user is an admin or owner
+            if (userRole == "0" || userRole == "1")
+            {
+                // Check if a row is selected in the DataGridView
+                if (dgvVendorProduct.SelectedRows.Count > 0)
+                {
+                    // Get the first selected row
+                    DataGridViewRow selectedRow = dgvVendorProduct.SelectedRows[0];
+
+                    // Get the vendor and product names from the selected row
+                    string vendorName = selectedRow.Cells["Company_Name"].Value.ToString();
+                    string productName = selectedRow.Cells["Software_Name"].Value.ToString();
+
+                    // Open the EditVendorProduct form with the selected vendor and product names
+                    EditVendorProduct editVendorProductForm = new EditVendorProduct();
+                    editVendorProductForm.vendorName = vendorName;
+                    editVendorProductForm.productName = productName;
+                    editVendorProductForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    // Display error message if no row is selected
+                    MessageBox.Show("Please select a row to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // Display access denied message
+                MessageBox.Show("Access Denied. You do not have permission to access this feature.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
     }
 }

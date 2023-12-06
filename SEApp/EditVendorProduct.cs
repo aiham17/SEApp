@@ -254,6 +254,10 @@ namespace SEApp
             }
         }
 
+        /* The btnEditVendor_Click method checks the user's role and if they have permission (admin or owner).
+         * It then checks if a row is selected in the DataGridView (dgvVendorProduct).
+         * If both conditions are met, it opens the EditVendorProduct form with the selected vendor and product names; 
+         * otherwise, it displays error messages.*/
         private void btnEdit_Click(object sender, EventArgs e)
         {
             string username = LoginForm.GetLoggedInUsername();
