@@ -157,14 +157,21 @@ namespace SEApp
         private void btnDashboard_Click(object sender, EventArgs e)
         {
 
-            // Create an instance of the Dashboard Form
-            Dashboard dashboard = new Dashboard();
+            if ((userRole != null) && (username != null))
+            {
+                // Create an instance of the Dashboard Form
+                Dashboard dashboard = new Dashboard();
 
-            // Show the Dashboard form
-            dashboard.Show();
+                // Show the Dashboard form
+                dashboard.Show();
 
-            // Close the current form (Support form)
-            this.Hide();
+                // Close the current form (Support form)
+                this.Hide();
+            }
+            else
+            {
+                this.Hide();
+            }
         }
 
         
