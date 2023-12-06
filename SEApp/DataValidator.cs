@@ -141,7 +141,56 @@ namespace SEApp
             return int.TryParse(number, out integer) && integer != 0;
         }
 
-        
+        //  Added ValidateSupportFormInputs method for the Support ticket form 
+        public static bool ValidateSupportFormInputs(string name, string email, string topic, string message)
+        {
+            // Check if name is empty or whitespace
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                // Display an error message if name is missing
+                MessageBox.Show("Name is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Regular expression pattern for validating names
+            string namePattern = @"^[a-zA-Z]{3,}$";
+            if (!Regex.IsMatch(name, namePattern))
+            {
+                // Display an error message if name format is incorrect
+                MessageBox.Show("Name must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Regular expression pattern for validating email address
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(email, emailPattern))
+            {
+                // Display an error message if email format is incorrect
+                MessageBox.Show("Invalid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Check if title is empty
+            if (string.IsNullOrWhiteSpace(topic))
+            {
+                // Display an error message if topic is missing
+                MessageBox.Show("Topic is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Check if message is empty
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                // Display an error message if message is missing
+                MessageBox.Show("Message is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // If all validations pass, return true
+            return true;
+        }
+
+
 
     }
 }

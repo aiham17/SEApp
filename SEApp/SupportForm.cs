@@ -58,19 +58,20 @@ namespace SEApp
             string message = tbMessage.Text;
 
             // Validate user inputs
-            
-           
-                   // Save the support ticket to the database
+            if (DataValidator.ValidateSupportFormInputs(name, email, topic, message))
 
-                    connectDB.SaveSupportTicket(name, email, topic, message);
+            {  
+                // Save the support ticket to the database
 
-                    // Display success message
-                    MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                connectDB.SaveSupportTicket(name, email, topic, message);
 
-                    // Clear text boxes
-                    ClearTextFields();
-                
-            
+                // Display success message
+                MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Clear text boxes
+                ClearTextFields();
+
+            }
         }
 
         private void ClearTextFields()
