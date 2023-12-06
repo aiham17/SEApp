@@ -16,6 +16,7 @@ namespace SEApp
         // Database connection object
         private Database connectDB;
         string username, userRole;
+        string loggedInUsername = LoginForm.GetLoggedInUsername();
         public SupportForm()
         {
             InitializeComponent();
@@ -72,14 +73,25 @@ namespace SEApp
                         string userString = ticket.UserID.ToString();
                         connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, userString);
 
-                        this.Close();
+                        if (loggedInUsername != null)
+                        {
+                            this.Close();
+
+                            SettingsForm settingsForm = new SettingsForm();
+                            settingsForm.Show();
+                        }
                     }
                     if (ticket.UserID == 0)
                     {
                         string nullID = null;
                         connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, nullID);
+                        if (loggedInUsername != null)
+                        {
+                            this.Close();
 
-                        this.Close();
+                            SettingsForm settingsForm = new SettingsForm();
+                            settingsForm.Show();
+                        }
                     }
                     // Save the support ticket to the database
 
