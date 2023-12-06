@@ -125,7 +125,7 @@ namespace SEApp
             }
 
         }
-        /*Implemented SaveSupportTicket method to insert support ticket details into the database.
+        /* Implemented SaveSupportTicket method to insert support ticket details into the database.
          * Utilized SqlConnection and SqlCommand for database interaction, including parameterized queries for ticket information. 
          * Incorporated robust error handling with a try-catch block to manage potential exceptions during execution. */
         public void SaveSupportTicket(string name, string email, string topic, string message)
