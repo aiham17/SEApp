@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SEApp
 {
@@ -14,7 +15,7 @@ namespace SEApp
     {
         // Database connection object
         private Database connectDB;
-
+        string username, userRole;
         public SupportForm()
         {
             InitializeComponent();
@@ -28,7 +29,12 @@ namespace SEApp
 
         private void SupportForm_Load(object sender, EventArgs e)
         {
-            
+            username = LoginForm.GetLoggedInUsername();
+            userRole = connectDB.GetUserRole(username);
+            if ((userRole == null) || (username == null))
+            {
+                btnDashboard.Text = "Login";
+            }
 
 
             // Populate labels with contact details
@@ -51,27 +57,67 @@ namespace SEApp
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                supportTicket.Ticket ticket = new supportTicket.Ticket();
+                ticket.Name = tbName.Text;
+                ticket.Email = tbEmail.Text;
+                ticket.Title = tbTopic.Text;
+                ticket.Message = tbMessage.Text;
+                ticket.UserID = connectDB.getUserID(ticket.Email);
+                if (DataValidator.ValidateSupportFormInputs(ticket.Name, ticket.Email, ticket.Title, ticket.Message))
+                {
+                    if (ticket.UserID != 0)
+                    {
+                        string userString = ticket.UserID.ToString();
+                        connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, userString);
+
+                        this.Close();
+                    }
+                    if (ticket.UserID == 0)
+                    {
+                        string nullID = null;
+                        connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, nullID);
+
+                        this.Close();
+                    }
+                    // Save the support ticket to the database
+
+                    //connectDB.SaveSupportTicket(name, email, topic, message);
+
+                    // Display success message
+                    MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Clear text boxes
+                    ClearTextFields();
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("The support ticket could not be submitted");
+            }
             // Get user inputs from text boxes
-            string name = tbName.Text;
-            string email = tbEmail.Text;
-            string topic = tbTopic.Text;
-            string message = tbMessage.Text;
+            //string name = tbName.Text;
+            //string email = tbEmail.Text;
+            //string topic = tbTopic.Text;
+            //string message = tbMessage.Text;
 
             // Validate user inputs
-            if (DataValidator.ValidateSupportFormInputs(name, email, topic, message))
+            //if (DataValidator.ValidateSupportFormInputs(name, email, topic, message))
 
-            {  
+            //{  
                 // Save the support ticket to the database
 
-                connectDB.SaveSupportTicket(name, email, topic, message);
+                //connectDB.SaveSupportTicket(name, email, topic, message);
 
                 // Display success message
-                MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Clear text boxes
-                ClearTextFields();
+                //ClearTextFields();
 
-            }
+            //}
         }
 
         private void ClearTextFields()

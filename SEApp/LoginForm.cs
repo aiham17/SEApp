@@ -127,5 +127,11 @@ namespace SEApp
         {
             return loggedInUsername;
         }
+
+        private void passwordRestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SupportForm open = new SupportForm();
+            open.Show();
+        }
     }
 }
