@@ -7,108 +7,117 @@ using System.Threading.Tasks;
 
 namespace SEApp
 {
-    // Implemented the DataValidator class for distinct input validation responsibilities.
-    // DataValidator focuses exclusively on validating user inputs, ensuring accuracy and validity across different components of the application.
-    // This separation of concerns enhances maintainability and promotes a cleaner, more organized codebase.
-
     public static class DataValidator
     {
-        // Method for validating user inputs
+        // Constants for minimum lengths
+        private const int MinUsernameLength = 3;
+        private const int MinPasswordLength = 8;
+        private const int MinNameLength = 3;
+
+        // Constants for regular expression patterns
+        private const string UsernamePattern = @"^[a-zA-Z]{3,}$";
+        private const string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+        private const string NamePattern = @"^[a-zA-Z]{3,}$";
+
+        // Constants for error messages
+        private const string UsernameRequiredMessage = "Username is required.";
+        private const string UsernameFormatErrorMessage = "Username must only contain letters and be at least 3 characters long.";
+        private const string PasswordRequiredMessage = "Password is required.";
+        private const string PasswordLengthErrorMessage = "Password must be at least 8 characters long.";
+        private const string EmailRequiredMessage = "Email is required.";
+        private const string InvalidEmailErrorMessage = "Invalid email address.";
+        private const string FirstNameRequiredMessage = "First name is required.";
+        private const string LastNameRequiredMessage = "Last name is required.";
+        private const string CompanyRoleRequiredMessage = "Company role is required.";
+
+       // Constants for error messages in ValidateSupportFormInputs
+        private const string NameRequiredMessage = "Name is required.";
+        private const string TopicRequiredMessage = "Topic is required.";
+        private const string MessageRequiredMessage = "Message is required.";
+        private const string NameFormatErrorMessage = "Name must only contain letters and be at least 3 characters long.";
+
         public static bool ValidateUserInputs(string username, string password, string fname, string lname, string email, int companyRole)
         {
             // Check if username is empty or whitespace
             if (string.IsNullOrWhiteSpace(username))
             {
-                // Display an error message if username is missing
-                MessageBox.Show("Username is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(UsernameRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Regular expression pattern for validating username
-            string usernamePattern = @"^[a-zA-Z]{3,}$";
-            if (!Regex.IsMatch(username, usernamePattern))
+            if (!Regex.IsMatch(username, UsernamePattern))
             {
-                // Display an error message if username format is incorrect
-                MessageBox.Show("Username must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(UsernameFormatErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if password is empty
             if (string.IsNullOrWhiteSpace(password))
             {
-                // Display an error message if password is missing
-                MessageBox.Show("Password is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(PasswordRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if password is at least 8 characters long
-            if (password.Length < 8)
+            if (password.Length < MinPasswordLength)
             {
-                // Display an error message if password is too short
-                MessageBox.Show("Password must be at least 8 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(PasswordLengthErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if email is empty
             if (string.IsNullOrWhiteSpace(email))
             {
-                // Display an error message if email is missing
-                MessageBox.Show("Email is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(EmailRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Regular expression pattern for validating email address
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            if (!Regex.IsMatch(email, emailPattern))
+            if (!Regex.IsMatch(email, EmailPattern))
             {
-                // Display an error message if email format is incorrect
-                MessageBox.Show("Invalid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(InvalidEmailErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if first name is empty
             if (string.IsNullOrWhiteSpace(fname))
             {
-                // Display an error message if first name is missing
-                MessageBox.Show("First name is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(FirstNameRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if last name is empty
             if (string.IsNullOrWhiteSpace(lname))
             {
-                // Display an error message if last name is missing
-                MessageBox.Show("Last name is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(LastNameRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Regular expression pattern for validating names
-            string namePattern = @"^[a-zA-Z]{3,}$";
-            if (!Regex.IsMatch(fname, namePattern))
+            if (!Regex.IsMatch(fname, NamePattern))
             {
-                // Display an error message if first name format is incorrect
-                MessageBox.Show("First name must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(NameFormatErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (!Regex.IsMatch(lname, namePattern))
+            if (!Regex.IsMatch(lname, NamePattern))
             {
-                // Display an error message if last name format is incorrect
-                MessageBox.Show("Last name must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(NameFormatErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if a valid company role is selected
             if (companyRole < 0)
             {
-                // Display an error message if company role is missing
-                MessageBox.Show("Company role is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(CompanyRoleRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // If all validations pass, return true
             return true;
         }
+
         public static bool loginValidator(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -116,22 +125,21 @@ namespace SEApp
                 MessageBox.Show("Please enter a Username & Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
             // Check if the username format is valid
-            string usernamePattern = @"^[a-zA-Z]{3,}$";
-            if (!Regex.IsMatch(username, usernamePattern))
+            if (!Regex.IsMatch(username, UsernamePattern))
             {
                 MessageBox.Show("Incorrect Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
             // Check if the password meets the minimum length requirement
-            if (password.Length < 8)
+            if (password.Length < MinPasswordLength)
             {
                 MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
-
-
         }
 
         // Used to validate integer values entered into a text box. Will return true if it is an integer otherwise false
@@ -141,56 +149,47 @@ namespace SEApp
             return int.TryParse(number, out integer) && integer != 0;
         }
 
-        //  Added ValidateSupportFormInputs method for the Support ticket form 
+        // Added ValidateSupportFormInputs method for the Support ticket form 
         public static bool ValidateSupportFormInputs(string name, string email, string topic, string message)
         {
             // Check if name is empty or whitespace
             if (string.IsNullOrWhiteSpace(name))
             {
-                // Display an error message if name is missing
-                MessageBox.Show("Name is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(NameRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Regular expression pattern for validating names
-            string namePattern = @"^[a-zA-Z]{3,}$";
-            if (!Regex.IsMatch(name, namePattern))
+            if (!Regex.IsMatch(name, NamePattern))
             {
-                // Display an error message if name format is incorrect
-                MessageBox.Show("Name must only contain letters and be at least 3 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(NameFormatErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Regular expression pattern for validating email address
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            if (!Regex.IsMatch(email, emailPattern))
+            if (!Regex.IsMatch(email, EmailPattern))
             {
-                // Display an error message if email format is incorrect
-                MessageBox.Show("Invalid email address.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(InvalidEmailErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if title is empty
             if (string.IsNullOrWhiteSpace(topic))
             {
-                // Display an error message if topic is missing
-                MessageBox.Show("Topic is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(TopicRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // Check if message is empty
             if (string.IsNullOrWhiteSpace(message))
             {
-                // Display an error message if message is missing
-                MessageBox.Show("Message is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(MessageRequiredMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             // If all validations pass, return true
             return true;
         }
-
-
 
     }
 }
