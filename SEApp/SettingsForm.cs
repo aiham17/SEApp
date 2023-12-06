@@ -147,6 +147,7 @@ namespace SEApp
             SupportForm supportForm = new SupportForm();
             supportForm.Show();
             System.Diagnostics.Process.Start("https://www.citisoft.com/contact-us/");
+            this.Close();
         }
 
         private void btnCompanyDetails_Click(object sender, EventArgs e)

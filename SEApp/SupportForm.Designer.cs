@@ -216,7 +216,7 @@
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(189, 58);
             this.btnDashboard.TabIndex = 5;
-            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.Text = "Back";
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 

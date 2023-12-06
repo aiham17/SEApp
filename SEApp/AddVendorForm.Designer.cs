@@ -504,7 +504,7 @@
             this.cbInternalProServices.Text = "Internal Pro Services";
             this.cbInternalProServices.UseVisualStyleBackColor = true;
             // 
-            // AddAdjustForm
+            // AddVendorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -553,8 +553,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1085, 601);
             this.MinimumSize = new System.Drawing.Size(1085, 601);
-            this.Name = "AddAdjustForm";
-            this.Text = "AddAdjustForm";
+            this.Name = "AddVendorForm";
+            this.Text = "Add Vendor Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -160,12 +160,14 @@ namespace SEApp
             if ((userRole != null) && (username != null))
             {
                 // Create an instance of the Dashboard Form
-                Dashboard dashboard = new Dashboard();
+                //Dashboard dashboard = new Dashboard();
 
                 // Show the Dashboard form
-                dashboard.Show();
+                //dashboard.Show();
 
                 // Close the current form (Support form)
+                SettingsForm settingsForm = new SettingsForm();
+                settingsForm.Show();
                 this.Hide();
             }
             else
