@@ -132,13 +132,14 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.BackColor = System.Drawing.Color.Snow;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmit.Location = new System.Drawing.Point(200, 496);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(203, 39);
             this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // label3
@@ -210,12 +211,13 @@
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.Snow;
             this.btnDashboard.Location = new System.Drawing.Point(-1, -4);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(189, 58);
             this.btnDashboard.TabIndex = 5;
             this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // SupportForm
