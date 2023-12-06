@@ -140,5 +140,8 @@ namespace SEApp
             int integer;
             return int.TryParse(number, out integer) && integer != 0;
         }
+
+        
+
     }
 }

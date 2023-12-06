@@ -141,7 +141,7 @@
             // 
             // chActiveVendors
             // 
-            this.chActiveVendors.BackColor = System.Drawing.Color.CadetBlue;
+            this.chActiveVendors.BackColor = System.Drawing.Color.LightSlateGray;
             chartArea1.Name = "ChartArea1";
             this.chActiveVendors.ChartAreas.Add(chartArea1);
             this.chActiveVendors.Enabled = false;

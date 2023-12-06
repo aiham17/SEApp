@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Org.BouncyCastle.Utilities.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SEApp
 {
@@ -18,6 +20,7 @@ namespace SEApp
         public const string TotalNumberOfVendorsQuery = "SELECT COUNT(*) AS TotalVendors FROM VendorInfo";
 
         public const string getUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
+        public const string saveSupportTicket = "INSERT INTO supportTickets( Name, Email, Topic, Message) VALUES( @Name, @Email, @Topic, @Message)";
 
 
         // Query to get active vendors

@@ -33,6 +33,8 @@
             this.lblCitisoftEMEA = new System.Windows.Forms.Label();
             this.lblCitisoftCanada = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Topic = new System.Windows.Forms.Label();
+            this.tbTopic = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,8 +45,6 @@
             this.tbName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.tbTitle = new System.Windows.Forms.TextBox();
-            this.Title = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +52,10 @@
             // 
             this.lblCitisoftUSA.AutoSize = true;
             this.lblCitisoftUSA.BackColor = System.Drawing.Color.White;
-            this.lblCitisoftUSA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCitisoftUSA.Location = new System.Drawing.Point(41, 189);
+            this.lblCitisoftUSA.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitisoftUSA.Location = new System.Drawing.Point(41, 141);
             this.lblCitisoftUSA.Name = "lblCitisoftUSA";
-            this.lblCitisoftUSA.Size = new System.Drawing.Size(107, 20);
+            this.lblCitisoftUSA.Size = new System.Drawing.Size(171, 32);
             this.lblCitisoftUSA.TabIndex = 0;
             this.lblCitisoftUSA.Text = "CitisoftUSA";
             this.lblCitisoftUSA.Click += new System.EventHandler(this.lblCitisoftUSA_Click);
@@ -64,10 +64,10 @@
             // 
             this.lblCitisoftEMEA.AutoSize = true;
             this.lblCitisoftEMEA.BackColor = System.Drawing.Color.White;
-            this.lblCitisoftEMEA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCitisoftEMEA.Location = new System.Drawing.Point(41, 329);
+            this.lblCitisoftEMEA.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitisoftEMEA.Location = new System.Drawing.Point(41, 345);
             this.lblCitisoftEMEA.Name = "lblCitisoftEMEA";
-            this.lblCitisoftEMEA.Size = new System.Drawing.Size(121, 20);
+            this.lblCitisoftEMEA.Size = new System.Drawing.Size(194, 32);
             this.lblCitisoftEMEA.TabIndex = 1;
             this.lblCitisoftEMEA.Text = "CitisoftEMEA";
             // 
@@ -75,18 +75,18 @@
             // 
             this.lblCitisoftCanada.AutoSize = true;
             this.lblCitisoftCanada.BackColor = System.Drawing.Color.White;
-            this.lblCitisoftCanada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCitisoftCanada.Location = new System.Drawing.Point(41, 496);
+            this.lblCitisoftCanada.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCitisoftCanada.Location = new System.Drawing.Point(41, 533);
             this.lblCitisoftCanada.Name = "lblCitisoftCanada";
-            this.lblCitisoftCanada.Size = new System.Drawing.Size(133, 20);
+            this.lblCitisoftCanada.Size = new System.Drawing.Size(216, 32);
             this.lblCitisoftCanada.TabIndex = 2;
             this.lblCitisoftCanada.Text = "CitisoftCanada";
             this.lblCitisoftCanada.Click += new System.EventHandler(this.lblCitisoftCanada_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Title);
-            this.panel1.Controls.Add(this.tbTitle);
+            this.panel1.Controls.Add(this.Topic);
+            this.panel1.Controls.Add(this.tbTopic);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnSubmit);
             this.panel1.Controls.Add(this.label3);
@@ -95,17 +95,36 @@
             this.panel1.Controls.Add(this.tbMessage);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.tbName);
-            this.panel1.Location = new System.Drawing.Point(553, 95);
+            this.panel1.Location = new System.Drawing.Point(541, 119);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(417, 554);
+            this.panel1.Size = new System.Drawing.Size(482, 548);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // Topic
+            // 
+            this.Topic.AutoSize = true;
+            this.Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Topic.Location = new System.Drawing.Point(53, 332);
+            this.Topic.Name = "Topic";
+            this.Topic.Size = new System.Drawing.Size(55, 20);
+            this.Topic.TabIndex = 9;
+            this.Topic.Text = "Topic";
+            // 
+            // tbTopic
+            // 
+            this.tbTopic.Location = new System.Drawing.Point(175, 309);
+            this.tbTopic.Multiline = true;
+            this.tbTopic.Name = "tbTopic";
+            this.tbTopic.Size = new System.Drawing.Size(275, 43);
+            this.tbTopic.TabIndex = 8;
+            this.tbTopic.TextChanged += new System.EventHandler(this.tbTopic_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(112, 60);
+            this.label4.Location = new System.Drawing.Point(117, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(225, 29);
             this.label4.TabIndex = 7;
@@ -114,9 +133,9 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(240, 497);
+            this.btnSubmit.Location = new System.Drawing.Point(200, 496);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(155, 39);
+            this.btnSubmit.Size = new System.Drawing.Size(203, 39);
             this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -157,7 +176,7 @@
             this.tbMessage.Location = new System.Drawing.Point(175, 388);
             this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
-            this.tbMessage.Size = new System.Drawing.Size(220, 90);
+            this.tbMessage.Size = new System.Drawing.Size(275, 90);
             this.tbMessage.TabIndex = 2;
             this.tbMessage.TextChanged += new System.EventHandler(this.tbMessage_TextChanged);
             // 
@@ -166,7 +185,7 @@
             this.tbEmail.Location = new System.Drawing.Point(175, 234);
             this.tbEmail.Multiline = true;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(220, 43);
+            this.tbEmail.Size = new System.Drawing.Size(275, 43);
             this.tbEmail.TabIndex = 1;
             this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
@@ -175,7 +194,7 @@
             this.tbName.Location = new System.Drawing.Point(175, 155);
             this.tbName.Multiline = true;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(220, 43);
+            this.tbName.Size = new System.Drawing.Size(275, 43);
             this.tbName.TabIndex = 0;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
@@ -183,7 +202,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(-6, 73);
+            this.label5.Location = new System.Drawing.Point(-6, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(476, 27);
             this.label5.TabIndex = 4;
@@ -199,25 +218,6 @@
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
-            // tbTitle
-            // 
-            this.tbTitle.Location = new System.Drawing.Point(175, 309);
-            this.tbTitle.Multiline = true;
-            this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(220, 43);
-            this.tbTitle.TabIndex = 8;
-            this.tbTitle.TextChanged += new System.EventHandler(this.tbTitle_TextChanged);
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(53, 332);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(46, 20);
-            this.Title.TabIndex = 9;
-            this.Title.Text = "Title";
-            // 
             // SupportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,7 +225,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(979, 670);
+            this.ClientSize = new System.Drawing.Size(1035, 718);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
@@ -258,7 +258,7 @@
         private Label label4;
         private Label label5;
         private Button btnDashboard;
-        private TextBox tbTitle;
-        private Label Title;
+        private TextBox tbTopic;
+        private Label Topic;
     }
 }

@@ -11,9 +11,6 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SEApp
 {
-    // Adam
-    // VendorInfo and ProductInfo Tables Populated with 15 vendors and products. Have created other tables with foreign keys
-    // and primary keys ready to be populated. Need to discuss the DB ERD as there is overlapping data between Vendor table etc
     public partial class Dashboard : Form
     {
         // Database connection object
