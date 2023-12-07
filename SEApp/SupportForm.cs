@@ -65,25 +65,60 @@ namespace SEApp
                 ticket.Title = tbTopic.Text;
                 ticket.Message = tbMessage.Text;
                 ticket.UserID = connectDB.getUserID(ticket.Email);
-
                 if (DataValidator.ValidateSupportFormInputs(ticket.Name, ticket.Email, ticket.Title, ticket.Message))
                 {
-                    connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, ticket.UserID != 0 ? ticket.UserID.ToString() : null);
+                    if (ticket.UserID != 0)
+                    {
+                        string userString = ticket.UserID.ToString();
+                        connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, userString);
+
+                        this.Close();
+                    }
+                    if (ticket.UserID == 0)
+                    {
+                        string nullID = null;
+                        connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, nullID);
+
+                        this.Close();
+                    }
+                    // Save the support ticket to the database
+
+                    //connectDB.SaveSupportTicket(name, email, topic, message);
 
                     // Display success message
                     MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Clear text boxes
                     ClearTextFields();
+
                 }
             }
             catch
             {
                 MessageBox.Show("The support ticket could not be submitted");
             }
+            // Get user inputs from text boxes
+            //string name = tbName.Text;
+            //string email = tbEmail.Text;
+            //string topic = tbTopic.Text;
+            //string message = tbMessage.Text;
+
+            // Validate user inputs
+            //if (DataValidator.ValidateSupportFormInputs(name, email, topic, message))
+
+            //{  
+                // Save the support ticket to the database
+
+                //connectDB.SaveSupportTicket(name, email, topic, message);
+
+                // Display success message
+                //MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Clear text boxes
+                //ClearTextFields();
+
+            //}
         }
-
-
 
         private void ClearTextFields()
         {

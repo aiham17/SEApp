@@ -22,7 +22,7 @@ namespace SEApp
         public const string getUserID = "SELECT UserID FROM UserInformation WHERE Email = @email";
         public const string getUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
 
-        public const string saveSupportTicket = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (COALESCE(@UserID, NULL), @Name, @Email, @Topic, @Message)";
+        public const string saveSupportTicket = "INSERT INTO supportTickets( Name, Email, Topic, Message) VALUES( @Name, @Email, @Topic, @Message)";
         public const string saveSupportTicket2 = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (@userID, @Name, @Email, @Topic, @Message)";
 
         // Query to get active vendors

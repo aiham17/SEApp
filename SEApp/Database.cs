@@ -128,63 +128,80 @@ namespace SEApp
         /* Implemented SaveSupportTicket method to insert support ticket details into the database.
          * Utilized SqlConnection and SqlCommand for database interaction, including parameterized queries for ticket information. 
          * Incorporated robust error handling with a try-catch block to manage potential exceptions during execution. */
-        /*   public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
-           {
-               try
-               {
-                   List<string> parameterNames = new List<string> { "@UserID", "@Name", "@Email", "@Topic", "@Message" };
-                   using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                   {
-                       connectDB.Open();
-                       using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-                       {
-                           saveTicket.CommandType = CommandType.Text;
-
-                           // Add parameters with their values
-                           saveTicket.Parameters.AddWithValue(parameterNames[0], !string.IsNullOrEmpty(userID) ? userID : (object)DBNull.Value);
-                           saveTicket.Parameters.AddWithValue(parameterNames[1], name);
-                           saveTicket.Parameters.AddWithValue(parameterNames[2], email);
-                           saveTicket.Parameters.AddWithValue(parameterNames[3], topic);
-                           saveTicket.Parameters.AddWithValue(parameterNames[4], message);
-
-                           saveTicket.ExecuteNonQuery();
-                       }
-                   }
-               }
-               catch (Exception ex)
-               {
-                   MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               }
-           }*/
-
         public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
         {
             try
             {
+                List<string> parameterNames = new List<string> { "@userID", "@Name", "@Email", "@Topic", "@Message" };
                 using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
                 {
                     connectDB.Open();
-
-                    string sqlQuery = "INSERT INTO SupportTickets (UserID, Name, Email, Topic, Message) VALUES (@UserID, @Name, @Email, @Topic, @Message)";
-
-                    using (SqlCommand saveTicket = new SqlCommand(sqlQuery, connectDB))
+                    if (userID != null)
                     {
-                        saveTicket.Parameters.Add("@UserID", SqlDbType.NVarChar).Value = !string.IsNullOrEmpty(userID) ? userID : (object)DBNull.Value;
-                        saveTicket.Parameters.Add("@Name", SqlDbType.NVarChar).Value = name;
-                        saveTicket.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
-                        saveTicket.Parameters.Add("@Topic", SqlDbType.NVarChar).Value = topic;
-                        saveTicket.Parameters.Add("@Message", SqlDbType.NVarChar).Value = message;
-
-                        saveTicket.ExecuteNonQuery();
+                        using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket2, connectDB))
+                        {
+                            saveTicket.CommandType = CommandType.Text;
+                            for (int i = 0; i < parameterNames.Count; i++)
+                            {
+                                saveTicket.Parameters.AddWithValue(parameterNames[i], i == 0 ? userID : (i == 1 ? name : (i == 2 ? email : (i == 3 ? topic : message))));
+                            }
+                            saveTicket.ExecuteNonQuery();
+                        }
                     }
+                    else
+                    {
+                        List<string> excludeUserIDParameters = new List<string> { "@Name", "@Email", "@Topic", "@Message" };
+                        using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
+                        {
+                            saveTicket.CommandType = CommandType.Text;
+                            for (int i = 0; i < parameterNames.Count; i++)
+                            {
+                                saveTicket.Parameters.AddWithValue(parameterNames[i], i == 1 ? name : (i == 2 ? email : (i == 3 ? topic : message)));
+                            }
+                            saveTicket.ExecuteNonQuery();
+                        }
+                    }
+
                 }
+                //using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                //{
+                //using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
+                //{
+                // saveTicket.Parameters.AddWithValue("@Name", name);
+                //saveTicket.Parameters.AddWithValue("@Email", email);
+                //saveTicket.Parameters.AddWithValue("@Topic", topic);
+                //saveTicket.Parameters.AddWithValue("@Message", message);
+
+                // connectDB.Open();
+                // saveTicket.ExecuteNonQuery();
+                //}
+                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+            //try
+            //{
+                //using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                //{
+                   // using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
+                   // {
+                      //  saveTicket.Parameters.AddWithValue("@Name", name);
+                       // saveTicket.Parameters.AddWithValue("@Email", email);
+                       // saveTicket.Parameters.AddWithValue("@Topic", topic);
+                       // saveTicket.Parameters.AddWithValue("@Message", message);
 
+                       // connectDB.Open();
+                       // saveTicket.ExecuteNonQuery();
+                    //}
+                //}
+            //}
+            //catch (Exception ex)
+            //{
+              //  MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
 
         // Gets the vendor and product names to then pass to readVendorProductInfo and select which SQL Query should be passed.
         // Will return either a filled DataTable or a null one
