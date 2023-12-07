@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static iTextSharp.text.pdf.PRTokeniser;
+using static SEApp.structContainer;
 
 namespace SEApp
 {

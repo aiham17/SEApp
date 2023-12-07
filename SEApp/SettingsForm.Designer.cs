@@ -40,13 +40,11 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnLoginSecurity = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnSupport = new System.Windows.Forms.Button();
             this.btnCompanyDetails = new System.Windows.Forms.Button();
             this.btnCompanyRole = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.tbDisplayedUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -54,7 +52,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogout
@@ -168,7 +165,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(307, 400);
+            this.pictureBox4.Location = new System.Drawing.Point(458, 386);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(92, 78);
@@ -197,17 +194,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 31;
             this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(635, 400);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(92, 78);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 32;
-            this.pictureBox7.TabStop = false;
             // 
             // btnLoginSecurity
             // 
@@ -259,7 +245,7 @@
             // btnCompanyRole
             // 
             this.btnCompanyRole.BackColor = System.Drawing.SystemColors.Window;
-            this.btnCompanyRole.Location = new System.Drawing.Point(398, 400);
+            this.btnCompanyRole.Location = new System.Drawing.Point(549, 386);
             this.btnCompanyRole.Margin = new System.Windows.Forms.Padding(4);
             this.btnCompanyRole.Name = "btnCompanyRole";
             this.btnCompanyRole.Size = new System.Drawing.Size(194, 78);
@@ -267,17 +253,6 @@
             this.btnCompanyRole.Text = "Company Role";
             this.btnCompanyRole.UseVisualStyleBackColor = false;
             this.btnCompanyRole.Click += new System.EventHandler(this.btnCompanyRole_Click);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.Location = new System.Drawing.Point(723, 400);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(194, 78);
-            this.button6.TabIndex = 38;
-            this.button6.Text = "Current Tasks";
-            this.button6.UseVisualStyleBackColor = false;
             // 
             // tbDisplayedUsername
             // 
@@ -300,13 +275,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tbDisplayedUsername);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.btnCompanyRole);
             this.Controls.Add(this.btnCompanyDetails);
             this.Controls.Add(this.btnSupport);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnLoginSecurity);
-            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -329,7 +302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,13 +320,11 @@
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
-        private PictureBox pictureBox7;
         private Button btnLoginSecurity;
         private Button button2;
         private Button btnSupport;
         private Button btnCompanyDetails;
         private Button btnCompanyRole;
-        private Button button6;
         private TextBox tbDisplayedUsername;
     }
 }

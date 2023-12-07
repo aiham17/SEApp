@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SEApp.userInfo;
+using static SEApp.structContainer;
 
 namespace SEApp
 {
@@ -95,7 +95,7 @@ namespace SEApp
         {
             if (loginInputs())
             {
-                userInfo.login login = new userInfo.login();
+                structContainer.login login = new structContainer.login();
                 login.username = tbUsername.Text;
                 login.password = tbPassword.Text;
 

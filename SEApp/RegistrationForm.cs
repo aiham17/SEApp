@@ -63,7 +63,7 @@ namespace SEApp
                 //string salt = GenerateRandomSalt();
                // string hashedPassword = HashPassword(tbPassword.Text, salt);
 
-                userInfo.userRegister user = new userInfo.userRegister();
+                structContainer.userRegister user = new structContainer.userRegister();
                 user.userName = tbUsername.Text;
                 user.password = hashedPassword;
                 user.salt = salt;
