@@ -22,8 +22,11 @@ namespace SEApp
         public const string getUserID = "SELECT UserID FROM UserInformation WHERE Email = @email";
         public const string getUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
 
-        public const string saveSupportTicket = "INSERT INTO supportTickets( Name, Email, Topic, Message) VALUES( @Name, @Email, @Topic, @Message)";
-        public const string saveSupportTicket2 = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (@userID, @Name, @Email, @Topic, @Message)";
+        /*The updated query (saveSupportTicket) simplifies support ticket insertion by handling null and non-null UserID values using COALESCE. 
+         * This enhances code simplicity and readability, unifying both scenarios into a single, streamlined SQL statement.*/
+        public const string saveSupportTicket = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (COALESCE(@UserID, NULL), @Name, @Email, @Topic, @Message)";
+
+       // public const string saveSupportTicket2 = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (@userID, @Name, @Email, @Topic, @Message)";
 
         // Query to get active vendors
         public const string ActiveVendorsQuery = "SELECT TOP 5 Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Last_Reviewed DESC"; // the LastReviewedDate should be in datetime format.

@@ -17,6 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using iTextSharp.text.pdf.parser;
+using static Org.BouncyCastle.Crypto.Digests.SkeinEngine;
 
 
 namespace SEApp
@@ -125,6 +126,10 @@ namespace SEApp
             }
 
         }
+
+        /* The updated method here simplifies the code by employing a single SQL query (SaveSupportTicket) and a loop for parameter handling. 
+         * This streamlines logic, enhances maintainability, and improves readability by eliminating conditional query selection
+         * and reducing redundancy in parameter assignments.*/
         public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
         {
             try
@@ -134,7 +139,10 @@ namespace SEApp
                     connectDB.Open();
 
                     using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-                    {
+
+                    { // Add a SQL parameter for UserID with the name "@UserID".
+                        // If userID is not null or empty, set the parameter value to userID;
+                        // otherwise, set it to DBNull.Value to indicate a null database value.
                         saveTicket.Parameters.AddWithValue("@UserID", !string.IsNullOrEmpty(userID) ? userID : (object)DBNull.Value);
 
                         // Define parameter names and corresponding values
