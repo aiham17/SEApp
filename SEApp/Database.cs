@@ -125,9 +125,40 @@ namespace SEApp
             }
 
         }
-        /* Implemented SaveSupportTicket method to insert support ticket details into the database.
-         * Utilized SqlConnection and SqlCommand for database interaction, including parameterized queries for ticket information. 
-         * Incorporated robust error handling with a try-catch block to manage potential exceptions during execution. */
+        public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
+        {
+            try
+            {
+                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                {
+                    connectDB.Open();
+
+                    using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
+                    {
+                        saveTicket.Parameters.AddWithValue("@UserID", !string.IsNullOrEmpty(userID) ? userID : (object)DBNull.Value);
+
+                        // Define parameter names and corresponding values
+                        string[] parameterNames = { "@Name", "@Email", "@Topic", "@Message" };
+                        string[] parameterValues = { name, email, topic, message };
+
+                        // Add parameters using a loop
+                        for (int i = 0; i < parameterNames.Length; i++)
+                        {
+                            saveTicket.Parameters.AddWithValue(parameterNames[i], parameterValues[i]);
+                        }
+
+                        saveTicket.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        /*
         public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
         {
             try
@@ -163,45 +194,14 @@ namespace SEApp
                     }
 
                 }
-                //using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                //{
-                //using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-                //{
-                // saveTicket.Parameters.AddWithValue("@Name", name);
-                //saveTicket.Parameters.AddWithValue("@Email", email);
-                //saveTicket.Parameters.AddWithValue("@Topic", topic);
-                //saveTicket.Parameters.AddWithValue("@Message", message);
 
-                // connectDB.Open();
-                // saveTicket.ExecuteNonQuery();
-                //}
-                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //try
-            //{
-                //using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                //{
-                   // using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-                   // {
-                      //  saveTicket.Parameters.AddWithValue("@Name", name);
-                       // saveTicket.Parameters.AddWithValue("@Email", email);
-                       // saveTicket.Parameters.AddWithValue("@Topic", topic);
-                       // saveTicket.Parameters.AddWithValue("@Message", message);
 
-                       // connectDB.Open();
-                       // saveTicket.ExecuteNonQuery();
-                    //}
-                //}
-            //}
-            //catch (Exception ex)
-            //{
-              //  MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
+        }*/
 
         // Gets the vendor and product names to then pass to readVendorProductInfo and select which SQL Query should be passed.
         // Will return either a filled DataTable or a null one
