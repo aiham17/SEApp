@@ -135,56 +135,78 @@ namespace SEApp
                 companyInfo.vendorInfo addVendor = new companyInfo.vendorInfo();
                 addVendor.vendor = tbVendorName.Text;
                 addVendor.website = tbWebsite.Text;
-                addVendor.description = rtbDescription.Text;
-                addVendor.additionalInfo = rtbAddInfo.Text;
-                addVendor.address = rtbAddress.Text;
-                addVendor.teleNumber = tbTeleNumber.Text;
-                //https://stackoverflow.com/questions/46311753/c-sharp-how-to-restrict-textbox-decimal-places-to-2
-                // Look at preventing decimal points being added
-                addVendor.employees = tbEmployees.Text;
-                bool integer = DataValidator.validateInt(addVendor.employees);
-                if (integer)
-                {
-                    addVendor.eYear = dtpVendorEstablished.Text;
-                    addVendor.reviewDate = dtpLastReviewDate.Text;
-                    addVendor.demoDate = dtpDemoDate.Text;
-                    addVendor.intPro = Convert.ToInt32(cbInternalProServices.Checked);
-                    addVendor.software = tbSoftwareName.Text;
-                    addVendor.softwareType = tbSoftwareType.Text;
-                    addVendor.businessArea = tbBusinessArea.Text;
-                    addVendor.module = tbModule.Text;
-                    addVendor.financialService = tbFinancialServices.Text;
-                    addVendor.cloud = cmbCloud.Text;
-                    int vendorID = connectDB.addVendor(addVendor.vendor, addVendor.website, addVendor.description, addVendor.additionalInfo, addVendor.employees, addVendor.eYear, addVendor.reviewDate, addVendor.demoDate, addVendor.intPro);
-                    connectDB.addContact(addVendor.address, addVendor.teleNumber, vendorID);
-                    connectDB.addProduct(addVendor.software, addVendor.softwareType, addVendor.businessArea, addVendor.module, addVendor.financialService, addVendor.cloud, vendorID);
-                    MessageBox.Show("The changes made have been successful");
 
-                    foreach (TextBox textbox in this.Controls.OfType<TextBox>())
+                // This validates whether the URL Entered into tbWebsite follows a Http or Https scheme. If it does, this will be saved, if not however and error message occurs
+                // Code from: https://stackoverflow.com/questions/7578857/how-to-check-whether-a-string-is-a-valid-http-url
+                Uri uriResult;
+                bool validURL = Uri.TryCreate(addVendor.website, UriKind.Absolute, out uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+                if (validURL)
+                {
+                    addVendor.description = rtbDescription.Text;
+                    addVendor.additionalInfo = rtbAddInfo.Text;
+                    addVendor.address = rtbAddress.Text;
+                    addVendor.teleNumber = tbTeleNumber.Text;
+                    bool validNumber = DataValidator.validatePhoneNumber(addVendor.teleNumber);
+
+                    if (validNumber)
                     {
-                        textbox.Clear();
-                    }
-                    foreach (RichTextBox richText in this.Controls.OfType<RichTextBox>())
-                    {
-                        richText.Clear();
-                    }
-                    foreach (ComboBox cmb in this.Controls.OfType<ComboBox>())
-                    {
-                        cmb.Controls.Clear();
-                    }
-                    foreach(CheckBox cb in this.Controls.OfType<CheckBox>())
-                    {
-                        if (cb.Checked)
+                        addVendor.employees = tbEmployees.Text;
+                        bool integer = DataValidator.validateInt(addVendor.employees);
+                        if (integer)
                         {
-                            cb.Checked = false;
+                            addVendor.eYear = dtpVendorEstablished.Text;
+                            addVendor.reviewDate = dtpLastReviewDate.Text;
+                            addVendor.demoDate = dtpDemoDate.Text;
+                            addVendor.intPro = Convert.ToInt32(cbInternalProServices.Checked);
+                            addVendor.software = tbSoftwareName.Text;
+                            addVendor.softwareType = tbSoftwareType.Text;
+                            addVendor.businessArea = tbBusinessArea.Text;
+                            addVendor.module = tbModule.Text;
+                            addVendor.financialService = tbFinancialServices.Text;
+                            addVendor.cloud = cmbCloud.Text;
+                            int vendorID = connectDB.addVendor(addVendor.vendor, addVendor.website, addVendor.description, addVendor.additionalInfo, addVendor.employees, addVendor.eYear, addVendor.reviewDate, addVendor.demoDate, addVendor.intPro);
+                            connectDB.addContact(addVendor.address, addVendor.teleNumber, vendorID);
+                            connectDB.addProduct(addVendor.software, addVendor.softwareType, addVendor.businessArea, addVendor.module, addVendor.financialService, addVendor.cloud, vendorID);
+                            MessageBox.Show("The changes made have been successful");
+
+                            foreach (TextBox textbox in this.Controls.OfType<TextBox>())
+                            {
+                                textbox.Clear();
+                            }
+                            foreach (RichTextBox richText in this.Controls.OfType<RichTextBox>())
+                            {
+                                richText.Clear();
+                            }
+                            foreach (ComboBox cmb in this.Controls.OfType<ComboBox>())
+                            {
+                                cmb.Controls.Clear();
+                            }
+                            foreach (CheckBox cb in this.Controls.OfType<CheckBox>())
+                            {
+                                if (cb.Checked)
+                                {
+                                    cb.Checked = false;
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("An whole number needs to be added to employees");
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid phone number");
+                    }
 
+                   
                 }
                 else
                 {
-                    MessageBox.Show("An whole number needs to be added to employees");
+                    MessageBox.Show("Please enter a legitimate URL for the Vendor.");
                 }
+                
 
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -19,6 +20,10 @@ namespace SEApp
         private const string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         private const string NamePattern = @"^[a-zA-Z]{3,}$";
 
+        // Phone number Expression Pattern
+        // From: https://www.abstractapi.com/guides/c-validate-phone-number
+        public const string phoneNumberPattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$";
+
         // Constants for error messages
         private const string UsernameRequiredMessage = "Username is required.";
         private const string UsernameFormatErrorMessage = "Username must only contain letters and be at least 3 characters long.";
@@ -35,6 +40,7 @@ namespace SEApp
         private const string TopicRequiredMessage = "Topic is required.";
         private const string MessageRequiredMessage = "Message is required.";
         private const string NameFormatErrorMessage = "Name must only contain letters and be at least 3 characters long.";
+
 
         public static bool ValidateUserInputs(string username, string password, string fname, string lname, string email, int companyRole)
         {
@@ -189,6 +195,18 @@ namespace SEApp
 
             // If all validations pass, return true
             return true;
+        }
+
+        // Validates the phone number that is entered when adding a vendor.
+        // From: https://www.abstractapi.com/guides/c-validate-phone-number
+        public static bool validatePhoneNumber(string phoneNumber)
+        {
+            if (phoneNumber != null)
+            {
+                return Regex.IsMatch(phoneNumber, phoneNumberPattern);
+
+            }
+            else return false;
         }
 
     }
