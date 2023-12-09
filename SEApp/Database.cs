@@ -27,7 +27,7 @@ namespace SEApp
         private static Database dbGetString;
         private string dbConnectstr;
 
-
+        //Adam:
         // Constructor initializes dbConnectstr to the DBConnectionString (stores it)
         // Source Videos on Canvas: Software Engineering
         private Database()
@@ -35,6 +35,7 @@ namespace SEApp
             dbConnectstr = Properties.Settings.Default.DBConnectionString;
         }
 
+        // Adam:
         // Get access to DB (Run the method to get connection string)
         // Source Videos on Canvas: Software Engineering
         public static Database getConnectString()
@@ -47,6 +48,7 @@ namespace SEApp
         }
 
 
+        // Aiham:
         // Fixed issue in saveUserInfo method
         // In the saveUserInfo method, replaced the line `addUser.Parameters.Add(SQLQuery);`
         // with individual parameter additions using `addUser.Parameters.AddWithValue()` to correctly bind parameters for the SQL query execution.
@@ -80,13 +82,9 @@ namespace SEApp
          * Post by: Geochet for understanding how to read from database.
          */
 
+        
 
-        /* The updated code for the readUsername method improves the authentication logic by utilizing a SqlDataReader to directly read query results.
-         * It checks for the existence of rows in the result, iterates through each row, 
-         * and compares the provided username and password with the stored values in the database.
-         * If a match is found, it immediately returns true for a successful login. 
-         * This streamlined approach enhances clarity, efficiency, and error handling compared to the previous version, which used a DataTable and a more complex loop structure.  */
-        // Removed the for loop as the SQL Query will
+        // Adam: The SQL Query will either return 1 or no rows depening upon if it has found the username associated with 
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
@@ -126,7 +124,7 @@ namespace SEApp
             }
 
         }
-
+        // Aiham:
         /* The updated method here simplifies the code by employing a single SQL query (SaveSupportTicket) and a loop for parameter handling. 
          * This streamlines logic, enhances maintainability, and improves readability by eliminating conditional query selection
          * and reducing redundancy in parameter assignments.*/
@@ -166,51 +164,8 @@ namespace SEApp
         }
 
 
-        /*
-        public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
-        {
-            try
-            {
-                List<string> parameterNames = new List<string> { "@userID", "@Name", "@Email", "@Topic", "@Message" };
-                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                {
-                    connectDB.Open();
-                    if (userID != null)
-                    {
-                        using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket2, connectDB))
-                        {
-                            saveTicket.CommandType = CommandType.Text;
-                            for (int i = 0; i < parameterNames.Count; i++)
-                            {
-                                saveTicket.Parameters.AddWithValue(parameterNames[i], i == 0 ? userID : (i == 1 ? name : (i == 2 ? email : (i == 3 ? topic : message))));
-                            }
-                            saveTicket.ExecuteNonQuery();
-                        }
-                    }
-                    else
-                    {
-                        List<string> excludeUserIDParameters = new List<string> { "@Name", "@Email", "@Topic", "@Message" };
-                        using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-                        {
-                            saveTicket.CommandType = CommandType.Text;
-                            for (int i = 0; i < parameterNames.Count; i++)
-                            {
-                                saveTicket.Parameters.AddWithValue(parameterNames[i], i == 1 ? name : (i == 2 ? email : (i == 3 ? topic : message)));
-                            }
-                            saveTicket.ExecuteNonQuery();
-                        }
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }*/
-
+        
+        //Adam:
         // Gets the vendor and product names to then pass to readVendorProductInfo and select which SQL Query should be passed.
         // Will return either a filled DataTable or a null one
         public DataTable getVendorProductInfo(string vendorName, string productName)
@@ -244,7 +199,7 @@ namespace SEApp
         }
 
 
-
+        //Adam:
         // Opens a connection to the database and will run a SQL Query dependant upon the values of vendorName and productName to then return the datatable filled or not
         public DataTable readVendorProductInfo(DataTable readData,string vendorName, string productName, string sqlQuery)
         {
@@ -291,6 +246,7 @@ namespace SEApp
             
         }
 
+        //Adam:
         // Opens a connection to the database and reads all the contact information associated with the vendor selected and stores it in the datatable.
         // This datatable is then returned.
         public DataTable readVendorContact(DataTable contactData, int vendorID)
@@ -317,7 +273,7 @@ namespace SEApp
         }
 
         
-
+        // Aiham:
         /* The UpdateUserInfo method serves the purpose of updating user information in the database.
          * It is specifically designed to modify the records in the UserInformation table based on the provided UserID. 
          * It constructs an SQL query that updates the username, password, salt, and email for a user with a specific UserID.
@@ -350,7 +306,7 @@ namespace SEApp
         }
 
 
-
+        // Aiham:
         // The ExecuteQuery method in the Database class streamlines database interactions.
         // It executes SQL queries and presents results as DataTables, simplifying database operations.
         // It Utilized in the dashboard form to perform database queries when buttons are clicked, such as retrieving total vendor count.
@@ -372,6 +328,7 @@ namespace SEApp
 
         }
 
+        // Aiham
         public bool CheckUserExists(string username, string email)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -390,6 +347,7 @@ namespace SEApp
             }
         }
 
+        //Aiham
         /* Implemented GetUserRole method in the  class to retrieve the role of a user from the database based on their username.
          * This functionality is utilized for role-based access control in the application, 
          * allowing certain features to be accessible only to users with specific roles. 
@@ -508,6 +466,7 @@ namespace SEApp
             }
         }
 
+        //Adam
         public void deleteProduct(int productID)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -522,6 +481,7 @@ namespace SEApp
             }
         }
 
+        //Adam:
         // This method grabs the PDF Documents Name corresponding to the vendor and product ids passed to the method. 
         // The file name is stored in the Documents table and then this file name is returned if it is found otherwise it returns null
         public string getPdfName(int vendorID, int productID)
@@ -612,7 +572,7 @@ namespace SEApp
             }
         }
 
-
+        //Adam:
         public int getUserID(string email)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))

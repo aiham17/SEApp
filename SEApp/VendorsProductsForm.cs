@@ -23,7 +23,7 @@ namespace SEApp
         private Database connectDB;
         DataTable vendorProData;
 
-
+        //Adam
         public VendorsProductsForm()
         {
             InitializeComponent();
@@ -36,15 +36,12 @@ namespace SEApp
             tbDisplayedUsername.Text = loggedInUsername;
         }
 
+        //Adam
         // Sets the Data source of the Data grid with the new data when a filter is applied
         public void setDataSource(DataTable sourcedData, DataGridView display)
         {
             display.DataSource = null;
             display.DataSource = sourcedData;
-            //display.Columns["Description"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //display.Columns["Additional_Info"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //display.Columns["Address"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            //display.Columns["Contact_Telephone"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
             for (int i = 0; i < display.Columns.Count; i++)
             {
@@ -96,6 +93,7 @@ namespace SEApp
 
         }
 
+        //Adam
         private void btnSetting_Click(object sender, EventArgs e)
         {
             // Create an instance of the SettingsForm
@@ -106,6 +104,7 @@ namespace SEApp
 
         }
 
+        //Aiham:
         private void btnLogout_Click(object sender, EventArgs e)
         {
             // Create an instance of the LoginForm
@@ -114,7 +113,7 @@ namespace SEApp
             loginForm.Show();
             this.Close();
         }
-
+        //Adam
         private void VendorsProductsForm_Load(object sender, EventArgs e)
         {
             DataTable vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
@@ -122,13 +121,10 @@ namespace SEApp
             setDataSource(vendorProData, dgvVendorProduct);
             dgvVendorProduct.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            // TODO: This line of code loads data into the 'vendorProducts.VendorInfo' table. You can move, or remove it, as needed.
-            //this.vendorInfoTableAdapter.Fill(this.vendorProducts.VendorInfo);
-            // TODO: This line of code loads data into the 'vendorProducts.ProductInfo' table. You can move, or remove it, as needed.
-            //this.productInfoTableAdapter.Fill(this.vendorProducts.ProductInfo);
 
         }
 
+        //Adam
         private void btnActiveVendors_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.activeVendorData);
@@ -137,12 +133,14 @@ namespace SEApp
             
         }
 
+        //Adam
         private void btnRatings_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.vendorProRatings);
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
+        //Adam
         private void btnRevertData_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
@@ -150,19 +148,21 @@ namespace SEApp
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
+        //Adam
         private void btnVendor_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
-        
+        //Adam
         private void btnProduct_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.allProducts);
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
+        //Adam
         // Filters the data table shown in the data grid by cloud service type
         private void cmbCloud_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -199,6 +199,7 @@ namespace SEApp
             }
         }
 
+        //Adam
         // Filters the data table by either showing all contact information for all vendors or only active ones
         private void cmbContactInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -232,6 +233,7 @@ namespace SEApp
             }
         }
 
+        //Adam
         // Filters the companies based of age, and sets a range for them to be apart of: 0-5 years, 6-10 year and then 10+
         private void cmbCompanyAge_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -259,8 +261,8 @@ namespace SEApp
             }
         }
 
-
-       // Exports the data in the data grid to a PDF Document 
+        //Adam
+        // Exports the data in the data grid to a PDF Document 
         private void btnExportPDF_Click(object sender, EventArgs e)
         {
             exportPDF pdf = new exportPDF();
@@ -268,6 +270,7 @@ namespace SEApp
             
         }
 
+        //Adam
         // Gets the company name or software name in the row the user has selected to then have a pop up screen to display the vendor and product information in a 
         // more readable format.
         private void dgvVendorProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -336,6 +339,8 @@ namespace SEApp
 
         }
 
+
+        //Aiham:
         private void btnEditVendor_Click(object sender, EventArgs e)
         {
             // Retrieve the logged-in username using the static method

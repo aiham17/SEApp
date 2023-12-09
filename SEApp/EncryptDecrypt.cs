@@ -9,6 +9,9 @@ namespace SEApp
 {
     class EncryptDecrypt
     {
+        // Created this class for seperation purporses: Adam.
+
+        //Aiham:
         // This method generates a random value (salt) for each user.
         // It's crucial for password security because it ensures that even if two users have the same password,
         // their hashed passwords will be different.This helps prevent attacks like rainbow table attacks.
@@ -22,7 +25,7 @@ namespace SEApp
             return BitConverter.ToString(saltBytes).Replace("-", "").ToLower();
         }
 
-
+        // Aiham
         // This method takes a user's password and a salt, then uses the SHA-256 algorithm to securely hash the password.
         // The resulting hash is stored in the database. Hashing ensures that even if the database is compromised,
         // attackers won't have direct access to user passwords.

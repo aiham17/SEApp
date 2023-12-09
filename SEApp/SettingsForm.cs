@@ -16,7 +16,7 @@ namespace SEApp
         private Database connectDB;
 
 
-
+        //Aiham:
         public SettingsForm()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace SEApp
             tbDisplayedUsername.Text = loggedInUsername;
         }
 
+        //Aiham:
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             // Create an instance of the Dashboard Form
@@ -38,6 +39,7 @@ namespace SEApp
             this.Close();
         }//Functionality 
 
+        //Aiham:
         private void btnVendorsAndProducts_Click(object sender, EventArgs e)
         {
             // Create an instance of the VendorsProductsForm
@@ -46,6 +48,7 @@ namespace SEApp
             this.Close();
         }
 
+        //Aiham:
         // added functionality to btnAddOrAdjustVendors in the dashboard form to allow access to AddAdjustForm for admins and owners.
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
@@ -71,6 +74,7 @@ namespace SEApp
 
         }
 
+        //Aiham:
         private void btnSetting_Click(object sender, EventArgs e)
         {
             // Create an instance of the SettingsForm
@@ -79,6 +83,7 @@ namespace SEApp
             this.Close();
         }
 
+        //Aiham:
         private void btnLogout_Click(object sender, EventArgs e)
         {
             // Create an instance of the LoginForm
@@ -87,6 +92,7 @@ namespace SEApp
             this.Close();
         }
 
+        //Aiham:
         // added functionality to  btnLoginSecurity to allow access to LoginSecurity form for admins and owners.
         private void btnLoginSecurity_Click(object sender, EventArgs e)
         {
@@ -112,6 +118,7 @@ namespace SEApp
             }
         }
 
+        //Aiham:
         // added functionality to btnCompanyRole to allow access to AddAdjustForm for admins and owners.
         private void btnCompanyRole_Click(object sender, EventArgs e)
         {
@@ -142,6 +149,7 @@ namespace SEApp
 
         }
 
+        // Adam:
         private void btnSupport_Click(object sender, EventArgs e)
         {
             SupportForm supportForm = new SupportForm();
@@ -149,6 +157,7 @@ namespace SEApp
             this.Close();
         }
 
+        //Adam:
         private void btnCompanyDetails_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.citisoft.com/about");

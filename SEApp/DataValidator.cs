@@ -10,6 +10,7 @@ namespace SEApp
 {
     public static class DataValidator
     {
+        //Aiham created this class for separation and readability puproses.
         // Constants for minimum lengths
         private const int MinUsernameLength = 3;
         private const int MinPasswordLength = 8;
@@ -20,6 +21,7 @@ namespace SEApp
         private const string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         private const string NamePattern = @"^[a-zA-Z]{3,}$";
 
+        //Adam:
         // Phone number Expression Pattern
         // From: https://www.abstractapi.com/guides/c-validate-phone-number
         public const string phoneNumberPattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$";
@@ -124,6 +126,7 @@ namespace SEApp
             return true;
         }
 
+        //Adam:
         public static bool loginValidator(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -148,6 +151,7 @@ namespace SEApp
             return true;
         }
 
+        // Adam:
         // Used to validate integer values entered into a text box. Will return true if it is an integer otherwise false
         public static bool validateInt(string number)
         {
@@ -197,6 +201,7 @@ namespace SEApp
             return true;
         }
 
+        //Adam:
         // Validates the phone number that is entered when adding a vendor.
         // From: https://www.abstractapi.com/guides/c-validate-phone-number
         public static bool validatePhoneNumber(string phoneNumber)

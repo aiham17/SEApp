@@ -11,6 +11,7 @@ namespace SEApp
      */
     public class structContainer
     {
+        //Aiham
         // This struct is the basis to store the encrypted user details to then be added to the CitisoftDB, UserInformation Table
         public struct userRegister
         {
@@ -24,6 +25,7 @@ namespace SEApp
             public string salt; // Add this line for the salt
         }
 
+        //Adam:
         // Stores the login details the user enters and 
         public struct login
         {
@@ -31,8 +33,10 @@ namespace SEApp
             public string password;
             
         }
+        
         public class companyInfo
         {
+            //Connor
             public struct vendorInfo
             {
                 public string vendor;
@@ -56,7 +60,7 @@ namespace SEApp
             }
         }
 
-
+        //Aiham
         public class supportTicket
         {
             public struct Ticket

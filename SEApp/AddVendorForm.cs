@@ -132,6 +132,9 @@ namespace SEApp
         {
             try
             {
+                // Connor Added all the variable assignments to the struct addVendor
+                // Adam added the validation and the connectdb methods
+                // Adam: the foreach statements and the try catch
                 companyInfo.vendorInfo addVendor = new companyInfo.vendorInfo();
                 addVendor.vendor = tbVendorName.Text;
                 addVendor.website = tbWebsite.Text;

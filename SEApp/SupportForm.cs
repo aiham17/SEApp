@@ -29,6 +29,7 @@ namespace SEApp
 
         }
 
+        //Aiham:
         private void SupportForm_Load(object sender, EventArgs e)
         {
             username = LoginForm.GetLoggedInUsername();
@@ -56,6 +57,7 @@ namespace SEApp
         {
 
         }
+        //Aiham:
         /* The updated submit button streamlines the code by directly passing the user ID or null to SaveSupportTicket, simplifying conditional logic.
          * This approach enhances readability and maintains code conciseness compared to separating ticket saving based on the presence of a user ID.
          * Additionally, it avoids code duplication, leading to easier maintenance.*/
@@ -91,82 +93,9 @@ namespace SEApp
             }
         }
 
-        /* private void btnSubmit_Click(object sender, EventArgs e)
-         {
-             try
-             {
-                 supportTicket.Ticket ticket = new supportTicket.Ticket();
-                 ticket.Name = tbName.Text;
-                 ticket.Email = tbEmail.Text;
-                 ticket.Title = tbTopic.Text;
-                 ticket.Message = tbMessage.Text;
-                 ticket.UserID = connectDB.getUserID(ticket.Email);
-                 if (DataValidator.ValidateSupportFormInputs(ticket.Name, ticket.Email, ticket.Title, ticket.Message))
-                 {
-                     if (ticket.UserID != 0)
-                     {
-                         string userString = ticket.UserID.ToString();
-                         connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, userString);
+        
 
-                         if (loggedInUsername != null)
-                         {
-                             this.Close();
-
-                             SettingsForm settingsForm = new SettingsForm();
-                             settingsForm.Show();
-                         }
-                     }
-                     if (ticket.UserID == 0)
-                     {
-                         string nullID = null;
-                         connectDB.SaveSupportTicket(ticket.Name, ticket.Email, ticket.Title, ticket.Message, nullID);
-                         if (loggedInUsername != null)
-                         {
-                             this.Close();
-
-                             SettingsForm settingsForm = new SettingsForm();
-                             settingsForm.Show();
-                         }
-                     }
-                     // Save the support ticket to the database
-
-                     //connectDB.SaveSupportTicket(name, email, topic, message);
-
-                     // Display success message
-                     MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                     // Clear text boxes
-                     ClearTextFields();
-
-                 }
-             }
-             catch
-             {
-                 MessageBox.Show("The support ticket could not be submitted");
-             }
-             // Get user inputs from text boxes
-             //string name = tbName.Text;
-             //string email = tbEmail.Text;
-             //string topic = tbTopic.Text;
-             //string message = tbMessage.Text;
-
-             // Validate user inputs
-             //if (DataValidator.ValidateSupportFormInputs(name, email, topic, message))
-
-             //{  
-                 // Save the support ticket to the database
-
-                 //connectDB.SaveSupportTicket(name, email, topic, message);
-
-                 // Display success message
-                 //MessageBox.Show("Support ticket submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                 // Clear text boxes
-                 //ClearTextFields();
-
-             //}
-         }*/
-
+        //Aiham:
         private void ClearTextFields()
         {
             // Clear text boxes
@@ -200,7 +129,7 @@ namespace SEApp
         {
 
         }
-
+        //Adam:
         private void btnDashboard_Click(object sender, EventArgs e)
         {
 
@@ -219,7 +148,7 @@ namespace SEApp
             }
             else
             {
-                this.Hide();
+                 this.Hide();
             }
         }
 

@@ -1,2 +1,279 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SEApp.Properties.Resources" Collapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.Properties.Settings" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABIAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.AddVendorForm" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9wAAABQBQyAgAZEAoACIiiATgAAAAhAAgMABACJBCBI=</HashCode>
+      <FileName>AddVendorForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAQwAAAAJABAAAQAAAAAgCQBkAAAAAAAEA5BA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAgOAAQwAQAwZADBICQAAABAgCQDkSAAiAQAkA5BA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.Class1" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.Dashboard" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgAIhAAQSAACYBAAACIACAChAQBgAACAgAAACBACgA=</HashCode>
+      <FileName>Dashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.Database" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAECQAAAAAIAAACAOAFQIAEAAgAAAiAAAIABCAAA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.DataValidator" Collapsed="true">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIiAMEAAAAACAAQAAQAKgABAgAAAEAgUAQCAAgMACAA=</HashCode>
+      <FileName>DataValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.EditVendorProduct" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wCggBAEAyAAABEAIBCAggADoQMCQhBAg4gAASYBSQY=</HashCode>
+      <FileName>EditVendorProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.EncryptDecrypt" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EncryptDecrypt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.exportPDF" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>exportPDF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.LoginForm" Collapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCAAAAABCIAABAAAQGAJAQCAAAAIQASAAEBAQBECEA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.LoginSecurity" Collapsed="true">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgBAARWAAAZAAAECMACAChAAABRAAAwAAASJECgA=</HashCode>
+      <FileName>LoginSecurity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.PersonalDetails" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAAAAQBQSAAABCAEACAAAACJMQ7AAAAEAAAAQAAEIA=</HashCode>
+      <FileName>PersonalDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.Program" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.RegistrationForm" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBAQAEAgBWAACAAAEYCEBABCAAAAIQQSAAEBCQBESEA=</HashCode>
+      <FileName>RegistrationForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.SettingsForm" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAAIhAAQSAAQYAIAACIQCAChAAQAAAAABEAAiRACAA=</HashCode>
+      <FileName>SettingsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.sqlQuery" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ACQNAACAEAAIAAAAADwgAkAIkkDEAYAogAAQIBgFAoA=</HashCode>
+      <FileName>sqlQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.structContainer">
+    <Position X="12" Y="6" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="SEApp.structContainer.userRegister" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>structContainer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SEApp.structContainer.login" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>structContainer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Class Name="SEApp.structContainer.companyInfo">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Struct Name="SEApp.structContainer.companyInfo.vendorInfo" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>structContainer.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>structContainer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="SEApp.structContainer.supportTicket" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>structContainer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.SupportForm" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAYAAGAEQBAIEBGEABECG0AAAAEAAABAAWAACQA=</HashCode>
+      <FileName>SupportForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.VendorProducts" Collapsed="true">
+    <Position X="3.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAIAAQwAAAgJABBAAQAAAAAgCQBgAAAgAAAEAJBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.VendorsProductsForm" Collapsed="true">
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UEAIQBoKQSAIFYEAAEiJAKQChEAIAQgIQAwAUTVEmAA=</HashCode>
+      <FileName>VendorsProductsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSetTableAdapters.UserInformationTableAdapter" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSetTableAdapters.VendorInfoTableAdapter" Collapsed="true">
+    <Position X="14" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSetTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACQAAABABAEBAAAAMAAgACADgAEAAAQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.ContactTableAdapter" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.DocumentTableAdapter" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.LocationTableAdapter" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.ProductInfoTableAdapter" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.ReviewTableAdapter" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.UserInformationTableAdapter" Collapsed="true">
+    <Position X="8.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.VendorInfoTableAdapter" Collapsed="true">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.CitisoftDBDataSet1TableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="3.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwACAGQAQABQFAEBIAAAMAAgADADgAEAAAQAAAAFBAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.VendorProductsTableAdapters.ProductInfoTableAdapter" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.VendorProductsTableAdapters.VendorInfoTableAdapter" Collapsed="true">
+    <Position X="12.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEApp.VendorProductsTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAACAAAABQBAEBAAAAMAAgACACgAEAAAQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
