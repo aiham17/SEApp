@@ -135,12 +135,12 @@ namespace SEApp
                 addVendor.vendor = tbVendorName.Text;
                 addVendor.website = tbWebsite.Text;
 
-                // This validates whether the URL Entered into tbWebsite follows a Http or Https scheme. If it does, this will be saved, if not however and error message occurs
+                // Adam: This validates whether the URL Entered into tbWebsite follows a Http or Https scheme. If it does, this will be saved, if not however and error message occurs
                 // Code from: https://stackoverflow.com/questions/7578857/how-to-check-whether-a-string-is-a-valid-http-url
                 Uri uriResult;
                 bool validURL = Uri.TryCreate(addVendor.website, UriKind.Absolute, out uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
 
-                // If the bool validURL is true, then the process will continue. Otherwise an error message will be displayed
+                // Adam: If the bool validURL is true, then the process will continue. Otherwise an error message will be displayed
                 if (validURL)
                 {
                     addVendor.description = rtbDescription.Text;
@@ -148,7 +148,7 @@ namespace SEApp
                     addVendor.address = rtbAddress.Text;
                     addVendor.teleNumber = tbTeleNumber.Text;
 
-                    //This validates whether the phone number matches our phone number pattern.
+                    //Adam: This validates whether the phone number matches our phone number pattern.
                     // Source used: https://www.abstractapi.com/guides/c-validate-phone-number
                     bool validNumber = DataValidator.validatePhoneNumber(addVendor.teleNumber);
 
@@ -158,7 +158,7 @@ namespace SEApp
                         addVendor.employees = tbEmployees.Text;
                         bool integer = DataValidator.validateInt(addVendor.employees);
 
-                        // If the bool integer is true,  is true, then the process will continue. Otherwise an error message will be displayed
+                        // Adam: If the bool integer is true,  is true, then the process will continue. Otherwise an error message will be displayed
                         if (integer)
                         {
                             addVendor.eYear = dtpVendorEstablished.Text;
