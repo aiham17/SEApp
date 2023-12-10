@@ -14,7 +14,7 @@ namespace SEApp
     public partial class LoginForm : Form
     {
         private Database connectDB;
-        
+        //Aiham
         // Static variable to store the logged-in username
         private static string loggedInUsername;
 
@@ -61,7 +61,8 @@ namespace SEApp
         {
 
         }
-
+        // Aiham 
+        //Opens a registration form upon clicking the account creation link, hiding the current login form.
         private void accountCreationLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Create an instance of the login Form
@@ -74,6 +75,8 @@ namespace SEApp
             // Hide the current form(Login form)
             this.Hide();
         }
+
+        // Aiham
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -128,7 +131,7 @@ namespace SEApp
 
 
 
-        // Method to retrieve the logged-in username
+        // Aiham: Method to retrieve the logged-in username
         public static string GetLoggedInUsername()
         {
             return loggedInUsername;

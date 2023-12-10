@@ -31,7 +31,7 @@ namespace SEApp
         public const string GetUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
 
         // Query to insert a support ticket information in the support ticket table
-        public const string SaveSupportTicket = "INSERT INTO supportTickets (UserID, Name, Email, Title, Message) VALUES (COALESCE(@UserID, NULL), @Name, @Email, @Topic, @Message)";
+        public const string SaveSupportTicket = "INSERT INTO supportTickets (UserID, Name, Email, Title, Message) VALUES (COALESCE(@UserID, NULL), @Name, @Email, @Title, @Message)";
 
 
         // All of the SQL Queries below are for the Dashboard Page.

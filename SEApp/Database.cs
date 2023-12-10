@@ -235,6 +235,7 @@ namespace SEApp
          * This functionality is utilized for role-based access control in the application, 
          * allowing certain features to be accessible only to users with specific roles. 
          * Updated Login and Settings forms to use this method for checking user roles.*/
+        
         public string GetUserRole(string username)
         {
             // Establish a connection to the database
@@ -242,21 +243,29 @@ namespace SEApp
             {
                 // Open the database connection
                 connectDB.Open();
-
-                // Create a SQL command using the getUserRole query and the database connection
+               // Create a SQL command using the GetUserRole query and the database connection
                 using (SqlCommand command = new SqlCommand(sqlQuery.GetUserRole, connectDB))
                 {
-                    // Add a parameter for the username to the SQL command
-                    command.Parameters.AddWithValue("@username", username);
+                    try
+                    {
+                        // Add a parameter for the username to the SQL command
+                        command.Parameters.AddWithValue("@username", username);
 
-                    // Execute the SQL command and retrieve the result
-                    object result = command.ExecuteScalar();
-
-                    // Return the result as a string, or null if the result is null
-                    return result != null ? result.ToString() : null;
+                        // Execute the SQL command and retrieve the result
+                        object result = command.ExecuteScalar();
+                        // Return the result as a string, or null if the result is null
+                        return result != null ? result.ToString() : null;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log or display the exception details
+                        Console.WriteLine("Error in GetUserRole: " + ex.Message);
+                        return null; // Return null or handle the error as needed
+                    }
                 }
             }
         }
+
 
 
         //Adam:

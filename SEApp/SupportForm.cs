@@ -41,7 +41,6 @@ namespace SEApp
                 btnDashboard.Text = "Login";
             }
 
-
             //Aiham: Populate labels with contact details
             lblCitisoftUSA.Text = "Citisoft USA\n303 Congress Street, 5th floor\nBoston, MA 02210\nUSA\n\nT +1 617 428 9580\nF +1 617 428 9588\nEmail: USA.contact@citisoft.com";
             lblCitisoftUSA.Font = new Font("Arial", 11, FontStyle.Bold); // Make the text bold
