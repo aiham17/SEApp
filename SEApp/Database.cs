@@ -351,6 +351,7 @@ namespace SEApp
         }
 
 
+
         //Adam:
         // Opens a connection to the database and will run a SQL Query dependant upon the values of vendorName and productName to then return the datatable filled or not
         public DataTable readVendorProductInfo(DataTable readData,string vendorName, string productName, string sqlQuery)
