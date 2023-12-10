@@ -123,18 +123,14 @@ namespace SEApp
 
         }
 
-        // Adam:
-        // Changed variable names to the struct found in companyInfo. Connor made the initial one, I had to make changes to it because there were errors and wrongly used variable types within it. Can see that in the his github commit
-        // Correctly assign the values entered by the user to the values in the struct addVendor
-        // Created the equivalent "saveCompanyInfo" Connor did not make but referenced and expected to work. Removed the validateinputs method as that is for registering a user NOT company information
-        // Created the SQL Queries for adding the vendor, product and contact information in their retrospective tables
+        // Connor & Adam: Created the Struct for storing the details entered by the User. Connor made the original and Adam tweaked this.
+        // Connor: User Entered data assigned to the struct created. Adam: Tweaked this to allow these variables to be assigned in the correct format
+        // Adam: Added the input Validation for: URLs, Telephone Number and the Integers; the method method calls: addVendor, addContact and addProduct. Put this in a try catch and added the clearing of the data fields
+        //Adam: This method is used to save and add a new vendor to the database; validates specific user entered information before this is added. Otherwise an error message will be displayed.
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                // Connor Added all the variable assignments to the struct addVendor
-                // Adam added the validation and the connectdb methods
-                // Adam: the foreach statements and the try catch
                 companyInfo.vendorInfo addVendor = new companyInfo.vendorInfo();
                 addVendor.vendor = tbVendorName.Text;
                 addVendor.website = tbWebsite.Text;
