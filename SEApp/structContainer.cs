@@ -26,7 +26,7 @@ namespace SEApp
         }
 
         //Adam:
-        // Stores the login details the user enters and 
+        // Stores the login details the user enters
         public struct login
         {
             public string username;
@@ -36,7 +36,8 @@ namespace SEApp
         
         public class companyInfo
         {
-            //Connor
+            //Connor & Adam
+            // Used to stores all the details of the Vendor, its product and the contact information.
             public struct vendorInfo
             {
                 public string vendor;
@@ -61,7 +62,7 @@ namespace SEApp
         }
 
         //Aiham
-
+        // Stores the details of the Support Ticket when it is submitted.
         public class supportTicket
         {
             public struct Ticket

@@ -175,23 +175,25 @@ namespace SEApp
         }
 
 
-        //Adam:
+        //Adam: This Login Validator is used to determine the user has initially entered the credentials in correctly
+        // before the database is checked. 
         public static bool loginValidator(string username, string password)
         {
+            // Checks whether the user has entered nothing and clicked Login
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please enter a Username & Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Check if the username format is valid
+            // Checks if the username format is valid against the Username Pattern above.
             if (!Regex.IsMatch(username, UsernamePattern))
             {
                 MessageBox.Show("Incorrect Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Check if the password meets the minimum length requirement
+            // Check if the password meets the minimum length of 8 characters
             if (password.Length < MinPasswordLength)
             {
                 MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -200,8 +202,10 @@ namespace SEApp
             return true;
         }
 
+
         // Adam:
         // Used to validate integer values entered into a text box. Will return true if it is an integer otherwise false
+        // Website used: https://stackoverflow.com/questions/68766307/how-do-i-validate-a-user-input-with-int-tryparse-to-ensure-the-user-entered-an-i
         public static bool validateInt(string number)
         {
             int integer;

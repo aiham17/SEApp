@@ -149,7 +149,7 @@ namespace SEApp
 
         }
 
-        // Adam:
+        // Adam: When the support button is clicked an instance of the support form is created and opened. The settings form is then closed.
         private void btnSupport_Click(object sender, EventArgs e)
         {
             SupportForm supportForm = new SupportForm();
@@ -157,7 +157,7 @@ namespace SEApp
             this.Close();
         }
 
-        //Adam:
+        //Adam: When the Company Details Button is clicked, it will open Citisoft's website and their About Webpage
         private void btnCompanyDetails_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.citisoft.com/about");

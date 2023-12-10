@@ -24,6 +24,7 @@ namespace SEApp
 {
     class Database
     {
+        // Stores the connection string and used to create an instance to the Database
         private static Database dbGetString;
         private string dbConnectstr;
 
@@ -37,7 +38,7 @@ namespace SEApp
 
         // Adam:
         // Get access to DB (Run the method to get connection string)
-        // Source Videos on Canvas: Software Engineering
+        // Source Lecture Videos on Canvas: Software Engineering in Week 5
         public static Database getConnectString()
         {
             if (dbGetString == null)
@@ -258,18 +259,12 @@ namespace SEApp
         }
 
 
-        // Adam coded the following database methods for the Login, Vendor&Product, EditVendor&Product, AddVendor and Support Forms :
-
         //Adam:
         /* Reads the Database for a username match, then gets the password and the salt code that corresponds to it
          * https://stackoverflow.com/questions/565425/how-can-i-get-a-username-and-password-from-my-database-in-c
          * Post by: Abel Gaxiola Feb 2009 with understanding how to read results into a Data Table
          * Post by: Geochet for understanding how to read from database.
          */
-
-
-
-
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
@@ -421,20 +416,16 @@ namespace SEApp
         }
 
 
-
-
-
-
-        //Adam:
+        //Adam: A Universal Method used to execute select queries for each filter applied in the VendorProducts Form. Returns a datatable as the result
         public DataTable getVendorProducts(string sqlQuery)
         {
             DataTable vendorProduct = ExecuteQuery(sqlQuery);
             return vendorProduct;
         }
 
-        // Updates the vendor information according to what the admin has entered
+
+        // Adam: Updates the vendor information according to what the admin has entered
         // Adjusted the parameters assigned to a list for loop as this looked better. This has been applied to all the updateVendor methods etc and addVendor methods etc
-        // Adam
         public void updateVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate,  int intPro, int vendorID)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@web", "@description", "@eyear", "@employ", "@lreview", "@ldemo", "@addInfo", "@intProService", "@vendorID" };
@@ -456,8 +447,7 @@ namespace SEApp
            
         }
 
-        // Updates the contact information of the specific vendor, according to what the admin has adjusted
-        // Adam:
+        // Adam: Updates the contact information of the specific vendor, according to what the admin has adjusted
         public void updateContact(string address, string teleNumber, int contactID)
         {
             List<string> parameterNames = new List<string> {"@number", "@address", "@contactID"};
@@ -477,8 +467,7 @@ namespace SEApp
             }
         }
 
-        // Updates the products information with what the admin has edited
-        // Adam:
+        // Adam: Updates the products information with what the admin has edited
         public void updateProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int productID)
         {
             List<string> parameterNames = new List<string> {"@software", "@type", "@area", "@module", "@fsc", "@cloud", "@productID"};
@@ -498,7 +487,7 @@ namespace SEApp
             }
         }
 
-        //Adam:
+        //Adam: Deletes the Vendor and all of its products from the Database.
         public void deleteVendorProduct(int vendor)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -513,7 +502,7 @@ namespace SEApp
             }
         }
 
-        //Adam
+        //Adam: Deletes the specific product, selected by the user, from the database
         public void deleteProduct(int productID)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
@@ -558,7 +547,7 @@ namespace SEApp
             
         }
 
-        // Adam:
+        // Adam: Adds a Vendor to the Database table VendorInfo
         public int addVendor(string vendor, string website, string description, string additionalInfo, string employees, string eYear, string reviewDate, string DemoDate, int intPro)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@web", "@description", "@eyear", "@employ", "@lreview", "@ldemo", "@addInfo", "@intProService" };
@@ -578,8 +567,8 @@ namespace SEApp
                 }
             }
         }
-        
-        //Adam:
+
+        //Adam:  Adds a Product to the Database Table ProductInfo
         public void addProduct(string software, string softwareType, string businessArea, string module, string financialService, string cloud, int vendor)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@software", "@type", "@area", "@module", "@fsc", "@cloud"};
@@ -598,9 +587,9 @@ namespace SEApp
                 }
             }
         }
-      
 
-        // Adam:
+
+        // Adam: Adds the contact information, of the vendor, to the Database table Contact
         public void addContact(string address, string teleNumber, int vendor)
         {
             List<string> parameterNames = new List<string> { "@vendor", "@number", "@address"};
@@ -619,7 +608,7 @@ namespace SEApp
             }
         }
 
-        //Adam:
+        //Adam: Used to get the UserID the user is logged in with (For the Support Form)
         public int getUserID(string email)
         {
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))

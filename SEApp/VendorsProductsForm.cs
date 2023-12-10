@@ -18,17 +18,22 @@ namespace SEApp
 {
     public partial class VendorsProductsForm : Form
     {
+        //Adam: These strings store the vendor and software names. These are passed to the EditVendor Form
         public string vendorName;
         public string productName;
+        // Creates a instance to allow the form to connect to the database
         private Database connectDB;
+        // Used to store the data read from the database
         DataTable vendorProData;
 
-        //Adam
+        
         public VendorsProductsForm()
         {
             InitializeComponent();
+            //Adam: Acquire access to the Database class.
             connectDB = Database.getConnectString();
 
+            //Aiham:
             // Get the logged-in username
             string loggedInUsername = LoginForm.GetLoggedInUsername();
 
@@ -52,6 +57,7 @@ namespace SEApp
             display.ReadOnly = true;
         }
 
+        // Adam: Opens the Dashboard and closes the VendorProducts Form.
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             // Create an instance of the Dashboard Form
@@ -60,6 +66,7 @@ namespace SEApp
             this.Close();
         }
 
+        // Adam: Reloads the VendorProducts Form.
         private void btnVendorsAndProducts_Click(object sender, EventArgs e)
         {
             // Create an instance of the VendorsProductsForm
@@ -68,7 +75,9 @@ namespace SEApp
             this.Close();
         }
 
+        // Aiham: Added the userRole check, the retrieval of the Username and the if statement.
         // added functionality to btnAddOrAdjustVendors to allow access to AddAdjustForm for admins and owners.
+        // Adam: The instance creation of the AddVendorForm.
         private void btnAddOrAdjustVendors_Click(object sender, EventArgs e)
         {
             // Retrieve the logged-in username using the static method
@@ -93,7 +102,7 @@ namespace SEApp
 
         }
 
-        //Adam
+        //Adam: When the Settings button is clicked, the Settings form is opened and the VendorProducts Form is closed.
         private void btnSetting_Click(object sender, EventArgs e)
         {
             // Create an instance of the SettingsForm
@@ -113,7 +122,11 @@ namespace SEApp
             loginForm.Show();
             this.Close();
         }
-        //Adam
+
+        /*Adam: On load, a SQL Query is sent to the Database, to grab data from the VendorInfo & ProductInfo tables.
+         * This data is then stored in the DataTable vendorProData and this is set as the Data Source to be displayed
+         * To the User.
+         */
         private void VendorsProductsForm_Load(object sender, EventArgs e)
         {
             DataTable vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
@@ -124,7 +137,10 @@ namespace SEApp
 
         }
 
-        //Adam
+        /*Adam: If the user clicks the Active Vendors Button, a SQL Query is sent to retrieve
+         * the vendors that have been reviewed in the last 6 months. Then this data is stored in 
+         * the data table and set as the source of the Data Grid View.
+        */
         private void btnActiveVendors_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.activeVendorData);
@@ -133,14 +149,19 @@ namespace SEApp
             
         }
 
-        //Adam
+        /*Adam: If the user clicks the Ratings Data Button, a SQL Query is sent to retrieve
+         * all the ratings for the Vendors and Products to then average them. This data
+         * is then stored in a data table and is set as the source of the Data Grid View.
+        */
         private void btnRatings_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.vendorProRatings);
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
-        //Adam
+        /*Adam: If the user clicks the Revert Data Button, a SQL Query is sent to retrieve
+         * the original data that was shown when the Form loaded to then be displayed.
+        */
         private void btnRevertData_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.getVendorProductData);
@@ -148,14 +169,18 @@ namespace SEApp
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
-        //Adam
+        /*Adam: If the user clicks the Vendor Data Button, a SQL Query is sent to retrieve
+         * all and only the Vendor Data to be displayed into the Data Grid View.
+        */
         private void btnVendor_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.allVendors);
             setDataSource(vendorProData, dgvVendorProduct);
         }
 
-        //Adam
+        /*Adam: If the user clicks the Product Data Button, a SQL Query is sent to retrieve
+         * all and only the Product Data to be displayed into the Data Grid View.
+        */
         private void btnProduct_Click(object sender, EventArgs e)
         {
             vendorProData = connectDB.getVendorProducts(sqlQuery.allProducts);
@@ -272,7 +297,7 @@ namespace SEApp
 
         //Adam
         // Gets the company name or software name in the row the user has selected to then have a pop up screen to display the vendor and product information in a 
-        // more readable format.
+        // more readable format (EditVendorProducts Form)
         private void dgvVendorProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            

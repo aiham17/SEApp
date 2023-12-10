@@ -14,9 +14,14 @@ namespace SEApp
 {
     public partial class EditVendorProduct : Form
     {
+        // Adam: Gets the vendorName and productName from the VendorProducts Form
         public string vendorName { get; set;}
         public string productName { get; set;}
+
+        // Adam: Creates instances to allow this form to access the Database class.
         private Database connectDB;
+
+        // Adam: Used to store all the Vendor Information to then be displayed
         DataTable vendorData = new DataTable();
         DataTable contactInfo = new DataTable();
         int vendorID, productID, contactID;
@@ -24,9 +29,12 @@ namespace SEApp
         public EditVendorProduct()
         {
             InitializeComponent();
+
+            // Adam: Allows this form to access the database class
             connectDB = Database.getConnectString();
         }
 
+        // Adam:When the close button is clicked, the user is returned to the VendorProducts Form
         private void btnClose_Click(object sender, EventArgs e)
         {
             VendorsProductsForm open = new VendorsProductsForm();
@@ -34,6 +42,7 @@ namespace SEApp
             this.Close();
         }
 
+        // Adam: When the user clicks the Citisoft Logo, they are returned to the Dashboard
         private void pbCitisoftLogo_Click(object sender, EventArgs e)
         {
             this.Close();           
@@ -41,27 +50,31 @@ namespace SEApp
             dash.Show();
         }
 
-        // Get the text, integers or date time values entered by the user and add them into their respective columns based off VendorID, Contact ID and ProductID
-        // Changed variable names to the struct found in companyInfo. Connor made the initial one, I had to make changes to it because there were errors and wrongly used variable types within it. Can see that in the his github commit
+
+
+
+        /*Adam: When the user clicks the save button, it will try to assign each value entered into the struct editVendor and then pass it to the methods in the Database class
+         * This then will attempt to update the vendor in the database and if it cannot the error message: Cannot save the changes to the Database pops up
+         * Changed variable names to the struct found in companyInfo. Connor made the initial one, I had to make changes to it because there were errors and wrongly used variable types within it. Can see that in the his github commit
+         */
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Need to make sure the textboxes etc are NOT EQUAL TO NULL
-            // NEED TO ADD DELETE BUTTON
             try
             {
                 companyInfo.vendorInfo editVendor = new companyInfo.vendorInfo();
-                //string vendor, website, description, additionalInfo, software, softwareType, businessArea, module, financialService, cloud, teleNumber, address, eYear, reviewDate, DemoDate, employees;
                 contactID = Int32.Parse(cmbContactID.Text.ToString());
                 editVendor.vendor = tbVendorName.Text;
                 editVendor.website = LLVendorWebsite.Text;
                 editVendor.description = rtbDescription.Text;
                 editVendor.additionalInfo = rtbAddInfo.Text;
                 editVendor.address = rtbAddress.Text;
-                editVendor.teleNumber = tbTeleNumber.Text;
-                //https://stackoverflow.com/questions/46311753/c-sharp-how-to-restrict-textbox-decimal-places-to-2
-                // Look at preventing decimal points being added
+                editVendor.teleNumber = tbTeleNumber.Text;               
                 editVendor.employees = tbEmployees.Text;
+
+                // Used to validate that an integer has been entered into the Number Of Employees Text box
                 bool integer = DataValidator.validateInt(editVendor.employees);
+
+                // IF the boolean integer is True then it will continue the variable assignment and pass this information to the Database Class. Otherwise it displays an error message
                 if (integer)
                 {
                     editVendor.eYear = dtpVendorEstablished.Text;
@@ -74,6 +87,8 @@ namespace SEApp
                     editVendor.module = tbModule.Text;
                     editVendor.financialService = tbFinancialServices.Text;
                     editVendor.cloud = cmbCloud.Text;
+
+                    // These methods are called and passed all the necessary vendor information, to then be updated in the Database.
                     connectDB.updateVendor(editVendor.vendor, editVendor.website, editVendor.description, editVendor.additionalInfo, editVendor.employees, editVendor.eYear, editVendor.reviewDate, editVendor.demoDate, editVendor.intPro, vendorID);
                     connectDB.updateContact(editVendor.address, editVendor.teleNumber, contactID);
                     connectDB.updateProduct(editVendor.software, editVendor.softwareType, editVendor.businessArea, editVendor.module, editVendor.financialService, editVendor.cloud, productID);
@@ -98,7 +113,7 @@ namespace SEApp
 
         
 
-        // Loads all the vendor and product data stored in the datatable into their respective fields on the form
+        // Adam: Loads all the vendor and product data stored in the datatable into their respective fields on the form
         private void EditVendorProduct_Load(object sender, EventArgs e)
         {
 
@@ -162,13 +177,13 @@ namespace SEApp
         }
 
         
-
+        //Adam: This method opens the URL Link when clicked
         private void LLVendorWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(LLVendorWebsite.Text);
         }
 
-        // Gets all the different contact information depending upon the selected ContactID. 
+        //Adam: Selects the different contact information depending upon the selected ContactID. And then updates the text boxes with this data
         private void cmbContactID_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox selected = (ComboBox)sender;
@@ -188,6 +203,8 @@ namespace SEApp
             }
         }
 
+        //Adam: Deletes the selected product displayed, depending upon whether the user's role is an Admin or Owner and they click Yes on the Message Box.
+        // If they click no, they are returned to the VendorProducts Form
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             string username = LoginForm.GetLoggedInUsername();
@@ -211,7 +228,7 @@ namespace SEApp
             }
         }
 
-        // Opens the associated pdf document with the vendor and its products. Not all of them have one so a message box will pop informing the user
+        // Adam: Opens the associated pdf document with the vendor and its products. Not all of them have one so a message box will pop informing the user
         // if there isnt one.
         // https://stackoverflow.com/questions/12335618/file-path-for-project-files
         // The website above I used to enable a temporary file path to be created so the pdf document can be opened no matter the machine
@@ -232,6 +249,8 @@ namespace SEApp
             
         }
 
+        //Adam: Deletes the selected Vendor displayed, depending upon whether the user's role is an Admin or Owner and they click Yes on the Message Box.
+        // If they click no, they are returned to the VendorProducts Form
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string username = LoginForm.GetLoggedInUsername();
@@ -255,6 +274,7 @@ namespace SEApp
             }
         }
 
+        //Adam:
         /* The btnEditVendor_Click method checks the user's role and if they have permission (admin or owner).
          * It then checks if a row is selected in the DataGridView (dgvVendorProduct).
          * If both conditions are met, it opens the EditVendorProduct form with the selected vendor and product names; 

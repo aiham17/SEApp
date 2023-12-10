@@ -32,6 +32,8 @@ namespace SEApp
         //Aiham:
         private void SupportForm_Load(object sender, EventArgs e)
         {
+
+            //Adam: I added this if statement to determine where the user will be returned to when they click the btnDashboard button below. Also it changes the text of the button to show this.
             username = LoginForm.GetLoggedInUsername();
             userRole = connectDB.GetUserRole(username);
             if ((userRole == null) || (username == null))
@@ -40,7 +42,7 @@ namespace SEApp
             }
 
 
-            // Populate labels with contact details
+            //Aiham: Populate labels with contact details
             lblCitisoftUSA.Text = "Citisoft USA\n303 Congress Street, 5th floor\nBoston, MA 02210\nUSA\n\nT +1 617 428 9580\nF +1 617 428 9588\nEmail: USA.contact@citisoft.com";
             lblCitisoftUSA.Font = new Font("Arial", 11, FontStyle.Bold); // Make the text bold
 
@@ -139,18 +141,15 @@ namespace SEApp
 
         }
 
-        //Adam:
+        //Adam: Depending upon whether the user is logged in or not, will determine what form they are returned to when clicking this button
+        // If they opened it through the settings page they are returned there, otherwise its the Login Form.
         private void btnDashboard_Click(object sender, EventArgs e)
         {
 
             if ((userRole != null) && (username != null))
             {
-                // Create an instance of the Dashboard Form
-                //Dashboard dashboard = new Dashboard();
-
-                // Show the Dashboard form
-                //dashboard.Show();
-
+                // Create an instance of the Settings Form
+                
                 // Close the current form (Support form)
                 SettingsForm settingsForm = new SettingsForm();
                 settingsForm.Show();

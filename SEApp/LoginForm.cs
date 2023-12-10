@@ -87,8 +87,10 @@ namespace SEApp
 
         // Collects Users inputted username and password to then be checked against the database
 
-
-        /*  Added GetLoggedInUsername method to retrieve the logged-in username. 
+        //Adam:
+        /*  This method is used to check whether the entered username and password is stored in the database and then determine whether
+         *  the user can be granted access to the application.
+         *  Aiham: Added GetLoggedInUsername method to retrieve the logged-in username. 
          *  This static method returns the value stored in the loggedInUsername variable. 
          *  Utilized in SettingsForm for role-based access control. */
         private void btnLogin_Click_1(object sender, EventArgs e)
@@ -99,9 +101,11 @@ namespace SEApp
                 login.username = tbUsername.Text;
                 login.password = tbPassword.Text;
 
-                // Use the readUsername method to check the login
+                // Use the readUsername method to check the login credentials entered. This passes the username and password to the readUsername Method.
                 bool response = connectDB.readUsername(login.username, login.password);
 
+                // If response is true, then the user will be granted access to the application. It will close the Login Form and Open the Dashboard.
+                // Otherwise, the user is not granted access.
                 if (response)
                 {
                     // Store the logged-in username in the static variable
@@ -130,8 +134,10 @@ namespace SEApp
             return loggedInUsername;
         }
 
+        // Used to open the Support Form when the password reset text is clicked.
         private void passwordRestLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            // Creates Instance of the Support Form and opens it.
             SupportForm open = new SupportForm();
             open.Show();
         }

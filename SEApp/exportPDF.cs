@@ -17,10 +17,10 @@ namespace SEApp
     internal class exportPDF
     {
         //Adam:
-
         // Exports the data in the data grid view to a pdf document
         // This code was lifted from the source below
         // Source:  https://www.c-sharpcorner.com/blogs/export-datagridview-data-to-pdf-in-c-sharp
+        // The Formatting of this document needs to be changed.
 
         public void exportPDFDoc(DataGridView dgvVendorProduct)
         {
