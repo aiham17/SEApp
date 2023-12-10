@@ -34,7 +34,7 @@
             this.lblCitisoftCanada = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Topic = new System.Windows.Forms.Label();
-            this.tbTopic = new System.Windows.Forms.TextBox();
+            this.tbTitle = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,6 +70,7 @@
             this.lblCitisoftEMEA.Size = new System.Drawing.Size(194, 32);
             this.lblCitisoftEMEA.TabIndex = 1;
             this.lblCitisoftEMEA.Text = "CitisoftEMEA";
+            this.lblCitisoftEMEA.Click += new System.EventHandler(this.lblCitisoftEMEA_Click);
             // 
             // lblCitisoftCanada
             // 
@@ -86,7 +87,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.Topic);
-            this.panel1.Controls.Add(this.tbTopic);
+            this.panel1.Controls.Add(this.tbTitle);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnSubmit);
             this.panel1.Controls.Add(this.label3);
@@ -107,18 +108,18 @@
             this.Topic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Topic.Location = new System.Drawing.Point(53, 332);
             this.Topic.Name = "Topic";
-            this.Topic.Size = new System.Drawing.Size(55, 20);
+            this.Topic.Size = new System.Drawing.Size(46, 20);
             this.Topic.TabIndex = 9;
-            this.Topic.Text = "Topic";
+            this.Topic.Text = "Title";
             // 
-            // tbTopic
+            // tbTitle
             // 
-            this.tbTopic.Location = new System.Drawing.Point(175, 309);
-            this.tbTopic.Multiline = true;
-            this.tbTopic.Name = "tbTopic";
-            this.tbTopic.Size = new System.Drawing.Size(275, 43);
-            this.tbTopic.TabIndex = 8;
-            this.tbTopic.TextChanged += new System.EventHandler(this.tbTopic_TextChanged);
+            this.tbTitle.Location = new System.Drawing.Point(175, 309);
+            this.tbTitle.Multiline = true;
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(275, 43);
+            this.tbTitle.TabIndex = 8;
+            this.tbTitle.TextChanged += new System.EventHandler(this.tbTitle_TextChanged);
             // 
             // label4
             // 
@@ -262,7 +263,7 @@
         private Label label4;
         private Label label5;
         private Button btnDashboard;
-        private TextBox tbTopic;
+        private TextBox tbTitle;
         private Label Topic;
     }
 }

@@ -25,44 +25,46 @@ namespace SEApp
             connectDB = Database.getConnectString();
         }
 
-        // Here, we're calling the ValidateInputs method from the DataValidator class to perform input validation.
-
+        // calling the ValidateInputs method from the DataValidator class to perform input validation.
         private bool ValidateInputs()
         {
-            // We're passing the user-provided data from the input fields as arguments to this method.
+            // passing the user-provided data from the input fields as arguments to this method.
             // This includes the username, password, first name, last name, and email entered by the user
 
             return DataValidator.ValidateUserInputs(tbUsername.Text, tbPassword.Text, tbFname.Text, tbLname.Text, tbEmail.Text, cmbRole.SelectedIndex);
 
         }
 
-        
 
-        
-       
-       
 
-        // Implement secure password hashing and salting in user registration button
-        // This method now introduces password security measures by generating a random salt
-        // and securely hashing user passwords before storing them in the database.
-        // Additionally, input validation has been implemented to ensure data integrity during registration.
+
+
+
+
+    
+        /* This register button performs input validation, checks for existing username or email, securely hashes the user's password
+         * using a randomly generated salt, and saves the securely hashed password along with user information to the database.
+         * Displays appropriate messages and navigates to the login form on success.*/
         private void btnRegister_Click_1(object sender, EventArgs e)
         {
+            // Validate user input data
             if (ValidateInputs())
-            {
+            { 
+                // Check if the username or email already exists
                 bool userExists = connectDB.CheckUserExists(tbUsername.Text, tbEmail.Text);
                 if (userExists)
                 {
+                    // Display an error message if the user already exists
                     MessageBox.Show("Username or email already exists. Please choose a different one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
+                // Generate a random salt and securely hash the user's password
                 EncryptDecrypt generatePassword = new EncryptDecrypt();
                 string salt = generatePassword.GenerateRandomSalt();
                 string hashedPassword = generatePassword.HashPassword(tbPassword.Text, salt);
-                //string salt = GenerateRandomSalt();
-               // string hashedPassword = HashPassword(tbPassword.Text, salt);
 
+                // Create a user structure and populate it with the user's information
                 structContainer.userRegister user = new structContainer.userRegister();
                 user.userName = tbUsername.Text;
                 user.password = hashedPassword;
@@ -71,10 +73,8 @@ namespace SEApp
                 user.lastName = tbLname.Text;
                 user.email = tbEmail.Text;
                 user.companyRole = cmbRole.SelectedIndex;
-                string addUser = sqlQuery.addUser;
+                string addUser = sqlQuery.AddUser;
                 connectDB.saveUserInfo(addUser, user.userName, user.password, user.salt, user.firstName, user.lastName, user.email, user.companyRole);
-
-                
 
                 MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

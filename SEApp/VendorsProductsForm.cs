@@ -341,6 +341,10 @@ namespace SEApp
 
 
         //Aiham:
+
+        /* The  btnEditVendor button allows an admin or owner to edit vendor information by opening the EditVendorProduct form
+         * and passing the selected vendor and product names to it. 
+         * If the user doesn't have the necessary permissions or if no row is selected, appropriate messages are displayed*/
         private void btnEditVendor_Click(object sender, EventArgs e)
         {
             // Retrieve the logged-in username using the static method

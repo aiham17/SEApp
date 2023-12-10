@@ -126,7 +126,10 @@ namespace SEApp
             this.Hide();
 
         }
-       
+
+        // Creating Charts for the Dashboard Form
+        // From: https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.datavisualization.charting.chart?view=netframework-4.8.1
+        // From : https://help.syncfusion.com/windowsforms/chart/chart-types
 
         // calling TotalNumberOfVendorsQuery from sqlQuery class
         private void btnTotalNumberOfVendors_Click(object sender, EventArgs e)
@@ -339,3 +342,12 @@ namespace SEApp
     }
 
 }
+
+
+// the ExecuteQuery method retrieves the results of a SQL query into a DataTable, and the DataTable is then used to populate charts in the Dashboard form, providing a visual representation of the queried data.
+
+
+
+
+
+

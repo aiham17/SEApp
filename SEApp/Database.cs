@@ -46,34 +46,219 @@ namespace SEApp
             }
             return dbGetString;
         }
-
+         
+        // Aiham coded the following database methods for the Registration, Dashboard, Login&Security, Support, and Setting Forms: 
 
         // Aiham:
-        // Fixed issue in saveUserInfo method
-        // In the saveUserInfo method, replaced the line `addUser.Parameters.Add(SQLQuery);`
-        // with individual parameter additions using `addUser.Parameters.AddWithValue()` to correctly bind parameters for the SQL query execution.
-        // This ensures that user information is properly saved to the database.
 
+        /* This saveUserInfo method takes in user information and inserts it into the database using a parameterized SQL query .
+         * It creates a connection to the database, prepares an SQL command, adds parameters to the command, 
+         * and executes it to save user information table in the database.*/
         public void saveUserInfo(string SQLQuery, string userName, string password, string salt, string firstName, string lastName, string email, int CompanyRole)
         {
+            // List of parameter names to be used in the SQL command
             List<string> parameterNames = new List<string> { "@Username", "@Password", "@Salt", "@FirstName", "@LastName", "@Email", "@CompanyRole" };
+
+            // Establish a connection to the database
             using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
             {
                 connectDB.Open();
-                SqlCommand addUser = new SqlCommand(SQLQuery, connectDB);
 
+                // Create a SQL command
+                SqlCommand addUser = new SqlCommand(SQLQuery, connectDB);
                 addUser.CommandType = CommandType.Text;
 
                 // Loop through parameter names and add them to the command with their corresponding values
                 for (int i = 0; i < parameterNames.Count; i++)
                 {
+                    // Add parameters to the SQL command
                     addUser.Parameters.AddWithValue(parameterNames[i], i == 0 ? userName : (i == 1 ? password : (i == 2 ? salt : (i == 3 ? firstName : (i == 4 ? lastName : (i == 5 ? email : CompanyRole))))));
                 }
 
+                // Execute the SQL command (inserting user information into the database)
                 addUser.ExecuteNonQuery();
             }
-            
         }
+
+        // Aiham:
+
+        /* This method takes support ticket information as parameters and saves it to the database using a parameterized SQL query.
+         * It handles exceptions and displays an error message if there is any issue during the database operation.
+        
+         * Using DBNull.Value to Handle Null or Empty User IDs When Saving Support Tickets to a Database 
+         * From: https://learn.microsoft.com/en-us/dotnet/api/system.dbnull?view=net-8.0 
+         * From: https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlparametercollection.addwithvalue?view=dotnet-plat-ext-8.0 */
+
+        public void SaveSupportTicket(string name, string email, string title, string message, string userID)
+        {
+            try
+            {
+                // Establish a connection to the database using the connection string
+                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+                {
+                    // Open the database connection
+                    connectDB.Open();
+
+                    // Define a SQL command to save a support ticket
+                    using (SqlCommand saveTicket = new SqlCommand(sqlQuery.SaveSupportTicket, connectDB))
+                    {
+                        // Add a SQL parameter for UserID with the name "@UserID".
+                        // If userID is not null or empty, set the parameter value to userID;
+                        // otherwise, set it to DBNull.Value to indicate a null database value.
+                        saveTicket.Parameters.AddWithValue("@UserID", !string.IsNullOrEmpty(userID) ? userID : (object)DBNull.Value);
+
+                        // Define parameter names and corresponding values
+                        string[] parameterNames = { "@Name", "@Email", "@Title", "@Message" };
+                        string[] parameterValues = { name, email, title, message };
+
+                        // Add parameters using a loop
+                        for (int i = 0; i < parameterNames.Length; i++)
+                        {
+                            saveTicket.Parameters.AddWithValue(parameterNames[i], parameterValues[i]);
+                        }
+
+                        // Execute the SQL command to insert the support ticket into the database
+                        saveTicket.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Display an error message if an exception occurs while saving the support ticket
+                MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        // Aiham:
+
+        /* The UpdateUserInfo method serves the purpose of updating user information in the database.
+         * It is specifically designed to modify the records in the UserInformation table based on the provided UserID. 
+         * It constructs an SQL query that updates the username, password, salt, and email for a user with a specific UserID.
+         * The method establishes a connection to the database, creates a SqlCommand to execute the update query, and sets parameters with the provided values.
+         * Finally, it executes the query to apply the modifications.*/
+        public void UpdateUserInfo(int userID, string newUsername, string newPasswordHash, string newSalt, string newEmail)
+        {
+            // Establish a connection to the database
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                // Open the database connection
+                connectDB.Open();
+                // Create a SqlCommand to execute the update query
+                using (SqlCommand updateCommand = new SqlCommand(sqlQuery.UpdateUserInfoQuery, connectDB))
+                {
+                    // Set parameters for the update query with values provided as arguments using a loop
+                    updateCommand.Parameters.AddWithValue("@UserID", userID);
+
+                    // Define an array of parameter names to loop through
+                    string[] parameterNames = { "@Username", "@Password", "@Salt", "@Email" };
+                    string[] parameterValues = { newUsername, newPasswordHash, newSalt, newEmail };
+
+                    for (int i = 0; i < parameterNames.Length; i++)
+                    {
+                        updateCommand.Parameters.AddWithValue(parameterNames[i], parameterValues[i]);
+                    }
+
+                    // Execute the update query to modify user information in the database
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // Aiham:
+
+        /* This ExecuteQuery method allows executing SQL queries against a database and retrieves the results of a SQL query into a DataTable,
+         * The DataTable is then used to populate charts in the Dashboard form, providing a visual representation of the queried data.*/
+        public DataTable ExecuteQuery(string sqlQuery)
+        {
+            // Create a new DataTable to store the results of the SQL query
+            DataTable result = new DataTable();
+
+            // Create a new SqlConnection using the connection string stored in dbConnectstr
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                // Open the database connection
+                connectDB.Open();
+
+                // Create a new SqlCommand with the provided SQL query and the open connection
+                using (SqlCommand command = new SqlCommand(sqlQuery, connectDB))
+                {
+                    // Execute the SQL query and obtain a SqlDataReader to read the results
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Load the results from the SqlDataReader into the DataTable
+                        result.Load(reader);
+                    }
+                }
+            }
+
+            // Return the filled DataTable containing the results of the SQL query
+            return result;
+        }
+
+
+        // Aiham
+
+        // This CheckUserExists method checks whether a user with a given username or email already exists in the database.
+
+        public bool CheckUserExists(string username, string email)
+        {
+            // Create a new SqlConnection using the connection string from the class's field
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                // Open the database connection
+                connectDB.Open();
+
+                // Get the SQL query for checking user existence from the sqlQuery class
+                string checkUser = sqlQuery.CheckUser;
+
+                // Create a new SqlCommand with the checkUser query and the open SqlConnection
+                using (SqlCommand command = new SqlCommand(checkUser, connectDB))
+                {
+                    // Set the parameters for the query to the provided username and email values
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@email", email);
+
+                    // Execute the query and retrieve the count of matching rows (users)
+                    int count = (int)command.ExecuteScalar();
+
+                    // Return true if the count is greater than 0, indicating that the user exists; otherwise, return false
+                    return count > 0;
+                }
+            }
+        }
+
+        //Aiham
+
+        /* Implemented GetUserRole method in the Databbase class to retrieve the role of a user from the database based on their username.
+         * This functionality is utilized for role-based access control in the application, 
+         * allowing certain features to be accessible only to users with specific roles. 
+         * Updated Login and Settings forms to use this method for checking user roles.*/
+        public string GetUserRole(string username)
+        {
+            // Establish a connection to the database
+            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
+            {
+                // Open the database connection
+                connectDB.Open();
+
+                // Create a SQL command using the getUserRole query and the database connection
+                using (SqlCommand command = new SqlCommand(sqlQuery.GetUserRole, connectDB))
+                {
+                    // Add a parameter for the username to the SQL command
+                    command.Parameters.AddWithValue("@username", username);
+
+                    // Execute the SQL command and retrieve the result
+                    object result = command.ExecuteScalar();
+
+                    // Return the result as a string, or null if the result is null
+                    return result != null ? result.ToString() : null;
+                }
+            }
+        }
+
+
+        // Adam coded the following database methods for the Login, Vendor&Product, EditVendor&Product, AddVendor and Support Forms :
 
         //Adam:
         /* Reads the Database for a username match, then gets the password and the salt code that corresponds to it
@@ -82,9 +267,9 @@ namespace SEApp
          * Post by: Geochet for understanding how to read from database.
          */
 
-        
 
-        // Adam: The SQL Query will either return 1 or no rows depening upon if it has found the username associated with 
+
+
         public bool readUsername(string user, string pass)
         {
             EncryptDecrypt passVerify = new EncryptDecrypt();
@@ -124,47 +309,10 @@ namespace SEApp
             }
 
         }
-        // Aiham:
-        /* The updated method here simplifies the code by employing a single SQL query (SaveSupportTicket) and a loop for parameter handling. 
-         * This streamlines logic, enhances maintainability, and improves readability by eliminating conditional query selection
-         * and reducing redundancy in parameter assignments.*/
-        public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
-        {
-            try
-            {
-                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                {
-                    connectDB.Open();
-
-                    using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-
-                    { // Add a SQL parameter for UserID with the name "@UserID".
-                        // If userID is not null or empty, set the parameter value to userID;
-                        // otherwise, set it to DBNull.Value to indicate a null database value.
-                        saveTicket.Parameters.AddWithValue("@UserID", !string.IsNullOrEmpty(userID) ? userID : (object)DBNull.Value);
-
-                        // Define parameter names and corresponding values
-                        string[] parameterNames = { "@Name", "@Email", "@Topic", "@Message" };
-                        string[] parameterValues = { name, email, topic, message };
-
-                        // Add parameters using a loop
-                        for (int i = 0; i < parameterNames.Length; i++)
-                        {
-                            saveTicket.Parameters.AddWithValue(parameterNames[i], parameterValues[i]);
-                        }
-
-                        saveTicket.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
         
+
+
+
         //Adam:
         // Gets the vendor and product names to then pass to readVendorProductInfo and select which SQL Query should be passed.
         // Will return either a filled DataTable or a null one
@@ -272,110 +420,9 @@ namespace SEApp
             }
         }
 
-        
-        // Aiham:
-        /* The UpdateUserInfo method serves the purpose of updating user information in the database.
-         * It is specifically designed to modify the records in the UserInformation table based on the provided UserID. 
-         * It constructs an SQL query that updates the username, password, salt, and email for a user with a specific UserID.
-         * The method establishes a connection to the database, creates a SqlCommand to execute the update query, and sets parameters with the provided values.
-         * Finally, it executes the query to apply the modifications.*/
-        public void UpdateUserInfo(int userID, string newUsername, string newPasswordHash, string newSalt, string newEmail)
-        {
-            // SQL query to update user information in the UserInformation table based on the provided UserID
-            string updateQuery = "UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID";
-
-            // Establish a connection to the database
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-            {
-                // Open the database connection
-                connectDB.Open();
-                // Create a SqlCommand to execute the update query
-                using (SqlCommand updateCommand = new SqlCommand(updateQuery, connectDB))
-                {
-                    // Set parameters for the update query with values provided as arguments
-                    updateCommand.Parameters.AddWithValue("@UserID", userID);
-                    updateCommand.Parameters.AddWithValue("@Username", newUsername);
-                    updateCommand.Parameters.AddWithValue("@Password", newPasswordHash);
-                    updateCommand.Parameters.AddWithValue("@Salt", newSalt);
-                    updateCommand.Parameters.AddWithValue("@Email", newEmail);
-
-                    // Execute the update query to modify user information in the database
-                    updateCommand.ExecuteNonQuery();
-                }
-            }
-        }
 
 
-        // Aiham:
-        // The ExecuteQuery method in the Database class streamlines database interactions.
-        // It executes SQL queries and presents results as DataTables, simplifying database operations.
-        // It Utilized in the dashboard form to perform database queries when buttons are clicked, such as retrieving total vendor count.
-        public DataTable ExecuteQuery(string sqlQuery)
-        {
-            DataTable result = new DataTable();
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-            {
-                connectDB.Open();
-                using (SqlCommand command = new SqlCommand(sqlQuery, connectDB))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        result.Load(reader);
-                    }
-                }
-            }
-            return result;
 
-        }
-
-        // Aiham
-        public bool CheckUserExists(string username, string email)
-        {
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-            {
-                connectDB.Open();
-                string checkUser = sqlQuery.checkUser;
-                using (SqlCommand command = new SqlCommand(checkUser, connectDB))
-                {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@email", email);
-
-                    int count = (int)command.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-
-        //Aiham
-        /* Implemented GetUserRole method in the  class to retrieve the role of a user from the database based on their username.
-         * This functionality is utilized for role-based access control in the application, 
-         * allowing certain features to be accessible only to users with specific roles. 
-         * Updated Login and Settings forms to use this method for checking user roles.*/
-        public string GetUserRole(string username)
-        {
-            using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-            {
-                connectDB.Open();
-                using (SqlCommand command = new SqlCommand(sqlQuery.getUserRole, connectDB))
-                {
-                    try
-                    {
-                        command.Parameters.AddWithValue("@username", username);
-
-                        object result = command.ExecuteScalar();
-
-                        return result != null ? result.ToString() : null;
-                    }
-                    catch (Exception ex)
-                    {
-                        // Log or display the exception details
-                        Console.WriteLine("Error in GetUserRole: " + ex.Message);
-                        return null; // Return null or handle the error as needed
-                    }
-                }
-            }
-        }
 
 
         //Adam:

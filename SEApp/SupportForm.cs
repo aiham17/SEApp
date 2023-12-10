@@ -58,9 +58,11 @@ namespace SEApp
 
         }
         //Aiham:
-        /* The updated submit button streamlines the code by directly passing the user ID or null to SaveSupportTicket, simplifying conditional logic.
-         * This approach enhances readability and maintains code conciseness compared to separating ticket saving based on the presence of a user ID.
-         * Additionally, it avoids code duplication, leading to easier maintenance.*/
+
+        /* The submit button event handler creates a support ticket object with user inputs, retrieves the user ID based on the provided email,
+         * validates the form inputs, and then saves the support ticket information to a database using the connectDB.SaveSupportTicket method.
+         * If successful, it displays a success message, and if an error occurs, it shows an error message to the user.*/
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -69,7 +71,7 @@ namespace SEApp
                 supportTicket.Ticket ticket = new supportTicket.Ticket();
                 ticket.Name = tbName.Text;
                 ticket.Email = tbEmail.Text;
-                ticket.Title = tbTopic.Text;
+                ticket.Title = tbTitle.Text;
                 ticket.Message = tbMessage.Text;
 
                 // Retrieve user ID based on the email address
@@ -101,7 +103,7 @@ namespace SEApp
             // Clear text boxes
             tbName.Text = "";
             tbEmail.Text = "";
-            tbTopic.Text = "";
+            tbTitle.Text = "";
             tbMessage.Text = "";
         }
 
@@ -119,16 +121,24 @@ namespace SEApp
         {
 
         }
-        private void tbTopic_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void tbTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCitisoftEMEA_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //Adam:
         private void btnDashboard_Click(object sender, EventArgs e)
         {

@@ -10,23 +10,22 @@ namespace SEApp
 {
     public static class DataValidator
     {
-        //Aiham created this class for separation and readability puproses.
+        //Aiham created this class for separation and readability purposes.
         // Constants for minimum lengths
         private const int MinUsernameLength = 3;
         private const int MinPasswordLength = 8;
         private const int MinNameLength = 3;
 
-        // Constants for regular expression patterns
+        // Aiham Constants for regular expression patterns
         private const string UsernamePattern = @"^[a-zA-Z]{3,}$";
         private const string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         private const string NamePattern = @"^[a-zA-Z]{3,}$";
+        // Email address Regular Expression Pattern
+        // From : https://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp
+        // Name Regular Expression Pattern
+        // From: https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference
 
-        //Adam:
-        // Phone number Expression Pattern
-        // From: https://www.abstractapi.com/guides/c-validate-phone-number
-        public const string phoneNumberPattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$";
-
-        // Constants for error messages
+        // Aiham Constants for error messages
         private const string UsernameRequiredMessage = "Username is required.";
         private const string UsernameFormatErrorMessage = "Username must only contain letters and be at least 3 characters long.";
         private const string PasswordRequiredMessage = "Password is required.";
@@ -37,13 +36,19 @@ namespace SEApp
         private const string LastNameRequiredMessage = "Last name is required.";
         private const string CompanyRoleRequiredMessage = "Company role is required.";
 
-       // Constants for error messages in ValidateSupportFormInputs
+       // Aiham Constants for error messages in ValidateSupportFormInputs
         private const string NameRequiredMessage = "Name is required.";
         private const string TopicRequiredMessage = "Topic is required.";
         private const string MessageRequiredMessage = "Message is required.";
         private const string NameFormatErrorMessage = "Name must only contain letters and be at least 3 characters long.";
 
+        //Adam:
+        // Phone number Expression Pattern
+        // From: https://www.abstractapi.com/guides/c-validate-phone-number
+        public const string phoneNumberPattern = @"^\(?([0-9]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$";
 
+
+        // Added  ValidateUserInputs method for the Registration form 
         public static bool ValidateUserInputs(string username, string password, string fname, string lname, string email, int companyRole)
         {
             // Check if username is empty or whitespace
@@ -126,39 +131,7 @@ namespace SEApp
             return true;
         }
 
-        //Adam:
-        public static bool loginValidator(string username, string password)
-        {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please enter a Username & Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Check if the username format is valid
-            if (!Regex.IsMatch(username, UsernamePattern))
-            {
-                MessageBox.Show("Incorrect Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Check if the password meets the minimum length requirement
-            if (password.Length < MinPasswordLength)
-            {
-                MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        }
-
-        // Adam:
-        // Used to validate integer values entered into a text box. Will return true if it is an integer otherwise false
-        public static bool validateInt(string number)
-        {
-            int integer;
-            return int.TryParse(number, out integer) && integer != 0;
-        }
-
+       
         // Added ValidateSupportFormInputs method for the Support ticket form 
         public static bool ValidateSupportFormInputs(string name, string email, string topic, string message)
         {
@@ -200,6 +173,41 @@ namespace SEApp
             // If all validations pass, return true
             return true;
         }
+
+
+        //Adam:
+        public static bool loginValidator(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter a Username & Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Check if the username format is valid
+            if (!Regex.IsMatch(username, UsernamePattern))
+            {
+                MessageBox.Show("Incorrect Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Check if the password meets the minimum length requirement
+            if (password.Length < MinPasswordLength)
+            {
+                MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        // Adam:
+        // Used to validate integer values entered into a text box. Will return true if it is an integer otherwise false
+        public static bool validateInt(string number)
+        {
+            int integer;
+            return int.TryParse(number, out integer) && integer != 0;
+        }
+
 
         //Adam:
         // Validates the phone number that is entered when adding a vendor.

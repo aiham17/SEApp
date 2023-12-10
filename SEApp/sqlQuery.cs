@@ -13,20 +13,28 @@ namespace SEApp
 
     internal class sqlQuery
     {
-        public const string readUser = "SELECT * FROM UserInformation WHERE Username=@user";
-        public const string addUser = "INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)";
-        public const string checkUser = "SELECT COUNT(*) FROM UserInformation WHERE Username=@username OR Email=@email";
+        // Aiham's Queries
+
+        // Query to insert user information in the UserInformation table
+        public const string AddUser = "INSERT INTO UserInformation (Username, Password, Salt, FirstName, LastName, Email, CompanyRole) VALUES (@Username, @Password, @Salt, @FirstName, @LastName, @Email, @CompanyRole)";
+
+        // Query to update user information in the UserInformation table
+        public const string UpdateUserInfoQuery = "UPDATE UserInformation SET Username = @Username, Password = @Password, Salt = @Salt, Email = @Email WHERE UserID = @UserID";
+
+        // Query to check the existence of a user with a given username or email in the UserInformation table
+        public const string CheckUser = "SELECT COUNT(*) FROM UserInformation WHERE Username=@username OR Email=@email";
+
         // Query to get total number of vendors
         public const string TotalNumberOfVendorsQuery = "SELECT COUNT(*) AS TotalVendors FROM VendorInfo";
 
-        public const string getUserID = "SELECT UserID FROM UserInformation WHERE Email = @email";
-        public const string getUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
+        // Query to retrieve the CompanyRole for a given Username from the UserInformation table
+        public const string GetUserRole = "SELECT CompanyRole FROM UserInformation WHERE Username = @username";
 
-        /*The updated query (saveSupportTicket) simplifies support ticket insertion by handling null and non-null UserID values using COALESCE. 
-         * This enhances code simplicity and readability, unifying both scenarios into a single, streamlined SQL statement.*/
-        public const string saveSupportTicket = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (COALESCE(@UserID, NULL), @Name, @Email, @Topic, @Message)";
+        // Query to insert a support ticket information in the support ticket table
+        public const string SaveSupportTicket = "INSERT INTO supportTickets (UserID, Name, Email, Title, Message) VALUES (COALESCE(@UserID, NULL), @Name, @Email, @Topic, @Message)";
 
-       // public const string saveSupportTicket2 = "INSERT INTO supportTickets (UserID, Name, Email, Topic, Message) VALUES (@userID, @Name, @Email, @Topic, @Message)";
+
+        // All of the SQL Queries below are for the Dashboard Page.
 
         // Query to get active vendors
         public const string ActiveVendorsQuery = "SELECT TOP 5 Company_Name, * FROM VendorInfo WHERE Last_Reviewed >= DATEADD(month, -6, GETDATE()) AND YEAR(Last_Reviewed) = YEAR(GETDATE()) ORDER BY Last_Reviewed DESC"; // the LastReviewedDate should be in datetime format.
@@ -43,17 +51,14 @@ namespace SEApp
         // Query to get Lowest Rated products
         public const string LowestPerformingProductsQuery = "SELECT TOP 5 p.Software_Name , MIN(r.Rating) AS LowestRating FROM ProductInfo p JOIN Review r ON p.ProductID = r.ProductID GROUP BY p.Software_Name ORDER BY LowestRating ";
 
-        // SELECT TOP 5 VendorID, AVG(Rating) AS AverageRating FROM Review GROUP BY VendorID Order BY AverageRating ASC
-        // SELECT TOP 3 ProductInfo.Software_Name, (SELECT COUNT(*) FROM ProductInfo p WHERE p.ProductID=v.ProductID) AS AverageRating FROM Review  GROUP BY ProductID Order BY AverageRating ASC
-        // Query to get highest performing market sectors
-        public const string HighestPerformingMarketSectorsQuery = "";
+    
 
-        // Query to get lowest performing market sectors
-        public const string LowestPerformingMarketSectorsQuery = "";
 
-        // Query to get number of requests
-        public const string NumberOfRequestsQuery = "";
 
+        //Adam's Queries
+
+        public const string readUser = "SELECT * FROM UserInformation WHERE Username=@user";
+        public const string getUserID = "SELECT UserID FROM UserInformation WHERE Email = @email";
 
 
         /* All of the SQL Queries below are for the Vendor Products Page.
