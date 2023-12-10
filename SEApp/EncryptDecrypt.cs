@@ -21,7 +21,10 @@ namespace SEApp
             }
             return BitConverter.ToString(saltBytes).Replace("-", "").ToLower();
         }
+        //https://www.youtube.com/watch?v=AU-4oLUV5VU
+        //Uploaded by: CD in 2013: C# Salting & Hashing Passwords
 
+        // Aiham
 
         // This method takes a user's password and a salt, then uses the SHA-256 algorithm to securely hash the password.
         // The resulting hash is stored in the database. Hashing ensures that even if the database is compromised,
@@ -36,6 +39,8 @@ namespace SEApp
                 return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
         }
+        //https://www.youtube.com/watch?v=ZbUCgU3G1z4
+        //Uploaded by: Tactics Devs in 2022: Password Hashing and Salting in .NET C#
 
 
 

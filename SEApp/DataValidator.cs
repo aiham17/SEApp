@@ -9,15 +9,23 @@ namespace SEApp
 {
     public static class DataValidator
     {
+        // Aiahm
+
         // Constants for minimum lengths
         private const int MinUsernameLength = 3;
         private const int MinPasswordLength = 8;
         private const int MinNameLength = 3;
-
+        
+        //Aiham
         // Constants for regular expression patterns
         private const string UsernamePattern = @"^[a-zA-Z]{3,}$";
         private const string EmailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
         private const string NamePattern = @"^[a-zA-Z]{3,}$";
+
+        // Email address Regular Expression Pattern
+        // From : https://stackoverflow.com/questions/16167983/best-regular-expression-for-email-validation-in-c-sharp
+        // Name Regular Expression Pattern
+        // From: https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference
 
         // Constants for error messages
         private const string UsernameRequiredMessage = "Username is required.";

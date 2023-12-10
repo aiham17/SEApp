@@ -127,9 +127,15 @@ namespace SEApp
 
         }
 
-        /* The updated method here simplifies the code by employing a single SQL query (SaveSupportTicket) and a loop for parameter handling. 
-         * This streamlines logic, enhances maintainability, and improves readability by eliminating conditional query selection
-         * and reducing redundancy in parameter assignments.*/
+        // Aiham:
+
+        /* This method takes support ticket information as parameters and saves it to the database using a parameterized SQL query.
+         * It handles exceptions and displays an error message if there is any issue during the database operation.
+        
+         * Using DBNull.Value to Handle Null or Empty User IDs When Saving Support Tickets to a Database 
+         * From: https://learn.microsoft.com/en-us/dotnet/api/system.dbnull?view=net-8.0 
+         * From: https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlparametercollection.addwithvalue?view=dotnet-plat-ext-8.0 */
+
         public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
         {
             try
@@ -166,50 +172,6 @@ namespace SEApp
         }
 
 
-        /*
-        public void SaveSupportTicket(string name, string email, string topic, string message, string userID)
-        {
-            try
-            {
-                List<string> parameterNames = new List<string> { "@userID", "@Name", "@Email", "@Topic", "@Message" };
-                using (SqlConnection connectDB = new SqlConnection(dbConnectstr))
-                {
-                    connectDB.Open();
-                    if (userID != null)
-                    {
-                        using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket2, connectDB))
-                        {
-                            saveTicket.CommandType = CommandType.Text;
-                            for (int i = 0; i < parameterNames.Count; i++)
-                            {
-                                saveTicket.Parameters.AddWithValue(parameterNames[i], i == 0 ? userID : (i == 1 ? name : (i == 2 ? email : (i == 3 ? topic : message))));
-                            }
-                            saveTicket.ExecuteNonQuery();
-                        }
-                    }
-                    else
-                    {
-                        List<string> excludeUserIDParameters = new List<string> { "@Name", "@Email", "@Topic", "@Message" };
-                        using (SqlCommand saveTicket = new SqlCommand(sqlQuery.saveSupportTicket, connectDB))
-                        {
-                            saveTicket.CommandType = CommandType.Text;
-                            for (int i = 0; i < parameterNames.Count; i++)
-                            {
-                                saveTicket.Parameters.AddWithValue(parameterNames[i], i == 1 ? name : (i == 2 ? email : (i == 3 ? topic : message)));
-                            }
-                            saveTicket.ExecuteNonQuery();
-                        }
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while saving the support ticket: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }*/
 
         // Gets the vendor and product names to then pass to readVendorProductInfo and select which SQL Query should be passed.
         // Will return either a filled DataTable or a null one
