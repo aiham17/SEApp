@@ -139,18 +139,26 @@ namespace SEApp
                 // Code from: https://stackoverflow.com/questions/7578857/how-to-check-whether-a-string-is-a-valid-http-url
                 Uri uriResult;
                 bool validURL = Uri.TryCreate(addVendor.website, UriKind.Absolute, out uriResult) && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
+
+                // If the bool validURL is true, then the process will continue. Otherwise an error message will be displayed
                 if (validURL)
                 {
                     addVendor.description = rtbDescription.Text;
                     addVendor.additionalInfo = rtbAddInfo.Text;
                     addVendor.address = rtbAddress.Text;
                     addVendor.teleNumber = tbTeleNumber.Text;
+
+                    //This validates whether the phone number matches our phone number pattern.
+                    // Source used: https://www.abstractapi.com/guides/c-validate-phone-number
                     bool validNumber = DataValidator.validatePhoneNumber(addVendor.teleNumber);
 
+                    // If the bool validNumber is true,  is true, then the process will continue. Otherwise an error message will be displayed
                     if (validNumber)
                     {
                         addVendor.employees = tbEmployees.Text;
                         bool integer = DataValidator.validateInt(addVendor.employees);
+
+                        // If the bool integer is true,  is true, then the process will continue. Otherwise an error message will be displayed
                         if (integer)
                         {
                             addVendor.eYear = dtpVendorEstablished.Text;
@@ -163,11 +171,14 @@ namespace SEApp
                             addVendor.module = tbModule.Text;
                             addVendor.financialService = tbFinancialServices.Text;
                             addVendor.cloud = cmbCloud.Text;
+
+                            // Calls the Database class and passes various variables to the methods there to add this Vendor to the Database
                             int vendorID = connectDB.addVendor(addVendor.vendor, addVendor.website, addVendor.description, addVendor.additionalInfo, addVendor.employees, addVendor.eYear, addVendor.reviewDate, addVendor.demoDate, addVendor.intPro);
                             connectDB.addContact(addVendor.address, addVendor.teleNumber, vendorID);
                             connectDB.addProduct(addVendor.software, addVendor.softwareType, addVendor.businessArea, addVendor.module, addVendor.financialService, addVendor.cloud, vendorID);
                             MessageBox.Show("The changes made have been successful");
 
+                            // Clears all the Data Fields.
                             foreach (TextBox textbox in this.Controls.OfType<TextBox>())
                             {
                                 textbox.Clear();
